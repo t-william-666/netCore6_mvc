@@ -9429,11 +9429,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\core2022\\coreWeb_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
+      "projectUniqueName": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\.netCore6_mvc--\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
       "projectName": "coreWeb_MVC",
-      "projectPath": "D:\\core2022\\coreWeb_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
+      "projectPath": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\.netCore6_mvc--\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
       "packagesPath": "C:\\Users\\aa\\.nuget\\packages\\",
-      "outputPath": "D:\\core2022\\coreWeb_MVC\\coreWeb_MVC\\obj\\",
+      "outputPath": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\.netCore6_mvc--\\core6_MVC\\coreWeb_MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

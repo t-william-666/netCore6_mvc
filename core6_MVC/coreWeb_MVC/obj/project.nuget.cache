@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y+u//XibfhzRemfuw+JISSpB70JEGFN4llEzDWURc27+7Ek8PwkFHYlisVHrRafWsFhLqCGBoSUD/gizVpftFA==",
+  "dgSpecHash": "vEYOm4VRt9DVYTKDPaTJoscJ81WMZX70tIxcr7tm+Est5zE2Xi8I6l59XvIP7cOVDCOKcQE8jHhAVsxV0xdhFA==",
   "success": true,
-  "projectFilePath": "D:\\core2022\\coreWeb_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
+  "projectFilePath": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\.netCore6_mvc--\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\aa\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
