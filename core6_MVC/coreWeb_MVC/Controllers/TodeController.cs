@@ -13,13 +13,14 @@ namespace coreWeb_MVC.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "数据1", "数据2" };
         }
 
         // GET api/<TodeController>/5
         [HttpGet("{id}")]
         public string Get(int id)
         {
+            var name = "";
             return "value";
         }
 
