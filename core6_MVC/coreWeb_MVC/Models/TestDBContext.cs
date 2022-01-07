@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace coreWeb_MVC.Models
 {
+    // 通过 工具 》》》 NuGet包管理器 》》》 程序包管理器控制台 》》》 按照 SqlServer.txt 步骤执行
     public partial class TestDBContext : DbContext
     {
         public TestDBContext()
@@ -28,7 +29,7 @@ namespace coreWeb_MVC.Models
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
 
                 //连接数据库的连接字符串
-                optionsBuilder.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;");
+                //optionsBuilder.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;");
             }
         }
 

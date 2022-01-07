@@ -4,6 +4,7 @@
 
 namespace coreWeb_MVC.Controllers
 {
+    //Api路由格式
     [Route("api/[controller]")]
     [ApiController]
     public class TodeController : ControllerBase

@@ -7,10 +7,12 @@ namespace coreWeb_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //构造函数
-        public HomeController(ILogger<HomeController> logger)
+        private readonly TestDBContext _dbContext;
+        //构造函数==》依赖注入
+        public HomeController(ILogger<HomeController> logger, TestDBContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
         }
 
         public IActionResult Index()
@@ -25,7 +27,8 @@ namespace coreWeb_MVC.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            IEnumerable<Shop> shops=_dbContext.Shops.ToList();
+            return View(shops);
         }
 
         public IActionResult Register()
@@ -40,9 +43,6 @@ namespace coreWeb_MVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult theHome()
-        {
-            return View();
-        }
+       
     }
 }

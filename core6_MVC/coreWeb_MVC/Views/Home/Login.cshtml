@@ -1,4 +1,6 @@
-﻿
+﻿@*强类型*@
+@model IEnumerable<coreWeb_MVC.Models.Shop>
+
 @{
     Layout = null;
 }
@@ -9,8 +11,22 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+    <link  rel="stylesheet" type="text/css"  href='~/lib/bootstrap/dist/css~/lib/bootstrap/dist/css/bootstrap.css' />
 </head>
 <body>
-    
+    <div>
+        @foreach(var obj in Model)
+        {
+            <table class='table table-border'>
+                <thead>
+                    <tr>
+                        <td>@obj.ShopName</td>
+                        <td>@obj.ShopNum</td>
+                        <td>@obj.ShopStock</td>
+                    </tr>
+                </thead>
+            </table>
+        }
+    </div>
 </body>
 </html>
