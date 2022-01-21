@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <!-- 引入bootstrap样式 -->
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+    <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css">
+    <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
+    <link rel="stylesheet" href="./css/vendor/font.awesome.min.css">
+    <!-- 引入主要样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 引入Jquery的JS文件 -->
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <!-- 引入bootstrap的JS样式 -->
+    <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
+    <script src="./bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body class="">
+    <!-- 头部 -->
+    <div class="header ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <p>欢迎登录购物网站</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 col-custom">
+                    <div class="header-right-area main-nav">
+                        <ul class="nav">
+                            <!-- 购物车 -->
+                            <li class="minicart-wrap">
+                                <a href="#" class="minicart-btn toolbar-btn">
+                                    <i class="fa fa-shopping-cart">
+                                        <br>
+                                        <span>购物车 </span>
+                                    </i>
+                                    <!--购物车数量-->
+                                    <span class="cart-item_count2">
+                                        0
+                                    </span>
+                                </a>
+                                <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
+
+                                    <div class="single-cart-item">
+                                        <div class="cart-img">
+                                            <a href="#">
+                                                <img src="/Content/ShopImage/@item.Shopimg" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="cart-text">
+                                            <h5 class="title">
+                                                <a href="#" class="text-truncate-2">
+
+                                                </a>
+                                            </h5>
+                                            <div class="cart-text-btn">
+                                                <div class="cart-qty">
+                                                    <span>1</span>
+                                                    <span class="cart-price">￥199</span>
+                                                </div>
+                                                <button type="button"><i class="ion-trash-b"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-price-total d-flex justify-content-between">
+                                        <h5>合计 :</h5>
+                                        <h5 class="active">￥0</h5>
+                                    </div>
+                                    <div class="cart-links d-flex justify-content-between">
+                                        <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                            查看购物车
+                                        </a>
+                                        <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- 订单 -->
+                            <li class="sidemenu-wrap">
+                                <a href="#">
+                                    <i class="fa fa-file-text">
+                                        <br>
+                                        <span>我的订单</span>
+                                    </i>
+                                </a>
+                            </li>
+                            <!-- 收藏 -->
+                            <li class="minicart-wrap">
+                                <a href="#" class="minicart-btn toolbar-btn">
+                                    <i class="fa fa fa-heart">
+                                        <br>
+                                        <span>我的收藏</span>
+                                    </i>
+                                    <span class="cart-item_count2">
+                                        0
+                                    </span>
+                                </a>
+                            </li>
+                            <!-- 更多关于 -->
+                            <li class="account-menu-wrap d-none d-lg-flex">
+                                <a href="#" class="off-canvas-menu-btn">
+                                    <i class="fa fa-bars">
+                                        <br>
+                                        <span>关于我们</span>
+                                    </i>
+                                </a>
+                            </li>
+                            <li class="mobile-menu-btn d-lg-none">
+                                <a class="off-canvas-btn" href="#">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体内容 -->
+    <div class="content">
+        <!-- 轮播 -->
+        <div class="Carousel-bg">
+            <div id="MyCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators 指标 轮播图片的索引 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#MyCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#MyCarousel" data-slide-to="1"></li>
+                    <li data-target="#MyCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides 幻灯片包装 放轮播图片 -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <a href="#">
+                            <img src="./images/other/2.jpg" alt="...">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>轮播图片标题</h3>
+                            <p>轮播图片内容</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <img src="./images/other/2.jpg" alt="...">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>轮播图片标题22</h3>
+                            <p>轮播图片内容22</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <a href="#">
+                            <img src="./images/other/2.jpg" alt="...">
+                        </a>
+                        <div class="carousel-caption">
+                            <h3>轮播图片标题33</h3>
+                            <p>轮播图片内容44</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls 控制轮播的 上一页 与 下一页 -->
+                <a class="left carousel-control" href="#MyCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="right carousel-control" href="#MyCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </div>
+        <!-- 菜单导航栏 -->
+        <div class="content-menu ">
+            <!-- 菜单导航条 -->
+            <div class="menu">
+                <ul class="d-md-flex justify-content-md-evenly">
+                    <li class=""><a href="#">手办周边</a></li>
+                    <li class=""><a href="#">图书漫画</a></li>
+                    <li class=""><a href="#">服装服饰</a></li>
+                    <li class=""><a href="#">洗护用品</a></li>
+                    <li class=""><a href="#">前往桃园</a></li>
+                    <li class=""><a href="#">岁的法国</a></li>
+                </ul>
+            </div>
+
+            <!-- 模态框按钮 -->
+            <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal">
+                启动演示窗
+            </button>
+
+            <!-- 模态框 -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">启动标题</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            标题内容
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 内容 -->
+        <div class="content-list">
+            <div class="row shop_wrapper grid_3">             
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative Product-box pb-4">
+                        <!-- 商品图片 -->
+                        <div class="product-image">
+                            <div class="px-2 pt-2">
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                            <p class="p-title">
+                                <a href="#">
+                                    商品名称
+                                </a>
+                            </p>
+                            <p class="p-desc px-1 ">
+                                <a href="#" class="text-show-2 opacity-75">
+                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                </a>
+                            </p>
+                        </div>
+                        <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-full"></i>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 全星 -->
+                            <!-- <i class="fa fa-star"></i> -->
+                            <!-- 无星-有线条 -->
+                            <!-- <i class="fa fa-star-o"></i> -->
+                            <!-- 半星-无线条 -->
+                            <!-- <i class="fa fa-star-half"></i> -->
+                            <!-- 半星 -->
+                            <!-- <i class="fa fa-star-half-o"></i> -->
+                            <!-- <i class="fa fa-star-half-empty"></i> -->
+                            <!-- <i class="fa fa-star-half-full"></i> -->
+                            <!-- <i class="fa fa-star-half-empty"></i> -->
+                        </div>
+                        <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                            <span class="regular-price px-1">￥99.9</span>
+                            <span class="old-price px-2"><del>￥199.9</del></span>
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                        </div>
+                        <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly"> 
+                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                            </button>
+                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-xs-6 mb-2 mt-2 ">
+                    <div class="position-relative">
+                        <div class="product-image">
+                            <div>
+                                <a href="#">
+                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 h-100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <div class="">
+
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+<script>
+
+    // 控制轮播的速度 2秒跳转到下一张
+    $('.carousel').carousel({
+        interval: 2000
+    })
+
+
+</script>
+
+</html>
