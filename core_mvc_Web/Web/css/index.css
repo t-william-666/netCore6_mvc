@@ -26,8 +26,8 @@ input[type="text"]:hover, input[type="password"]:hover {
 /* 头部导航栏 */
 .header {
     width: 100% !important;
-    height: 6.5rem;
-    line-height: 6.5rem;
+    height: 8rem;
+    line-height: 8rem;
     box-shadow: 0px 3px 5px #ccc;
     background-color: rgba(255, 255, 255, 0.9);
 }
@@ -89,14 +89,26 @@ input::placeholder {
     font-size: 15px;
 }
 
+.fs-18 {
+    font-size: 18px !important;
+}
+
 /* 显示一行文字超出隐藏 */
-.text-show {
+.text-show-1 {
+    /* 超出隐藏 */
     /* 超出隐藏 */
     overflow: hidden;
     /* 查出部分使用...代替 */
     text-overflow: ellipsis;
-    /* 超出不换行 */
-    white-space: nowrap;
+    /* 文字过长换行,防止一些特殊情况不换行 */
+    word-wrap: break-word;
+    word-break: break-all;
+    /* 将对象作为弹性伸缩盒子模型显示 */
+    display: -webkit-box;
+    /* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+    -webkit-box-orient: vertical;
+    /* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
+    -webkit-line-clamp: 1;
 }
 
 /* 显示两行文字超出隐藏 */
@@ -205,6 +217,8 @@ input::placeholder {
     letter-spacing: 5px;
     font-size: 1.5rem;
     font-weight: 600;
+    /* 用户不可选中文字 */
+    user-select: none;
 }
 
 /* 内容 */
@@ -218,6 +232,11 @@ input::placeholder {
     background-color: #fff;
     border-radius: 0.75rem;
     box-shadow: 0 3 5 rgb(180, 180, 180);
+}
+
+.content .content-list .Product-box:hover {
+    box-shadow: 5px 5px 10px rgb(150, 150, 150);
+    transition: .4s;
 }
 
 /* 商品图片 */
@@ -261,6 +280,7 @@ input::placeholder {
 
 .content .content-list .Product-title .p-desc {
     height: auto;
+    min-height: 1.5rem;
     line-height: 1.5rem;
     font-size: 0.75rem;
     letter-spacing: 0.5px;
@@ -280,6 +300,13 @@ input::placeholder {
     color: #E72463;
 }
 
+.content .content-list .Product-rating span {
+    display: none;
+}
+.content .content-list .Product-rating .sale-num {
+    font-style: oblique;
+    color: #E72463;
+}
 /* 商品价格 */
 .Price-box span, .Price-box span del {
     display: inline-block;
@@ -304,16 +331,90 @@ input::placeholder {
 }
 
 /* 加入购物车按钮 */
+.btn-box button {
+    /* 去除按钮的边框 */
+    border: none !important;
+    /* 去除默认样式 */
+    outline: none !important;
+}
+
 .btn-box i {
     color: white;
 }
 
 .btn-box .btn-Heart {
-    background-color: red;
+    background-color: #e72463;
     box-shadow: none !important;
+}
+
+.btn-box .btn-Heart:hover {
+    background-color: rgba(231, 36, 99, 0.9);
+    box-shadow: 1px 1px 3px #E72463 !important;
 }
 
 .btn-box .btn-Cart {
     background-color: #000;
     box-shadow: none !important;
+}
+
+.btn-box .btn-Cart:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 1px 1px 3px #000 !important;
+}
+
+.addactive {
+    background-color: red !important;
+}
+
+/* 分页 */
+.page-number {
+    width: 5rem;
+    height: auto;
+    text-align: center;
+    border: 2px solid rgb(99, 99, 99);
+    border-radius: 6px;
+}
+
+/* 分页按钮 */
+.btn-Page {
+    padding: 5px 16px;
+    border: 1px #ccc;
+    border-radius: 6px;
+    background-color: #337ab7;
+    color: white;
+}
+
+.btn-Page:hover {
+    background-color: rgba(51, 122, 183, 0.95);
+    box-shadow: 0px 0px 3px #337ab7 !important;
+}
+
+@media (max-width: 480px) {
+
+    /* 头部导航文字 */
+    .header-title {
+        display: none;
+    }
+
+    /* 商品评分 */
+    .content .content-list .Product-rating i {
+        font-size: 1rem !important;
+    }
+    .content .content-list .Product-rating span {
+        font-size: 0.75rem !important;
+        padding-right: 0px !important;
+        display: inline-block;
+    }
+
+    /*  */
+    .Price-box .float-end {
+        display: none;
+    }
+
+    /*  */
+    .btn-box .btn-Heart, .btn-box .btn-Cart {
+        font-size: 1rem;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+    }
 }
