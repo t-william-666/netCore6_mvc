@@ -92,7 +92,9 @@ input::placeholder {
 .fs-18 {
     font-size: 18px !important;
 }
-
+.my-23{
+    margin: 23px 0px !important;
+}
 /* 显示一行文字超出隐藏 */
 .text-show-1 {
     /* 超出隐藏 */
@@ -213,6 +215,14 @@ input::placeholder {
     margin: auto;
 }
 
+.content-menu .menu ul li {
+    display: inline-block;
+}
+
+.content-menu .menu ul li .menu-title2 {
+    display: none;
+}
+
 .content-menu .menu ul li a {
     letter-spacing: 5px;
     font-size: 1.5rem;
@@ -303,10 +313,12 @@ input::placeholder {
 .content .content-list .Product-rating span {
     display: none;
 }
+
 .content .content-list .Product-rating .sale-num {
     font-style: oblique;
     color: #E72463;
 }
+
 /* 商品价格 */
 .Price-box span, .Price-box span del {
     display: inline-block;
@@ -367,6 +379,11 @@ input::placeholder {
 }
 
 /* 分页 */
+.page-box {
+    width: 80%;
+    margin: auto;
+}
+
 .page-number {
     width: 5rem;
     height: auto;
@@ -396,22 +413,70 @@ input::placeholder {
         display: none;
     }
 
+    /* 菜单导航栏 */
+    .content-menu .menu ul {
+        width: 100% !important;
+    }
+
+    .content-menu .menu ul .menu-title1 {
+        display: none;
+    }
+
+    .content-menu .menu ul .menu-title2 {
+        display: inline-block !important;
+    }
+
     /* 商品评分 */
     .content .content-list .Product-rating i {
         font-size: 1rem !important;
     }
+
     .content .content-list .Product-rating span {
         font-size: 0.75rem !important;
         padding-right: 0px !important;
         display: inline-block;
     }
 
-    /*  */
+    /* 分页 */
+    .page-box {
+        width: 100% !important;
+        margin: auto;padding: 0px 5px;
+    }
+    .pagination .fs-18 {
+        font-size: 12px !important;
+    }
+
+    .pagination-lg>li>a,
+    .pagination-lg>li>span {
+        padding: 5px 10px !important;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .page-number {
+        width: 3rem;
+        height: auto;
+        text-align: center;
+        border: 2px solid rgb(99, 99, 99);
+        border-radius: 5px;
+        margin: 0px 1px !important;
+    }
+
+    /* 分页按钮 */
+    .btn-Page {
+        padding: 2px 8px;
+        border: 1px #ccc;
+        border-radius: 5px;
+        background-color: #337ab7;
+        color: white;
+    }
+
+    /* 商品的销量 */
     .Price-box .float-end {
         display: none;
     }
 
-    /*  */
+    /* 购物车按钮 */
     .btn-box .btn-Heart, .btn-box .btn-Cart {
         font-size: 1rem;
         padding-left: 3px !important;
