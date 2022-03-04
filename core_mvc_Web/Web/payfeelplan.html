@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="./layer/laydate.js"></script>
+    <style>
+        .payTable {
+            width: 100%;
+            margin: auto;
+        }
+
+        .payTable tr td {
+            font-size: 13px;
+            padding: 3px 0px;
+            color: #00156e;
+            position: relative;
+            /* user-select: none; */
+        }
+
+        .payTable tr td:nth-child(2n-1) {
+            width: 10%;
+            text-align: right;
+            letter-spacing: 3px;
+        }
+
+        .payTable tr td:nth-child(2n) {
+            width: 20%;
+            text-align: left;
+
+        }
+
+        .payTable tr td h3 {
+            margin: 0px 0px !important;
+        }
+
+        .payTable tr td select,
+        .payTable tr td input[type='date'],
+        .payTime {
+            display: flex;
+            justify-content: start;
+            cursor: pointer;
+        }
+
+        .payFeelplan {
+            border-top: 0px;
+            border-left: 0px;
+            border-right: 0px;
+            outline: none;
+            border-bottom: 1px rgb(1, 1, 138) solid;
+            padding-left: 5px;
+            font-size: 13px;
+            width: 85%;
+        }
+
+        .payTable tr td span {
+            text-align: left;
+            width: 15%;
+        }
+
+        .payFeelplan:focus {
+            outline: none;
+            border-bottom: 1px blue solid;
+            color: blue;
+        }
+
+        input:disabled {
+            background-color: transparent;
+            cursor: not-allowed !important;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="DywPay" class="payTable" runat="server">
+        <tr>
+            <td>
+                <h3>前期付款 </h3>
+            </td>
+        </tr>
+        <tr>
+            <td>前期工程量：</td>
+            <td>
+                <input type="text" id="txtPO_early_Quantities" class="payFeelplan " value="11" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>前期开票：</td>
+            <td>
+                <input type="text" id="txtPO_early_Billing" class="payFeelplan " value="12" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>前期已付款：</td>
+            <td>
+                <input type="text" id="txtPO_early_Paid" class="payFeelplan " value="13" disabled="disabled"
+                    runat="server"><span>万元</span>
+            </td>
+
+        </tr>
+        <tr>
+            <td>前期预付款余额：</td>
+            <td>
+                <input type="text" id="txtPO_early_advance" class="payFeelplan " value="14" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>前期应付款余额：</td>
+            <td>
+                <input type="text" id="txtPO_early_payable" class="payFeelplan " value="15" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>前期进预算金额：</td>
+            <td>
+                <input type="text" id="txtPO_early_budget" class="payFeelplan " value="16" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>已付预付款：</td>
+            <td>
+                <input type="text" id="txtPO_early_payment_paid" class="payFeelplan " value="17" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>前期其他扣款：</td>
+            <td>
+                <input type="text" id="txtPO_early_other_paid" class="payFeelplan " value="18" disabled="disabled"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>本次付款</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>本次预付款：</td>
+            <td>
+                <input type="text" id="txtPO_this_Advance" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>本次工程量：</td>
+            <td>
+                <input type="text" id="txtPO_this_Quantities" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>本期合同付款：</td>
+            <td>
+                <input type="text" id="txtPO_this_Contract" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>本次回扣预付款：</td>
+            <td>
+                <input type="text" id="txtPO_this_Rebate" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>本次其他扣款：</td>
+            <td colspan="1">
+                <select name="" id="otherPayType" style="width: 120px;">
+                    <option value="">请选择扣款类型</option>
+                    <option value="">违约扣款</option>
+                    <option value="">水电费</option>
+                </select>
+            </td>
+            <td>本次其他扣款：</td>
+            <td>
+                <input type="text" id="txtPO_this_other_paid" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>本次开票：</td>
+            <td>
+                <input type="text" id="txtPO_this_Billing" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>发票价款：</td>
+            <td>
+                <input type="text" id="txtPO_this_BillingPayment" class="payFeelplan " onchange="sumPay()"
+                    runat="server" title="发票价款=开票金额/(1+税率）如果是混合税率，这个金额由经办人手工填写" /><span>万元</span>
+            </td>
+            <td>税率 %：</td>
+            <td>
+                <select name="" id="txtPO_this_TaxRate" onchange="sumPay()">
+                    <option value="10%">10%</option>
+                    <option value="3%">3%</option>
+                    <option value="5%">5%</option>
+                    <option value="6%">6%</option>
+                    <option value="9%">9%</option>
+                    <option value="13%">13%</option>
+                    <option value="16%">16%</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>本次进预算：</td>
+            <td>
+                <input type="text" id="txtPO_this_budget" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>本次实际付款：</td>
+            <td>
+                <input type="text" id="txtPO_this_Actual" class="payFeelplan v_bold1 " disabled="disabled"
+                    onchange="sumPay()" title="本次实际付款=本期合同付款－本次回扣预付款－本次其他扣款" runat="server" /><span>万元</span>
+            </td>
+            <td>本次冲账金额：</td>
+            <td>
+                <input type="text" id="txtPO_this_strike" class="payFeelplan " onchange="sumPay()"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>付款日期：</td>
+            <td>
+                <input type="text" id="txtPO_this_PayTime" class="ds" placeholder="请选择日期" runat="server" />
+                <input type="text" id="PO_this_PayTime" class="payFeelplan PO_this_PayTime" placeholder="请选择日期" />
+                <!-- <input type="datetime-local" class="payTime" placeholder="请选择日期"> -->
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h3>累计付款</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>累计工程量：</td>
+            <td>
+                <input type="text" id="payQuantities" class="payFeelplan " value="" disabled="disabled"
+                    title="累计工程量=前期工程量+本次工程量" runat="server" /><span>万元</span>
+            </td>
+            <td>预付款余额：</td>
+            <td>
+                <input type="text" id="payAdvance" class="payFeelplan " value="" disabled="disabled"
+                    title="预付款余额=前期付款+本次付款" runat="server" /><span>万元</span>
+            </td>
+            <td>累计其他扣款：</td>
+            <td>
+                <input type="text" id="payOther" class="payFeelplan " value="" disabled="disabled"
+                    title="累计其他扣款=前期其他扣款+本次其他扣款" runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>累计开票：</td>
+            <td>
+                <input type="text" id="payBilling" class="payFeelplan " value="" disabled="disabled"
+                    title="累计开票=前期开票+本次开票" runat="server" /><span>万元</span>
+            </td>
+            <td>累计进预算：</td>
+            <td>
+                <input type="text" id="payBudget" class="payFeelplan " disabled="disabled" title="累计进预算=前期进预算金额+本次进预算"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>累计实际付款：</td>
+            <td>
+                <input type="text" id="actualPayment" class="payFeelplan " disabled="disabled" title="累计实际付款=前期付款+本次付款"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr>
+            <td>应付款余额：</td>
+            <td>
+                <input type="text" id="payBalance" class="payFeelplan " disabled="disabled" title="应付款余额=累计工程量－累计实际付款"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>付款比例：</td>
+            <td>
+                <input type="text" id="payProportion" class="payFeelplan " disabled="disabled" title="付款比例=累计付款金额/合同总额"
+                    runat="server" /><span>万元</span>
+            </td>
+            <td>合同未付金额：</td>
+            <td>
+                <input type="text" id="noPay" class="payFeelplan " disabled="disabled" title="合同未付金额=合同总额-合同实际支付金额"
+                    runat="server" /><span>万元</span>
+            </td>
+        </tr>
+        <tr></tr>
+    </table>
+
+
+    <!-- --付款计划
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf.feeplan_id='POFE20210126.0014'
+
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf.feeplan_id='POFE20201127.0019'
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf.po_no='OD202007300018'
+
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf. is not null
+        select po.*,rowid from pm_po_purchaseheader_b po where po.po_no='OD202009290036'
+
+        select sum(pf.PROJECT_AMOUNT)/10000 as project_amountSum,sum(pf.NOWINVOICE)/10000 as nowinvoiceSum,
+        sum(pf.PO_THIS_BUDGET)/10000 as this_budgetSum,sum(pf.PO_THIS_OTHER_PAID)/10000 as this_other_paidSum, 
+        sum(pf.PO_THIS_PAY_AMOUNT)/10000 as this_pay_amountSum 
+        from pm_po_feeplan pf where pf.po_no='OD202009290036' and pf.paymentsnumber<='1' -->
+    <!-- 
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf.feeplan_id='POFE20210126.0014'
+
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf.feeplan_id='POFE20201127.0019'
+        
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf.po_no='OD202007300018'
+
+        select pf.PO_THIS_PAY_AMOUNT, pf.*,rowid from pm_po_feeplan pf where pf. is not null
+        select po.*,rowid from pm_po_purchaseheader_b po where po.po_no='OD202009290036'
+
+        select sum(pf.PROJECT_AMOUNT)/10000 as project_amountSum,sum(pf.NOWINVOICE)/10000 as nowinvoiceSum,
+        sum(pf.PO_THIS_BUDGET)/10000 as this_budgetSum,sum(pf.PO_THIS_OTHER_PAID)/10000 as this_other_paidSum, 
+        sum(pf.PO_THIS_PAY_AMOUNT)/10000 as this_pay_amountSum,sum(pf.po_this_payed_amount)/10000 as this_payed_ament,
+        max(pp.paymentsnumber)as maxNum     
+        from pm_po_feeplan pf right join pm_po_feeplan pp on pf.po_no=pp.po_no where pf.po_no='OD202007300018' and pf.paymentsnumber<='1'
+         -->
+
+
+    <!--         
+        Select lu_code, lu_desc, lu_type, company_id, custom, sort, lu_notes, project_code ,rowid From PM_LU_LIST WHERE  lu_type= :param0    
+
+     
+      PO_THIS_CONTRACTPAY=#PO_THIS_CONTRACTPAY#
+      PO_THIS_REBATE=#PO_THIS_REBATE#
+      PO_THIS_BILLINGPAYMENT=#PO_THIS_BILLINGPAYMENT#
+      PO_THIS_BUDGET=#PO_THIS_BUDGET#
+      PO_THIS_STRIKE=#PO_THIS_STRIKE#
+      PO_THIS_OTHER_PAID=#PO_THIS_OTHER_PAID#
+      PO_THIS_OTHER_PAIDTYPE=#PO_THIS_OTHER_PAIDTYPE#
+      PO_THIS_TAXRATE=#PO_THIS_TAXRATE#
+      PAYMENTSNUMBER=#PAYMENTSNUMBER# -->
+
+
+
+
+    <!-- 
+      Update PM_PO_FEEPLAN Set po_no_id= :param0 , po_no= :param1 , po_name= :param2 , po_amount= :param3 , pay_amount= :param4 ,
+      paidpay= :param5 , supp_id=  :param6 , supp_name= :param7 , pay_type= :param8 , po_desc= :param9 , po_amount_desc= :param10 ,
+      budget_account= :param11 , pro_name=  :param12 , pro_id= :param13 , supp_bankaccount= :param14 , SUPP_BANK= :param15 , earlyinvoice= :param16 ,        
+      nowinvoice=  :param17 ,  taxrate=  :param18 ,  oneexpect=  :param19 ,  twoexpect=  :param20 ,  threeexpect= :param21 ,  
+      budget_account_id= :param22 ,  budget_account_no= :param23 ,  po_total_amount= :param24 ,  po_change_amount= :param25 ,  
+      po_payed_amount= :param26 ,  project_total_amount= :param27 ,  project_amount= :param28 ,  po_this_pay_amount= :param29 ,  
+      po_this_qc_amount= :param30 ,  po_this_other_amount= :param31 ,  po_this_payed_amount= :param32 ,  checkid= :param33 ,  
+      agree_date= :param34 ,  ZBFY= :param35 ,  JSFY= :param36 ,  PROJECT_AMOUNT2= :param37 ,  PO_ZRBM= :param38 ,  
+      PO_ZRRY= :param39 ,  PO_THIS_CONTRACTPAY= :param40 ,  PO_THIS_REBATE= :param41 ,  PO_THIS_BILLINGPAYMENT= :param42 ,  
+      PO_THIS_BUDGET= :param43 ,  PO_THIS_STRIKE= :param44 ,  PO_THIS_OTHER_PAID= :param45 ,  PO_THIS_OTHER_PAIDTYPE= :param46 ,  
+      PO_THIS_TAXRATE= :param47 ,  PAYMENTSNUMBER= :param48 【,】   WHERE feeplan_id='POFE20220218.0005' and      companyid='TSP'
+
+
+              select pk.*,rowid from PM_LU_LIST pk where pk.lu_type in('TaxTen','PAYTYPE')
+
+
+      select sum(pf.PROJECT_AMOUNT)/10000 as project_amountSum,sum(pf.NOWINVOICE)/10000 as nowinvoiceSum,
+      sum(pf.PO_THIS_BUDGET)/10000 as this_budgetSum,sum(pf.PO_THIS_OTHER_PAID)/10000 as this_other_paidSum,
+      sum(pf.PO_THIS_PAY_AMOUNT)/10000 as this_pay_amountSum,sum(pf.po_this_payed_amount)/10000 as this_payed_amentSum,
+      max(pf.paymentsnumber)as maxNum
+      from pm_po_feeplan pf where pf.work_state in('250', '310',  '370', '430') and pf.Po_No='' and pf.create_date<''
+      
+         --- 250 310  370 430 -->
+
+
+
+    <script>
+        
+        //执行一个laydate实例
+        laydate.render({
+            elem: '.PO_this_PayTime', //指定元素
+            trigger: 'click'
+        });
+
+        function sumPay() {
+            //前期工程量
+            var early_Quantities = parseFloat($("input[id*='txtPO_early_Quantities']").val());
+            //前期开票
+            var early_Billing = parseFloat($("input[id*='txtPO_early_Billing']").val());
+            //前期已付款
+            var early_Paid = parseFloat($("input[id*='txtPO_early_Paid']").val());
+            //前期预付款余额
+            var early_advance = parseFloat($("#txtPO_early_advance").val());
+            //前期应付款余额
+            var early_payable = parseFloat($("#txtPO_early_payable").val());
+            //前期进预算金额
+            var early_budget = parseFloat($("#txtPO_early_budget").val());
+            //已付预付款
+            var early_payment_paid = parseFloat($("#txtPO_early_payment_paid").val());
+            //前期其他扣款    
+            var early_other_paid = parseFloat($("#txtPO_early_other_paid").val());
+
+            alert(early_Quantities)
+
+            //本次预付款
+            var this_Advance = parseFloat($("#txtPO_this_Advance").val());
+            //本次工程量
+            var this_Quantities = parseFloat($("#txtPO_this_Quantities").val());
+            ///本期合同付款
+            var this_Contract = parseFloat($("#txtPO_this_Contract").val());
+            //本次回扣预付款
+            var this_Rebate = parseFloat($("#txtPO_this_Rebate").val());
+            //本次其他扣款
+            var this_other_paid = parseFloat($("#txtPO_this_other_paid").val());
+            //本次开票
+            var this_Billing = parseFloat($("#txtPO_this_Billing").val());
+            //发票价款
+            var this_BillingPayment = parseFloat($("#txtPO_this_BillingPayment").val());
+            //税率
+            var this_TaxRate = parseFloat($("#txtPO_this_TaxRate").val());
+            //本次进预算
+            var this_budget = parseFloat($("#txtPO_this_budget").val());
+            //本次实际付款
+            var this_Actual = parseFloat($("#txtPO_this_Actual").val());
+            //本次冲账金额
+            var this_strike = parseFloat($("#txtPO_this_strike").val());
+
+
+            //发票价款
+            if (this_Billing > 0) {
+                $("#txtPO_this_BillingPayment").val(this_Billing * (this_TaxRate / 100));
+            }
+            //本次实际付款
+            if (this_Contract > 0 && this_Rebate > 0 && this_other_paid > 0) {
+                $("#txtPO_this_Actual").val(this_Contract - this_Rebate - this_other_paid);
+                this_Actual = parseFloat($("#txtPO_this_Actual").val());
+            } else if (this_Contract > 0 && this_other_paid > 0) {
+                $("#txtPO_this_Actual").val(this_Contract - this_other_paid);
+                this_Actual = parseFloat($("#txtPO_this_Actual").val());
+            } else if (this_Contract > 0 && this_Rebate > 0) {
+                $("#txtPO_this_Actual").val(this_Contract - this_Rebate);
+                this_Actual = parseFloat($("#txtPO_this_Actual").val());
+            } else if (this_Contract > 0) {
+                $("#txtPO_this_Actual").val(this_Contract);
+                this_Actual = parseFloat($("#txtPO_this_Actual").val());
+            }
+
+            //累计工程量
+            if (this_Quantities > 0) {
+                $("#payQuantities").val(this_Quantities + early_Quantities);
+            } else {
+                $("#payQuantities").val(early_Quantities);
+            }
+            //预付款余额：
+            if (this_Actual > 0) {
+                $("#payAdvance").val(this_Actual + early_Paid);
+            } else {
+                $("#payAdvance").val(early_Paid);
+            }
+
+            //累计其他扣款：
+            if (this_other_paid) {
+                $("#payOther").val(this_other_paid + early_other_paid);
+
+            } else {
+                $("#payOther").val(early_other_paid);
+
+            }
+            //累计开票：
+            if (this_Billing > 0) {
+                $("#payBilling").val(this_Billing + early_Billing);
+
+            } else {
+                $("#payBilling").val(early_Billing);
+            }
+            //累计进预算：
+            if (this_budget > 0) {
+                $("#payBudget").val(this_budget + early_budget);
+            } else {
+                $("#payBudget").val(early_budget);
+            }
+            //累计实际付款：
+            if (this_Actual > 0) {
+                $("#actualPayment").val(this_Actual + early_Paid);
+            } else {
+                $("#actualPayment").val(early_Paid);
+            }
+
+
+
+            //累计工程量
+            var payQuantities = parseFloat($("#payQuantities").val());
+            //预付款余额
+            var payAdvance = parseFloat($("#payAdvance").val());
+            //累计其他扣款
+            var payOther = parseFloat($("#payOther").val());
+            //累计开票
+            var payBilling = parseFloat($("#payBilling").val());
+            //累计进预算
+            var payBudget = parseFloat($("#payBudget").val());
+            //累计实际付款
+            var actualPayment = parseFloat($("#actualPayment").val());
+            //合同未付金额
+            var payFeelplan = parseFloat($("#payFeelplan").val());
+
+
+
+            //应付款余额：
+            $("#payBalance").val(payQuantities - actualPayment);
+            //付款比例：
+            $("#payProportion").val(((actualPayment / ProjectBudget) * 100).toFixed(2) + "%");
+            //合同未付金额：
+            $("#noPay").val();
+        }
+        sumPay();
+
+
+    </script>
+</body>
+
+</html>

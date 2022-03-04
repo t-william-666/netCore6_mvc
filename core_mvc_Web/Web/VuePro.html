@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue组件</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/Vue.js"></script>
+</head>
+<style>
+    #font-20 {
+        font-size: 30px;
+    }
+
+    .active {
+        color: red;
+        letter-spacing: 3px;
+    }
+</style>
+
+<body>
+
+    <!-- 深入了解组件 -->
+    <div id="app1">
+        <!-- 组件注册 -->
+        <h3>组件注册</h3>
+        <div>
+            <!-- 组件名-大小写 -->
+            <div>
+                <!-- 小写--建议使用小写 -->
+                <my-Component-name></my-Component-name>
+                <!-- 大写 -->
+                <My-Component-Names></My-Component-Names>
+            </div>
+            <!-- 全局注册 -->
+            <div>
+                <component-a></component-a>
+            </div>
+            <!-- 局部注册—————！！！！！——————— -->
+            <div>
+
+            </div>
+        </div>
+        <!-- Prop -->
+        <h3>prop</h3>
+        <div>
+            <!-- 传递静态或动态 -->
+            <!-- prop的大小写 HTML 中的 attribute 名是大小写不敏感  -->
+            <prop-max v-bind:prop-title="propmax"></prop-max>
+            <!-- 在这里使用大写是错误的 HTML 对大小写不敏感，propTitle 会被译为 proptitle -->
+            <prop-max v-bind:propTitle="propmin">错误写法</prop-max>
+            <!-- Prop类型 -->
+            <proptype v-bind:title="props"></proptype>
+            <!-- 传递静态或动态 Prop 有大写必须用 分割线隔开 HTML识别不了大写 -->
+            <blog-post titles="我传递了静态prop"></blog-post>
+            <blog-post v-bind:titles="theTitle"></blog-post>
+            <blog-post v-bind:titles="props.title + ' 动态by动态 '+ props.likes"></blog-post>
+            <blog-post titles="我传入了一个数字" v-bind:likes="23 +' &对象props的数字 '+props.likes"></blog-post>
+            <blog-post titles="我传入了一个bool值" v-bind:bool-Val="false +'&'+isBool"></blog-post>
+            <blog-post titles="我传入了一个数组" v-bind:comment-Ids="[123,'谷歌',789]"></blog-post>
+            <blog-post titles="我传入了一个对象的值" v-bind:author="Promise.title"></blog-post>
+            <blog-post titles="我传入了一个对象" v-bind:author="Promise"></blog-post>
+            <!-- 单向数据流 --父级 prop 的更新会向下流动到子组件中，但是反过来则不行-->
+            <blog-one v-bind:one-way="theOne"></blog-one>
+            <!-- Prop 验证 -->
+            <blog-type v-bind:prop-A="propaa" v-bind:prop-B="22" v-bind:prop-C="propcc" v-bind:prop-D="33"
+                v-bind:prop-E="{a:11}" v-bind:prop-F="'success'">
+            </blog-type>
+            <!-- 类型检查(验证) -->
+            <blog-person v-bind:test="persons"></blog-person>
+            <!-- 非 Prop 的 Attribute 指的是--id class style等属性可以不通过prop，添加css样式(前提子组件不接收id、class等属性)-->
+            <blog-attribute id="font-20" class="active"></blog-attribute>
+        </div>
+
+    </div>
+    <!-- 自定义事件 -->
+    <div id="app2">
+        <div>
+            <!-- 事件名 父级的事件名不能使用大写(HTML大小写不敏感) -->
+            <blog-event v-on:my-event="doSomething"></blog-event>
+            <!-- 自定义组件的 v-model -->
+            <blog-model v-model="loveVal"></blog-model>
+            <!-- 将原生事件绑定到组件 -->
+            <base-input v-on:click="onFocus"></base-input>
+            <base-input v-on:click.native="onFocus"></base-input>
+            <!-- .sync 修饰符---prop的进行“双向绑定” -->
+            <base-sync v-bind:title="titles" v-on:update.inputt="titles"></base-sync>
+        </div>
+    </div>
+    <div id="app3"></div>
+    <div id="app4"></div>
+    <div id="app5"></div>
+    <div id="app6"></div>
+
+    <script>
+        //// 注册组件
+        // 小写使用-建议使用小写
+        Vue.component('my-component-name', {
+            template: `
+            <div>
+                这是组件名小写用法
+            </div>
+            `
+        });
+        //大写使用
+        Vue.component('MyComponentNames', {
+            template: `
+            <div>
+                这是组件名大写用法
+            </div>
+            `
+        });
+        //全局注册
+        Vue.component('component-a', {
+            template: `
+            <div>
+                我是全局注册组件，通过 Vue.component 创建组件
+            </div>
+            `
+        });
+        //局部注册——————————————————！！！！！——————————————————————————
+        var componentA = {
+            components: {
+
+            }
+        };
+        var componentB = {
+            components: {
+
+            }
+        };
+
+        ////porp
+        //prop的大小写
+        Vue.component('prop-max', {
+            template: `
+            <div>
+                我是prop大写proTitle：{{propTitle}}
+            </div>
+            `,
+            // 使用大写借传过来的  kebab-case分隔命名 ==》kebab-case分隔命名 等价于 camelCase 驼峰命名法
+            props: ['propTitle']
+        });
+        //prop类型
+        Vue.component('proptype', {
+            props: ['title', 'likes', 'isPublished', 'commentIds', 'author'],
+            template: `
+            <p>字符类型：{{title}}数字类型：{{likes}}bool类型：{{isPublished}}函数类型：{{commentIds}}对象类型：{{author}}</p>
+            `
+
+        });
+        // 传递静态或动态 Prop
+        Vue.component('blog-post', {
+            props: ['titles', 'prop', 'likes', 'boolVal', 'commentIds', 'author', 'authorAll'],
+            template: `
+            <div>
+                <p>{{titles}}:{{likes}}{{boolVal}}{{commentIds}}{{author}}{{authorAll}}</p>
+            </div>
+            `
+        });
+        //单向数据流
+        Vue.component('blog-one', {
+            props: ['oneWay'],
+            data: function () {
+                return {
+                    com: this.oneWay,
+                    //oneWay:'www',//只允许单向流动===》》只有由props接受父级数据，不能重新赋值，控制台会提示报错。
+                }
+            },
+            template: `
+            <div>
+                <p>父级值：{{oneWay}}--prop函数值：{{com}}</p>
+            </div>
+            `
+        });
+        // Prop 验证
+        Vue.component('blog-type', {
+            props: {
+                //基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)
+                propA: Number,
+                //多个类型
+                propB: [Number, String],
+                //必填值验证
+                propC: {
+                    type: String,
+                    required: true,//表示必填值
+                },
+                //为空时，输出默认值
+                propD: {
+                    type: Number,
+                    default: 99,//表示默认值
+                },
+                //带有默认值的对象
+                propE: {
+                    type: Object,
+                    default: function () {
+                        return { title: '我是标题', message: '我是消息' };// 对象或数组默认值必须从一个工厂函数获取
+                    }
+                },
+                //自定义验证函数
+                propF: {
+                    validator: function (val) {
+                        return "['success','warning','danger'].indexof(val)!==-1";
+                    }
+                }
+            },
+            data: function () {
+                return {} // 必须有这一句，否则报错
+            },
+            template: `
+            <div>
+                <p>
+                    <strong>
+                        prop验证：
+                    </strong>
+                    基础的类型检查propA:{{propA}};
+                    多个类型propB:{{propB}};
+                    必填值propC:{{propC}};
+                    为空时填充默认值:{{propD}};
+                    有默认值的对象:{{propE}};
+                    自定义验证函数:{{propF}}
+                </p>
+            </div>
+            `
+        })
+        //类型检查(指的是自定义验证)
+        function Person(firstName, lastName) {//自定义构造函数!
+            this.firstName = firstName
+            this.lastName = lastName
+        }
+        Vue.component('blog-person', {
+            porps: {
+                test: Person,//是否是自定义构造函数
+            },
+            template: `
+            <div>
+                类型检查(验证)：--
+            </div>
+            `
+        })
+        //非 Prop 的 Attribute 指的是--id class style等属性可以不通过prop，添加css样式(前提子组件不接收id、class等属性)
+        Vue.component('blog-attribute', {
+            props: ['title',],//子组件不接收id、class等属性
+            template: `
+            <div>
+                非 Prop 的 Attribute 
+            </div>
+            `
+        })
+
+        ////porp--------------------------------------------------------------------------
+        var vm1 = new Vue({
+            el: "#app1",
+            data: {
+                //局部组件
+                components: {
+                    // 'component-a' : 局部组件
+                    'component-a': componentA,
+                    'component-b': componentB,
+                },
+                ////prop
+                propmax: '大写',
+                propmin: '小写',
+                //prop类型
+                props: {
+                    title: 'String',//字符串类型
+                    likes: 123,//Number数字类型
+                    isPublished: Boolean,//bool类型
+                    commentIds: Array,//数组类型
+                    author: Object,//基类
+                    callback: Function,//函数类型
+                    contactsPromise: Promise,//对象类型
+                },
+                //传递静态或动态 Prop
+                theTitle: '我是动态prop，值改变我也会改变',
+                isBool: true,
+                comments: [123.33, 678, '芳芳', '火狐'],
+                Promise: { title: '标题', comment: '内容看看看看' },
+                //单向数据流
+                theOne: '单向流动',
+                com: '',
+                //prop验证
+                propaa: 33,
+                propcc: '放放风',
+
+
+            },
+            methods: {
+
+            },
+            computed: {
+                //类型检查(验证)
+                persons() {
+                    var p = new Person();
+                    p.firstName = '1类型检查(验证)1';
+                    return p;
+                }
+            }
+        });
+
+        ////自定义事件
+        //事件名 父级的事件名不能使用大写(HTML大小写不敏感)
+        Vue.component('blog-event', {
+            template: `
+            <div>
+                <p v-on:click='theOne'>组件的事件名{{dd}}{{count}}{{tt}}</p>
+            </div>
+            `,
+            data: function () {
+                return {
+                    dd: '点击了',
+                    count: 0,
+                    tt: '次'
+                }
+            },
+            methods: {
+                //template 使用theOne方法，theOne方法在调用doSomething方法
+                theOne: function () {
+                    // 指向父级组件 my-event 也可以使用myEvent
+                    this.$emit('myEvent');
+                    this.count += 1;
+                }
+            }
+        })
+        // 自定义组件的 v-model
+        Vue.component('blog-model', {
+            model: {
+                prop: 'value', // 自定义命名 接受父级组件传入的数据  用 value 接收 否则 接收不了改变值value
+                event: 'inputt' // 自定义命名 接受父级组件更新的数据 可随机命名(因为是用来赋值的)
+            },
+            props: {
+                value: String //验证传入的数据类型是否是String类型
+            },
+            template: `
+                <div>
+                    <input
+                    type="text"
+                    v-bind:value="value"
+                    v-on:input="$emit('inputt', $event.target.value)"
+                    >{{txt}}--{{value}}
+                </div>
+            `,
+            data: function () {
+                return {
+                    txt: this.valueee,
+                }
+            }
+        })
+        // 将原生事件绑定到组件
+        Vue.component('base-input', {
+            inheritAttrs: false,
+            props: ['label', 'value'],
+            //计算属性监听
+            computed: {
+                inputListeners: function () {
+                    var vm = this;
+                    // `Object.assign` 将所有的对象合并为一个新对象
+                    return Object.assign({},
+                        // 我们从父级添加所有的监听器
+                        this.$listeners,
+                        // 然后我们添加自定义监听器，
+                        // 或覆写一些监听器的行为
+                        {
+                            // 这里确保组件配合 `v-model` 的工作
+                            input: function (event) {
+                                vm.$emit('input', event.target.value)
+                            }
+                        }
+                    )
+                }
+            },
+            template: `
+                <label>
+                {{ label }}
+                <input
+                    v-bind="$attrs"
+                    v-bind:value="value"
+                    v-on="inputListeners"
+                >
+                </label>
+            `
+        })
+        //.sync 修饰符---prop的进行“双向绑定”
+        Vue.component('base-sync',{
+            props:['title',''],
+            template:`
+            <div>
+                <p>{{title}} <input v-bind:value='title' v-on:input="$emit('inputt', $event.target.title)"></p>
+            </div>
+            `
+        })
+        ////自定义事件-----------------------------------------------------------------
+        var vm2 = new Vue({
+            el: "#app2",
+            data: {
+                loveVal: '自定义组件的 v-model',
+                titles:'sync 修饰符'
+            },
+            methods: {
+                doSomething: function () {
+                    alert('事件名');
+                },
+                onFocus:function(){
+                    alert("qq");
+                }
+
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@ body {
 
 .body-bg {
     background-color: #f8f8f8;
-    background-image: url(../image/bg.png);
+    background-image: url(../images/bg.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -21,9 +21,19 @@ a {
 
 input[type="text"]:hover, input[type="password"]:hover {
     border: 1px solid #0d6efd;
+    outline: none !important;
 }
 
 /* 头部导航栏 */
+.header-sm {
+    width: 100% !important;
+    height: 5rem;
+    line-height: 5rem;
+    box-shadow: 0px 3px 5px #ccc;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
 .header {
     width: 100% !important;
     height: 8rem;
@@ -45,7 +55,7 @@ input::placeholder {
 .content-center {
     margin: auto;
     margin-top: 5rem;
-    padding: 2.5rem 4.5rem;
+    padding: 1rem 5rem;
     width: 40rem;
     height: 32rem;
     box-sizing: border-box;
@@ -57,7 +67,6 @@ input::placeholder {
 .content-center>div {
     height: 4.5rem;
     line-height: 4.5rem;
-    padding-right: 2rem;
 }
 
 .content-center>.row>div:nth-child(1), .p-right {
@@ -65,6 +74,33 @@ input::placeholder {
     align-items: center;
     /* 字体间距 */
     letter-spacing: 3px;
+}
+
+.pw-100 {
+    width: 8rem;
+    height: 2rem;
+    line-height: 2rem;
+    border: 1px #ccc solid;
+    padding-left: 8px;
+}
+
+.pw-60 {
+    width: 5.5rem;
+    height: 2rem;
+    line-height: 2rem;
+    color: white;
+    background-color: rgb(9, 199, 9);
+    border: 0px;
+    cursor: pointer;
+    padding: 0px 0px !important;
+    margin-right: calc(var(--bs-gutter-x) * .5);
+    margin-left: calc(var(--bs-gutter-x) * .5);
+}
+
+.pw-60:hover {
+    background-color: rgba(9, 199, 9, 0.9);
+    box-shadow: 0px 0px 2px rgba(9, 199, 9, 0.6);
+    transition: 0.3s;
 }
 
 .p-h20 {
@@ -78,23 +114,30 @@ input::placeholder {
 }
 
 .fs-13 {
-    font-size: 13px;
+    font-size: 13px !important;
 }
 
 .fs-14 {
-    font-size: 14px;
+    font-size: 14px !important;
 }
 
 .fs-15 {
-    font-size: 15px;
+    font-size: 15px !important;
 }
 
 .fs-18 {
     font-size: 18px !important;
 }
-.my-23{
+
+.my-23 {
     margin: 23px 0px !important;
 }
+
+.user-select {
+    /* 用户不可选中文字 */
+    user-select: none;
+}
+
 /* 显示一行文字超出隐藏 */
 .text-show-1 {
     /* 超出隐藏 */
@@ -162,6 +205,11 @@ input::placeholder {
     -webkit-box-orient: vertical;
     /* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
     -webkit-line-clamp: 5;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: rgba(255, 255, 255,0) !important;
 }
 
 /* 选择框---记住密码 */
@@ -440,8 +488,10 @@ input::placeholder {
     /* 分页 */
     .page-box {
         width: 100% !important;
-        margin: auto;padding: 0px 5px;
+        margin: auto;
+        padding: 0px 5px;
     }
+
     .pagination .fs-18 {
         font-size: 12px !important;
     }

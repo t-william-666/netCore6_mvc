@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/Vue.js"></script>
+    <style>
+        .div_active {
+            width: 100%;
+            height: 30px;
+            background-color: greenyellow;
+        }
+
+        .Txtactive {
+            text-align: center;
+        }
+
+        .fs20 {
+            font-size: 20px;
+        }
+
+        .margins {
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        .boxShadow {
+            box-shadow: 3px 3px 5px #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contion">
+        <div>
+            <!-- app1--例子 计算属性和侦听器  -->
+            <h3>计算属性和侦听器</h3>
+            <div id="app1">
+                <!-- 计算属性 -->
+                <p v-bind:class="message">原始的message：{{message}}</p>
+                <p>使用methods方法(方法必须加括号)的message:{{reversedMessage()}} </p>
+                <p>使用计算属性的message：{{returnMessage}}</p>
+                <p>当前时间：{{newTime}}</p>
+                <!-- 监听属性 -->
+                <p><input type="text" v-model="firstName"> 计算属性的fullName值：{{fullNames}} &nbsp; &nbsp; &nbsp;
+                    监听属性的fullName值： {{fullName}}</p>
+                <p></p>
+                <p></p>
+            </div>
+
+            <!-- app2--例子 Class 与 Style 绑定 -->
+            <h3>Class 与 Style 绑定</h3>
+            <div id="app2">
+                <!-- 直接选取class样式 并设置是否显示 isActive：显示；hasError：隐藏；  -->
+                <div class="Txtactive" v-bind:class="{ div_active: isActive,fs20:isActive }">直接选取class样式 并设置是否显示
+                    isActive：显示；hasError：隐藏；</div>
+                <!-- 使用封装好class样式的对象 -->
+                <div :class="showClass">使用封装好class样式的对象==》》》调用data对象内封装好的对象</div>
+                <!-- 使用计算属性的函数方法 -->
+                <div :class="showComputedClass">使用计算属性的函数方法==》》》调用计算属性的函数</div>
+                <!-- 使用数组语法 -->
+                <div :class="[showDiv_active, showMargin]">使用数组语法==》》》有多个数组是要用[]包起来，语法与数组一样</div>
+                <!-- 绑定内联样式 -->
+                <div :style="{color: activeColor,'font-size':fs,backgroundColor:bgColor}">
+                    【绑定内联样式】 v-bind:style 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。
+                    <br>
+                    可以用驼峰式 (camelCase 例如：backgroundColor) 或短横线分隔 (kebab-case 例如：'font-size' 》》》 记得用引号括起来)
+                </div>
+                <!-- 使用对象绑定内联样式 -->
+                <div :style="styleObject">使用对象绑定内联样式</div>
+                <!-- 使用数组语法 将多个样式对象应用到同一个元素 -->
+                <div v-bind:style="[styleObject,styleObject2]">使用数组语法 将多个样式对象应用到同一个元素</div>
+            </div>
+
+            <!-- app3--例子 条件渲染 -->
+            <h3>条件渲染</h3>
+            <div id="app3">
+                <!-- 使用v-if 与 v-else -->
+                <div v-if="retFlase">这是真事件 v-if</div>
+                <div v-else>这是假事件 v-else</div>
+                <!-- 使用 v-if 与 v-else-if 与 v-else -->
+                <div>
+                    <p v-if="type===1">这是：v-if="type===1"的输出</p>
+                    <p v-else-if="type===2">这是：v-else-if="type===2"的输出</p>
+                    <p v-else=>这是：v-else的输出</p>
+                </div>
+                <!-- Vue 为你提供了一种方式来表达“这两个元素是完全独立的，不要复用它们”。只需添加一个具有唯一值的 key attribute 即可 -->
+                <div>
+                    <template v-if="loginType">
+                        <div>
+                            <label for="">用户名称：</label>
+                            <input placeholder="请输入用户名称">
+                        </div>
+                    </template>
+                    <template v-else>
+                        <div>
+                            <label for="">邮箱地址：</label>
+                            <input placeholder="请输入邮箱地址" key="userName-input">
+                        </div>
+                    </template>
+                    <button @click="changeClick" key="email-input">切换文本框类型</button>
+                </div>
+                <!-- v-if vs v-show -->
+                <div v-show="resTrue">这是v-show 带有 v-show 的元素始终会被渲染并保留在 DOM 中，而v-if则是条件为true时，才会被渲染并保留在 DOM 中</div>
+            </div>
+
+            <!-- app4--例子 列表渲染 -->
+            <h3>列表渲染</h3>
+            <div id="app4">
+                <!-- 用 v-for 指令基于一个数组来渲染一个列表 也可以用 【of】 替代 【in】 作为分隔符  -->
+                <div>
+                    <!-- 以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key attribute -->
+                    <ul v-for="item in theItems" :key="item.id">
+                        <li>编号：{{item.id}}--名称：{{item.name}}--数量：{{item.num}}</li>
+                    </ul>
+                    <hr>
+                    <ul v-for="(item,index) of theItems">
+                        <li>索引下标为：{{index}}--编号：{{item.id}}--名称：{{item.name}}--数量：{{item.num}}</li>
+                    </ul>
+                </div>
+                <!-- 用 v-for 来遍历一个对象的 property -->
+                <div>
+                    <!-- 使用一个参数：输出键值 -->
+                    <ul v-for="item of theItemsObj">
+                        <li>{{item}}</li>
+                    </ul>
+                    <hr>
+                    <!-- 使用两个参数： 括号里面的第一个是键值（value），第二个是键名（name） -->
+                    <ul v-for="(value,name) in theItemsObj">
+                        <li>{{name}}：{{value}}</li>
+                    </ul>
+                    <hr>
+                    <!-- 使用三个参数：括号里面的第一个是键值（value），第二个是键名（name），第三个是索引 -->
+                    <ul v-for="(value,name,index) in theItemsObj">
+                        <li>键名：{{name}}--键值：{{value}}--索引：{{index}}</li>
+                    </ul>
+                </div>
+                <!-- 数组更新检测 -->
+                <div>
+                    <ul v-for="item in theItems">
+                        <li>编号：{{item.id}}-名称：{{item.name}}-数量：{{item.num}}</li>
+                    </ul>
+                    <button v-on:click="pushClick">push插入数据</button>
+                    <button v-on:click="popClick">pop移除数据</button>
+                    <button v-on:click="shiftClick">shift移除第一个数据</button>
+                    <button v-on:click="unshiftClick">unshiftClick插入数据到第一位</button>
+                    <button v-on:click="spliceClick">向指定位置删除</button>
+                    <button v-on:click="sortClick">数组进行sort排序</button>
+                    <button v-on:click="reverseClick">数组进行reverse反向排序</button>
+                    <hr>
+                    <button @click="filterClick">filter过滤数据</button>
+                    <button @click="concatClick">连接两个或多个数组</button>
+                    <button @click="sliceClick">slice提取字符串</button>
+                </div>
+                <!-- v-for 与 v-if 一同使用 当它们处于同一节点，v-for 的优先级比 v-if 更高 -->
+                <div>
+                    <ul v-for="t of todos">
+                        <li v-if="t.id>2">{{t.id}}--{{t.title}}</li>
+                    </ul>
+                </div>
+                <!--  -->
+                <div>
+                    <hr>
+                    <!-- 使用表单方式提交数据 -->
+                    <form action="" v-on:submit.prevent="addTodoTxt">
+                        <label for="">添加标题</label>
+                        <input type="text" v-model="newTodoTxt" placeholder="请输入标题">
+                        <button>添加标题</button>
+                    </form>
+                    <ul v-for="(t, index) in todos">
+                        <li is="todo-item" v-bind:title="t.title" v-on:remove="todos.splice(index,1)"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- app5--例子 事件处理 -->
+            <h3>事件处理</h3>
+            <div id="app5">
+                <div>
+                    <button v-on:click="count+=1">添加</button>
+                    <span>执行v-on:click监听事件：{{count}}</span>
+                </div>
+                <div>
+                    <hr>
+                    <button v-on:click="greet">事件处理方法greet</button>
+                </div>
+                <div>
+                    <hr>
+                    内联处理器中的方法：
+                    <button @click="say('Hi，Vue.js')">内联处理器:say Hi</button>
+                    <button @click="say('fuck you')">内联处理器:say Fuck</button>
+                </div>
+                <div>
+                    <hr>
+                    事件修饰符
+                    <div>
+                        <!-- stop事件 -->
+                        <button @click.stop="stopClick">
+                            阻止单击事件继续传播
+                            <button v-on:click="say('我被 stop单击事件 阻止了')">我被stop单击事件阻止了</button>
+                        </button>
+                    </div>
+                    <div>
+                        <!-- prevent事件 -->
+                        <form action="" @click.submit.prevent="preventClick">
+                            <button>提交事件不再重载页面</button>
+                        </form>
+                    </div>
+                    <div>
+                        <!-- stop & prevent 事件 -->
+                        <button @click.stop.prevent="stopPreventClick">
+                            修饰符串联
+                            <button v-on:click="say('我被 修饰符串联 阻止了')">我被修饰符串联阻止了</button>
+                        </button>
+                    </div>
+                    <div @click.capture="captureClick">
+                        <!-- capture事件 -->
+                        使用事件捕获模式capture事件（先执行父级的capture事件，在执行子级其他事件）：
+                        <button v-on:click="say('我是内部事件')">capture事件</button>
+                    </div>
+                    <div @click.self="say('父级事件')">
+                        <!-- self事件 只执行当前的事件，不会执行父级事件和子级事件 -->
+                        父级事件
+                        <button @click.self="selfClick">当前元素自身时触发处理函数</button>
+                    </div>
+                    <div>
+                        <!-- once事件 -->
+                        <button @click.once="onceClick">只触发一次</button><br>
+                    </div>
+                    <div v-on:scroll.passive="passiveClick">
+                        <!-- 滚动事件 -->
+                        滚动时执行
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                    按键修饰符 keyup：按下松开才执行 keydown：按下就执行
+                    <div>
+                        <input v-on:keyup.enter="enterClick" placeholder="鼠标焦点在这按下 enter 键">
+                    </div>
+                    <div>
+                        <input v-on:keyup.esc="escrClick" placeholder="鼠标焦点在这按下 esc 键">
+                    </div>
+                    <div>
+                        <input v-on:keyup.delete="delClick" placeholder="鼠标焦点在这按下 delete 键 || backspace 键">
+                    </div>
+                </div>
+                <div>
+                    <hr>
+                    系统修饰符 keyup：按下松开才执行 keydown：按下就执行 v-on:keyup.alt.67 等同于 v-on:keyup.alt.c
+                    <input v-on:keyup.alt.67="altClick" placeholder="鼠标焦点在这按下 alt + c 键"><br>
+                    <input v-on:click.ctrl="ctrlClick" placeholder="鼠标焦点在这按下 ctrl  键"><br>
+                    <input v-on:keyup.ctrl.67="ctrlClick" placeholder="鼠标焦点在这按下 ctrl + c 键"><br>
+                    <input v-on:keyup.shift.67="shiftClick" placeholder="鼠标焦点在这按下 shift + c 键"><br>
+                    <input v-on:keyup.meta.67="metaClick" placeholder="鼠标焦点在这按下 win + c 键"><br>
+                    .exact 修饰符 允许你控制由精确的系统修饰符组合触发的事件<br>
+                    <input type="button" v-on:click.ctrl.c.exact="say('只有按下ctrl+c才有效')" value="鼠标长按+按下ctrl+c才有效">
+                </div>
+                <div>
+                    <hr>
+                    鼠标按钮修饰符
+                    <div>
+                        <input v-on:click.left="mouseLeftClick" v-on:click.right="mouseRightClick"
+                            v-on:click.middle="mouseMiddleClick" placeholder="鼠标左键">
+                    </div>
+                    <div>
+                        <input v-on:click.right="mouseRightClick" placeholder="鼠标右键">
+                    </div>
+                    <div>
+                        <input v-on:click.middle="mouseMiddleClick" placeholder="鼠标滑轮">
+                    </div>
+                </div>
+            </div>
+
+            <!-- app6--例子 表单输入绑定 -->
+            <h3>表单输入绑定</h3>
+            <div id="app6">
+                <div>
+                    <input type="text" placeholder="请输入内容" v-model="txtMessage">
+                    <span>你输入的单行内容是：{{txtMessage}}</span>
+                </div>
+                <div>
+                    <hr>
+                    <textarea v-model="txtareaMessage" cols="90" rows="10"></textarea>
+                    <p>你输入的多行内容是：{{txtareaMessage}}</p>
+                </div>
+                <div>
+                    <hr>
+                    <!-- 复选框的 v-model="checkeds" 【checkeds】是【数组类型】可以获取到复选框的值(value)， 否则只可获取false || true -->
+                    <!-- 【checkeds】不是【数组类型】只可获取false || true  -->
+                    <input type="checkbox" id="checkID" value='对得' v-model="checkeds">
+                    <label for="checkID">单个复选框是否选中：{{checkeds}}</label><br><br>
+                    <!-- 【checkedNames】是【数组类型】可以获取到复选框的值(value) -->
+                    <input type="checkbox" id="Botany" value="A.植物类" v-model="checkedNames">
+                    <label for="Botany">A.植物类</label>
+                    <input type="checkbox" id="Animal" value="B.动物类" v-model="checkedNames">
+                    <label for="Animal">B.动物类</label>
+                    <input type="checkbox" id="other" value="C.其他类" v-model="checkedNames">
+                    <label for="other">C.其他类</label>
+                    <span>多个复选框选中的内容是：{{checkedNames}}</span>
+                </div>
+                <div>
+                    <hr>
+                    <!-- 单选框一般只获取值(value) -->
+                    <!-- 单选框 -->
+                    <input type="radio" id="theOne" value="选中" v-model="theOneRadio">
+                    <label for="theOne">单个单选框是否选中：{{theOneRadio}}</label><br><br>
+                    <!-- 多个单选框 -->
+                    <input type="radio" id="one" value="one" v-model="moreRadio">
+                    <label for="one">1</label>
+                    <input type="radio" id="two" value="two" v-model="moreRadio">
+                    <label for="two">2</label>
+                    <input type="radio" id="three" value="three" v-model="moreRadio">
+                    <label for="three">3</label>
+                    <span>多个单选框选中的内容是：{{moreRadio}}</span>
+                </div>
+                <div>
+                    <hr>
+                    <!-- 选择框(下拉框) 如果下拉框的value不为空时，则选择value，否则选择text 【multiple】属性可设置下拉框展示多行 -->
+                    <!-- 选择单个 -->
+                    <select name="" id="" v-model="theOneSelected">
+                        <option value="" disabled="disabled">请选择</option>
+                        <option value="1">A</option>
+                        <option value="2">B</option>
+                        <option value="3">C</option>
+                    </select>
+                    <span>选择框(下拉框)选中的是：{{theOneSelected}}</span><br><br>
+                    <!-- 选择多个 -->
+                    <select name="" id="" v-model="moreSelected" multiple>
+                        <option value="" disabled="disabled">请选择</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                    <span>选择框(下拉框)选中的是：{{moreSelected}}</span><br><br>
+                    <!-- 使用v-for 动态绑定数据 -->
+                    <select name="" id="" v-model="selected">
+                        <option v-for="option in options" v-bind:value="option.val">
+                            {{option.txt}}
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <hr>
+                    <!-- 值绑定 -->
+                    <input type="radio" v-model="picked" value="a">{{picked}} &nbsp;&nbsp;
+                    <input type="checkbox" v-model="toggle">{{toggle}} &nbsp;&nbsp;
+                    <select name="" id="" v-model="selectedVal">
+                        <option value="abc">ABC</option>
+                    </select> &nbsp;&nbsp;
+                    <!-- 值绑定重点 为true显示yes 为false显示no -->
+                    <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">{{toggle}} &nbsp;&nbsp;
+                    <input type="radio" v-model="pick" v-bind:value="pickVal">{{pick}} &nbsp;&nbsp;
+                    <select name="" id="" v-model="sel">
+                        <option v-bind:value="{number:123}">123</option>
+                    </select>
+                </div>
+                <div>
+                    <hr>
+                    <!-- 修饰符 -->
+                    <!-- lazy 修饰符 在 change 事件_之后_进行同步 -->
+                    <input v-model.lazy="msg" placeholder="在 change 事件之后进行同步">lazy的修饰符：{{msg}} <br>
+                    <!-- .number的修饰符 将用户的输入值转为数值类型 -->
+                    <input v-model.number="num" type="number" placeholder="值转为数值类型">.number的修饰符：{{num}} <br>
+                    <!-- .trim的修饰符 自动过滤用户输入的首尾空白字符 -->
+                    <input v-model.trim="txtTrim" placeholder="过滤首尾空白字符">.trim的修饰符：{{txtTrim}}
+                </div>
+            </div>
+
+            <!-- app7--例子 组件基础 -->
+            <h3>组件基础</h3>
+            <div id="app7">
+                <!-- 组件的复用 -->
+                <button-counter></button-counter>
+                <button-counter></button-counter><br>
+
+                <!-- 通过Prop向子组件传递数据 -->
+                <blog-post title="1111" value="222"></blog-post>
+                <blog-post title="com"></blog-post>
+                <blog-post v-for="com in coms" v-bind:key="com.id" v-bind:title="com.name" v-bind:value="com.age">
+                </blog-post>
+                <!-- 单个根元素 v-bind:post="p" 【p】可将整个【对象 || 数组】传过去-->
+                <div class="blog-post">{{title}}</div>
+                <blog-posts v-for="p in coms" v-bind:title="p.name" v-bind:post="p"></blog-posts>
+                <!-- 监听子组件事件 -->
+                <!-- 父组件 -->
+                <div v-bind:style="{fontSize:postfontSize+'px'}">
+                    <!-- 子组件 -->
+                    <blog-postson v-for="com of coms" v-bind:key="com.id" v-bind:p="com"
+                        v-on:enlarge-text="postfontSize+=1"></blog-postson>
+                </div>
+                <!-- 监听子组件事件 使用事件抛出一个值-->
+                <!-- 父组件 -->
+                <div v-bind:style="{fontSize:postfontSize+'px'}">
+                    <!-- 子组件  可以使用 $emit 的第二个参数来提供这个值  -->
+                    <!-- v-on:enlarge-text="onEnlargeText" enlarge-text ===> onEnlargeText 事件处理函数是一个方法 onEnlargeText  -->
+                    <!-- 当在父级组件监听这个事件的时候，我们可以通过 $event 访问到被抛出的这个值： -->
+                    <!-- v-on:enlarge-texts="postfontSize += $event", $event 就是 v-on:click="$emit('enlarge-texts',1)" 的值 1  -->
+                    <blog-postsons v-for="com of coms" v-bind:p="com"
+                        v-on:enlarge-text="onEnlargeText" v-on:enlarge-texts="postfontSize += $event">
+                    </blog-postsons>
+                </div>
+                <!-- 在组件上使用 v-model -->
+                <div>
+                    <input v-model="searchTxt"> v-model双向绑定 等价于 v-bind:value单向绑定 v-on:input监听 的结合<br>
+                    <input v-bind:value="searchTxt" v-on:input="searchTxt=$event.target.value">{{searchTxt}} <br>
+                    <!-- 当用在组件上时，v-model 则会这样 -->
+                    <custom-input v-model="propTxt"></custom-input> 等同于 下面 这句代码 <br>
+                    <custom-input v-bind:value="propTxt" v-on:input="propTxt=$event"></custom-input>{{propTxt}}
+
+                </div>
+                <!-- 通过插槽分发内容 -->
+                <alert-box>卡槽的例子中（会在卡槽组件的slot中渲染）</alert-box>
+                <!-- 动态组件 -->
+                <component v-bind:is="currentTabComponent"></component>
+            </div>
+
+
+
+        </div>
+    </div>
+    <script>
+        // var re = /^[+-]?((O|([1-9] \d*))\.\d+)?$/;
+        // var str = "qq11.777qqqq";
+        // alert(re.test(str));
+
+        //数组排序
+        function sortNum(a, b) {
+            return b - a;
+        };
+        //对数组的对象排序
+        function sortObj(a, b) {
+            var val1 = a.id;
+            var val2 = b.id;
+            if (val1 > val2) {
+                return -1;
+            }
+            else if (val1 < val2) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+
+        // 计算属性和侦听器--------------------------------------------------------------------------------------------
+        var vm1 = new Vue({
+            el: "#app1",
+            data: {
+                msg:'',
+                message: "hello",
+                firstName: 'Foo',
+                lastName: "Bar",
+                fullName: ' '
+            },
+            //方法----------------------------!无效原因未知!已解决==》》原因调用该方法时未加（）导致以为时计算属性 --------------
+            methods: {
+                reversedMessage: function () {
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            //计算属性
+            computed: {
+                //声明计算属性 returnMessage
+                returnMessage: function () {
+                    //split: 分隔符  reverse：将元素进行反向排序  join：间隔符
+                    return this.message.split('').reverse('').join('');
+                },
+                newTime: function () {
+                    return Date.now();
+                },
+                //计算属性的 getter & setter
+                // firstName 或 lastName 的值改变是执行计算属性
+                fullNames: {
+                    // getter
+                    get: function () {
+                        console.log('getter');
+                        return this.firstName + ' --computed getter-- ' + this.lastName;
+                    },
+                    // setter
+                    set: function (newValue) {
+                        console.log('setter');
+                        var names = newValue.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[names.length - 1];
+                    }
+                }
+            },
+            //监听属性
+            watch: {
+                // firstName 值改变 则执行
+                firstName: function (val) {
+                    this.fullName = val + ' ' + this.lastName;
+                    console.log(val)
+                },
+                // lastName 值改变 则执行
+                lastName: function (val) {
+                    this.fullName = this.firstName + ' ' + val
+                }
+
+            }
+        })
+        // 输出vm1声明的计算属性
+        console.log(vm1.returnMessage);
+        //给message赋值覆盖原来的值
+        vm1.message = '123456789';
+        console.log(vm1.returnMessage);
+        //测试watch监听属性
+        vm1.lastName = "ter"
+        //测试computed计算属性
+        console.log(vm1.fullNames)
+        //调用方法测试===》》必须加括号
+        console.log(vm1.reversedMessage()+'000');
+        //Class 与 Style 绑定------------------------------------------------------------------------------------------
+        var vm2 = new Vue({
+            el: "#app2",
+            data: {
+                // 显示 Class 样式
+                isActive: true,
+                // 隐藏 Class 样式
+                // error 
+                error: null,
+                hasError: false,
+                // 封装 Class 样式 在 对象
+                showClass: {
+                    div_active: true,
+                    fs20: true,
+                    margins: true,
+                    boxShadow: true,
+                },
+                //数组语法显示 Class 样式
+                showDiv_active: 'div_active',
+                showMargin: 'margins',
+                //绑定内联样式
+                activeColor: 'red',
+                fs: '18px',
+                bgColor: '#ccc',
+                //绑定内联样式 封装 在 对象
+                styleObject: {
+                    height: '60px',
+                    color: 'red',
+                    fontSize: '13px',
+                    'text-align': 'center',
+                    'background-color': 'blue'
+                },
+                //绑定内联样式 封装 在 对象
+                styleObject2: {
+                    height: '60px',
+                    color: '#fff',
+                    fontSize: '18px',
+                    'text-align': 'center',
+                    'background-color': 'red'
+                }
+
+            },
+            //计算属性
+            computed: {
+                showComputedClass: function () {
+                    return {
+                        // 显示 Class 样式
+                        div_active: this.isActive && !this.error,
+                        Txtactive: this.isActive,
+                        // 隐藏 Class 样式
+                        boxShadow: this.error && this.error.type === 'fatal'
+                    }
+                }
+            },
+        })
+
+        //条件渲染
+        var vm3 = new Vue({
+            el: "#app3",
+            data: {
+                //用于判断真假事件
+                resTrue: true,
+                retFlase: false,
+                type: 2,
+                loginType: true
+            },
+            methods: {
+                //定义是否改变文本框类型
+                changeClick: function () {
+                    if (this.loginType) {
+                        this.loginType = false;
+                    }
+                    else {
+                        this.loginType = true;
+                    }
+
+                }
+            }
+        })
+
+        //列表渲染
+        Vue.component("todo-item", {////注册组件
+            template: '\<li>\
+                {{ title }}\
+                <button v-on:click="$emit(\'remove\')">Remove</button>\
+                </li>\
+            ',
+            props: ['title']
+        })
+        var vm4 = new Vue({
+            el: "#app4",
+            data: {
+                //数组
+                theItems: [
+                    { id: 1, name: '水果', num: 99 },
+                    { id: 3, name: '零食类型', num: 999 },
+                    { id: 2, name: '粮油', num: 9999 },
+                ],
+                //对象
+                theItemsObj: {
+                    nameObj: "我是对象的名称，我叫对象",
+                    descObj: "我是对象的描述，我是一个对象啊,你觉得我这个对象怎么样",
+                    timeObj: "我是对象编写的日期：2022-02-28",
+                },
+                //数组
+                todos: [
+                    { id: 1, title: '标题111' },
+                    { id: 2, title: '标题222' },
+                    { id: 3, title: '标题333' },
+                    { id: 4, title: '标题444' },
+                    { id: 5, title: '标题555' },
+                ],
+                newTodoTxt: '',
+
+
+
+            },
+            methods: {
+                ////变更数组
+                // push(); 向数组末尾添加一条元素
+                // pop(); 用于移除列表中的一个元素(没有指定那个元素时，默认一次最后一个)
+                // shift(); 用于将一个数组的第一个元素移出
+                // unshift(); 向数组的开头添加一个或更多元素，并返回新的长度
+                // splice(); 可以向指定位置删除任意数量的项
+                // sort(); 用于对数组的元素进行排序,并返回数组
+                // reverse(); 对列表中的元素进行反向排序
+
+                ////替换数组
+                // filter() 把数组的某些元素过滤掉，然后返回剩下的元素  
+                // concat() 用于连接两个或多个数组
+                // slice()  提取字符串的某个部分，并以新的字符串返回被提取的部分
+                pushClick: function () {
+                    // push(); 向数组末尾添加一条元素
+                    //获取数组中对象的id
+                    let n = [];
+                    this.theItems.forEach((item) => {
+                        n.push(item.id);
+                    });
+                    //console.log(n[n.length-1])    
+                    //对数组中对象的id进行排序              
+                    var max = n.sort(sortNum);
+                    //console.log(max)
+                    this.theItems.push({ id: max[0] + 1, name: 'push插入数据', num: 99 });
+                },
+                popClick: function () {
+                    // pop(); 用于移除列表中的一个元素(没有指定那个元素时，默认一次最后一个) 可填入索引指定移除那个
+                    this.theItems.pop();
+                },
+                shiftClick: function () {
+                    // shift(); 用于将一个数组的第一个元素移出
+                    this.theItems.shift();
+                },
+                unshiftClick: function () {
+                    // unshift(); 向数组的开头添加一个或更多元素，并返回新的长度
+                    //获取数组中对象的id
+                    let n = [];
+                    this.theItems.forEach((item) => {
+                        n.push(item.id);
+                    });
+                    //console.log(n[n.length-1])    
+                    //对数组中对象的id进行排序              
+                    var max = n.sort(sortNum);
+                    console.log(max);
+                    this.theItems.unshift({ id: max[max.length - 1] - 1, name: 'unshift插入数据到第一位', num: 99 });
+                },
+                spliceClick: function () {
+                    // splice();可以向指定位置删除任意数量的项 例如下面这个splice(1, 2) 1表示从索引为1开始删除，2表示删除两个
+                    this.theItems.splice(1, 2);
+                },
+                sortClick: function () {
+                    // sort(); 用于对数组的元素进行排序,并返回数组
+                    this.theItems.sort(sortObj);
+                },
+                reverseClick: function () {
+                    // reverse(); 对列表中的元素进行反向排序
+                    this.theItems.reverse();
+                },
+                ////替换数组
+                filterClick: function () {
+                    let ary = [];
+                    this.theItems.filter(function (item) {
+                        //把数组的某些元素过滤掉，然后返回剩下的元素  
+                        console.log(item.id);
+                        if (item.id % 2 != 0) {  //过滤id能整除2的数据
+                            ary.push(item);
+                        }
+                    })
+                    console.log(ary);
+                    this.theItems = ary;
+                },
+                concatClick: function () {
+                    //用于连接两个或多个数组
+                    let other = [{ name: '水果', num: 99 }, { name: '零食类型', num: 999 }, { name: '粮油', num: 9999 }];
+                    let a = this.theItems.concat(other);
+                    console.log(a)
+                    alert(a)
+                },
+                sliceClick: function () {
+                    //提取字符串的某个部分，并以新的字符串返回被提取的部分
+                    //提取第二个字符到结束
+                    let str = this.theItems[1].name.slice(1);
+                    //提取第一个字符
+                    let str2 = this.theItems[1].name.slice(0, 1);
+                    alert('--提取第一个字符为：' + str2 + '   --提取第二个字符为：' + str);
+                },
+                ////v-for 与 v-if 一同使用 使用组件
+                addTodoTxt: function () {
+                    let n = [];
+                    this.todos.forEach((item) => {
+                        n.push(item.id);
+                    })
+                    var max = n.sort(sortNum)[0];
+                    //添加
+                    this.todos.push({ id: max + 1, title: this.newTodoTxt });
+                    //清空
+                    this.newTodoTxt = '';
+                }
+
+            }
+        })
+
+        //事件处理
+        var Vm5 = new Vue({
+            el: "#app5",
+            data: {
+                count: 0,
+                name: 'Vue.js',
+            },
+            methods: {
+                //事件处理方法
+                greet: function (event) {
+                    alert("hello" + this.name);
+                    //`event` 是原生 DOM 事件
+                    if (event) {
+                        alert(event.target.tagName);
+                    }
+                },
+                // 内联处理器中的方法  获取DOM执行该函数填写的参数(message)
+                say: function (message) {
+                    alert(message);
+                },
+                ////事件修饰符(v-on)
+                //.stop   阻止单击事件继续传播
+                //.prevent  提交事件不再重载页面
+                //.capture  添加事件监听器时使用事件捕获模式  即内部元素触发的事件先在此处理，然后才交由内部元素进行处理（先执行父级的capture事件，在执行子级其他事件） 
+                //.self  只当在 event.target 是当前元素自身时触发处理函数 即事件不是从内部元素触发的（只执行当前的事件，不会执行父级事件和子级事件）
+                //.once 点击事件将只会触发一次
+                //.passive  滚动事件的默认行为 (即滚动行为) 将会立即触发 而不会等待 `onScroll` 完成 这其中包含 `event.preventDefault()` 的情况
+                stopClick: function () {
+                    alert('阻止单击事件继续传播');
+                },
+                preventClick: function () {
+                    alert('提交事件(form表单)不再重载页面');
+                },
+                stopPreventClick: function () {
+                    alert('修饰符可以串联,stop & prevent 串联');
+                },
+                captureClick: function () {
+                    alert('内部元素触发的事件先在此处理，然后才交由内部元素进行处理（先执行父级的capture事件，在执行子级其他事件）')
+                },
+                selfClick: function () {
+                    alert('只执行当前的事件，不会执行父级事件和子级事件');
+                },
+                onceClick: function () {
+                    alert('点击事件将只会触发一次');
+                },
+                passiveClick: function () {
+                    alert(' 滚动事件的默认行为 (即滚动行为) 将会立即触发');
+                },
+                ////按键修饰符（即使用键盘上的常用键，执行对应的事件）  keyup：按下松开才执行  keydown：按下就执行
+                enterClick: function () {
+                    alert('你点击了enter键');
+                },
+                escrClick: function () {
+                    alert('你点击了esc键');
+                },
+                delClick: function () {
+                    alert('你点击了delete键');
+                },
+                ////系统修饰符   keyup：按下松开才执行  keydown：按下就执行
+                altClick: function () {
+                    alert("alt+c");
+                },
+                ctrlClick: function () {
+                    alert('ctrl+c');
+                },
+                shiftClick: function () {
+                    alert('shift+c');
+                },
+                metaClick: function () {
+                    alert('meta+c');
+                },
+                ////鼠标按钮修饰符
+                mouseLeftClick: function () {
+                    alert("点击了鼠标左键");
+                },
+                mouseRightClick: function () {
+                    alert("点击了鼠标右键");
+                },
+                mouseMiddleClick: function () {
+                    alert("点击了鼠标滚轮");
+                }
+
+
+            }
+        })
+
+        //表单输入绑定
+        var vm6 = new Vue({
+            el: "#app6",
+            data: {
+                txtMessage: '',
+                txtareaMessage: '',
+                ////单个复选框
+                checkeds: false,
+                //多个复选框
+                checkedNames: [],
+                ////单个单选框
+                theOneRadio: true,
+                //多个单选框
+                moreRadio: '',
+                ////选择单个选择框(下拉框)
+                theOneSelected: '',
+                //选择多个选择框(下拉框)
+                moreSelected: [],
+                //编写数据让【复选框(下拉框)】动态绑定
+                selected: '',
+                options: [
+                    { val: '', txt: '请选择' },
+                    { val: 'one', txt: 'A' },
+                    { val: 'two', txt: 'B' },
+                    { val: 'three', txt: 'C' },
+                ],
+                ////值绑定
+                picked: '',
+                toggle: false,
+                selectedVal: 'abc',
+                pick: 'c',
+                pickVal: 'a',//radio 选中时 为 a
+                sel: '',
+                number: 111,
+                ////修饰符
+                msg: '',
+                num: '',
+                txtTrim: '',
+                types: '',
+            },
+
+        })
+
+        //组件基础
+        Vue.component('button-counter', { //注册组件
+            data: function () {  //组件的 data 必须是一个函数 因此每个实例可以维护一份被返回对象的独立的拷贝：
+                return { count: 0 }
+            },
+            template: "<button v-on:click='count++'>你点击按钮 {{count}} 次</button>"
+        });
+
+        Vue.component('blog-post', { //通过Prop向子组件传递数据 
+            template: '<h5>组件接收到的title数据：{{title}}  组件接收到的value数据：{{value}}</h5>',
+            props: ['title', 'value', 'post']
+        });
+        //单个根元素
+        Vue.component('blog-posts', { //通过Prop向子组件传递数据  单个根元素
+            template: '<h5>{{post.id}}组件接收到的title数据：{{title}}  组件接收到的value数据：{{value}}{{post.comments}}--{{post.time}}</h5>',
+            props: ['title', 'value', 'post']
+        });
+        //监听子组件事件
+        Vue.component('blog-postson', {
+            props: ['key', 'p'], //`是 Esc键下面的键
+            template: `   
+            <div>
+            <p v-bind:style="{fontSize:postfontSize+'px'}">标题名称：{{key}}{{p.name}}</p>
+            <p>内容：{{p.comment}}<br>日期：{{p.time}}</p>
+            <button v-on:click="$emit('enlarge-text')">加大字体</button>
+            </div>
+            `
+        });
+        //监听子组件事件 使用事件抛出一个值 可以使用 $emit 的第二个参数来提供这个值
+        Vue.component('blog-postsons', {
+            props: [ 'p'], //`是 Esc键下面的键
+            // $emit('enlarge-text',1) ===> 相当于 ('onEnlargeText',1)
+            template: `   
+            <div>
+            <p>标题名称：{{p.name}}</p>
+            <p>内容：{{p.comment}}<br>日期：{{p.time}}</p>
+            <button v-on:click="$emit('enlarge-text',1)">加大字体</button>
+            <button v-on:click="$emit('enlarge-texts',1)">加大字体2</button>
+            </div>
+            `
+        });
+        //当用在组件上时，v-model 则会这样
+        Vue.component('custom-input',{
+            props:['value'],
+            template:`
+                <input v-bind:value='value' v-on:input='$emit("input",$event.target.value)'>
+            `
+        });
+        // 通过插槽分发内容
+        Vue.component('alert-box',{
+            template:`
+            <div>
+                <strong>卡槽的头部的内容</strong>
+                <slot></slot>
+            </div>
+            `
+        });
+        // 动态组件
+        Vue.component('compponent',{
+
+        })
+        var vm7 = new Vue({
+            el: "#app7",
+            data: {
+                title: "Vue标题",
+                coms: [
+                    { id: 1, name: '急急急', comments: '哈哈哈哈哈哈哈哈哈', age: 16, time: 2021 - 03 - 02 },
+                    { id: 2, name: '烦烦烦', comments: '烦烦烦烦烦烦烦烦烦', age: 17, time: 2021 - 03 - 02 }
+                ],
+                postfontSize: 13,
+                searchTxt:'哈哈哈',
+                propTxt:'dddd',
+            },
+            methods: {
+                onEnlargeText: function (Amount) {
+                    this.postfontSize += Amount;
+                }
+            },
+        })
+
+
+
+
+
+    </script>
+</body>
+
+
+<script>
+    // // 1个字节：Unicode 码为 0 - 127
+    // // 2个字节：Unicode 码为 128 - 2047
+    // // 3个字节：Unicode 码为 2048 - 0xFFFF
+    // // 4个字节：Unicode 码为 65536 - 0x1FFFFF
+    // // 5个字节：Unicode 码为 0x200000 - 0x3FFFFFF
+    // // 6个字节：Unicode 码为 0x4000000 - 0x7FFFFFFF
+    // let string = '中';
+    // //获取字符 Unicode 值大小
+    // let charCode = string.charCodeAt(0);
+    // console.log(charCode);//输出字符为：20013 在 2048 - 0xFFFF 之间 为 3个字节
+
+    // ////buffer 是 node.js 的 对象
+    // var buffer = new buffer(string);
+    // console.log(buffer.length);
+    // console.log(buffer);
+
+
+</script>
+
+</html>
