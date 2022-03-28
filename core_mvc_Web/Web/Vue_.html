@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可复用性 & 组合</title>
+    <script src="./js/Vue.js"></script>
+</head>
+
+<body>
+    <div id="app1">
+
+    </div>
+
+    <script>
+        // 定义一个混入对象
+        var myMixin = {
+            created: function () {
+                this.hello()
+            },
+            methods: {
+                hello: function () {
+                    console.log('hello from mixin!')
+                }
+            }
+        }
+
+        // 定义一个使用混入对象的组件
+        var Component = Vue.extend({
+            mixins: [myMixin]
+        })
+
+        var component = new Component() // => "hello from mixin!"
+
+
+        // 选项合并--------------------------------------------------------------------------------------
+        var maxmin = {
+            data: function () {
+                return {
+                    message: '你好！',
+                    foo: '这是foo',
+                }
+            },
+
+            created: function () {
+                console.log('我是【maxmin】对象的混入对象的钩子=》被调用');
+            },
+            methods: {
+                foos: function () {
+                    console.log('我是【maxmin】对象的普通函数foo')
+                },
+                confilecting: function () {
+                    console.log('我是【maxmin】对象的普通函数confilecting')
+                }
+            }
+
+        };
+
+        var vm1 = new Vue({
+            el: "#app1",
+            // 接受maxmin的数据 如果数据名称与data中相同则覆盖
+            mixins: [maxmin],
+            data: function () {
+                return {
+                    message: '拜拜',//会覆盖maxmin之前的message的数据
+                    ber: '这是ber',
+                }
+            },
+            created: function () {
+                console.log(this.$data);
+                console.log('我是组件的钩子=》被调用');
+            },
+            methods: {
+                bers: function () {
+                    console.log('我是【组件】的普通函数foo')
+                },
+                confilecting: function () {
+                    console.log('我是【组件】的普通函数confilecting')
+                }
+            }
+        })
+        vm1.foos();
+        vm1.bers();
+        vm1.confilecting();
+
+
+        // 全局混入------------------------------------------------------------------------------
+        Vue.Mixsion({
+            created: function () {
+                // this.$options 即可以获取自定义属性，也可以增加自定义属性，而且，获取自定义属性的方法有两种。
+                var myOption = this.$options.theOption;
+                console.log(myOption);
+
+            }
+        })
+
+        new Vue({
+            theOption: '我被全局混入了~~~~~~~~'
+        })
+
+
+        // 自定义选项合并策略----------------------------------------------------------------------
+        const merge = Vue.config.optionMergeStrategies.computed
+        Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
+            if (!toVal) return fromVal
+            if (!fromVal) return toVal
+            return {
+                getters: merge(toVal.getters, fromVal.getters),
+                state: merge(toVal.state, fromVal.state),
+                actions: merge(toVal.actions, fromVal.actions)
+            }
+        }
+
+
+        ///----------------------------------
+
+
+
+
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

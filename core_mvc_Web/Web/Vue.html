@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Vue基础</title>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/Vue.js"></script>
     <style>
@@ -30,6 +30,30 @@
 
         .boxShadow {
             box-shadow: 3px 3px 5px #000;
+        }
+
+        .tab-button {
+            padding: 6px 10px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background: #f0f0f0;
+            margin-bottom: -1px;
+            margin-right: -1px;
+        }
+
+        .tab-button:hover {
+            background: #e0e0e0;
+        }
+
+        .tab-button.active {
+            background: #e0e0e0;
+        }
+
+        .tab {
+            border: 1px solid #ccc;
+            padding: 10px;
         }
     </style>
 </head>
@@ -400,8 +424,8 @@
                     <!-- v-on:enlarge-text="onEnlargeText" enlarge-text ===> onEnlargeText 事件处理函数是一个方法 onEnlargeText  -->
                     <!-- 当在父级组件监听这个事件的时候，我们可以通过 $event 访问到被抛出的这个值： -->
                     <!-- v-on:enlarge-texts="postfontSize += $event", $event 就是 v-on:click="$emit('enlarge-texts',1)" 的值 1  -->
-                    <blog-postsons v-for="com of coms" v-bind:p="com"
-                        v-on:enlarge-text="onEnlargeText" v-on:enlarge-texts="postfontSize += $event">
+                    <blog-postsons v-for="com of coms" v-bind:p="com" v-on:enlarge-text="onEnlargeText"
+                        v-on:enlarge-texts="postfontSize += $event">
                     </blog-postsons>
                 </div>
                 <!-- 在组件上使用 v-model -->
@@ -416,7 +440,14 @@
                 <!-- 通过插槽分发内容 -->
                 <alert-box>卡槽的例子中（会在卡槽组件的slot中渲染）</alert-box>
                 <!-- 动态组件 -->
-                <component v-bind:is="currentTabComponent"></component>
+                <div>
+                    <button v-for="tab in tabs" v-bind:key="tab"
+                        v-bind:class="['tab-button', { active: currentTab === tab }]" v-on:click="currentTab = tab">
+                        {{ tab }}
+                    </button>
+
+                    <component v-bind:is="currentTabComponent" class="tab"></component>
+                </div>
             </div>
 
 
@@ -451,7 +482,7 @@
         var vm1 = new Vue({
             el: "#app1",
             data: {
-                msg:'',
+                msg: '',
                 message: "hello",
                 firstName: 'Foo',
                 lastName: "Bar",
@@ -514,7 +545,7 @@
         //测试computed计算属性
         console.log(vm1.fullNames)
         //调用方法测试===》》必须加括号
-        console.log(vm1.reversedMessage()+'000');
+        console.log(vm1.reversedMessage() + '000');
         //Class 与 Style 绑定------------------------------------------------------------------------------------------
         var vm2 = new Vue({
             el: "#app2",
@@ -895,7 +926,7 @@
         });
         //监听子组件事件 使用事件抛出一个值 可以使用 $emit 的第二个参数来提供这个值
         Vue.component('blog-postsons', {
-            props: [ 'p'], //`是 Esc键下面的键
+            props: ['p'], //`是 Esc键下面的键
             // $emit('enlarge-text',1) ===> 相当于 ('onEnlargeText',1)
             template: `   
             <div>
@@ -907,15 +938,15 @@
             `
         });
         //当用在组件上时，v-model 则会这样
-        Vue.component('custom-input',{
-            props:['value'],
-            template:`
+        Vue.component('custom-input', {
+            props: ['value'],
+            template: `
                 <input v-bind:value='value' v-on:input='$emit("input",$event.target.value)'>
             `
         });
         // 通过插槽分发内容
-        Vue.component('alert-box',{
-            template:`
+        Vue.component('alert-box', {
+            template: `
             <div>
                 <strong>卡槽的头部的内容</strong>
                 <slot></slot>
@@ -923,9 +954,15 @@
             `
         });
         // 动态组件
-        Vue.component('compponent',{
-
-        })
+        Vue.component("tab-home", {
+            template: "<div>Home component</div>"
+        });
+        Vue.component("tab-posts", {
+            template: "<div>Posts component</div>"
+        });
+        Vue.component("tab-archive", {
+            template: "<div>Archive component</div>"
+        });
         var vm7 = new Vue({
             el: "#app7",
             data: {
@@ -935,14 +972,23 @@
                     { id: 2, name: '烦烦烦', comments: '烦烦烦烦烦烦烦烦烦', age: 17, time: 2021 - 03 - 02 }
                 ],
                 postfontSize: 13,
-                searchTxt:'哈哈哈',
-                propTxt:'dddd',
+                searchTxt: '哈哈哈',
+                propTxt: 'dddd',
+                currentTab: "Home",
+                tabs: ["Home", "Posts", "Archive"],
             },
             methods: {
                 onEnlargeText: function (Amount) {
                     this.postfontSize += Amount;
                 }
             },
+            computed: {
+                //动态组件
+                currentTabComponent: function () {
+                    //toLowerCase 转换成小写
+                    return "tab-" + this.currentTab.toLowerCase();
+                }
+            }
         })
 
 

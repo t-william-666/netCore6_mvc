@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue组件</title>
+    <!-- 谷歌apiurl -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHbknPTCvUSgWwU0jJ68m4h6b7vpyP6hM"></script>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/Vue.js"></script>
+    <!-- <script src="./js/unpkg-1.7.0.js"></script>
+    <script src="./js/unpkg.js"></script> -->
 </head>
 <style>
     #font-20 {
@@ -18,13 +22,76 @@
         color: red;
         letter-spacing: 3px;
     }
+
+    .tab-button {
+        padding: 6px 10px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        background: #f0f0f0;
+        margin-bottom: -1px;
+        margin-right: -1px;
+    }
+
+    .tab-button:hover {
+        background: #e0e0e0;
+    }
+
+    .tab-button.active {
+        background: #e0e0e0;
+    }
+
+    .tab {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .posts-tab {
+        display: flex;
+        border: 1px solid #ccc;
+    }
+
+    .posts-sidebar {
+        max-width: 40vw;
+        margin: 0;
+        padding: 0 10px 0 0;
+        list-style-type: none;
+        border-right: 1px solid #ccc;
+
+    }
+
+    .posts-sidebar li {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .posts-sidebar li:hover {
+        background: #eee;
+    }
+
+    .posts-sidebar li.selected {
+        background: lightblue;
+    }
+
+    .selected-post-container {
+        padding-left: 10px;
+    }
+
+    .selected-post> :first-child {
+        margin-top: 0;
+        padding-top: 0;
+    }
 </style>
 
 <body>
 
     <!-- 深入了解组件 -->
+
+    <!-- 组件注册 -->
     <div id="app1">
-        <!-- 组件注册 -->
         <h3>组件注册</h3>
         <div>
             <!-- 组件名-大小写 -->
@@ -38,9 +105,11 @@
             <div>
                 <component-a></component-a>
             </div>
-            <!-- 局部注册—————！！！！！——————— -->
+            <!-- 局部注册 -->
             <div>
-
+                <blog-local></blog-local>
+                <blog-locals></blog-locals>
+                <blog-localss></blog-localss>
             </div>
         </div>
         <!-- Prop -->
@@ -75,8 +144,11 @@
         </div>
 
     </div>
+
     <!-- 自定义事件 -->
     <div id="app2">
+        <hr>
+        <h3>自定义事件</h3>
         <div>
             <!-- 事件名 父级的事件名不能使用大写(HTML大小写不敏感) -->
             <blog-event v-on:my-event="doSomething"></blog-event>
@@ -86,16 +158,198 @@
             <base-input v-on:click="onFocus"></base-input>
             <base-input v-on:click.native="onFocus"></base-input>
             <!-- .sync 修饰符---prop的进行“双向绑定” -->
-            <base-sync v-bind:title="titles" v-on:update.inputt="titles"></base-sync>
+            <base-sync v-bind:title="titles" v-on:update.title="$event"></base-sync>
+            <base-sync v-bind:title.sync="titles"></base-sync>
+
         </div>
     </div>
-    <div id="app3"></div>
-    <div id="app4"></div>
-    <div id="app5"></div>
+
+    <!-- 插槽 -->
+    <div id="app3">
+        <hr>
+        <h3>插槽</h3>
+        <div>
+            <!-- 卡槽内容  插槽内可以包含任何模板代码  -->
+            <navigation-link url="https://www.baidu.com/">Your Profile=>百度</navigation-link>
+            <navigation-link url="www.baidu.com"><span>HTML代码</span> Your Profile</navigation-link>
+            <!-- 编译作用域 该插槽跟模板的其它地方一样可以访问相同的实例 property 而不能访问 <navigation-link> 的作用域(即<navigation-link>的url访问不到，而可访问到property)-->
+            <navigation-link url="/profile">
+                Clicking here will send you to: {{ url }}
+            </navigation-link>
+            <!-- 后备内容 -->
+            <br>
+            <button-submit></button-submit>
+            <button-submit>保存(非后备内容)</button-submit><br>
+            <!-- 具名插槽 -->
+            <base-layout>
+                <template v-slot:head>这里是头部</template>
+                <div>这里是主要内容区域！！！！！！！！！！！</div>
+                <template v-slot:footer>
+                    <p>这里是尾部</p>
+                </template>
+            </base-layout>
+            <base-layout>
+                <template v-slot:head>这里是头部</template>
+                <template v-slot:default>
+                    <!-- 默认 v-slot:default -->
+                    <div>这里是主要内容区域！！！！！！！！！！！</div>
+                </template>
+                <template v-slot:footer>
+                    <p>这里是尾部</p>
+                </template>
+            </base-layout>
+            <!-- 作用域插槽---调用子组件的并使用数据 -->
+            <current-user>
+                <template v-slot:head="abc">{{abc.pp}}--{{abc.pp.frist}}</template>
+                <template v-slot:default="slotProps">
+                    {{ slotProps.cc}}--{{slotProps.cc}}
+                </template>
+                <!-- 独占默认插槽的缩写语法 -->
+                <template v-slot="props">独占默认插槽的缩写语法==>{{props.cc}}</template>
+            </current-user><br>
+            <!-- 解构插槽 Prop ==>结构子组件的ccc对象 -->
+            <current-user v-slot="{ccc}">
+                !!!结构子组件的ccc对象 {{ ccc.frist}}-{{ccc.last}} !!!
+            </current-user><br>
+            <!-- 解构插槽 Prop 对结构子组件ccc对象重命名 -->
+            <current-user v-slot="{ccc:theCcc}">
+                !!!对结构子组件ccc对象重命名 {{ theCcc.frist}}-{{theCcc.last}} !!!
+            </current-user><br>
+            <!-- 可以定义后备内容，用于插槽 prop 是 undefined 的情形 -->
+            <current-user v-slot="{ user = { firstName: 'firstName为undefined时，默认值' } }">
+                {{ user.firstName }}
+            </current-user><br>
+            <!-- 动态插槽名 -->
+            <current-user>
+                <template v-slot:[test]="ss">
+                    <span v-on:click="slotName">这是动态插槽 点击我 {{ss.pp}}</span>
+                </template>
+
+            </current-user><br>
+            <!-- 具名插槽的缩写  v-slot: 替换为字符 # -->
+            <current-user>
+                <template #head="abc">{{abc.pp}}--{{abc.pp.frist}}</template>
+                <template #default="slotProps">
+                    {{ slotProps.cc}}--{{slotProps.cc}}
+                </template>
+                <!-- 独占默认插槽的缩写语法 -->
+                <template v-slot="props">独占默认插槽的缩写语法==>{{props.cc}}</template>
+            </current-user>
+        </div>
+    </div>
+
+    <!-- 动态组件 & 异步组件 -->
+    <div id="app4">
+        <h3>动态组件 & 异步组件</h3>
+        <!-- 动态组件 -->
+        <div>
+            <!-- 在动态组件上 【没有使用】 keep-alive -->
+            <button v-for="tab in tabs" v-bind:class="['tab-button', { active: currentTab === tab }]"
+                v-on:click="currentTab = tab">
+                {{ tab }}
+            </button>
+            <!-- is属性（改变挂载的组件，只需要修改is指令的值即可。）根据 v-bind:is=“组件名” 中的组件名去自动匹配组件，如果匹配不到则不显示 -->
+            <component v-bind:is="currentTabComponent"></component>
+            <hr>
+            <!-- 在动态组件上【使用】 keep-alive  -->
+            <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['tab-button', { active: currentTab === tab }]"
+                v-on:click="currentTab = tab">
+                {{ tab }}
+            </button>
+            <!-- 使用keep-alive  现在这个 Posts 标签保持了它的状态  避免反复重渲染导致的性能问题 -->
+            <keep-alive>
+                <!-- is属性（改变挂载的组件，只需要修改is指令的值即可。）根据 v-bind:is=“组件名” 中的组件名去自动匹配组件，如果匹配不到则不显示 -->
+                <component v-bind:is="currentTabComponent"></component>
+            </keep-alive>
+
+            注意这个 <keep-alive> 要求被切换到的组件都有自己的名字，不论是通过组件的 name 选项还是局部/全局注册。
+        </div>
+        <!-- 异步组件 异步组件也是一个函数， 只不过这个函数使用Promise,函数有一个返回值 -->
+        <div>
+            <base-async></base-async>
+        </div>
+    </div>
+
+    <!-- 处理边界情况 -->
+    <div id="app5">
+        <h3>处理边界情况</h3>
+        <!-- 访问元素 & 组件 -->
+        <div>
+            <!-- 访问根实例 -->
+            <base-root></base-root><br>
+            <!-- 访问父级组件实例 -->
+            <!-- 因为要用到谷歌的api，在国内无法使用会报错，所以注释该组件 -->
+            <!-- <google-map>
+                <google-map-marker v-bind:places="vueConfCities"></google-map-marker>
+            </google-map> -->
+
+            <!-- 访问子组件实例或子元素 ref="refdata" 用于获取子组件的数据 -->
+            <base-ref ref="refdata"> <span v-on:click="sonRef">点击我获取子组件元素</span>--{{refson}}</base-ref>
+            <!-- 依赖注入 它用到了两个新的实例选项：provide 和 inject -->
+            <!-- 因为要用到谷歌的api，在国内无法使用会报错，所以注释该组件 -->
+            <!-- <google-mapss>
+                <google-map-markerss v-bind:places="vueConfCities"></google-map-markerss>
+            </google-mapss> -->
+        </div>
+        <!-- 程序化的事件侦听器(兄弟组件之间的数据流动) --> <br>
+        <button v-on:click="handle">销毁事件$off</button>
+        <base-aaa></base-aaa>
+        <base-bbb></base-bbb>
+        <p id="">
+            <input ref="dateInput" v-model="date" type="date" />
+        </p>
+        <!-- 递归组件 -->
+        <base-name-my-component v-bind:num="1">我是递归组件</base-name-my-component>
+        <!-- 组件之间的循环引用 -->
+        <tree-folder-contents v-bind:childrens="folders"></tree-folder-contents>
+        <!-- 内联模板 inline-template 组件添加inline-template 并在组件内写HTML代码 -->
+        <base-inline inline-template>
+            <div>
+                <p>我是内联模板添加的内容：
+                    Hipster Ipsum
+                    Bushwick blue bottle scenester helvetica ugh, meh four loko. Put a bird on it lumbersexual franzen
+                    shabby chic,
+                    street art knausgaard trust fund shaman scenester live-edge mixtape taxidermy viral yuccie
+                    succulents. Keytar poke bicycle rights,
+                    crucifix street art neutra air plant PBR&B hoodie plaid venmo. Tilde swag art party fanny pack vinyl
+                    letterpress venmo jean shorts
+                    offal mumblecore. Vice blog gentrify mlkshk tattooed occupy snackwave, hoodie craft beer next level
+                    migas 8-bit chartreuse. Trust fund
+                    food truck drinking vinegar gochujang.
+                </p>
+            </div>
+        </base-inline>
+        <!-- X-Template -->
+        <base-x-template></base-x-template>
+        <!-- 强制更新 vm.$forceUpdate() -->
+        <base-update></base-update>
+        <!-- 通过 v-once 创建低开销的静态组件 -->
+        <base-once></base-once>
+    </div>
+
+
     <div id="app6"></div>
 
+    <script type="text/x-template" id="hello-world-template">
+        <p>Hello hello hello 这是一个写在 script 内 type="text/x-template" (必须写在Vue实例之前，否则组件找不到该模板) 的模板</p>
+    </script>
+
     <script>
-        //// 注册组件
+        //// 注册组件-------------------------------------------------------------------------
+        //局部注册 写在Vue实例里面 或 使用外部定义对象作为组件内容
+        var locals = {
+            template: `
+            <div>
+                我是局部组件（{{pp}}）
+            </div>
+            `,
+            props: [''],
+            data: function () {
+                return {
+                    pp: '外部定义对象作为组件内容'
+                }
+            }
+        }
         // 小写使用-建议使用小写
         Vue.component('my-component-name', {
             template: `
@@ -112,27 +366,33 @@
             </div>
             `
         });
-        //全局注册
+        //全局注册      
         Vue.component('component-a', {
             template: `
             <div>
                 我是全局注册组件，通过 Vue.component 创建组件
+                <blog-aa></blog-aa>
             </div>
-            `
+            `,
+            components: {
+                'blog-aa': locals,
+            }
         });
-        //局部注册——————————————————！！！！！——————————————————————————
-        var componentA = {
-            components: {
-
+        //局部注册 写在Vue实例里面 或 使用外部定义对象作为组件内容
+        var localss = {
+            template: `
+            <div>
+                我是局部组件（{{pp}}）
+            </div>
+            `,
+            props: [''],
+            data: function () {
+                return {
+                    pp: '外部定义对象作为组件内容sssssss'
+                }
             }
-        };
-        var componentB = {
-            components: {
-
-            }
-        };
-
-        ////porp
+        }
+        ////porp---------------------------------strat----------------------------------------
         //prop的大小写
         Vue.component('prop-max', {
             template: `
@@ -250,16 +510,10 @@
             `
         })
 
-        ////porp--------------------------------------------------------------------------
+        ////porp--------------------------------end------------------------------------------
         var vm1 = new Vue({
             el: "#app1",
             data: {
-                //局部组件
-                components: {
-                    // 'component-a' : 局部组件
-                    'component-a': componentA,
-                    'component-b': componentB,
-                },
                 ////prop
                 propmax: '大写',
                 propmin: '小写',
@@ -297,10 +551,27 @@
                     p.firstName = '1类型检查(验证)1';
                     return p;
                 }
+            },
+            components: {//局部组件
+                'blog-local': {
+                    template: `
+                    <div>我是一个局部组件111{{localtxt}}</div>
+                    `,
+                    props: [''],
+                    data: function () {
+                        return {
+                            localtxt: '写在components内',
+                        }
+                    }
+                },
+                'blog-locals': locals,
+                'blog-localss': localss,
             }
         });
 
-        ////自定义事件
+
+
+        ////自定义事件---------------------------start--------------------------------------
         //事件名 父级的事件名不能使用大写(HTML大小写不敏感)
         Vue.component('blog-event', {
             template: `
@@ -382,27 +653,33 @@
                 </label>
             `
         })
-        //.sync 修饰符---prop的进行“双向绑定”
-        Vue.component('base-sync',{
-            props:['title',''],
-            template:`
-            <div>
-                <p>{{title}} <input v-bind:value='title' v-on:input="$emit('inputt', $event.target.title)"></p>
+        //.sync 修饰符---prop的进行“双向绑定” 双向数据绑定，子组件改变的时候，父组件也在改变
+        Vue.component('base-sync', {
+            props: ['title'],
+            template: `
+            <div> 
+                <p>{{title}} <span v-on:click='show'>点击我执行{{title}} </span> </p>
             </div>
-            `
+            `,
+            methods: {
+                show: function () {
+                    this.$emit('update:title', 'title值修改')
+                }
+            }
         })
-        ////自定义事件-----------------------------------------------------------------
+
+        ////自定义事件---------------------------end--------------------------------------
         var vm2 = new Vue({
             el: "#app2",
             data: {
                 loveVal: '自定义组件的 v-model',
-                titles:'sync 修饰符'
+                titles: 'sync 修饰符'
             },
             methods: {
                 doSomething: function () {
                     alert('事件名');
                 },
-                onFocus:function(){
+                onFocus: function () {
                     alert("qq");
                 }
 
@@ -411,7 +688,565 @@
         })
 
 
+
+        ////插槽--------------------------------start------------------------------------
+        //插槽内容
+        Vue.component('navigation-link', {//template 中没有包含一个 <slot> 元素，则该组件起始标签和结束标签之间的任何内容都会被抛弃
+            template: `
+            <a v-bind:href='url'>
+                <slot></slot>
+            </a>
+            `,
+            props: ['url']
+        });
+        // 后备内容
+        Vue.component('button-submit', {
+            template: `
+                <button>
+                    <slot>提交(后备内容)</slot>
+                </button>
+            `,
+        });
+        //具名插槽
+        Vue.component('base-layout', {
+            template: `
+            <div class="container">
+                <header>
+                    <slot name="head"></slot>
+                </header>
+                <main>
+                    <slot></slot>
+                </main>
+                <footer>
+                    <slot name="footer"></slot>
+                </footer>
+            </div>
+            `,
+        });
+        // 作用域插槽 ---调用子组件的数据
+        Vue.component('current-user', {
+            data: function () {
+                return {
+                    theUsers: {
+                        frist: 'eeeee',
+                        last: 'ccccc',
+                    },
+                    num: 123456,
+                }
+
+            },
+            template: `
+            <span>
+                <slot name='head' v-bind:pp="theUsers"></slot>
+
+                <slot name='lookAtMe' v-bind:pp="num"></slot>
+
+                <slot v-bind:cc="num" v-bind:ccc="theUsers"></slot>
+            </span>
+            `,
+        });
+
+        ////插槽--------------------------------end--------------------------------------
+        var vm3 = new Vue({
+            el: "#app3",
+            data: {
+                url: 'https://www.google.com',
+                users: {
+                    fristName: '11111',
+                    lastName: '22222',
+                },
+                test: 'head',
+
+            },
+            methods: {
+                slotName: function () {
+                    this.test = 'lookAtMe';
+                }
+            },
+            computed: {
+
+            },
+            watch: {
+
+            }
+        })
+
+
+
+        ////动态组件 & 异步组件-----------------strat-------------------------------------
+        //posts组件
+        Vue.component("tab-posts", {
+            data: function () {
+                return {
+                    posts: [
+                        {
+                            id: 1,
+                            title: "Cat Ipsum",
+                            content:
+                                "<p>Dont wait for the storm to pass, dance in the rain kick up litter decide to want nothing to do with my owner today demand to be let outside at once, and expect owner to wait for me as i think about it cat cat moo moo lick ears lick paws so make meme, make cute face but lick the other cats. Kitty poochy chase imaginary bugs, but stand in front of the computer screen. Sweet beast cat dog hate mouse eat string barf pillow no baths hate everything stare at guinea pigs. My left donut is missing, as is my right loved it, hated it, loved it, hated it scoot butt on the rug cat not kitten around</p>"
+                        },
+                        {
+                            id: 2,
+                            title: "Hipster Ipsum",
+                            content:
+                                "<p>Bushwick blue bottle scenester helvetica ugh, meh four loko. Put a bird on it lumbersexual franzen shabby chic, street art knausgaard trust fund shaman scenester live-edge mixtape taxidermy viral yuccie succulents. Keytar poke bicycle rights, crucifix street art neutra air plant PBR&B hoodie plaid venmo. Tilde swag art party fanny pack vinyl letterpress venmo jean shorts offal mumblecore. Vice blog gentrify mlkshk tattooed occupy snackwave, hoodie craft beer next level migas 8-bit chartreuse. Trust fund food truck drinking vinegar gochujang.</p>"
+                        },
+                        {
+                            id: 3,
+                            title: "Cupcake Ipsum",
+                            content:
+                                "<p>Icing dessert soufflé lollipop chocolate bar sweet tart cake chupa chups. Soufflé marzipan jelly beans croissant toffee marzipan cupcake icing fruitcake. Muffin cake pudding soufflé wafer jelly bear claw sesame snaps marshmallow. Marzipan soufflé croissant lemon drops gingerbread sugar plum lemon drops apple pie gummies. Sweet roll donut oat cake toffee cake. Liquorice candy macaroon toffee cookie marzipan.</p>"
+                        }
+                    ],
+                    selectedPost: null
+                };
+            },
+            template: `
+                <div class="posts-tab">
+                    <ul class="posts-sidebar">
+                        <li
+                        v-for="post in posts"
+                        v-bind:key="post.id"
+                        v-bind:class="{ selected: post === selectedPost }"
+                                    v-on:click="selectedPost = post"
+                        >
+                        {{ post.title }}
+                        </li>
+                    </ul>
+                    <div class="selected-post-container">
+                        <div
+                            v-if="selectedPost"
+                        class="selected-post"
+                        >
+                        <h3>{{ selectedPost.title }}</h3>
+                        <div v-html="selectedPost.content"></div>
+                        </div>
+                        <strong v-else>
+                        Click on a blog title to the left to view it.
+                        </strong>
+                    </div>
+                </div>
+            `
+        });
+        //archive组件
+        Vue.component("tab-archive", {
+            template: "<div>Archive component</div>"
+        });
+        //异步组件 异步组件也是一个函数， 只不过这个函数使用Promise,函数有一个返回值
+        Vue.component('base-async', function (resolve, reject) {
+            setTimeout(function () {
+                resolve({
+                    template: `
+                        <div>
+                            我是异步组件
+                        </div>
+                    `
+                })
+            }, 1000);
+
+        });
+        Vue.component('async-webpack-example', function (resolve) {
+            // 这个特殊的 `require` 语法将会告诉 webpack
+            // 自动将你的构建代码切割成多个包，这些包
+            // 会通过 Ajax 请求加载
+            require(['./my-async-component'], resolve)
+        });
+
+        ////动态组件 & 异步组件-----------------end---------------------------------------
+        var vm4 = new Vue({
+            el: "#app4",
+            data: {
+                currentTab: "Posts",
+                tabs: ["Posts", "Archive"],
+                sync: { id: 1, name: '', comment: '' },
+                async: {},
+            },
+            computed: {
+                currentTabComponent: function () {
+                    return "tab-" + this.currentTab.toLowerCase();
+                }
+            },
+            //当使用局部注册的时候，你也可以直接提供一个返回 Promise 的函数：
+            components: {
+                'my-component': () => import('./my-async-component')
+            },
+        })
+
+
+
+        ////处理边界情况------------------------start-------------------------------------
+        //访问根实例
+        Vue.component('base-root', {
+            template: `
+                <div>
+                    {{a}}--{{b}}--{{c}}--{{d}}
+                </div>
+            `,
+            data: function () {
+                return {
+                    // 获取根组件的数据
+                    a: this.$root.foo,
+                    // 调用根组件的方法
+                    b: this.$root.bar(),
+                    // 访问根组件的计算属性
+                    c: this.$root.baz,
+                    //写入根组件的数据(重新赋值)
+                    d: this.$root.foos = 666,
+                }
+            }
+        });
+        //访问父级组件实例
+        Vue.component("google-map", {
+            data: function () {
+                return {
+                    map: null
+                };
+            },
+            mounted: function () {
+                this.map = new google.maps.Map(this.$el, {
+                    center: { lat: 0, lng: 0 },
+                    zoom: 1
+                });
+            },
+            methods: {
+                getMap: function (found) {
+                    var vm = this;
+                    function checkForMap() {
+                        if (vm.map) {
+                            found(vm.map);
+                        } else {
+                            setTimeout(checkForMap, 50);
+                        }
+                    }
+                    checkForMap();
+                }
+            },
+            template: '<div class="map"><slot></slot></div>'
+        });
+        Vue.component("google-map-marker", {
+            props: ["places"],
+            created: function () {
+                var vm = this;
+                vm.$parent.getMap(function (map) {//获取父级组件的getMap函数实例
+                    vm.places.forEach(function (place) {
+                        new google.maps.Marker({
+                            position: place.position,
+                            map: map
+                        });
+                    });
+                });
+            },
+            render(h) {
+                return null;
+            }
+        });
+        //访问子组件实例或子元素
+        Vue.component('base-ref', {
+            template: `
+                <div>
+                    <slot></slot>
+                </div>
+            `,
+            data: function () {
+                return {
+                    theRef: '我是子组件的元素',
+                    retTxt: '',
+                }
+            },
+            methods: {
+                test: function () {
+                    return retTxt = '我是子组件的函数方法';
+                }
+            }
+
+        })
+        //依赖注入 它用到了两个新的实例选项：provide 和 inject
+        Vue.component("google-mapss", {
+            // ++++++ (provide) 选项允许我们指定我们想要提供给后代组件的数据/方法 ++++++
+            provide: function () { ///用于传递给后代组件的数据or函数方法
+                return {
+                    getMap: this.getMap
+                };
+            },
+            data: function () {
+                return {
+                    map: null
+                };
+            },
+            mounted: function () {
+                this.map = new google.maps.Map(this.$el, {
+                    center: { lat: 0, lng: 0 },
+                    zoom: 1
+                });
+            },
+            methods: {
+                getMap: function (found) {
+                    var vm = this;
+                    function checkForMap() {
+                        if (vm.map) {
+                            found(vm.map);
+                        } else {
+                            setTimeout(checkForMap, 50);
+                        }
+                    }
+                    checkForMap();
+                }
+            },
+            template: '<div class="map"><slot></slot></div>'
+        });
+        Vue.component("google-map-markerss", {
+            //  ++++++ (inject) 选项来接收指定的我们想要添加在这个实例上(父级组件的数据/方法) ++++++
+            inject: ["getMap"], ///用于接受父级的数据or函数方法
+            props: ["places"],
+            created: function () {
+                var vm = this;
+                vm.getMap(function (map) {
+                    vm.places.forEach(function (place) {
+                        new google.maps.Marker({
+                            position: place.position,
+                            map: map
+                        });
+                    });
+                });
+            },
+            render(h) {
+                return null;
+            }
+        });
+        //程序化的事件侦听器(兄弟组件之间的数据流动)
+        var hub = new Vue();//提供事件中心
+        Vue.component('base-aaa', {
+            template: `
+                <div>
+                    <p>{{count}}--{{txt}}--{{test}} <button v-on:click="changes">将数据传给b</button> </p>
+                </div>
+            `,
+            data: function () {
+                return {
+                    count: '这里是组件base-aaa',
+                    txt: '我是组件base-aaa的数据',
+                    test: '这里的数据会发生变化！！！',
+                }
+            },
+            methods: {
+                changes: function () {
+                    hub.$emit('aaaData', this.txt);
+                }
+            },
+            mounted: function () {
+                hub.$on('bbbData', (val) => {
+                    this.test = val;
+                })
+            },
+        })
+        Vue.component('base-bbb', {
+            template: `
+                <div>
+                    <p>{{count}}--{{txt}}--{{test}}<button v-on:click="changes">将数据传给a</button> </p>
+                </div>
+            `,
+            data: function () {
+                return {
+                    count: '这里是组件base-bbb',
+                    txt: '我是组件base-bbb的数据',
+                    test: '这里的数据会发生变化！！！',
+                }
+            },
+            methods: {
+                changes: function () {
+                    hub.$emit('bbbData', this.txt);
+                }
+            },
+            mounted: function () {
+                hub.$on('aaaData', (val) => {
+                    this.test = val;
+                })
+            },
+        })
+        //递归组件 组件将会导致“max stack size exceeded”错误，所以请确保递归调用是条件性的 (例如使用一个最终会得到 false 的 v-if)。
+        Vue.component('base-name-my-component', {
+            name: 'stack-overflows',
+            props: {
+                num: {
+                    type: Number,
+                    default: 1,
+                }
+            },
+            data: function () {
+                return {
+                    count: this.num,
+                }
+            }, //<stack-overflows v-bind:count="count+=1"  v-if="count!=3">{{count}}我是递归组件</stack-overflows>
+            template: `
+            <div>
+                递归组件{{count}}--{{num}}--------------------------------------------
+                <stack-overflows v-if="count!=1">{{count}}我是递归组件</stack-overflows>
+            </div>
+            `,
+
+        });
+        //组件之间的循环引用
+        Vue.component('tree-folder', {//创建子组件   嵌套父组件 tree-folder-contents 
+            template: `
+            <p>
+                <span>{{ folder.name }}</span>
+                <tree-folder-contents :childrens="folder.children"></tree-folder-contents>
+            </p>
+            `,
+            props: ['folder']
+        });
+        Vue.component('tree-folder-contents', { //创建父组件  嵌套子组件 tree-folder 
+            template: `
+            <ul>
+                <li v-for="child in childrens">
+                    <tree-folder v-if="child.children" :folder="child"></tree-folder>
+                    <span v-else>{{ child.name }}</span>
+                </li>
+            </ul>
+            `,
+            props: ['childrens']
+        });
+        //内联模板 模板定义的替代品
+        Vue.component('base-inline', {
+            template: `
+            <div>
+                <p>这是一个有内联模板的组件</p>
+            </div>
+            `
+        })
+        //X-Template
+        Vue.component('base-x-template', {
+            template: `#hello-world-template`
+        })
+        //强制更新 vm.$forceUpdate()
+        Vue.component('base-update', {
+            template: `
+            <div>
+                <p><input v-bind:txt='thetxt' @change="txtchange(this)"> {{thetxt}}我被强制更新了。。。呜呜呜。。。</p>
+            </div>
+            `,
+            props: ['txt'],
+            data: function () {
+                return {
+                    thetxt: '',
+                }
+            },
+            methods: {
+                txtchange: function (obj) {
+                    this.thetxt = obj;
+                    console.log(obj);
+                    //强制更新
+                    this.$forceUpdate();
+                }
+            }
+        })
+        //通过 v-once 创建低开销的静态组件
+        Vue.component('base-once', {
+            template: `
+            <div v-once>
+                <p>... a lot of static content ...通过 v-once 创建低开销的静态组件</p>
+            </div>
+            `,
+        })
+
+        ////处理边界情况------------------------end---------------------------------------
+        var vm5 = new Vue({
+            el: "#app5",
+            data: {
+                // 访问元素 & 组件
+                foo: 1,
+                foos: 555,
+                vueConfCities: [
+                    { name: "Wrocław", position: { lat: 51.107885, lng: 17.038538 } },
+                    { name: "New Orleans", position: { lat: 29.951066, lng: -90.071532 } }
+                ],
+                refson: '子元素',
+                date: '',
+                folders: [
+                    { name: '1' },
+                    { name: '2', children: [{ name: '2-1' }, { name: '2-2', children: [{ name: '2-2-1' }, { name: '2-2-2' }] }, { name: '2-3', children: [{ name: '2-3-1' }, { name: '2-3-2' }, { name: '2-3-3' }] }] },
+                    { name: '3', children: [{ name: '3-1' }, { name: '3-2' }, { name: '3-3' }] }
+                ],
+            },
+            methods: {//函数方法
+                bar: function () {
+                    return '我是根组件函数方法';
+                },
+                // 访问子组件实例或子元素
+                sonRef: function () {//获取子组件的元素或函数
+                    console.log(this.$refs.refdata.theRef);//元素
+                    console.log(this.$refs.refdata.test());//函数
+                    this.refson = this.$refs.refdata.theRef;
+
+                },
+                //程序化的事件侦听器
+                handle: function () {
+                    //销毁移除自定义事件
+                    hub.$off('aaaData');
+                    hub.$off('bbbData');
+                },
+                //强制更新 vm.$forceUpdate()
+                theUpdate: function () {
+                    //获取子组件的thetxt数据
+                    //this.#refs.theup.thetxt='1111';
+                    this.$forceUpdate();
+                }
+            },
+            computed: {//计算属性
+                baz: function () {
+                    return '我是根组件计算属性';
+                },
+            },
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////------------------------------------------<=箭头函数=>-----------------------------------------------------
+        //无参数  括号可以省略；但是没有参数时，括号不可以省略
+        var a = function () {
+            return 'hello';
+        }
+        var a = () => {
+            return 'hello';
+        }
+        //一个参数 括号可以省略；但是没有参数时，括号不可以省略
+        var b = function (a) {
+            return a + 1;
+        }
+        var b = a => {
+            return a + 1;
+        }
+        var b = (a) => {
+            return a + 1;
+        }
+        //多个参数
+        var c = function (a, b) {
+            return a + b;
+        }
+        var c = (a, b) => {
+            return a + b;
+        }
+        //如果返回一个对象，需要特别注意 单表达式要返回自定义对象，不写括号会报错，因为和函数体的{ ... }有语法冲突
+        X => { key: 1 };//报错 返回的是对象
+        x => ({ key: 1 });//正确
     </script>
+
+
 </body>
 
 </html>

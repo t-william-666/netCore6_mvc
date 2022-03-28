@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue的过渡&动画</title>
+    <!-- 引入动画样式 -->
+    <link rel="stylesheet" href="./css/animate.css">
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/Vue.js"></script>
+    <!-- Loash.js是一个一致性、模块化、高性能的 JavaScript 实用工具库。通过降低 array、number、objects、string 等等的使用难度从而让 JavaScript 变得更简单。 -->
+    <script src="./js/ladash.min.js"></script>
+    <!-- Velocity 是一个简单易用、高性能、功能丰富的轻量级JS动画库。它能和 jQuery 完美协作，并和$.animate()有相同的 API， 但它不依赖 jQuery，可单独使用。 -->
+    <script src="./js/velocity.min.js"></script>
+    <!-- GSAP JS顾名思义是指GSAP的js版本，GSAP JS是GreenSock公司新出的一个2D动画引擎，可以说是AS版本的移植版，虽然功能还不够AS版本的完善，
+        但是一样是非常强大、高效、好用的，据说它的运行速度是JQuery的20倍（想测试的同学可以点这里）。当然，这是说动画方面的，
+        jQery也有自己的强大之处（比如jQuery强大的选择器） -->
+    <script src="./js/gsap.min.js"></script>
+    <!-- TweenJS是使用JavaScript中的一个简单的补间动画库。它的开发与EaselJS库很好的整合，但不依赖于或特定于它。 它支持数字对象的属性和CSS样式属性赋值。 -->
+    <script src="./js/tween.js"></script>
+    <!-- 颜色转换插件 -->
+    <script src="./js/color.js"></script>
+
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+            transform: translateX(10px);
+        }
+
+        /* .fade-leave-active below version 2.1.8 */
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+
+        /* css过度 */
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+
+        .slide-fade-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+
+        /* .slide-fade-leave-active for below version 2.1.8 */
+        .slide-fade-enter,
+        .slide-fade-leave-to {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+
+        /* css动画 */
+        .bounce-enter-active {
+            animation: bounce-in .5s;
+        }
+
+        .bounce-leave-active {
+            animation: bounce-in .5s reverse;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .myfade-enter，.myfade-leave-to {
+            opacity: 3;
+        }
+
+        .myfade-enter-active,
+        .myfade-leave-active {
+            transition: opacity 5s;
+            color: blueviolet;
+            color: fuchsia
+        }
+
+        .component-fade-enter-active,
+        .component-fade-leave-active {
+            transition: opacity .3s ease;
+        }
+
+        /* .component-fade-leave-active for below version 2.1.8 */
+        .component-fade-enter,
+        .component-fade-leave-to {
+            opacity: 0;
+        }
+
+        .list-item {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .list-enter-active,
+        .list-leave-active {
+            transition: all 1s;
+        }
+
+        /* .list-leave-active for below version 2.1.8 */
+        .list-enter,
+        .list-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .flip-list-move {
+            transition: transform 1s;
+        }
+
+        .list-complete-item {
+            transition: all 1s;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* .list-complete-leave-active for below version 2.1.8 */
+        .list-complete-enter,
+        .list-complete-leave-to {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .list-complete-leave-active {
+            position: absolute;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+
+        svg {
+            display: block;
+        }
+
+        polygon {
+            fill: #41b883;
+        }
+
+        circle {
+            fill: transparent;
+            stroke: #35495e;
+        }
+
+        input[type="range"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .no-mode-translate-demo-wrapper {
+            position: relative;
+            height: 18px;
+        }
+
+        .no-mode-translate-demo-wrapper button {
+            position: absolute;
+        }
+
+        .no-mode-translate-fade-enter-active,
+        .no-mode-translate-fade-leave-active {
+            transition: all 1s;
+        }
+
+        .no-mode-translate-fade-enter,
+        .no-mode-translate-fade-leave-active {
+            opacity: 0;
+        }
+
+        .no-mode-translate-fade-enter {
+            transform: translateX(31px);
+        }
+
+        .no-mode-translate-fade-leave-active {
+            transform: translateX(-31px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app1">
+        <!-- 单元素/组件的过渡 -->
+        <div>
+            <button v-on:click="isState = !isState">切换(Toggle)</button>
+            <transition name="fade">
+                <p v-if="isState"> hello!你好 </p>
+            </transition>
+        </div>
+        <!-- 过渡的类名 -->
+        <div>
+            <p>在进入/离开的过渡中，会有 6 个 class 切换。</p>
+
+            <p>v-enter：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</p>
+
+            <p>v-enter-active：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</p>
+
+            <p>v-enter-to：2.1.8 版及以上定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。</p>
+
+            <p>v-leave：定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。</p>
+
+            <p>v-leave-active：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</p>
+
+            <p>v-leave-to：2.1.8 版及以上定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。</p>
+        </div>
+        <!-- CSS 过渡 -->
+        <div>
+            <button v-on:click="isfade = !isfade">切换渲染(Toggle render)</button>
+            <transition name="slide-fade">
+                <p v-if="isfade"> hello!你好 </p>
+            </transition>
+        </div>
+        <!-- CSS 动画 -->
+        <div>
+            <button v-on:click="isbounce = !isbounce">切换动画(Toggle show)</button>
+            <transition name="bounce">
+                <p v-if="isbounce">如果他正在受苦，他将被视为帮助他。因为男孩对他的孩子来说很容易，花边是一粒谷粒，小球是活在死人里的，他三岁了，很干净。</p>
+            </transition>
+        </div>
+        <!-- 自定义过渡的类名 -->
+        <div>
+            <button @click="istada = !istada">切换渲染(Toggle render)</button>
+            <transition name="custom-classes-transition" enter-active-class="animated tada"
+                leave-active-class="animated bounceOutRight">
+                <p v-if="istada">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+                    diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+            </transition>
+        </div>
+        <!-- 同时使用过渡和动画  过度name="myfade" 动画  enter-active-class="animated tada " leave-active-class="animated  bounceOutUp"-->
+        <div>
+            <button @click="isamin = !isamin"> 同时使用过渡和动画-切换渲染(Toggle render)</button>
+            <transition name="myfade" type="transition" enter-active-class="animated tada myfade-enter-active"
+                leave-active-class="animated  bounceOutUp myfade-leave-active">
+                <p v-if="isamin">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+                    diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+            </transition>
+        </div>
+        <!-- 显性的过渡持续时间 -->
+        <div>
+            <button v-on:click="isduration=!isduration">显性的过渡持续时间-切换渲染(Toggle render)</button>
+            <transition v-bind:duration="2000">
+                <p v-if="isduration">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+                    diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+            </transition>
+            <transition v-bind:duration="{enter:1000,leave:1200}">
+                <p v-if="isduration">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+                    diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+            </transition>
+        </div>
+        <!-- JavaScript 钩子 -->
+        <div>
+            <button v-on:click="isjss=!isjss">JavaScript 钩子-切换渲染(Toggle render)</button>
+            <transition v-bind:duration="2000" v-on:before-enter="beforeEnter" v-on:enter="enter"
+                v-on:after-enter="afterEnter" v-on:enter-cancelled="enterCancelled" v-on:before-leave="beforeLeave"
+                v-on:leave="leave" v-on:after-leave="afterLeave" v-on:leave-cancelled="leaveCancelled">
+                Lorem ipsum dolor sit amet
+                <p v-if="isjss">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+                    diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+            </transition>
+        </div>
+        <!-- 初始渲染的过渡 appear -->
+        <div>
+            <button v-on:click="isappear=!isappear">初始渲染的过渡 刷新进来的动画</button>
+            <transition appear appear-class="animated pulse" appear-to-class="animated bounceOutDown"
+                appear-active-class="animated">
+                <p v-if="isappear">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia
+                    diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.
+                </p>
+            </transition>
+        </div>
+        <!-- 多个元素的过渡 -->
+        <div>
+            <!--  -->
+            <transition>
+                <button v-if="isEditing" key="save">
+                    Save
+                </button>
+                <button v-else key="edit">
+                    Edit
+                </button>
+            </transition>
+            <!-- 使用三元运算符 -->
+            <transition>
+                <button v-bind:key="isEditing">
+                    {{ isEditing ? 'Save' : 'Edit' }}
+                </button>
+            </transition>
+            <!-- 使用多个 v-if 的多个元素的过渡 -->
+            <transition>
+                <button v-if="docState === 'saved'" key="saved">
+                    多个元素的过渡 Edit
+                </button>
+                <button v-if="docState === 'edited'" key="edited">
+                    多个元素的过渡 Save
+                </button>
+                <button v-if="docState === 'editing'" key="editing">
+                    多个元素的过渡 Cancel
+                </button>
+            </transition>
+            <!-- 重写 使用计算属性 -->
+            <transition>
+                <button v-bind:key="docState">
+                    多个元素的过渡 重写 {{ buttonMessage }}
+                </button>
+            </transition>
+        </div><br>
+        <!-- 过渡模式 必须加key，否则无效 -->
+        <div class="no-mode-translate-demo-wrapper">
+            <transition  mode="out-in" enter-active-class="animated bounceOutDown"
+                leave-active-class="animated bounceOutRight">
+                <button v-on:click="changeout" key="on" v-if="isout=='on'">过渡模式on</button>
+                <button v-on:click="changeout" key="off" v-else>过渡模式off</button>
+            </transition>
+        </div>
+        <!-- 多个组件的过渡 -->
+        <div>
+            <P>
+                <input type="radio" id="a" value="v-a" v-model="view">
+                <label for="a">A组件的过渡</label>
+                <input type="radio" id="b" value="v-b" v-model="view">
+                <label for="b">B组件的过渡</label>
+            </P>
+            <transition name="component-fade" mode="out-in" enter-active-class="animated tada">
+                <component v-bind:is="view"></component>
+            </transition>
+        </div>
+        <!-- 列表过渡 Telerik.Web.UI.WebResource.axd-->
+        <div>
+            <!-- 列表的进入/离开过渡 -->
+            <div>
+                <button v-on:click="add">添加</button>
+                <button v-on:click="remove">移除</button>
+                <!-- transition-group tag="p" 表示生成p标签-->
+                <transition-group tag="p" mode="out-in" enter-active-class="animated tada"
+                    leave-active-class="animated bounceOutLeft">
+                    <span v-for="item in items" v-bind:key="item" class="list-item">
+                        {{ item }}
+                    </span>
+                </transition-group>
+            </div>
+            <!-- 列表的排序过渡 -->
+            <div>
+                <button v-on:click="shuffle">排序</button>
+                <!-- transition-group tag="ul" 表示生成ul标签-->
+                <transition-group name="flip-list" tag="ul">
+                    <li v-for="item in items" v-bind:key="item">
+                        {{ item }}
+                    </li>
+                </transition-group>
+            </div>
+            <div>
+                <button v-on:click="shuffle">排序</button>
+                <button v-on:click="add">添加</button>
+                <button v-on:click="remove">移除</button>
+                <!-- transition-group tag="p" 表示生成p标签-->
+                <transition-group name="list-complete" tag="p">
+                    <span v-for="item in items" v-bind:key="item" class="list-complete-item">
+                        {{ item }}
+                    </span>
+                </transition-group>
+            </div>
+            <!-- 列表的交错过渡 -->
+            <div>
+                <input v-model="query">
+                <transition-group tag="ul" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter"
+                    v-on:leave="leave">
+                    <li v-for="(item, index) in computedList" v-bind:key="item.msg" v-bind:data-index="index">
+                        {{item.msg }}
+                    </li>
+                </transition-group>
+            </div>
+        </div>
+        <!-- 可复用的过渡 需要大量的实例略 -->
+        <div>
+            <my-special-transition>
+                <template v-slot:default>
+                    <div>
+                        可复用的过渡即写在组件内
+                    </div>
+                </template>
+            </my-special-transition>
+        </div>
+        <!-- 动态过渡 -->
+        <div>
+            Fade In(显示的时间): <input type="range" v-model="fadeInDuration" min="0" v-bind:max="maxFadeDuration">
+            Fade Out(隐藏的时间): <input type="range" v-model="fadeOutDuration" min="0" v-bind:max="maxFadeDuration">
+            <transition v-bind:css="false" v-on:before-enter="beforeEnters" v-on:enter="enters" v-on:leave="leaves">
+                <p v-if="shows">hello</p>
+            </transition>
+            <button v-if="stop" v-on:click="stop = false; shows = false">开始动画</button>
+            <button v-else v-on:click="stop = true">停止动画!</button>
+        </div>
+        <!-- 状态过度 -->
+        <div>
+            <!-- 状态动画与侦听器 -->
+            <div>
+                <input type="text" v-model.number="numbers" step="20">
+                <p>{{AnimationNumber}}</p><br>
+                <div>
+                    <input type="text" v-model="colorQuery" v-on:keyup.enter><button
+                        v-on:click="updateColor">确定</button>
+                    <div class="box" v-bind:style="{backgroundColor: tweenedCssColor}">
+
+                    </div>
+                    <p>{{colors}}--{{tweenedColor}}</p>
+                </div>
+            </div>
+            <!-- 动态状态过渡 -->
+            <div>
+
+                <!-- 浏览VueAnimate2.html -->
+
+            </div>
+            <!-- 把过渡放到组件里 -->
+            <div>
+                <input v-model.number="firstNumber" type="number" step="20"> +
+                <input v-model.number="secondNumber" type="number" step="20"> =
+                {{ result }}
+                <p>
+                    <animated-integer v-bind:value="firstNumber"></animated-integer> +
+                    <animated-integer v-bind:value="secondNumber"></animated-integer> =
+                    <animated-integer v-bind:value="result"></animated-integer>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // <!-- 可复用的过渡 -->
+        Vue.component('my-special-transition', {
+            template: `
+                <transition
+                name="very-special-transition"
+                mode="out-in"
+                v-on:before-enter="beforeEnter"
+                v-on:after-enter="afterEnter"
+                >
+                <slot></slot>
+                </transition>
+            `,
+            methods: {
+                beforeEnter: function (el) {
+                    // ...
+                },
+                afterEnter: function (el) {
+                    // ...
+                }
+            },
+            data: function () {
+                return {
+
+                }
+            },
+        })
+        // 这种复杂的补间动画逻辑可以被复用
+        // 任何整数都可以执行动画
+        // 组件化使我们的界面十分清晰
+        // 可以支持更多更复杂的动态过渡
+        // 策略。
+        Vue.component('animated-integer', {
+            template: '<span>{{ tweeningValue }}</span>',
+            props: {
+                value: {
+                    type: Number,
+                    required: true
+                }
+            },
+            data: function () {
+                return {
+                    tweeningValue: 0
+                }
+            },
+            watch: {
+                // 调用theTweens函数
+                value: function (newValue, oldValue) {
+                    this.theTweens(oldValue, newValue)
+                }
+            },
+            mounted: function () {
+                // 调用theTweens函数
+                this.theTweens(0, this.value)
+            },
+            methods: {
+                theTweens: function (startValue, endValue) {
+                    var vm = this
+                    console.log(startValue + '' + endValue)
+                    // 动画函数
+                    function animates() {
+                        // 如果值改变使用动画
+                        if (TWEEN.update()) {
+                            requestAnimationFrame(animates)
+                        }
+                    }
+                    // 值改变，将新值取代旧值
+                    new TWEEN.Tween({ tweeningValue: startValue })
+                        .to({ tweeningValue: endValue }, 1000)
+                        .onUpdate(function () {
+                            vm.tweeningValue = this.tweeningValue.toFixed(0)
+                        })
+                        .start()
+                    // 调用动画函数
+                    animates()
+                }
+            }
+        })
+        ////
+        var vm1 = new Vue({
+            el: "#app1",
+            data: {
+                isState: true,
+                isfade: true,
+                isbounce: true,
+                istada: true,
+                isamin: true,
+                isduration: true,
+                isjss: true,
+                isappear: true,
+                isEditing: true,
+                docState: "saved",
+                isout: "on",
+                view: "v-a",
+                items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                nextNum: 10,
+                query: '',
+                list: [
+                    { msg: 'Bruce Lee' },
+                    { msg: 'Jackie Chan' },
+                    { msg: 'Chuck Norris' },
+                    { msg: 'Jet Li' },
+                    { msg: 'Kung Fury' }
+                ],
+                // 动态过渡
+                shows: true,
+                fadeInDuration: 1000,
+                fadeOutDuration: 1000,
+                maxFadeDuration: 1500,
+                stop: true,
+                //// 状态过渡
+                // 状态动画与侦听器
+                numbers: 0,
+                tweenedNumber: 0,
+                colorQuery: '',
+                colors: {
+                    red: 0,
+                    green: 0,
+                    blue: 0,
+                    alpha: 1,
+                },
+                tweenedColor: {},
+                //把过渡放到组件里
+                firstNumber: 20,
+                secondNumber: 40
+            },
+
+            //// 状态过渡
+            // 状态动画与侦听器
+            created: function () {
+                this.tweenedColor = Object.assign({}, this.color)
+            },
+
+            methods: {
+                // ------------------------------
+                // 进入中  el 指的是 transition组件包起来的那个元素
+                // ------------------------------
+                // 动画执行之前
+                beforeEnter: function (el) {
+                    el.style.color = 'pink';
+                },
+                // 当与 CSS 结合使用时
+                // 回调函数 done 是可选的 在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。
+                // 动画开始执行中
+                enter: function (el, done) {
+                    setTimeout(() => {
+                        el.style.color = 'green';
+                        done()
+                    }, 1000)
+                },
+                // 动画执行之后
+                afterEnter: function (el) {
+                    setTimeout(() => {
+                        el.style.color = 'tomato';
+                    }, 1000)
+                },
+                // 动画结束
+                enterCancelled: function (el) {
+                    setTimeout(() => {
+                        el.style.color = 'chartreuse';
+                    }, 5000)
+                },
+
+                // ---------------------------
+                // 离开时 el  指的是 transition组件包起来的那个元素
+                // ---------------------------
+                // 离开之前
+                beforeLeave: function (el) {
+                    setTimeout(() => {
+                        el.style.color = 'blueviolet';
+                    }, 0)
+                },
+                // 当与 CSS 结合使用时
+                // 回调函数 done 是可选的 在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。
+                // 离开之时----------看不到已经隐藏
+                leave: function (el, done) {
+                    setTimeout(() => {
+                        el.style.color = 'blue';
+                        done()
+                    }, 1000);
+
+                },
+                // 离开之后----------看不到已经隐藏
+                afterLeave: function (el) {
+                    setTimeout(() => {
+                        el.style.color = 'fuchsia';
+                    }, 1000);
+                },
+                // leaveCancelled 只用于 v-show 中
+                leaveCancelled: function (el) {
+                    setTimeout(() => {
+                        el.style.color = 'fuchsia';
+                    }, 1000);
+                },
+                changeout: function () {
+                    this.isout = this.isout == 'on' ? "off" : "on";
+                    //console.log(this.isout);
+                },
+
+
+                // 列表过渡------------------------------------------------------------
+                randomIndex: function () {
+                    return Math.floor(Math.random() * this.items.length)
+                },
+                add: function () {
+                    this.items.splice(this.randomIndex(), 0, this.nextNum++)
+                },
+                remove: function () {
+                    this.items.splice(this.randomIndex(), 1)
+                },
+                shuffle: function () { // 必须引入lodash.js文件,否则会报错
+                    this.items = _.shuffle(this.items)
+                },
+                // 列表的交错过渡-------------------------------------------------------
+                beforeEnter: function (el) {
+                    el.style.opacity = 0
+                    el.style.height = 0
+                },
+                enter: function (el, done) {
+                    var delay = el.dataset.index * 150
+                    setTimeout(function () {
+                        Velocity(  //必须引入Velocity.js文件,否则会报错
+                            el,
+                            { opacity: 1, height: '1.6em' },
+                            { complete: done }
+                        )
+                    }, delay)
+                },
+                leave: function (el, done) {
+                    var delay = el.dataset.index * 150
+                    setTimeout(function () {
+                        Velocity( //必须引入Velocity.js文件,否则会报错
+                            el,
+                            { opacity: 0, height: 0 },
+                            { complete: done }
+                        )
+                    }, delay)
+                },
+
+                // 动态过渡------------------------------------------------------------
+                beforeEnters: function (el) {
+                    el.style.opacity = 0
+                },
+                enters: function (el, done) {
+                    var vm = this
+                    Velocity(el, //必须引入Velocity.js文件,否则会报错
+                        { opacity: 1 },
+                        {
+                            duration: this.fadeInDuration,
+                            complete: function () {
+                                done()
+                                if (!vm.stop)
+                                    vm.shows = false
+                            }
+                        }
+                    )
+                },
+                leaves: function (el, done) {
+                    var vm = this
+                    Velocity(el, //必须引入Velocity.js文件,否则会报错
+                        { opacity: 0 },
+                        {
+                            duration: this.fadeOutDuration,
+                            complete: function () {
+                                done()
+                                vm.shows = true
+                            }
+                        }
+                    )
+                },
+                //// 状态过渡
+                // 状态动画与侦听器
+                updateColor: function () { //需要引入Color.js文件
+                    this.colors = new Color(this.colorQuery).toRGB();
+                },
+
+            },
+            // 计算属性
+            computed: {
+                // 多个元素的过渡
+                buttonMessage: function () {
+                    switch (this.docState) {
+                        case 'saved': return 'Edit'
+                        case 'edited': return 'Save'
+                        case 'editing': return 'Cancel'
+                    }
+                },
+                // 列表的交错过渡
+                computedList: function () {
+                    var vm = this;
+                    return this.list.filter(function (item) {
+                        return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1;
+                        this.$forceUpdate();
+                    })
+                },
+                //// 状态过渡
+                // 状态动画与侦听器
+                AnimationNumber: function () {
+                    // 返回tweenedNumber值
+                    return this.tweenedNumber.toFixed(0);
+                },
+                tweenedCssColor: function () {
+                    // return new Color({
+                    //     red: this.tweenedColor.red,
+                    //     green: this.tweenedColor.green,
+                    //     blue: this.tweenedColor.blue,
+                    //     alpha: this.tweenedColor.alpha
+                    // }).toCSS();
+                },
+                //把过渡放到组件里
+                result: function () {
+                    return this.firstNumber + this.secondNumber
+                }
+            },
+            watch: {
+                // 监听numbers值的改变，并赋值给tweenedNumber
+                numbers: function (newValue) {
+                    // gsap.to 需要引入gsap.js
+                    gsap.to(this.$data, { duration: 0.5, tweenedNumber: newValue });
+                },
+                // 监听colors值的改变
+                colors: function () {
+                    function theAnmiate() {
+                        if (TWEEN.update) {
+                            requestAnimationFrame(theAnmiate)
+                        }
+                    }
+                    new TWEEN.Tween(this.tweenedColor).to(this.colors, 750).start();
+                    theAnmiate();
+                },
+
+            },
+            // 局部组件
+            components: {
+                'v-a': {
+                    template: '<div>我是Component A</div>'
+                },
+                'v-b': {
+                    template: '<div>我是Component B</div>'
+                }
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
