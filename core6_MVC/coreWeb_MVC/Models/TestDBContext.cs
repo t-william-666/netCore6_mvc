@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace coreWeb_MVC.Models
 {
-    // 通过 工具 》》》 NuGet包管理器 》》》 程序包管理器控制台 》》》 按照 SqlServer.txt 步骤执行
     public partial class TestDBContext : DbContext
     {
         public TestDBContext()
@@ -17,6 +16,7 @@ namespace coreWeb_MVC.Models
         {
         }
 
+        public virtual DbSet<Address> Addresses { get; set; } = null!;
         public virtual DbSet<Shop> Shops { get; set; } = null!;
         public virtual DbSet<ShopType> ShopTypes { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
@@ -25,39 +25,57 @@ namespace coreWeb_MVC.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //注释掉 多余代码
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-
-                //连接数据库的连接字符串
-                //optionsBuilder.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;");
+                optionsBuilder.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Address>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("Address");
+
+                entity.Property(e => e.AddressID).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Area).HasMaxLength(50);
+
+                entity.Property(e => e.City).HasMaxLength(50);
+
+                entity.Property(e => e.DetailAddress).HasMaxLength(100);
+
+                entity.Property(e => e.Mobile).HasMaxLength(11);
+
+                entity.Property(e => e.Other).HasMaxLength(200);
+
+                entity.Property(e => e.Province).HasMaxLength(50);
+
+                entity.Property(e => e.Town).HasMaxLength(50);
+
+                entity.Property(e => e.UserID).HasMaxLength(13);
+
+                entity.Property(e => e.UserName).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Shop>(entity =>
             {
                 entity.ToTable("Shop");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
-
                 entity.Property(e => e.ActivityPrice).HasColumnType("money");
-
-                entity.Property(e => e.Discount)
-                    .HasColumnType("decimal(5, 2)")
-                    .HasColumnName("discount");
 
                 entity.Property(e => e.Price).HasColumnType("money");
 
-                entity.Property(e => e.ShopId)
-                    .HasMaxLength(50)
-                    .HasColumnName("ShopID");
+                entity.Property(e => e.ShopID).HasMaxLength(50);
 
                 entity.Property(e => e.ShopIntroduce).HasMaxLength(300);
 
                 entity.Property(e => e.ShopName).HasMaxLength(50);
 
                 entity.Property(e => e.ShopState).HasMaxLength(10);
+
+                entity.Property(e => e.discount).HasColumnType("decimal(5, 2)");
 
                 entity.HasOne(d => d.ShopTypeNavigation)
                     .WithMany(p => p.Shops)
@@ -71,33 +89,24 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ShopType1).HasColumnName("ShopType");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
-
                 entity.Property(e => e.ShopTypeName).HasMaxLength(50);
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Address).HasMaxLength(50);
 
                 entity.Property(e => e.Introduce).HasMaxLength(200);
 
-                entity.Property(e => e.Password)
-                    .HasMaxLength(20)
-                    .IsUnicode(false);
+                entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.Sex)
                     .HasMaxLength(4)
                     .IsFixedLength();
 
-                entity.Property(e => e.UserId)
-                    .HasMaxLength(13)
-                    .IsUnicode(false)
-                    .HasColumnName("UserID");
+                entity.Property(e => e.UserID).HasMaxLength(50);
 
-                entity.Property(e => e.UserName)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
+                entity.Property(e => e.UserName).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

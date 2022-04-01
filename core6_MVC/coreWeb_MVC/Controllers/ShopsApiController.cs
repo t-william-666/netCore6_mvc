@@ -47,7 +47,7 @@ namespace coreWeb_MVC.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutShop(int id, Shop shop)
         {
-            if (id != shop.Id)
+            if (id != shop.ID)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace coreWeb_MVC.Controllers
             _context.Shops.Add(shop);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetShop", new { id = shop.Id }, shop);
+            return CreatedAtAction("GetShop", new { id = shop.ID }, shop);
         }
 
         // DELETE: api/ShopsApi/5
@@ -102,7 +102,7 @@ namespace coreWeb_MVC.Controllers
 
         private bool ShopExists(int id)
         {
-            return _context.Shops.Any(e => e.Id == id);
+            return _context.Shops.Any(e => e.ID == id);
         }
     }
 }

@@ -1,23 +1,86 @@
 ﻿
 
 ////----------------------------------------------------------【SQL Sever数据库生成数据库模型】------------------------------------------------------------------
-//.net Core 6 逆向生成数据库模型
+//.net Core 6 生成数据库模型
 
-添加所需要DLL
+--添加所需要DLL--------------------------------------------------------------------------------------------------------------------------
 
-//第一个 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
+//步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
+//第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接SQL Sever数据库的组件
+Install-Package Microsoft.EntityFrameworkCore
+//第二个 》》 我们将使用一些 Entity Framework SqlServer 获取对应数据实体。因此，我们也会安装此工具包：
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
-//第二个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。 因此，我们也会安装此工具包：
+//第三个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。因此，我们也会安装此工具包：
 Install-Package Microsoft.EntityFrameworkCore.Tools
-//第三个 》》 我们稍后将使用一些 ASP.NET Core 基架工具来创建控制器和视图。 因此，我们也会安装此设计包:
+//第四个 》》 我们稍后将使用一些 ASP.NET Core 基架工具来创建控制器和视图。因此，我们也会安装此设计包:
 Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
-// 下面这句是生成数据库模型
-Scaffold-DbContext “Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
-// 下面这句是更新数据库模型
-尚未实验
+
+// 下面这句是生成数据库模型-----------------------------------【SQL Sever数据库生成数据库模型】------------------------------------------
+Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+// 下面这句是更新数据库模型-----------------------------------【SQL Sever数据库更新数据库模型】------------------------------------------
+Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -UseDatabaseNames
+
+
+-OutputDir *** 实体文件所存放的文件目录
+-ContextDir *** DbContext文件存放的目录
+-Context *** DbContext文件名
+-Schemas *** 需要生成实体数据的数据表所在的模式
+-Tables *** 需要生成实体数据的数据表的集合
+-DataAnnotations *** 数据注释
+-UseDatabaseNames 直接使用数据库中的表名和列名（某些版本不支持）
+-Force 强制执行，重写已经存在的实体文件   
 
 
 
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Microsoft.EntityFrameworkCore.Design包含Entity Framework Core的所有设计时逻辑.这是所有的各种工具(PMC的cmdlet一样的代码Add-Migration,dotnet ef和ef.exe)调入.//
+//                                                                                                                                                           //
+//如果您不使用迁移或逆向工程,则不需要它.                                                                                                                     //
+//                                                                                                                                                           //
+//当你确实需要它时,我们鼓励PrivateAssets="All"它不会发布到几乎肯定不需要它的服务器上.                                                                        //
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+
+
+
+////----------------------------------------------------------【MySQL 数据库生成数据库模型】--------------------------------------------------------------------
+//.net Core 6 生成数据库模型
+
+--添加所需要DLL-----------------------------------------------------------------------------------------------------------------------
+
+//第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接MySql数据库的组件
+Install-Package MySql.Data.EntityFrameworkCore -Pre
+//第二个 》》 我们将使用一些 Entity Framework MySql 获取对应数据实体。因此，我们也会安装此工具包：
+Install-Package Pomelo.EntityFrameworkCore.MySql
+//第三个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。因此，我们也会安装此工具包：
+Install-Package Microsoft.EntityFrameworkCore.Tools
+//第四个 》》 我们稍后将使用一些 ASP.NET Core 基架工具来创建控制器和视图。因此，我们也会安装此设计包:
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+
+// 下面这句是生成数据库模型-----------------------------------【MySQL 数据库生成数据库模型】------------------------------------------
+Scaffold-DbContext "server=服务器名称;userid=登录名;pwd=密码;port=端口号;database=数据库名称;sslmode=none;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -Force
+
+// 下面这句是更新数据库模型-----------------------------------【MySQL 数据库更新数据库模型】------------------------------------------
+Scaffold-DbContext "server=服务器名称;userid=登录名;pwd=密码;port=端口号;database=数据库名称;sslmode=none;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -UseDatabaseNames -Force
+
+
+-OutputDir *** 实体文件所存放的文件目录
+-ContextDir *** DbContext文件存放的目录
+-Context *** DbContext文件名
+-Schemas *** 需要生成实体数据的数据表所在的模式
+-Tables *** 需要生成实体数据的数据表的集合
+-DataAnnotations *** 数据注释
+-UseDatabaseNames 直接使用数据库中的表名和列名（某些版本不支持）
+-Force 强制执行，重写已经存在的实体文件   
 
 
 

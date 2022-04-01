@@ -87,14 +87,14 @@
 
 
         // 全局混入------------------------------------------------------------------------------
-        Vue.Mixsion({
-            created: function () {
-                // this.$options 即可以获取自定义属性，也可以增加自定义属性，而且，获取自定义属性的方法有两种。
-                var myOption = this.$options.theOption;
-                console.log(myOption);
+        // Vue.Mixsion({
+        //     created: function () {
+        //         // this.$options 即可以获取自定义属性，也可以增加自定义属性，而且，获取自定义属性的方法有两种。
+        //         var myOption = this.$options.theOption;
+        //         console.log(myOption);
 
-            }
-        })
+        //     }
+        // })
 
         new Vue({
             theOption: '我被全局混入了~~~~~~~~'
@@ -115,14 +115,51 @@
 
 
         ///----------------------------------
+        var a = 24.300100000;
+        a = a.toFixed(4).replace(/0+$/g, "");
+        alert(a);
+
+        // var a = 0.000000;
+        // a = cutZero(a);
+        // alert(a.replace(/0+$/g, ""));
+
+        function cutZero(old) {
+            //拷贝一份 返回去掉零的新串
+            var newstr = old;
+            //循环变量 小数部分长度
+            alert(old.length - old.indexOf(".") - 1)
+            var leng = old.length - old.indexOf(".") - 1;
+            //判断是否有效数
+            if (old.indexOf(".") > -1) {
+                //循环小数部分
+                for (i = leng; i > 0; i--) {
+                    //如果newstr末尾有0
+                    if (newstr.lastIndexOf("0") > -1 && newstr.substr(newstr.length - 1, 1) == 0) {
+                        var k = newstr.lastIndexOf("0");
+                        //如果小数点后只有一个0 去掉小数点
+                        if (newstr.charAt(k - 1) == ".") {
+                            return newstr.substring(0, k - 1);
+                        } else {
+                            //否则 去掉一个0
+                            newstr = newstr.substring(0, k);
+                        }
+                    } else {
+                        //如果末尾没有0
+                        return newstr;
+                    }
+                }
+            }
+            return old;
+        }
+
+        135102
 
 
 
 
 
-        
 
-
+                    
 
     </script>
 </body>

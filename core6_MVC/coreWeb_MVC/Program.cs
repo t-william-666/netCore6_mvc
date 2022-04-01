@@ -1,5 +1,6 @@
 using coreWeb_MVC.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 //
 var builder = WebApplication.CreateBuilder(args);
@@ -13,11 +14,16 @@ builder.Services.AddControllersWithViews();
 /// 注册连接数据库的服务
 /// </summary>
 builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;"));
+//builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer();
+
+///MySQL注册连接数据库的服务
+//builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MySQL"), ServerVersion.AutoDetect(Configuration.GetConnectionString("MySQL"))));
+
 
 /// <summary>
 /// 添加Swagger   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
 /// </summary>
-builder.Services.AddSwaggerGen(c => 
+builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("api", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Api", Version = "v1" });
 });
@@ -27,6 +33,7 @@ builder.Services.AddSwaggerGen(c =>
 /// </summary>
 builder.Services.AddEndpointsApiExplorer();
 
+//builder.Services.AddSingleton<IRedisConnection>(k => { return new RedisConnection(6, Configuration["RedisConnectionString"]); });
 
 
 var app = builder.Build();
@@ -46,7 +53,7 @@ app.MapGet("/throw", () => { throw new Exception("Exception occured"); });
 app.UseSwagger();
 
 //注册Swagger UI 路由   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/api/swagger.json","Api v1"));
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/api/swagger.json", "Api v1"));
 
 //注册静态文件
 app.UseStaticFiles();
