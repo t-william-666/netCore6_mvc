@@ -39,7 +39,7 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Microsoft.EntityFrameworkCore.Design包含Entity Framework Core的所有设计时逻辑.这是所有的各种工具(PMC的cmdlet一样的代码Add-Migration,dotnet ef和ef.exe)调入.//
-//                                                                                                                                                           //
+// Install-Package Microsoft.EntityFrameworkCore.Design                                                                                                      //
 //如果您不使用迁移或逆向工程,则不需要它.                                                                                                                     //
 //                                                                                                                                                           //
 //当你确实需要它时,我们鼓励PrivateAssets="All"它不会发布到几乎肯定不需要它的服务器上.                                                                        //
