@@ -56,8 +56,12 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 
 --添加所需要DLL-----------------------------------------------------------------------------------------------------------------------
 
-//第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接MySql数据库的组件
-Install-Package MySql.Data.EntityFrameworkCore -Pre
+//步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
+//第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接SQL Sever数据库的组件
+Install-Package Microsoft.EntityFrameworkCore
+！！//第二个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接MySql数据库的组件
+！！Install-Package MySql.Data.EntityFrameworkCore -Pre !!!!!!! 已弃用
+！！Install-Package Microsoft.EntityFrameworkCore.Relational
 //第二个 》》 我们将使用一些 Entity Framework MySql 获取对应数据实体。因此，我们也会安装此工具包：
 Install-Package Pomelo.EntityFrameworkCore.MySql
 //第三个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。因此，我们也会安装此工具包：

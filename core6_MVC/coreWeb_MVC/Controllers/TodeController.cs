@@ -20,7 +20,7 @@ namespace coreWeb_MVC.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            var name = "";
+      
             return "value";
         }
 

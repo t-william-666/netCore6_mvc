@@ -1,5 +1,7 @@
 using coreWeb_MVC.Models;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.Extensions.Configuration;
 using System.Configuration;
 
 //
@@ -13,11 +15,13 @@ builder.Services.AddControllersWithViews();
 /// <summary>
 /// 注册连接数据库的服务
 /// </summary>
-builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;"));
-//builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer();
+//builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;"));
+builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
+/// <summary>
 ///MySQL注册连接数据库的服务
-//builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MySQL"), ServerVersion.AutoDetect(Configuration.GetConnectionString("MySQL"))));
+///</summary>
+//builder.Services.AddDbContext<TestDBContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
 
 /// <summary>
@@ -33,7 +37,6 @@ builder.Services.AddSwaggerGen(c =>
 /// </summary>
 builder.Services.AddEndpointsApiExplorer();
 
-//builder.Services.AddSingleton<IRedisConnection>(k => { return new RedisConnection(6, Configuration["RedisConnectionString"]); });
 
 
 var app = builder.Build();
