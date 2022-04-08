@@ -41,7 +41,7 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 //Microsoft.EntityFrameworkCore.Design包含Entity Framework Core的所有设计时逻辑.这是所有的各种工具(PMC的cmdlet一样的代码Add-Migration,dotnet ef和ef.exe)调入.//
 // Install-Package Microsoft.EntityFrameworkCore.Design                                                                                                      //
 //如果您不使用迁移或逆向工程,则不需要它.                                                                                                                     //
-//                                                                                                                                                           //
+// Install-Package Microsoft.EntityFrameworkCore.Relational                                                                                                  //
 //当你确实需要它时,我们鼓励PrivateAssets="All"它不会发布到几乎肯定不需要它的服务器上.                                                                        //
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -61,7 +61,6 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 Install-Package Microsoft.EntityFrameworkCore
 ！！//第二个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接MySql数据库的组件
 ！！Install-Package MySql.Data.EntityFrameworkCore -Pre !!!!!!! 已弃用
-！！Install-Package Microsoft.EntityFrameworkCore.Relational
 //第二个 》》 我们将使用一些 Entity Framework MySql 获取对应数据实体。因此，我们也会安装此工具包：
 Install-Package Pomelo.EntityFrameworkCore.MySql
 //第三个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。因此，我们也会安装此工具包：

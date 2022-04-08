@@ -13,6 +13,7 @@ namespace coreWeb_MVC.Models
         public int ID { get; set; }
         public int ShopType1 { get; set; }
         public string? ShopTypeName { get; set; }
+        public string? Desc { get; set; }
 
         public virtual ICollection<Shop> Shops { get; set; }
     }

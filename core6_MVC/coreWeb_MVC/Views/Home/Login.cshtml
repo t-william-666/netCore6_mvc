@@ -13,10 +13,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户登录</title>
+    <!-- Favicon 图标 页面图标 -->
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="~/images/favicon.ico">
     <!-- 引入bootstrap样式 -->
-    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
+    <link rel="stylesheet" href="~/bootstrap-3.4.1-dist/css/bootstrap.css">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="~/css/index.css">
+    <!-- 引入Jquery的JS文件 -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- 引入Vue的JS文件 -->
+    <script src="~/js/Vue.js"></script>
+    <!-- 引入vue-resource的JS文件 -->
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
 </head>
 
 <body class="body-bg">
@@ -30,38 +40,37 @@
                     <div class="col-lg-4 col-md-6 col-xs-12">
                         <ul class="row">
                             <li class="col-lg-4">
-    
+
                             </li>
-                            <li class="col-lg-4"></li>
-                            <li class="col-lg-4"></li>
+                            <li class="col-lg-4">
+                                <button type="button" class="p-h20 ">登录</button>
+                            </li>
+                            <li class="col-lg-4">
+                                <button type="button" class="p-h20">注册</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    
-    <div class="content">
+
+    <div class="content" id="app">
         <div class="content-center container">
-            <p class="fs-3 text-center">用户登录</p>
-            <div class="row py-md-3">
-                <div class="col-lg-3">账号：</div>
-                <div class="col-lg-9"><input type="text" class="form-control d-inline-block align-self-center" placeholder="请输入账号"></div>
+            <p class="fs-3 text-center my-md-2">用户登录</p>
+            <div class="row my-md-3">
+                <div class="col-lg-3 col-xs-3">账号：</div>
+                <div class="col-lg-9 col-xs-9">
+                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" placeholder="请输入账号" v-model="user">
+                </div>
             </div>
-            <div class="row py-md-3">
-                <div class="col-lg-3">密码：</div>
-                <div class="col-lg-9"><input type="password" class="form-control d-inline-block align-self-center" placeholder="请输入密码"></div>
+            <div class="row my-md-3">
+                <div class="col-lg-3 col-xs-3">密码：</div>
+                <div class="col-lg-9 col-xs-9">
+                    <input type="password" id="txtRegister" class="form-control d-inline-block align-self-center" placeholder="请输入密码" v-model="pass">
+                </div>
             </div>
-            <div class="row py-md-3">
-                <p class="p-right p-h20">
-                    <input id="checkUser" type="checkbox" class="check-position">
-                    <label for="checkUser" class="fs-13 h-50"> 记住密码 </label>
-                </p>
-            </div>
-            <div class="d-flex justify-content-center my-md-2 ">
-                <input type="button" value="登录" class="btn btn-success w-50 h-50 d-inline-block align-self-center" id="btnLogin">
-            </div>
-            <div class="row pt-md-5">
+            <div class="row py-md-2">
                 <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-start">
                     <a href="#" class="fs-14">没有账号？注册账号</a>
                 </div>
@@ -69,11 +78,105 @@
                     <a href="#" class="fs-14">忘记密码？</a>
                 </div>
             </div>
+            <div class="row py-md-2">
+                <p class="p-right h-100 user-select">
+                    <input id="checkUser" type="checkbox" class="check-position">
+                    <label for="checkUser" class="fs-13"> 记住密码 </label>
+                </p>
+            </div>
+            <div class="d-flex justify-content-center my-md-5 ">
+                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnLogin" v-on:click="loginWeb">登录</button>
+            </div>
         </div>
     </div>
 </body>
 <script>
+    $("button").on('click', function () {
+        $(this).animate("jelly", 0.5);
+    })
 
+      $(".btnLogin").click(function () {
+            let getUrl = "http://localhost:44609/Home/Logining";
+                let userID=user;
+                let password=pass;
+                 $.ajax({
+                    url:getUrl,
+                    type:"post",
+                    data:{
+                        userID,
+                        password
+                    },
+                    success:function(da){
+                        console.log("2");
+                    },
+                     error: function (err) {
+                        console.error(err);
+                    }
+                })
+        });
+
+    var vm1 = new Vue({
+        el: "#app",
+        data: {
+            user: "",
+            pass: "",
+        },
+        methods: {
+            loginWeb: function () {
+                let getUrl = "http://localhost:44609/Home/Logining";
+                let userID=user;
+                let password=pass;
+                 $.ajax({
+                    url:getUrl,
+                    type:"post",
+                    data:{
+                        userID,
+                        password
+                    },
+                    success:function(da){
+                        console.log("2");
+                    },
+                     error: function (err) {
+                        console.error(err);
+                    }
+                })
+
+                //this.$axios({
+                //    method: "post",
+                //    url: getUrl,
+                //    data: {
+                //        userID: user,
+                //        password: pass
+                //    }
+                //}).then(function (res) {//请求成功
+                //    console.log("2");
+                //}).catch(function (err) {//请求失败
+                //    console.error(err);
+                //})
+
+                axios.get(getUrl,{
+
+                })
+
+                axios.post(getUrl,{
+
+                })
+
+            }
+        },
+        //计算属性
+        computed: {
+
+        },
+        //监听属性
+        watch: {
+
+        },
+        //组件属性
+        components: {
+
+        }
+    })
 </script>
 
 </html>

@@ -1,241 +1,308 @@
 * {
-    margin: 0px;
-    padding: 0px;
+margin: 0px;
+padding: 0px;
+}
+
+html {
+font-size: 10px !important;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
-    background-color: #f0f0f0;
+background-color: #f0f0f0;
 }
 
 .body-bg {
-    background-color: #f8f8f8;
-    background-image: url(../images/bg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+background-color: #f8f8f8;
+background-image: url(../images/bg.png);
+background-size: 100% 100%;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+.body-bg .row {
+    margin-right: 0px;
+    margin-left: 0px;
+    --bs-gutter-x: 0rem;
 }
 
 a {
-    text-decoration: none;
+text-decoration: none;
 }
 
 input[type="text"]:hover, input[type="password"]:hover {
-    border: 1px solid #0d6efd;
-    outline: none !important;
+border: 1px solid #0d6efd;
+outline: none !important;
 }
 
 /* 头部导航栏 */
 .header-sm {
-    width: 100% !important;
-    height: 5rem;
-    line-height: 5rem;
-    box-shadow: 0px 3px 5px #ccc;
-    background-color: rgba(255, 255, 255, 0.9);
+width: 100% !important;
+height: 8rem;
+line-height: 8rem;
+box-shadow: 0px 3px 5px #ccc;
+background-color: rgba(255, 255, 255, 0.9);
 }
 
+.header-sm button {
+    outline: none;
+    border: none;
+    font-size: inherit;
+    background-color: transparent;
+}
 
 .header {
-    width: 100% !important;
-    height: 8rem;
-    line-height: 8rem;
-    box-shadow: 0px 3px 5px #ccc;
-    background-color: rgba(255, 255, 255, 0.9);
+width: 100% !important;
+height: 8rem;
+line-height: 8rem;
+box-shadow: 0px 3px 5px #ccc;
+background-color: rgba(255, 255, 255, 0.9);
 }
 
-ul>li {
-    list-style-type: none;
+.header .colorBlock {
+    color: #000000;
+}
+
+ul > li {
+list-style-type: none;
 }
 
 /* 输入框的文字提示样式 */
 input::placeholder {
-    font-size: 13px;
-    letter-spacing: 2px;
+font-size: 13px;
+letter-spacing: 2px;
 }
 
+/* 登录盒子 */
 .content-center {
-    margin: auto;
-    margin-top: 5rem;
-    padding: 1rem 5rem;
-    width: 40rem;
-    height: 32rem;
-    box-sizing: border-box;
-    box-shadow: 0px 5px 8px #ccc;
-    border-radius: 0.75rem;
-    background-color: rgba(255, 255, 255, 0.85);
+margin: auto;
+margin-top: 8rem;
+padding: 2rem 8rem;
+width: 64rem;
+height: 52rem;
+box-sizing: border-box;
+box-shadow: 0px 5px 8px #ccc;
+border-radius: 1rem;
+background-color: rgba(255, 255, 255, 0.85);
 }
 
-.content-center>div {
+/* 装文本框的盒子高度 */
+.content-center .my-md-3 {
+    height: 6rem;
+    line-height: 6rem;
+}
+
+/* 文本框高度 */
+.content-center .form-control {
+    height: 4rem;
+    line-height: 4rem;
+}
+
+.content-center > div > button {
     height: 4.5rem;
     line-height: 4.5rem;
 }
 
-.content-center>.row>div:nth-child(1), .p-right {
+.content-center .btn {
+    padding: 0rem 0rem;
+}
+
+    .content-center .btn.btn-success {
+        background-color: rgb(9, 199, 9);
+    }
+
+        .content-center .btn.btn-success:focus {
+            outline: none;
+            border: none;
+            box-shadow: none;
+        }
+
+.content-center > .row > div:nth-child(1), .p-right {
+    color: rgb(119, 119, 119);
+    font-size: 16px;
     text-align: right;
     align-items: center;
     /* 字体间距 */
     letter-spacing: 3px;
 }
 
+    .p-right > * {
+        cursor: pointer;
+    }
+
+/* 字体垂直居中 */
+.txt-middle {
+display: table-cell;
+vertical-align: middle;
+}
+
+/* 验证码 */
+.p-txt {
+height: 3rem;
+line-height: 3rem;
+}
+
 .pw-100 {
-    width: 8rem;
-    height: 2rem;
-    line-height: 2rem;
-    border: 1px #ccc solid;
-    padding-left: 8px;
+width: 10rem;
+height: 3rem;
+line-height: 3rem;
+border: 1px #ccc solid;
+padding-left: 8px;
 }
 
+/* 获取验证码 */
 .pw-60 {
-    width: 5.5rem;
-    height: 2rem;
-    line-height: 2rem;
-    color: white;
-    background-color: rgb(9, 199, 9);
-    border: 0px;
-    cursor: pointer;
-    padding: 0px 0px !important;
-    margin-right: calc(var(--bs-gutter-x) * .5);
-    margin-left: calc(var(--bs-gutter-x) * .5);
+width: 8rem;
+height: 3rem;
+line-height: 3rem;
+color: white;
+background-color: rgb(9, 199, 9);
+border: 0px;
+cursor: pointer;
+padding: 0px 0px !important;
+margin-right: calc(var(--bs-gutter-x) * .5);
+margin-left: calc(var(--bs-gutter-x) * .5);
 }
 
-.pw-60:hover {
+.content-center .btn.btn-success:hover, .pw-60:hover {
     background-color: rgba(9, 199, 9, 0.9);
     box-shadow: 0px 0px 2px rgba(9, 199, 9, 0.6);
     transition: 0.3s;
 }
 
 .p-h20 {
-    height: 20px;
-    line-height: 20px;
+height: 20px;
+line-height: 20px;
 }
 
-.p-h20>* {
+.p-h20 > * {
     color: rgb(99, 99, 99);
     cursor: pointer;
 }
 
 .fs-13 {
-    font-size: 13px !important;
+font-size: 13px !important;
 }
 
 .fs-14 {
-    font-size: 14px !important;
+font-size: 14px !important;
 }
 
 .fs-15 {
-    font-size: 15px !important;
+font-size: 15px !important;
 }
 
 .fs-18 {
-    font-size: 18px !important;
+font-size: 18px !important;
 }
 
 .my-23 {
-    margin: 23px 0px !important;
+margin: 23px 0px !important;
 }
 
 .user-select {
-    /* 用户不可选中文字 */
-    user-select: none;
+/* 用户不可选中文字 */
+user-select: none;
 }
 
 /* 显示一行文字超出隐藏 */
 .text-show-1 {
-    /* 超出隐藏 */
-    /* 超出隐藏 */
-    overflow: hidden;
-    /* 查出部分使用...代替 */
-    text-overflow: ellipsis;
-    /* 文字过长换行,防止一些特殊情况不换行 */
-    word-wrap: break-word;
-    word-break: break-all;
-    /* 将对象作为弹性伸缩盒子模型显示 */
-    display: -webkit-box;
-    /* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
-    -webkit-box-orient: vertical;
-    /* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
-    -webkit-line-clamp: 1;
+/* 超出隐藏 */
+/* 超出隐藏 */
+overflow: hidden;
+/* 查出部分使用...代替 */
+text-overflow: ellipsis;
+/* 文字过长换行,防止一些特殊情况不换行 */
+word-wrap: break-word;
+word-break: break-all;
+/* 将对象作为弹性伸缩盒子模型显示 */
+display: -webkit-box;
+/* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+-webkit-box-orient: vertical;
+/* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
+-webkit-line-clamp: 1;
 }
 
 /* 显示两行文字超出隐藏 */
 .text-show-2 {
-    /* 超出隐藏 */
-    overflow: hidden;
-    /* 查出部分使用...代替 */
-    text-overflow: ellipsis;
-    /* 文字过长换行,防止一些特殊情况不换行 */
-    word-wrap: break-word;
-    word-break: break-all;
-    /* 将对象作为弹性伸缩盒子模型显示 */
-    display: -webkit-box;
-    /* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
-    -webkit-box-orient: vertical;
-    /* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
-    -webkit-line-clamp: 2;
+/* 超出隐藏 */
+overflow: hidden;
+/* 查出部分使用...代替 */
+text-overflow: ellipsis;
+/* 文字过长换行,防止一些特殊情况不换行 */
+word-wrap: break-word;
+word-break: break-all;
+/* 将对象作为弹性伸缩盒子模型显示 */
+display: -webkit-box;
+/* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+-webkit-box-orient: vertical;
+/* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
+-webkit-line-clamp: 2;
 }
 
 /* 显示两行文字超出隐藏 */
 .text-show-3 {
-    /* 超出隐藏 */
-    overflow: hidden;
-    /* 查出部分使用...代替 */
-    text-overflow: ellipsis;
-    /* 文字过长换行,防止一些特殊情况不换行 */
-    word-wrap: break-word;
-    word-break: break-all;
-    /* 将对象作为弹性伸缩盒子模型显示 */
-    display: -webkit-box;
-    /* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
-    -webkit-box-orient: vertical;
-    /* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
-    -webkit-line-clamp: 3;
+/* 超出隐藏 */
+overflow: hidden;
+/* 查出部分使用...代替 */
+text-overflow: ellipsis;
+/* 文字过长换行,防止一些特殊情况不换行 */
+word-wrap: break-word;
+word-break: break-all;
+/* 将对象作为弹性伸缩盒子模型显示 */
+display: -webkit-box;
+/* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+-webkit-box-orient: vertical;
+/* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
+-webkit-line-clamp: 3;
 }
 
 /* 显示两行文字超出隐藏 */
 .text-show-5 {
-    /* 超出隐藏 */
-    overflow: hidden;
-    /* 查出部分使用...代替 */
-    text-overflow: ellipsis;
-    /* 文字过长换行,防止一些特殊情况不换行 */
-    word-wrap: break-word;
-    word-break: break-all;
-    /* 将对象作为弹性伸缩盒子模型显示 */
-    display: -webkit-box;
-    /* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
-    -webkit-box-orient: vertical;
-    /* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
-    -webkit-line-clamp: 5;
+/* 超出隐藏 */
+overflow: hidden;
+/* 查出部分使用...代替 */
+text-overflow: ellipsis;
+/* 文字过长换行,防止一些特殊情况不换行 */
+word-wrap: break-word;
+word-break: break-all;
+/* 将对象作为弹性伸缩盒子模型显示 */
+display: -webkit-box;
+/* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+-webkit-box-orient: vertical;
+/* 这个属性不是css的规范属性，需要组合上面两个属性，表示显示的行数 */
+-webkit-line-clamp: 5;
 }
 
 .nav > li > a:hover,
 .nav > li > a:focus {
-  background-color: rgba(255, 255, 255,0) !important;
+background-color: rgba(255, 255, 255, 0) !important;
 }
 
 /* 选择框---记住密码 */
 .check-position {
-    position: relative;
-    top: 3px;
+position: relative;
+top: 3px;
 }
 
 /* 主体内容 */
 .content {
-    margin-top: 0px;
-    height: auto;
+margin-top: 0px;
+height: auto;
 }
 
 /* 轮播 */
 .Carousel-bg {
-    margin: auto;
-    /* background: linear-gradient(90deg, #7aff68 25%, #ff5f9c 50%, #ff3434 75%, #38ff49 100%); */
+margin: auto;
+/* background: linear-gradient(90deg, #7aff68 25%, #ff5f9c 50%, #ff3434 75%, #38ff49 100%); */
 }
 
 #MyCarousel {
-    margin: auto;
-    width: 80%;
-    height: auto;
-    border-radius: .5rem;
-    overflow: hidden;
+margin: auto;
+width: 80%;
+height: auto;
+border-radius: .5rem;
+overflow: hidden;
 }
 
 #MyCarousel .item a, #MyCarousel img, #MyCarousel a img {
@@ -247,8 +314,8 @@ input::placeholder {
 
 /* 菜单导航栏 */
 .content-menu {
-    width: 100%;
-    height: auto;
+width: 100%;
+height: auto;
 }
 
 .content-menu .menu {
@@ -257,32 +324,32 @@ input::placeholder {
     background: linear-gradient(60deg, rgb(255, 99, 71) 0%, rgb(255, 235, 60) 30%);
 }
 
-.content-menu .menu ul {
-    width: 75%;
-    height: 100%;
-    margin: auto;
-}
+    .content-menu .menu ul {
+        width: 75%;
+        height: 100%;
+        margin: auto;
+    }
 
-.content-menu .menu ul li {
-    display: inline-block;
-}
+        .content-menu .menu ul li {
+            display: inline-block;
+        }
 
-.content-menu .menu ul li .menu-title2 {
-    display: none;
-}
+            .content-menu .menu ul li .menu-title2 {
+                display: none;
+            }
 
-.content-menu .menu ul li a {
-    letter-spacing: 5px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    /* 用户不可选中文字 */
-    user-select: none;
-}
+            .content-menu .menu ul li a {
+                letter-spacing: 5px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                /* 用户不可选中文字 */
+                user-select: none;
+            }
 
 /* 内容 */
 .content .content-list {
-    width: 80%;
-    margin: auto;
+width: 80%;
+margin: auto;
 }
 
 /* 商品的盒子 */
@@ -292,10 +359,10 @@ input::placeholder {
     box-shadow: 0 3 5 rgb(180, 180, 180);
 }
 
-.content .content-list .Product-box:hover {
-    box-shadow: 5px 5px 10px rgb(150, 150, 150);
-    transition: .4s;
-}
+    .content .content-list .Product-box:hover {
+        box-shadow: 5px 5px 10px rgb(150, 150, 150);
+        transition: .4s;
+    }
 
 /* 商品图片 */
 .content .content-list div a img {
@@ -330,20 +397,19 @@ input::placeholder {
     height: auto;
 }
 
-.content .content-list .Product-title .p-title {
-    height: 2rem;
-    line-height: 2rem;
-    font-size: 2rem;
-}
+    .content .content-list .Product-title .p-title {
+        height: 2rem;
+        line-height: 2rem;
+        font-size: 2rem;
+    }
 
-.content .content-list .Product-title .p-desc {
-    height: auto;
-    min-height: 1.5rem;
-    line-height: 1.5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-
-}
+    .content .content-list .Product-title .p-desc {
+        height: auto;
+        min-height: 1.5rem;
+        line-height: 1.5rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
 
 /* 商品评分 */
 .content .content-list .Product-rating {
@@ -351,60 +417,60 @@ input::placeholder {
     line-height: 2rem;
 }
 
-.content .content-list .Product-rating i {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 1.5rem;
-    color: #E72463;
-}
+    .content .content-list .Product-rating i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.5rem;
+        color: #E72463;
+    }
 
-.content .content-list .Product-rating span {
-    display: none;
-}
+    .content .content-list .Product-rating span {
+        display: none;
+    }
 
-.content .content-list .Product-rating .sale-num {
-    font-style: oblique;
-    color: #E72463;
-}
+    .content .content-list .Product-rating .sale-num {
+        font-style: oblique;
+        color: #E72463;
+    }
 
 /* 商品价格 */
 .Price-box span, .Price-box span del {
-    display: inline-block;
-    height: 2rem;
-    line-height: 2rem;
+display: inline-block;
+height: 2rem;
+line-height: 2rem;
 }
 
 .Price-box .regular-price {
-    font-size: 1.5rem;
-    color: #E72463;
+font-size: 1.5rem;
+color: #E72463;
 }
 
 .Price-box .old-price {
-    font-size: 1rem;
-    color: rgb(66, 66, 66);
-    text-align: center;
+font-size: 1rem;
+color: rgb(66, 66, 66);
+text-align: center;
 }
 
 .Price-box .sale-num {
-    font-style: oblique;
-    color: #E72463;
+font-style: oblique;
+color: #E72463;
 }
 
 /* 加入购物车按钮 */
 .btn-box button {
-    /* 去除按钮的边框 */
-    border: none !important;
-    /* 去除默认样式 */
-    outline: none !important;
+/* 去除按钮的边框 */
+border: none !important;
+/* 去除默认样式 */
+outline: none !important;
 }
 
 .btn-box i {
-    color: white;
+color: white;
 }
 
 .btn-box .btn-Heart {
-    background-color: #e72463;
-    box-shadow: none !important;
+background-color: #e72463;
+box-shadow: none !important;
 }
 
 .btn-box .btn-Heart:hover {
@@ -413,8 +479,8 @@ input::placeholder {
 }
 
 .btn-box .btn-Cart {
-    background-color: #000;
-    box-shadow: none !important;
+background-color: #000;
+box-shadow: none !important;
 }
 
 .btn-box .btn-Cart:hover {
@@ -423,30 +489,30 @@ input::placeholder {
 }
 
 .addactive {
-    background-color: red !important;
+background-color: red !important;
 }
 
 /* 分页 */
 .page-box {
-    width: 80%;
-    margin: auto;
+width: 80%;
+margin: auto;
 }
 
 .page-number {
-    width: 5rem;
-    height: auto;
-    text-align: center;
-    border: 2px solid rgb(99, 99, 99);
-    border-radius: 6px;
+width: 5rem;
+height: auto;
+text-align: center;
+border: 2px solid rgb(99, 99, 99);
+border-radius: 6px;
 }
 
 /* 分页按钮 */
 .btn-Page {
-    padding: 5px 16px;
-    border: 1px #ccc;
-    border-radius: 6px;
-    background-color: #337ab7;
-    color: white;
+padding: 5px 16px;
+border: 1px #ccc;
+border-radius: 6px;
+background-color: #337ab7;
+color: white;
 }
 
 .btn-Page:hover {
@@ -454,17 +520,88 @@ input::placeholder {
     box-shadow: 0px 0px 3px #337ab7 !important;
 }
 
+/* 按钮果冻效果 */
+
+button:hover, .fa:hover {
+cursor: pointer;
+animation: jelly 0.5s;
+}
+
+/* button:active {
+cursor: pointer;
+animation: jelly 0.5s;
+}
+button:focus {
+cursor: pointer;
+animation: jelly 0.5s;
+} */
+
+@keyframes jelly {
+
+0%, 100% {
+    transform: scale(1, 1);
+}
+
+33% {
+    transform: scale(0.9, 1.1);
+}
+
+66% {
+    transform: scale(1.1, 0.9);
+}
+}
+
+@keyframes jelly {
+
+0%, 100% {
+    transform: scale(1, 1);
+}
+
+25%, 75% {
+    transform: scale(0.9, 1.1);
+}
+
+50% {
+    transform: scale(1.1, 0.9);
+}
+}
+
+
 @media (max-width: 480px) {
 
-    /* 头部导航文字 */
-    .header-title {
-        display: none;
+/* 登录盒子 */
+.content-center {
+    margin: auto;
+    margin-top: 8rem;
+    padding: 2rem 1rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 8px #ccc;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+    /* 装文本框的盒子高度 */
+    .content-center .my-md-3 {
+        height: 6rem;
+        line-height: 6rem;
     }
 
-    /* 菜单导航栏 */
-    .content-menu .menu ul {
-        width: 100% !important;
+    .content-center > div > button {
+        height: 3.5rem;
+        line-height: 3.5rem;
     }
+
+/* 头部导航文字 */
+.header-title {
+    display: none;
+}
+
+/* 菜单导航栏 */
+.content-menu .menu ul {
+    width: 100% !important;
+}
 
     .content-menu .menu ul .menu-title1 {
         display: none;
@@ -474,62 +611,105 @@ input::placeholder {
         display: inline-block !important;
     }
 
-    /* 商品评分 */
-    .content .content-list .Product-rating i {
-        font-size: 1rem !important;
-    }
+/* 商品评分 */
+.content .content-list .Product-rating i {
+    font-size: 1rem !important;
+}
 
-    .content .content-list .Product-rating span {
-        font-size: 0.75rem !important;
-        padding-right: 0px !important;
-        display: inline-block;
-    }
+.content .content-list .Product-rating span {
+    font-size: 0.75rem !important;
+    padding-right: 0px !important;
+    display: inline-block;
+}
 
-    /* 分页 */
-    .page-box {
-        width: 100% !important;
-        margin: auto;
-        padding: 0px 5px;
-    }
+/* 分页 */
+.page-box {
+    width: 100% !important;
+    margin: auto;
+    padding: 0px 5px;
+}
 
-    .pagination .fs-18 {
-        font-size: 12px !important;
-    }
+.pagination .fs-18 {
+    font-size: 12px !important;
+}
 
-    .pagination-lg>li>a,
-    .pagination-lg>li>span {
-        padding: 5px 10px !important;
-        font-size: 12px;
-        line-height: 1.5;
-    }
+.pagination-lg > li > a,
+.pagination-lg > li > span {
+    padding: 5px 10px !important;
+    font-size: 12px;
+    line-height: 1.5;
+}
 
-    .page-number {
-        width: 3rem;
-        height: auto;
-        text-align: center;
-        border: 2px solid rgb(99, 99, 99);
-        border-radius: 5px;
-        margin: 0px 1px !important;
-    }
+.page-number {
+    width: 3rem;
+    height: auto;
+    text-align: center;
+    border: 2px solid rgb(99, 99, 99);
+    border-radius: 5px;
+    margin: 0px 1px !important;
+}
 
-    /* 分页按钮 */
-    .btn-Page {
-        padding: 2px 8px;
-        border: 1px #ccc;
-        border-radius: 5px;
-        background-color: #337ab7;
-        color: white;
-    }
+/* 分页按钮 */
+.btn-Page {
+    padding: 2px 8px;
+    border: 1px #ccc;
+    border-radius: 5px;
+    background-color: #337ab7;
+    color: white;
+}
 
-    /* 商品的销量 */
-    .Price-box .float-end {
-        display: none;
-    }
+/* 商品的销量 */
+.Price-box .float-end {
+    display: none;
+}
 
-    /* 购物车按钮 */
-    .btn-box .btn-Heart, .btn-box .btn-Cart {
-        font-size: 1rem;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
-    }
+/* 购物车按钮 */
+.btn-box .btn-Heart, .btn-box .btn-Cart {
+    font-size: 1rem;
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+}
+
+.text-xxl-start {
+    text-align: left !important;
+}
+
+.text-xxl-end {
+    text-align: right !important;
+}
+
+.mx-md-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.my-md-0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.my-md-1 {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.my-md-2 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.my-md-3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.my-md-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.my-md-5 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
 }

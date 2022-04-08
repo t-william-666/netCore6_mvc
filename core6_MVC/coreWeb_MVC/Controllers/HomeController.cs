@@ -1,7 +1,7 @@
 ﻿using coreWeb_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
+using Microsoft.AspNetCore;
 namespace coreWeb_MVC.Controllers
 {
     public class HomeController : Controller
@@ -24,19 +24,54 @@ namespace coreWeb_MVC.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// 主页
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Home()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Login()
         {
-            IEnumerable<Shop> shops=_dbContext.Shops.ToList();
-            return View(shops);
+            //IEnumerable<Shop> shops=_dbContext.Shops.ToList();
+            //return View(shops);
+            return View();
         }
-
+        [HttpPost]
+        public IActionResult Logining(string userID,string password)
+        {
+            using (TestDBContext db=new TestDBContext())
+            {
+                var user = db.Users.Where(p => p.UserID == userID && p.Password == password);
+                if (user == null)
+                {
+                    //ISession["userInfo"] = user;
+                    return RedirectToAction("Home");
+                }
+                else
+                {
+                    return Content("密码错误或者账号不存在");
+                }
+            }
+        }
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Register()
         {
             ViewData["user"] = "";
             return View();
         }
-
+        /// <summary>
+        /// 报错
+        /// </summary>
+        /// <returns></returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

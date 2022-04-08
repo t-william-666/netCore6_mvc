@@ -1,3 +1,8 @@
+﻿
+@{
+    Layout = null;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,23 +12,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <!-- Favicon 图标 页面图标 -->
-    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="./images/favicon.ico">
-    <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="~/images/favicon.ico">
+    <!-- <link rel="stylesheet" href="icon" type="image/png" href="~/images/bg.png"> -->
     <!-- 引入bootstrap样式 -->
-    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
-    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/bootstrap-3.4.1-dist/css/bootstrap.css">
     <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
-    <link rel="stylesheet" href="./css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="~/css/vendor/font.awesome.min.css">
     <!-- 引入主要样式 -->
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="~/css/index.css">
+    <link rel="stylesheet" href="~/css/style.css">
     <!-- 引入Jquery的JS文件 -->
-    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
-    <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
-    <script src="./bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="~/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -40,12 +45,8 @@
                                 <p class="section-title-1 fs-3"><a href="#">CiYuanCang</a></p>
                             </div>
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8">
-                                <a href="#">
-                                    <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
-                                </a>
-                                <a href="#">
-                                    <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
-                                </a>
+                                <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
+                                <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
                             </div>
                         </div>
                     </div>
@@ -300,7 +301,7 @@
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <a href="#">
-                            <img src="./images/other/2.jpg" alt="...">
+                            <img src="~/images/other/1.jpg" alt="...">
                         </a>
                         <div class="carousel-caption">
                             <h3>轮播图片标题</h3>
@@ -310,7 +311,7 @@
 
                     <div class="item">
                         <a href="#">
-                            <img src="./images/other/2.jpg" alt="...">
+                            <img src="~/images/other/2.jpg" alt="...">
                         </a>
                         <div class="carousel-caption">
                             <h3>轮播图片标题22</h3>
@@ -320,7 +321,7 @@
 
                     <div class="item">
                         <a href="#">
-                            <img src="./images/other/2.jpg" alt="...">
+                            <img src="~/images/other/3.jpg" alt="...">
                         </a>
                         <div class="carousel-caption">
                             <h3>轮播图片标题33</h3>
@@ -404,8 +405,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -469,8 +470,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -521,8 +522,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -574,8 +575,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -627,8 +628,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -680,8 +681,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -733,8 +734,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -786,8 +787,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -839,8 +840,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -892,8 +893,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -945,8 +946,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -998,8 +999,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -1051,8 +1052,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -1104,8 +1105,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -1157,8 +1158,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -1210,8 +1211,8 @@
                         <div class="px-2 pt-2">
                             <div class="product-image position-relative">
                                 <a href="#">
-                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                 </a>
                             </div>
                         </div>
@@ -1413,9 +1414,9 @@
 
 
     <!-- Main JS -->
-    <script src="./js/main.js"></script>
-    <script src="./layer/layer.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./layer/xadmin.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/layer/layer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="~/layer/xadmin.js"></script>
 
     <script>
 

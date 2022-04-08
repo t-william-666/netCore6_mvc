@@ -1,16 +1,98 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>注册账号</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册</title>
+    <!-- Favicon 图标 页面图标 -->
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="~/images/favicon.ico">
+    <!-- 引入bootstrap样式 -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
+    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="~/css/index.css">
+    <!-- 引入Jquery的JS文件 -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
-<body>
-    
+
+<body class="body-bg">
+    <header>
+        <div class="header-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <p>欢迎登录购物网站</p>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <ul class="row">
+                            <li class="col-lg-4">
+
+                            </li>
+                            <li class="col-lg-4">
+                                <button type="button" id="btnLogin" class="p-h20 ">登录</button>
+                            </li>
+                            <li class="col-lg-4">
+                                <button type="button" id="btnRegister" class="p-h20">注册</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="content-center container">
+            <p class="fs-3 text-center my-md-2">用户注册</p>
+            <div class="row my-md-3">
+                <div class="col-lg-3 col-xs-3">账号：</div>
+                <div class="col-lg-9 col-xs-9">
+                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" placeholder="请输入账号">
+                </div>
+            </div>
+            <div class="row my-md-3">
+                <div class="col-lg-3 col-xs-3">密码：</div>
+                <div class="col-lg-9 col-xs-9">
+                    <input type="password" id="txtRegister" class="form-control d-inline-block align-self-center" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="row my-md-3">
+                <div class="col-lg-3 col-xs-3">确认密码：</div>
+                <div class="col-lg-9 col-xs-9">
+                    <input type="password" id="txtRegisterTrue" class="form-control d-inline-block align-self-center" placeholder="请输入确认密码">
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-start">
+                    <p class="row my-md-2 p-txt">
+                        <a href="#" class="fs-14">已有账号？登录账号</a>
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-end">
+                    <p class="row justify-content-lg-end my-md-2 ">
+                        <input type="text" class="d-inline-block col-lg-8 pw-100 rounded-1" placeholder="验证码">
+                        <button type="button" class="d-inline-block col-lg-4 pw-60 rounded-1 fs-13">获取验证码</button>
+                    </p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center my-md-5 ">
+                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister">注册</button>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    $("button").on('click', function () {
+        $(this).animate("jelly", 0.5);
+    })
+</script>
 </html>

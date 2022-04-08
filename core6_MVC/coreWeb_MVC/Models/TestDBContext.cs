@@ -34,11 +34,7 @@ namespace coreWeb_MVC.Models
         {
             modelBuilder.Entity<Address>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Address");
-
-                entity.Property(e => e.AddressID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Area).HasMaxLength(50);
 
@@ -88,6 +84,8 @@ namespace coreWeb_MVC.Models
                 entity.HasKey(e => e.ShopType1);
 
                 entity.Property(e => e.ShopType1).HasColumnName("ShopType");
+
+                entity.Property(e => e.Desc).HasMaxLength(50);
 
                 entity.Property(e => e.ShopTypeName).HasMaxLength(50);
             });

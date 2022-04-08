@@ -509,7 +509,7 @@ mark {
 
 /* --- Section title ---*/
 .section-title .section-title-1 {
-    color: #E72463;
+    color: #E72463 !important;
     font-size: 22px;
     font-weight: 600;
     line-height: 34px;
