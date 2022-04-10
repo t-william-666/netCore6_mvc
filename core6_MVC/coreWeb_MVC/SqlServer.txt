@@ -21,6 +21,12 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 // 下面这句是更新数据库模型-----------------------------------【SQL Sever数据库更新数据库模型】------------------------------------------
 Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -UseDatabaseNames
 
+// 下面这句是更新数据库模型-----------------------------------【根据数据模型SQL Sever数据库更新】------------------------------------------
+安装上面的组件后
+第一步输入  Add-Migration init
+第二步看情况 如果出现To undo this action, use Remove-Migration. 则需要继续输入命令：Update-Database init
+第三步输入  Update-Database 出现Done.表示成功创建数据库
+
 
 -OutputDir *** 实体文件所存放的文件目录
 -ContextDir *** DbContext文件存放的目录

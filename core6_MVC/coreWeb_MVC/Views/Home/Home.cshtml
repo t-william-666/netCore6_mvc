@@ -1,6 +1,10 @@
 ﻿
 @{
     Layout = null;
+
+    User user = ViewBag.userInfo as User;
+
+
 }
 
 <!DOCTYPE html>
@@ -33,10 +37,10 @@
 
 
 <body class="">
-    
+
     <!-- 头部 -->
     <header>
-        <div class="header main-header-area header-sticky ">     
+        <div class="header main-header-area header-sticky ">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-6">
@@ -47,6 +51,11 @@
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8">
                                 <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
                                 <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
+                                @if (user != null)
+                                {
+                                    @user.UserID
+                                }
+
                             </div>
                         </div>
                     </div>
@@ -141,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- off-canvas menu start 侧边栏 开始 手机端 PC端 -->
             <aside class="off-canvas-wrapper" id="mobileMenu">
                 <div class="off-canvas-overlay"></div>
@@ -282,7 +291,7 @@
                     </div>
                 </div>
             </aside>
-        <!-- off-canvas menu end 侧边栏 结束 手机端 PC端 -->
+            <!-- off-canvas menu end 侧边栏 结束 手机端 PC端 -->
         </div>
     </header>
     <!-- 主体内容 -->
@@ -397,7 +406,7 @@
         </div>
         <!-- 内容 -->
         <div class="content-list">
-            <div class="row shop_wrapper grid_3">        
+            <div class="row shop_wrapper grid_3">
 
                 <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
                     <div class="position-relative Product-box pb-4">
@@ -442,9 +451,8 @@
                             <!-- <i class="fa fa-star-half-empty"></i> -->
                             <!-- <i class="fa fa-star-half-full"></i> -->
                             <!-- <i class="fa fa-star-half-empty"></i> -->
-
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">9999</span></span>
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">9999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5 ">
@@ -453,7 +461,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -494,7 +502,7 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i> 
+                            <i class="fa fa-star-o"></i>
                             <!-- 移动端端 显示销售数量 -->
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
@@ -505,7 +513,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -546,10 +554,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>         
+                            <i class="fa fa-star-o"></i>
 
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>                 
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -558,7 +566,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -599,10 +607,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>      
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -611,7 +619,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -652,10 +660,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>      
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -664,7 +672,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -705,10 +713,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>            
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -717,7 +725,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -758,10 +766,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>       
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -770,7 +778,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -811,10 +819,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>      
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -823,7 +831,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -864,10 +872,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>     
+                            <i class="fa fa-star-o"></i>
 
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>                     
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -876,7 +884,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -917,10 +925,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>               
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -929,7 +937,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -970,10 +978,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>         
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -982,7 +990,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -1023,10 +1031,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>            
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -1035,7 +1043,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -1076,10 +1084,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>                          
+                            <i class="fa fa-star-o"></i>
 
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -1088,7 +1096,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -1129,10 +1137,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>                    
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -1141,7 +1149,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -1182,10 +1190,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>          
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -1194,7 +1202,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly"> 
+                        <div class="btn-box d-flex justify-content-evenly">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -1235,10 +1243,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>            
-                            
-                             <!-- 移动端端 显示销售数量 -->
-                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            <i class="fa fa-star-o"></i>
+
+                            <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 商品价格 -->
                         <div class="Price-box mb-5">
@@ -1247,7 +1255,7 @@
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                         </div>
                         <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly "> 
+                        <div class="btn-box d-flex justify-content-evenly ">
                             <button type="button" class="btn btn-Heart px-3 py-2 addLike">
                                 <i class="fa fa-heart">&nbsp; 收藏</i>
                             </button>
@@ -1257,13 +1265,13 @@
                         </div>
                     </div>
                 </div>
-                
-            </div>          
-           
+
+            </div>
+
         </div>
 
-         <!-- 分页 -->
-         <div class="page-box">
+        <!-- 分页 -->
+        <div class="page-box">
             <nav aria-label="Page navigation row ">
                 <ul class="pagination pagination-lg d-flex align-items-center col-xxl-2 col-lg-3 col-xs-6">
                     <li>
@@ -1280,8 +1288,8 @@
                         <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
-                    </li>           
-                </ul>    
+                    </li>
+                </ul>
 
                 <ul class="pagination my-23 d-flex align-items-center col-xxl-10 col-lg-9 col-xs-6">
                     <li class="fs-18 ps-5">跳到第几</li>
@@ -1290,10 +1298,10 @@
                     <li class="fs-18 ps-3">
                         <button class="btn-Page">确定</button>
                     </li>
-                </ul>               
+                </ul>
             </nav>
         </div>
- 
+
         <!-- 其他 -->
         <div class="mb-3">
             <p>fsdfsfsfsfsfffs</p>
@@ -1401,8 +1409,8 @@
                         <div class="copyright-content">
                             <p>
                                 版权所有 © 2022 <a href="http://www.bootstrapmb.com/"
-                                            title="http://www.bootstrapmb.com/">主题由</a> | 夜雨倾城&nbsp;<strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
-                                                                        title="http://www.bootstrapmb.com/">主题</a>.
+                                               title="http://www.bootstrapmb.com/">主题由</a> | 夜雨倾城&nbsp;<strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
+                                                                                                                                          title="http://www.bootstrapmb.com/">主题</a>.
                             </p>
                         </div>
                     </div>
@@ -1413,10 +1421,21 @@
 
 
 
+    <!-- Swiper Slider JS -->
+    <script src="~/js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select JS -->
+    <script src="~/js/plugins/nice-select.min.js"></script>
+    <!-- Ajaxchimpt js -->
+    <script src="~/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Ui js -->
+    <script src="~/js/plugins/jquery-ui.min.js"></script>
+    <!-- Jquery Countdown js -->
+    <script src="~/js/plugins/jquery.countdown.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="~/js/plugins/jquery.magnific-popup.min.js"></script>
+
     <!-- Main JS -->
     <script src="~/js/main.js"></script>
-    <script src="~/layer/layer.js" charset="utf-8"></script>
-    <script type="text/javascript" src="~/layer/xadmin.js"></script>
 
     <script>
 
@@ -1424,40 +1443,40 @@
         $('.carousel').carousel({
             interval: 3000
         })
-    
+
         // 分页
-        $('.Page ul li').click(function(){
+        $('.Page ul li').click(function () {
             // 添加样式
             $(this).addClass('active').siblings().removeClass('active');
         })
-    
-    
-    $('.addLike').on('click',function(){
-        ////有该类则移除，没有该类则添加
-        //$(this).toggleClass('addactive');
 
-        //// hasClass 是判断是否存在该 className 返回的是：bool类型
-        if( $(this).hasClass('addactive')){
-            $(this).removeClass('addactive');
-            layer.msg('已成功移除该商品收藏', {
-                icon: 0
-            });
-        }
-        else{
-            $(this).addClass('addactive');
-            layer.msg('已成功添加该商品收藏', {
+
+        $('.addLike').on('click', function () {
+            ////有该类则移除，没有该类则添加
+            //$(this).toggleClass('addactive');
+
+            //// hasClass 是判断是否存在该 className 返回的是：bool类型
+            if ($(this).hasClass('addactive')) {
+                $(this).removeClass('addactive');
+                layer.msg('已成功移除该商品收藏', {
+                    icon: 0
+                });
+            }
+            else {
+                $(this).addClass('addactive');
+                layer.msg('已成功添加该商品收藏', {
+                    icon: 6
+                });
+            }
+
+        })
+
+        $('.addCart').on('click', function () {
+            layer.msg('加入购物车成功', {
                 icon: 6
             });
-        }
-       
-    })
+        })
 
-    $('.addCart').on('click',function(){
-        layer.msg('加入购物车成功', {
-                icon: 6
-            });
-    })
-    
     </script>
 </body>
 </html>

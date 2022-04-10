@@ -15,7 +15,12 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="./css/index.css">
     <!-- 引入Jquery的JS文件 -->
-    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <!-- 引入Vue的JS文件 -->
+    <script src="./js/Vue.js"></script>
+    <!-- 引入vue-resource的JS文件 -->
+    <!-- <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script> -->
+    <!-- <script src="./js/vue-resource.min.js"></script> -->
 </head>
 
 <body class="body-bg">
@@ -23,18 +28,18 @@
         <div class="header-sm">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-6">
+                    <div class="col-lg-8 col-md-6 col-xs-6">
                         <p>欢迎登录购物网站</p>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="col-lg-4 col-md-6 col-xs-6">
                         <ul class="row">
-                            <li class="col-lg-4">
+                            <li class="col-lg-4 col-md-4 col-xs-4">
 
                             </li>
-                            <li class="col-lg-4">
+                            <li class="col-lg-4 col-md-4 col-xs-4">
                                 <button type="button" class="p-h20 ">登录</button>
                             </li>
-                            <li class="col-lg-4">
+                            <li class="col-lg-4 col-md-4 col-xs-4">
                                 <button type="button" class="p-h20">注册</button>
                             </li>
                         </ul>
@@ -50,19 +55,22 @@
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">账号：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" placeholder="请输入账号">
+                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center"
+                        placeholder="请输入账号">
                 </div>
             </div>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">密码：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtRegister" class="form-control d-inline-block align-self-center" placeholder="请输入密码">
+                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center"
+                        placeholder="请输入密码">
                 </div>
             </div>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">确认密码：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtRegisterTrue" class="form-control d-inline-block align-self-center" placeholder="请输入确认密码">
+                    <input type="password" id="txtPasswordTrue" class="form-control d-inline-block align-self-center"
+                        placeholder="请输入确认密码">
                 </div>
             </div>
             <div class="row ">
@@ -87,6 +95,7 @@
 </body>
 <script>
     $("button").on('click', function () {
+        alert(1)
         $(this).animate("jelly", 0.5);
     })
 </script>

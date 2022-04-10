@@ -1,7 +1,7 @@
 ﻿using coreWeb_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Microsoft.AspNetCore;
+using System.Web;
 namespace coreWeb_MVC.Controllers
 {
     public class HomeController : Controller
@@ -30,6 +30,16 @@ namespace coreWeb_MVC.Controllers
         /// <returns></returns>
         public IActionResult Home()
         {
+            if (HttpContext.Session.GetString("userInfo") != null)
+            {
+#pragma warning disable CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
+                string uID = HttpContext.Session.GetString("userInfo");
+#pragma warning restore CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
+                var user = _dbContext.Users.Where(p => p.UserID == uID).FirstOrDefault();
+                ViewData["userInfo"] = user;
+                ViewBag.userInfo = user;
+            }
+
             return View();
         }
         /// <summary>
@@ -42,22 +52,33 @@ namespace coreWeb_MVC.Controllers
             //return View(shops);
             return View();
         }
+        /// <summary>
+        /// 登录验证并跳转页面
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpPost]
-        public IActionResult Logining(string userID,string password)
+        public IActionResult Logining(string userID, string password)
         {
-            using (TestDBContext db=new TestDBContext())
+            var user = _dbContext.Users.Where(p => p.UserID == userID && p.Password == password).FirstOrDefault();
+            var users = _dbContext.Users.Where(p => p.UserID == userID && p.Password == password).Count();
+            if (users > 0)
             {
-                var user = db.Users.Where(p => p.UserID == userID && p.Password == password);
-                if (user == null)
-                {
-                    //ISession["userInfo"] = user;
-                    return RedirectToAction("Home");
-                }
-                else
-                {
-                    return Content("密码错误或者账号不存在");
-                }
+                //保存登录用户数据对象(会话)
+                HttpContext.Session.SetString("userInfo", userID);
+                //重新定向
+                return RedirectToAction("Home");
             }
+            else
+            {
+                return Content("sorry");
+            }
+
+        }
+        public IActionResult Log()
+        {
+            return RedirectToAction("Home");
         }
         /// <summary>
         /// 注册
@@ -78,6 +99,6 @@ namespace coreWeb_MVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-       
+
     }
 }

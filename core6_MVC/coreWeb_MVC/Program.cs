@@ -1,8 +1,11 @@
 using coreWeb_MVC.Models;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
-using Microsoft.Extensions.Configuration;
 using System.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 //
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +26,19 @@ builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(bui
 ///</summary>
 //builder.Services.AddDbContext<TestDBContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = ".AdventureWorks.Session";//会话使用cookie跟踪和标识来自单个浏览器的请求。默认情况下cookie 名为 .AspNetCore.Session，并使用路径 / 
+    options.IdleTimeout = TimeSpan.FromMinutes(60);//设置session的过期时间
+    options.Cookie.HttpOnly = true;//设置在浏览器不能通过js获得该cookie的值 
+
+    //SameSite用来防止 CSRF 攻击 和用户追踪（第三方恶意获取cookie），限制第三方 Cookie，从而减少安全风险。
+    options.Cookie.SameSite = SameSiteMode.None;//设置了Strict或Lax以后，基本就杜绝了 CSRF 攻击；  None：没有限制。
+    //是否只能通过HTTPS请求来传输Cookie信息。
+    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+    //指示此 Cookie 是否对于应用程序正常运行至关重要。 如果为 true，则可能会绕过同意策略检查。 默认值为 false。
+    options.Cookie.IsEssential = true;
+});
 
 /// <summary>
 /// 添加Swagger   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
@@ -33,11 +49,40 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 /// <summary>
-/// 注册Api发现功能   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
+/// 添加Api发现功能   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
 /// </summary>
 builder.Services.AddEndpointsApiExplorer();
 
 
+/// <summary>
+///添加JWT验证  需要添加 NuGet包==》Authentication.JwtBearer组件
+///</summary>
+// 设置验证方式为 Bearer Token
+// 你也可以添加 using Microsoft.AspNetCore.Authentication.JwtBearer;
+// 使用 JwtBearerDefaults.AuthenticationScheme 代替 字符串 "Brearer"
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcdABCD1234abcdABCD1234")),    // 加密解密Token的密钥
+
+            // 是否验证发布者
+            ValidateIssuer = true,
+            // 发布者名称
+            ValidIssuer = "server",
+
+            // 是否验证订阅者
+            ValidateAudience = true,
+            // 订阅者名称
+            ValidAudience = "client007",
+
+            // 是否验证令牌有效期
+            ValidateLifetime = true,
+            // 每次颁发令牌，令牌有效时间 2小时
+            ClockSkew = TimeSpan.FromMinutes(120)
+        };
+    });
 
 var app = builder.Build();
 
@@ -64,8 +109,16 @@ app.UseStaticFiles();
 //注册路由
 app.UseRouting();
 
+//注册Session会话服务
+app.UseSession();
+
+//注册JWT验证 （权限验证）
+app.UseAuthentication();
+
 //注册授权
 app.UseAuthorization();
+
+
 
 //配置路由
 app.MapControllerRoute(
