@@ -1,0 +1,93 @@
+=======================================查询===========================================
+
+var blog = context.实体.Where(查询条件).FirstOrDefault();
+
+var blogs = from b in _context.实体where b.UserID.StartsWith("条件") select b;
+
+var blog = context.实体.Where(查询条件).ToList();
+
+
+string sql = @"select * from roles  where name like '%主任%'";
+context.Database.SqlQuery<实体>(sql);
+context.SaveChanges();
+
+var blogs = context.Blogs.SqlQuery("SELECT * FROM dbo.Blogs").ToList();
+context.SaveChanges();
+
+
+=======================================添加===========================================
+//添加单条数据  方法一
+context.实体.Add(实体对象);
+context.SaveChanges();
+
+//添加单条数据  方法二
+context.实体.Add(实体对象);
+context.SaveChanges();
+
+//添加单条数据  方法三
+context.Entry(实体对象).State = EntityState.Added;
+context.SaveChanges();
+
+
+添加多条数据 方法一
+ foreach (var item in dataList)//dataList 为实体列表
+ {
+    db.Entry(item).State = System.Data.Entity.EntityState.Added;
+}
+ return db.SaveChanges();
+
+添加多条数据 方法二
+list<实体>实体列别=list<实体>();
+context.实体.AddRange(List<实体列表>);
+context.SaveChanges();
+
+
+
+=======================================修改===========================================
+修改数据方法一
+var 实体对象= db.实体.Find(查询条件);
+实体对象.字段="XX";
+实体对象.字段="XX";
+context.Entity(实体).State = EntityState.Modified;//这种会修改全部的字段，即使字段值没有任何变化。
+context.SaveChanges(); 
+
+修改数据方法二
+context.Entity(实体对象).State = EntityState.Modified;//这种会修改全部的字段，即使字段值没有任何变化。
+context.SaveChanges(); 
+
+修改数据方法三
+context.Departments.Attach(实体);//这种根据值改变修改字段（比较灵活）
+实体.字段= '数据';
+context.SaveChanges();
+
+
+
+=======================================删除===========================================
+删除单条数据方法一
+var 实体对象= db.实体.Find(查询条件); 
+context.实体.Remove(实体对象);
+context.SaveChanges();
+
+删除单条数据方法二
+context.Entry(实体对象).State = EntityState.Deleted;
+context.SaveChanges();
+
+删除单条数据方法三
+var blogs = context.Blogs.SqlQuery("DELETE* FROM dbo.Blogs where id = 数据").FirstOrDefault();
+context.SaveChanges();
+
+
+删除多条数据方法一
+list<实体>实体列别=list<实体>();
+context.Roles.RemoveRange(实体列表);
+context.SaveChanges();
+
+删除多条数据方法二
+var blogs = context.Blogs.SqlQuery("DELETE* FROM dbo.Blogs where id in 数据").ToList();
+context.SaveChanges();
+
+
+
+
+
+
