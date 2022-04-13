@@ -1,11 +1,16 @@
+
+
+
 =======================================查询===========================================
+ var blog = _dbContext.Users.Find(1001);
 
 var blog = context.实体.Where(查询条件).FirstOrDefault();
 
-var blogs = from b in _context.实体where b.UserID.StartsWith("条件") select b;
+var blogs = from b in _context.实体 where b.字段.StartsWith("字段值") select b;
+
+
 
 var blog = context.实体.Where(查询条件).ToList();
-
 
 string sql = @"select * from roles  where name like '%主任%'";
 context.Database.SqlQuery<实体>(sql);
@@ -17,7 +22,7 @@ context.SaveChanges();
 
 =======================================添加===========================================
 //添加单条数据  方法一
-context.实体.Add(实体对象);
+context.Add(实体对象);
 context.SaveChanges();
 
 //添加单条数据  方法二
@@ -25,6 +30,15 @@ context.实体.Add(实体对象);
 context.SaveChanges();
 
 //添加单条数据  方法三
+list<实体>实体列别=list<实体>();
+context.实体.AddAsync(List<实体列表>);
+context.SaveChanges();
+
+//添加单条数据  方法四
+context.Set<实体>().Add(实体对象);
+context.SaveChanges();
+
+//添加单条数据  方法五
 context.Entry(实体对象).State = EntityState.Added;
 context.SaveChanges();
 
@@ -36,30 +50,54 @@ context.SaveChanges();
 }
  return db.SaveChanges();
 
-添加多条数据 方法二
+添加多条数据 方法二  ===可修改多条数据 和 单挑数据
 list<实体>实体列别=list<实体>();
 context.实体.AddRange(List<实体列表>);
 context.SaveChanges();
 
+添加多条数据 方法三  ===可修改多条数据 和 单挑数据
+list<实体>实体列别=list<实体>();
+context.实体.AddRangeAsync(List<实体列表>);
+context.SaveChanges();
 
 
 =======================================修改===========================================
-修改数据方法一
+修改单条数据方法一
 var 实体对象= db.实体.Find(查询条件);
 实体对象.字段="XX";
 实体对象.字段="XX";
 context.Entity(实体).State = EntityState.Modified;//这种会修改全部的字段，即使字段值没有任何变化。
 context.SaveChanges(); 
 
-修改数据方法二
+修改单条数据方法二
 context.Entity(实体对象).State = EntityState.Modified;//这种会修改全部的字段，即使字段值没有任何变化。
 context.SaveChanges(); 
 
-修改数据方法三
-context.Departments.Attach(实体);//这种根据值改变修改字段（比较灵活）
+修改单条数据方法三
 实体.字段= '数据';
+context.实体.Attach(实体对象);//这种根据值改变修改字段（比较灵活）
 context.SaveChanges();
 
+修改单条数据方法四
+var 实体对象 = 查到这条数据;
+实体对象.字段="XX";
+context.SaveChanges();
+
+修改单条数据方法五
+var 实体对象 = 查到这条数据;
+实体对象.字段="XX";
+context.Update(users);
+context.SaveChanges();
+
+修改多条数据方法一  ===可修改多条数据 和 单挑数据
+list<实体>实体列别=list<实体>();
+context.UpdateRange(实体列表);
+context.SaveChanges();
+
+修改多条数据方法二  ===可修改多条数据 和 单挑数据
+list<实体>实体列别=list<实体>();
+context.AttachRange(实体列表);
+context.SaveChanges();
 
 
 =======================================删除===========================================
@@ -73,21 +111,36 @@ context.Entry(实体对象).State = EntityState.Deleted;
 context.SaveChanges();
 
 删除单条数据方法三
-var blogs = context.Blogs.SqlQuery("DELETE* FROM dbo.Blogs where id = 数据").FirstOrDefault();
+var blogs = context.实体.SqlQuery("DELETE* FROM 数据表 where id = 数据").FirstOrDefault();
 context.SaveChanges();
 
+ context.Entry(实体对象).State = EntityState.Deleted;
+ context.SaveChanges();
 
-删除多条数据方法一
+
+删除多条数据方法一 可修改多条数据 和 单挑数据
 list<实体>实体列别=list<实体>();
 context.Roles.RemoveRange(实体列表);
 context.SaveChanges();
 
 删除多条数据方法二
-var blogs = context.Blogs.SqlQuery("DELETE* FROM dbo.Blogs where id in 数据").ToList();
+var blogs = context.实体.SqlQuery("DELETE* FROM 数据表 where id in 数据").ToList();
 context.SaveChanges();
 
 
 
 
+
+==============================================================EFCore中EntityState的种状态=====================================================================
+
+Detached = 0, 当前对象和context没有任何关系，没有被上下文跟踪；
+
+Unchanged=1， 当前对象被context跟踪，数据没有做任何修改；
+
+Deleted=2, 当前对象被context跟踪，且标记是数据删除，调用SaveChanges后将会从数据中删除；
+
+Modified=3， 当前对象被context跟踪，且有属性数据被修改过，调用SaveChanges后将会从数据中修改；
+
+Added=4 当前对象被context跟踪，且数据并没有存在数据库中，调用SaveChanges后将会新增到数据库中去；
 
 

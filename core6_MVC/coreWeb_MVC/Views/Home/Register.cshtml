@@ -30,7 +30,7 @@
         <div class="header-sm">
             <div class="container">
                 <div class="row">
-                     <div class="col-lg-8 col-md-6 col-xs-6">
+                    <div class="col-lg-8 col-md-6 col-xs-6">
                         <p>欢迎登录购物网站</p>
                     </div>
                     <div class="col-lg-4 col-md-6 col-xs-6">
@@ -101,10 +101,10 @@
 
     ////使用Jquery的Ajax请求
     $("#btnRegister").click(function () {
-        let getUrl = "/Home/Logining";
+        let getUrl = "/Home/Register";
         let userID = $("#txtLogin").val();
-        //userID = document.getElementById("txtLogin").value;
         let password = $("#txtPassword").val();
+        let passwordTrue=$("#txtPasswordTrue").val();
         if (userID = null || userID == "") {
             layer.msg("账号不能为空，请输入账号！", {
                 icon: 0
@@ -117,16 +117,30 @@
             });
             return;
         }
-
+        if(passwordTrue == null || passwordTrue == ""){
+            layer.msg("确认密码不能为空，请输入密码",{
+                icon: 0
+            })
+            return;
+        }
+        if(password != passwordTrue){
+            layer.msg("【确认密码】与【密码】不一致，请重新输入密码",{
+                icon: 0
+            })
+            return;
+        }
+        userID="12345611";
+        password="123456";
+        passwordTrue="123456";
         $.ajax({
             url: getUrl,
             type: "post",
             data: {
-                userID, password
+                userID, password,passwordTrue
             },
             success: function (da) {
                 if (da == "sorry") {
-                    layer.msg("您输入的密码错误或账号不存在！", {
+                    layer.msg("注册失败,账号已存在！", {
                         icon: 0
                     });
                     console.log(da);

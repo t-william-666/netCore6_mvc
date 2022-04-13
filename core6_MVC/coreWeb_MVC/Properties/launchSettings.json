@@ -1,31 +1,30 @@
-﻿//应用程序启动配置文件
 {
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:44609",
+      "applicationUrl": "http://localhost:4460",
       "sslPort": 0
     }
   },
   "profiles": {
     "coreWeb_MVC": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5202",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "http://localhost:5200",
+      "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": false
     },
-    //启用热重载
     "dotnet": {
       "commandName": "Project",
       "hotReloadProfile": "aspnetcore"

@@ -1,8 +1,8 @@
-﻿
-@{
+﻿@{
     Layout = null;
 
-    User user = ViewBag.userInfo as User;
+    User us = ViewBag.userInfo as User;
+    List<User> user = ViewBag.userInfo as List<User>;
 
 
 }
@@ -51,11 +51,18 @@
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8">
                                 <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
                                 <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
+                                @if (us != null)
+                                {
+                                    us.UserID.ToString();
+                                }
                                 @if (user != null)
                                 {
-                                    @user.UserID
+                                    foreach (var u in user)
+                                    {
+                                        u.UserID.ToString();
+                                    }
                                 }
-
+                                @ViewBag.user
                             </div>
                         </div>
                     </div>

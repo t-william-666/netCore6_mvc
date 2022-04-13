@@ -1,0 +1,12 @@
+<rewrite>
+	<rules>
+		<rule name="CAS to PAS" stopProcessing="true">
+			<match url="/call-answering-service" />
+			<action type="Redirect" url="/us/phone-answering-service" redirectType="Permanent" appendQueryString="true" />
+		</rule>
+		<rule name="PAS tp CAS lp" stopProcessing="true">
+			<match url="/us/lp/phone-answering-service" />
+			<action type="Redirect" url="/us/lp/call-answering-service" redirectType="Permanent" appendQueryString="true" />
+		</rule>
+	</rules>
+</rewrite>

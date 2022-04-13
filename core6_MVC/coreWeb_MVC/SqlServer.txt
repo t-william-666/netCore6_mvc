@@ -7,7 +7,7 @@
 
 //步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
 //第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接SQL Sever数据库的组件
-Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore       
 //第二个 》》 我们将使用一些 Entity Framework SqlServer 获取对应数据实体。因此，我们也会安装此工具包：
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
 //第三个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。因此，我们也会安装此工具包：
@@ -20,6 +20,14 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 
 // 下面这句是更新数据库模型-----------------------------------【SQL Sever数据库更新数据库模型】------------------------------------------
 Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -UseDatabaseNames
+
+
+另一个方法
+//第一个 》》 Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+//第二个 》》 Install-Package Microsoft.EntityFrameworkCore.SqlServer
+//第三个 》》 Install-Package Microsoft.EntityFrameworkCore.Tools
+
+
 
 // 下面这句是更新数据库模型-----------------------------------【根据数据模型SQL Sever数据库更新】------------------------------------------
 安装上面的组件后
@@ -43,15 +51,19 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 
 
 
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 //Microsoft.EntityFrameworkCore.Design包含Entity Framework Core的所有设计时逻辑.这是所有的各种工具(PMC的cmdlet一样的代码Add-Migration,dotnet ef和ef.exe)调入.//
 // Install-Package Microsoft.EntityFrameworkCore.Design                                                                                                      //
-//如果您不使用迁移或逆向工程,则不需要它.                                                                                                                     //
+//如果您不使用迁移或逆向工程,则不需要它.                           数据迁移                                                                                  //
 // Install-Package Microsoft.EntityFrameworkCore.Relational                                                                                                  //
 //当你确实需要它时,我们鼓励PrivateAssets="All"它不会发布到几乎肯定不需要它的服务器上.                                                                        //
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   
+
+
 
 
 
@@ -63,10 +75,8 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 --添加所需要DLL-----------------------------------------------------------------------------------------------------------------------
 
 //步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
-//第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接SQL Sever数据库的组件
-Install-Package Microsoft.EntityFrameworkCore
-！！//第二个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接MySql数据库的组件
-！！Install-Package MySql.Data.EntityFrameworkCore -Pre !!!!!!! 已弃用
+//第一个 》》 我们将使用一些 Entity Framework 用以在.NET Core程序中连接MySql数据库的组件
+Install-Package MySql.EntityFrameworkCore
 //第二个 》》 我们将使用一些 Entity Framework MySql 获取对应数据实体。因此，我们也会安装此工具包：
 Install-Package Pomelo.EntityFrameworkCore.MySql
 //第三个 》》 我们将使用一些 Entity Framework Tools 从数据库创建模型。因此，我们也会安装此工具包：
@@ -90,6 +100,52 @@ Scaffold-DbContext "server=服务器名称;userid=登录名;pwd=密码;port=端�
 -DataAnnotations *** 数据注释
 -UseDatabaseNames 直接使用数据库中的表名和列名（某些版本不支持）
 -Force 强制执行，重写已经存在的实体文件   
+
+
+
+
+
+
+
+
+//ASP.NET Core 包含三个用于处理【防伪造令牌】的筛选器：
+//【ValidateAntiForgeryToken】  操作筛选器可应用于单个操作、控制器或全局操作。除非请求包含有效的防伪造令牌，否则对已应用此筛选器的操作的请求将被阻止：
+//【AutoValidateAntiforgeryToken】  导致为所有不安全的 HTTP 方法验证防伪标记的特性。作为全局筛选器 说人话就是放在控制器前面的位置，作为全局令牌。
+//【IgnoreAntiforgeryToken】  给定操作（或控制器）无需防伪造令牌。说人话就是 禁用令牌，加了IgnoreAntiforgeryToken就不需要验证令牌
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

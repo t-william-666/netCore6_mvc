@@ -1,0 +1,2 @@
+# Rewrite path with additional sub directory 用附加子目录重写路径
+RewriteRule ^/apache-mod-rules-redirect/(.*) /redirected?id=$1 [L,R=302]

@@ -1,8 +1,11 @@
-﻿@*强类型*@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@*强类型*@
 @model IEnumerable<coreWeb_MVC.Models.Shop>
 
 @{
     Layout = null;
+    //生成令牌 需要引入  @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+    var requestToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
 }
 
 <!DOCTYPE html>
@@ -53,14 +56,17 @@
             </div>
         </div>
     </header>
-
+    <!-- 令牌放在.net的html里面 显式添加-->
+    @Html.AntiForgeryToken();
+    <!-- 令牌放在input里面 显式添加-->
+    <input type="hidden" id="token" value="@requestToken"/>
     <div class="content" id="app">
         <div class="content-center container">
             <p class="fs-3 text-center my-md-2">用户登录</p>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">账号：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" value="22" placeholder="请输入账号" v-model="user">
+                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" placeholder="请输入账号" v-model="user">
                 </div>
             </div>
             <div class="row my-md-3">
@@ -117,10 +123,16 @@
              });
              return;
          }
+         userID="123456";
+         password="123456";
          var a=22;
          $.ajax({
              url: getUrl,
              type: "post",
+             headers:{//传送令牌
+                 RequestVerificationToken:$("#token").val() ////服务配置没有配置标头时，标头的名称则为 RequestVerificationToken
+                 //"X-XSRF-TOKEN":$("#token").val() ////X-XSRF-TOKEN 为 服务配置的标头，且必须为配置的标头名称；否则请求失败！
+             },
              data: {
                  userID, password
              },

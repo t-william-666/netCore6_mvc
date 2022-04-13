@@ -6,14 +6,23 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Rewrite;
 
-//
+
+//===============================================================【添加服务】============================================================================
+//WebApplicationBuilder构造函数
 var builder = WebApplication.CreateBuilder(args);
 
 /// <summary>
 ///  将服务添加到容器中  Add services to the container.
 /// </summary>
 builder.Services.AddControllersWithViews();
+
+/// <summary>
+/// 添加了所有必需的 MVC 服务
+/// </summary>
+builder.Services.AddMvc();
 
 /// <summary>
 /// 注册连接数据库的服务
@@ -26,6 +35,9 @@ builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(bui
 ///</summary>
 //builder.Services.AddDbContext<TestDBContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
+/// <summary>
+/// Session（会话）服务
+/// </summary>
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".AdventureWorks.Session";//会话使用cookie跟踪和标识来自单个浏览器的请求。默认情况下cookie 名为 .AspNetCore.Session，并使用路径 / 
@@ -39,6 +51,17 @@ builder.Services.AddSession(options =>
     //指示此 Cookie 是否对于应用程序正常运行至关重要。 如果为 true，则可能会绕过同意策略检查。 默认值为 false。
     options.Cookie.IsEssential = true;
 });
+
+/// <summary>
+/// Session（会话）服务
+/// </summary>
+builder.Services.AddHttpContextAccessor();
+
+/// <summary>
+///防伪造服务配置为查找 X-XSRF-TOKEN 标头： 名为 X-XSRF-TOKEN 的请求头中发送令牌
+///使用 JavaScript 发出带有相应标头的 AJAX 请求 表头就必须为 下面命名--X-XSRF-TOKEN
+////// </summary>
+//builder.Services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
 /// <summary>
 /// 添加Swagger   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
@@ -79,15 +102,22 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 
             // 是否验证令牌有效期
             ValidateLifetime = true,
-            // 每次颁发令牌，令牌有效时间 2小时
-            ClockSkew = TimeSpan.FromMinutes(120)
+            // 每次颁发令牌，令牌有效时间 60分钟
+            ClockSkew = TimeSpan.FromMinutes(60)
         };
-    });
+});
 
+
+
+
+
+
+
+//===============================================================【注册服务】============================================================================
 var app = builder.Build();
 
 /// <summary>
-/// 配置HTTP请求管道  Configure the HTTP request pipeline.
+/// 配置HTTP请求管道 异常处理中间件  Configure the HTTP request pipeline.
 /// </summary>
 if (!app.Environment.IsDevelopment())
 {
@@ -115,10 +145,17 @@ app.UseSession();
 //注册JWT验证 （权限验证）
 app.UseAuthentication();
 
+//注册UseHsts所有请求转换为HTTPS连接
+//app.UseHsts();
+
+//注册强制使用HTTPS 将 HTTP 请求重定向到 HTTPS
+//app.UseHttpsRedirection();
+
 //注册授权
 app.UseAuthorization();
 
-
+//注册获取防伪造令牌服务对象
+var antiforgery = app.Services.GetRequiredService<IAntiforgery>();
 
 //配置路由
 app.MapControllerRoute(
