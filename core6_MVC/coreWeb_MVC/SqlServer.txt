@@ -29,11 +29,25 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 
 
 
-// 下面这句是更新数据库模型-----------------------------------【根据数据模型SQL Sever数据库更新】------------------------------------------
-安装上面的组件后
+// 下面这句是添加数据库模型-----------------------------------【根据数据模型 添加SQL Sever数据库】------------------------------------------
+//步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
 第一步输入  Add-Migration init
 第二步看情况 如果出现To undo this action, use Remove-Migration. 则需要继续输入命令：Update-Database init
 第三步输入  Update-Database 出现Done.表示成功创建数据库
+
+
+// 下面这句是添加数据库模型-----------------------------------【根据数据模型 更改SQL Sever数据库】------------------------------------------
+//步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
+第一步输入  Enable-Migrations -EnableAutomaticMigrations   执行成功后，添加Migrations文件夹，并生成类文件Configuration.cs 启用迁移-启用自动迁移
+第二步输入  Add-Migration InitialCreate    执行成功后，在Migrations文件夹中新增类文件201309201556388_InitialCreate.cs
+第三步输入  Update-Database -Verbose   执行结果生成与上面一致的数据库
+第四步输入  Add-Migration 实体类   在数据库模型中添加City类，执行程序包管理器控制台语句，Migrations文件夹中新增类文件201309201643300_AddCity.cs
+第五步输入  Update-Database -Verbose 
+
+//如果数据库已存在 改数据库 删除Migrations文件夹的多余新增类文件201309201556388_InitialCreate.cs（如果有）
+Add-Migration Userschange  //添加新的 新增类文件201309201556388_InitialCreate.cs
+Update-Database  //执行修改（将实体类新加的字段 添加到 数据库中）
+
 
 
 -OutputDir *** 实体文件所存放的文件目录

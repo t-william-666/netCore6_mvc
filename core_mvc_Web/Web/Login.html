@@ -18,6 +18,7 @@
     <script src="./js/jquery-3.5.1.min.js"></script>
     <!-- 引入Vue的JS文件 -->
     <script src="./js/Vue.js"></script>
+    <script src="./js/axios.min.js"></script>
     <!-- 引入vue-resource的JS文件 -->
     <!-- <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
     <script src="./js/vue-resource.min.js"></script>
@@ -88,8 +89,22 @@
         </div>
     </div>
 </body>
-
+<script src="~/layer/layer.js" charset="utf-8"></script>
+<script type="text/javascript" src="~/layer/xadmin.js"></script>
 <script>
+
+   //去除多余的零
+    function numberclert(number, n) {
+        n = n ? parseFloat(n) : 8;
+        if (n == null || n == "") {
+            n = 0;
+        }
+
+        number = Math.round(number * Math.pow(10, n)) / Math.pow(10, n);
+        return number;
+    }
+
+
     $("button").on('click', function () {
         alert(1)
         $(this).animate("jelly", 0.5);
@@ -153,10 +168,11 @@
             //Vue的Ajax请求
             loginWeb: function () {
                 //    //请求路径
-                //    let getUrl = "http://localhost:44609/Home/Logining";
+                //    let getUrl = "http://localhost:4460/Home/Logining";
                 //    axios({
                 //        method: "post",
                 //        url: getUrl,
+                //        headers:"", 
                 //        params: {
                 //            userID: this.user,
                 //            password: this.pass

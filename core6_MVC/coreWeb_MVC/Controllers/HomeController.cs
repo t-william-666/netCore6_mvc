@@ -115,6 +115,7 @@ namespace coreWeb_MVC.Controllers
         /// <param name="passwordTure"></param>
         /// <returns></returns>
         [HttpPost]
+        [ValidateAntiForgeryToken] //令牌
         public IActionResult Register(string userID, string password, string passwordTrue)
         {
             if (userID == "" || userID == null || password == "" || password == null || passwordTrue == "" || passwordTrue == null)
