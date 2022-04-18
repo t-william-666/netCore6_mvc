@@ -59,6 +59,8 @@ namespace coreWeb_MVC.Models
             {
                 entity.ToTable("Shop");
 
+                entity.HasIndex(e => e.ShopType, "IX_Shop_ShopType");
+
                 entity.Property(e => e.ActivityPrice).HasColumnType("money");
 
                 entity.Property(e => e.Price).HasColumnType("money");
@@ -95,8 +97,6 @@ namespace coreWeb_MVC.Models
                 entity.Property(e => e.Address).HasMaxLength(50);
 
                 entity.Property(e => e.Introduce).HasMaxLength(200);
-
-                entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.Sex)
                     .HasMaxLength(4)

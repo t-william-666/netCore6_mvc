@@ -10,8 +10,8 @@ namespace coreWeb_MVC.Models
             Shops = new HashSet<Shop>();
         }
 
-        public int ID { get; set; }
         public int ShopType1 { get; set; }
+        public int ID { get; set; }
         public string? ShopTypeName { get; set; }
         public string? Desc { get; set; }
 

@@ -89,7 +89,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center my-md-5 ">
-                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister" v-on:click="registerWeb">注册</button>
+                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister"
+                    v-on:click="registerWeb">注册</button>
             </div>
 
         </div>
@@ -194,7 +195,7 @@
                 axios({
                     method: "post",
                     url: getUrl,
-                    headers:"",
+                    headers: "",
                     params: {
                         userID: this.user,
                         password: this.pass,

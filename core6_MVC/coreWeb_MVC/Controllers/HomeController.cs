@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Web;
+using coreWeb_MVC.Models.Other;
+
 namespace coreWeb_MVC.Controllers
 {
     public class HomeController : Controller
@@ -79,8 +81,11 @@ namespace coreWeb_MVC.Controllers
         public IActionResult Logining(string userID, string password)
         {
             var user = _dbContext.Users.Where(p => p.UserID == userID && p.Password == password).FirstOrDefault();
-            var users = _dbContext.Users.Where(p => p.UserID == userID && p.Password == password).Count();
-            if (users > 0)
+            User users = _dbContext.Users.Where(p => p.UserID == userID).FirstOrDefault();
+
+            var storePassword = users.Password;//获取加密密码
+            var result = PasswordHasher.VerifyHashedPassword(password, storePassword);
+            if (result)
             {
                 //保存登录用户数据对象(会话)
                 HttpContext.Session.SetString("userInfo", userID);
@@ -130,6 +135,8 @@ namespace coreWeb_MVC.Controllers
                 {
                     return Content("sorry");
                 }
+                //加密密码
+                password = PasswordHasher.HashPassword(password);
                 User user = new User()
                 {
                     UserID = userID,
