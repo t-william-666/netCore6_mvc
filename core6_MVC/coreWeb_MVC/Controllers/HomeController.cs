@@ -39,6 +39,32 @@ namespace coreWeb_MVC.Controllers
         /// <returns></returns>
         public IActionResult Home()
         {
+            //用户二级菜单栏
+            ViewBag.userMenu = _dbContext.TitleLists.Where(p => p.about == "user-menu").OrderBy(p => p.TitleOrderby).ToList();
+            //广告轮播图获取
+            ViewBag.Banner = _dbContext.BannerImages.Where(p => p.State == 1).ToList();
+            //菜单导航栏-菜单导航条
+            ViewBag.Menulist = _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "导航栏").OrderBy(p => p.TitleOrderby).ToList();
+            //获取商品信息商品图片商品评分 Skip 跳过多少条数据 Take输出多少条数据
+            ViewBag.Productlist = _dbContext.SuperProductViews.Take(12).ToList();
+            #region 使用Join连接
+            //ViewBag.Productlist = _dbContext.Products.Join(_dbContext.TitleLists, p => p.ProductState, t => t.Title, (p, t) => new SuperProductView
+            //{
+            //    ShopID = p.ShopID,
+            //    ProductID = p.ProductID,
+            //}).ToList();
+
+            //ViewBag.a = _dbContext.Shops.Include(p => p.Products).ToList();
+            //ViewBag.Productlist = from p in _dbContext.Set<Product>()
+            //                      join g in _dbContext.Set<ProductImage>()
+            //                      on p.ProductID equals g.ProductID
+            //                      join t in _dbContext.Set<TitleList>()
+            //                          on p.ProductStarNum equals t.Title
+            //                      where p.ProductType == 101 && g.ImgType == "1"
+            //                      select new { p, g, t };
+            //select new { ProductName = p.ProductName,ProductIntroduce=p.ProductIntroduce };
+            #endregion
+
             if (HttpContext.Session.GetString("userInfo") != null)
             {
 #pragma warning disable CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
@@ -56,6 +82,8 @@ namespace coreWeb_MVC.Controllers
         {
             return LocalRedirect("");
         }
+
+
         /// <summary>
         /// 登录
         /// </summary>
@@ -81,9 +109,11 @@ namespace coreWeb_MVC.Controllers
         public IActionResult Logining(string userID, string password)
         {
             var user = _dbContext.Users.Where(p => p.UserID == userID && p.Password == password).FirstOrDefault();
+#pragma warning disable CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
             User users = _dbContext.Users.Where(p => p.UserID == userID).FirstOrDefault();
+#pragma warning restore CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
 
-            var storePassword = users.Password;//获取加密密码
+            var storePassword = users.Password;//获取数据库的加密密码
             var result = PasswordHasher.VerifyHashedPassword(password, storePassword);
             if (result)
             {
@@ -141,7 +171,7 @@ namespace coreWeb_MVC.Controllers
                 {
                     UserID = userID,
                     Password = password,
-                    UserName="新用户",
+                    UserName = "新用户",
                     Sex = "3",
                 };
                 _dbContext.Add(user);

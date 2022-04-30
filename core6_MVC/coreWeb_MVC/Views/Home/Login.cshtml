@@ -1,7 +1,6 @@
 ﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 @*强类型*@
-@model IEnumerable<coreWeb_MVC.Models.Shop>
-
+@*@model IEnumerable<coreWeb_MVC.Models.Shop>*@
 @{
     Layout = null;
     //生成令牌 需要引入  @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
@@ -37,7 +36,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-6 col-xs-6">
-                        <p>欢迎登录购物网站</p>
+                        <p>
+                            <a asp-controller="Home" asp-action="Home" class="section-title-1">欢迎登录购物网站</a>
+                        </p>
                     </div>
                     <div class="col-lg-4 col-md-6 col-xs-6">
                         <ul class="row">
@@ -45,10 +46,12 @@
 
                             </li>
                             <li class="col-lg-4 col-md-4 col-xs-4">
-                                <button type="button" class="p-h20 ">登录</button>
+                                <a asp-controller="Home" asp-action="Login" class="p-h20">登录</a>
+                                <!--<button type="button" class="p-h20 ">登录</button>-->
                             </li>
                             <li class="col-lg-4 col-md-4 col-xs-4">
-                                <button type="button" class="p-h20">注册</button>
+                                <a asp-area="" asp-controller="Home" asp-action="Register" class="p-h20">注册</a>
+                                <!--<button type="button" class="p-h20">注册</button>-->
                             </li>
                         </ul>
                     </div>
@@ -59,7 +62,7 @@
     <!-- 令牌放在.net的html里面 显式添加-->
     @Html.AntiForgeryToken();
     <!-- 令牌放在input里面 显式添加-->
-    <input type="hidden" id="token" value="@requestToken"/>
+    <input type="hidden" id="token" value="@requestToken" />
     <div class="content" id="app">
         <div class="content-center container">
             <p class="fs-3 text-center my-md-2">用户登录</p>

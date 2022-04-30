@@ -36,7 +36,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-6 col-xs-6">
-                        <p>欢迎登录购物网站</p>
+                        <p>
+                            <a asp-controller="Home" asp-action="Home" class="section-title-1">欢迎登录购物网站</a>
+                        </p>
                     </div>
                     <div class="col-lg-4 col-md-6 col-xs-6">
                         <ul class="row">
@@ -44,59 +46,61 @@
 
                             </li>
                             <li class="col-lg-4 col-md-4 col-xs-4">
-                                <button type="button" class="p-h20 ">登录</button>
+                                <a asp-controller="Home" asp-action="Login" class="p-h20">登录</a>
+                                <!--<button type="button" class="p-h20 ">登录</button>-->
                             </li>
                             <li class="col-lg-4 col-md-4 col-xs-4">
-                                <button type="button" class="p-h20">注册</button>
+                                <a  asp-controller="Home" asp-action="Register" class="p-h20">注册</a>
+                                <!--<button type="button" class="p-h20">注册</button>-->
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    <!-- 令牌放在.net的html里面 显式添加-->
-    @Html.AntiForgeryToken();
-    <!-- 令牌放在input里面 显式添加-->
-    <input type="hidden" id="token" value="@requestToken" v-model="token=this"/>
-    <div id="app" class="content">
-        <div class="content-center container">
-            <p class="fs-3 text-center my-md-2">用户注册</p>
-            <div class="row my-md-3">
-                <div class="col-lg-3 col-xs-3">账号：</div>
-                <div class="col-lg-9 col-xs-9">
-                    <input type="text" id="txtRegister" class="form-control d-inline-block align-self-center" placeholder="请输入账号"  v-model="user">
+        <!-- 令牌放在.net的html里面 显式添加-->
+        @Html.AntiForgeryToken();
+        <!-- 令牌放在input里面 显式添加-->
+        <input type="hidden" id="token" value="@requestToken" v-model="token=this" />
+        <div id="app" class="content">
+            <div class="content-center container">
+                <p class="fs-3 text-center my-md-2">用户注册</p>
+                <div class="row my-md-3">
+                    <div class="col-lg-3 col-xs-3">账号：</div>
+                    <div class="col-lg-9 col-xs-9">
+                        <input type="text" id="txtRegister" class="form-control d-inline-block align-self-center" placeholder="请输入账号" v-model="user">
+                    </div>
                 </div>
-            </div>
-            <div class="row my-md-3">
-                <div class="col-lg-3 col-xs-3">密码：</div>
-                <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center" placeholder="请输入密码" v-model="pass">
+                <div class="row my-md-3">
+                    <div class="col-lg-3 col-xs-3">密码：</div>
+                    <div class="col-lg-9 col-xs-9">
+                        <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center" placeholder="请输入密码" v-model="pass">
+                    </div>
                 </div>
-            </div>
-            <div class="row my-md-3">
-                <div class="col-lg-3 col-xs-3">确认密码：</div>
-                <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtPasswordTrue" class="form-control d-inline-block align-self-center" placeholder="请输入确认密码" v-model="passtrue">
+                <div class="row my-md-3">
+                    <div class="col-lg-3 col-xs-3">确认密码：</div>
+                    <div class="col-lg-9 col-xs-9">
+                        <input type="password" id="txtPasswordTrue" class="form-control d-inline-block align-self-center" placeholder="请输入确认密码" v-model="passtrue">
+                    </div>
                 </div>
-            </div> 
-            <div class="row ">
-                <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-start">
-                    <p class="row my-md-2 p-txt">
-                        <a href="#" class="fs-14">已有账号？登录账号</a>
-                    </p>
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-start">
+                        <p class="row my-md-2 p-txt">
+                            <a href="#" class="fs-14">已有账号？登录账号</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-end">
+                        <p class="row justify-content-lg-end my-md-2 ">
+                            <input type="text" class="d-inline-block col-lg-8 pw-100 rounded-1" placeholder="验证码">
+                            <button type="button" class="d-inline-block col-lg-4 pw-60 rounded-1 fs-13">获取验证码</button>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-end">
-                    <p class="row justify-content-lg-end my-md-2 ">
-                        <input type="text" class="d-inline-block col-lg-8 pw-100 rounded-1" placeholder="验证码">
-                        <button type="button" class="d-inline-block col-lg-4 pw-60 rounded-1 fs-13">获取验证码</button>
-                    </p>
+                <div class="d-flex justify-content-center my-md-5 ">
+                    <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister" v-on:click="registerWeb">注册</button>
                 </div>
-            </div>
-            <div class="d-flex justify-content-center my-md-5 ">
-                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister" v-on:click="registerWeb">注册</button>
             </div>
         </div>
-    </div>
 </body>
 <script src="~/layer/layer.js" charset="utf-8"></script>
 <script type="text/javascript" src="~/layer/xadmin.js"></script>

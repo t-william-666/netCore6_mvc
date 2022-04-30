@@ -30,6 +30,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 ul>li {
     list-style-type: none;
 }
@@ -66,8 +70,105 @@ input[type="text"]:hover, input[type="password"]:hover {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+.header .head-box {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+}
+
 .header .colorBlock {
     color: #000000;
+}
+
+/* 二级菜单栏 */
+.user-boxdropdown {
+    z-index: 99;
+    background-color: #fff;
+    width: 25rem;
+    position: absolute;
+    top: 8rem;
+    border-radius: 1rem;
+    padding-bottom: 30px;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+/* 让图片和文字居中 */
+.user-imgbox {
+    position: relative;
+    text-align: center;
+}
+
+/* 设置图片盒子的大小*/
+.user-boxdropdown .headerimg-two {
+    width: 100%;
+    height: 5rem;
+    line-height: 5rem;
+    /* 图片居中 设置了dispaly:table-cell属性后，元素将忽略margin值 */
+    /* display: table-cell; */
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+
+}
+
+/* 设置图片的大小和位置 */
+.user-boxdropdown .headerimg-two a {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    top: -4rem;
+    box-shadow: 0px 3px 5px rgb(201, 201, 201);
+}
+
+.user-boxdropdown .headerimg-two a img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-boxdropdown .user-imgbox p {
+    height: 3.5rem;
+    line-height: 3.5rem;
+    display: block;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.user-boxdropdown ul li {
+    height: 4rem;
+    line-height: 4rem;
+}
+
+.user-boxdropdown ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.user-boxdropdown ul li a, .user-boxdropdown ul li a i {
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.user-boxdropdown .user-imgbox p a:hover {
+    animation: jelly 0.5s;
+}
+
+.user-boxdropdown ul li:hover {
+    background-color: #e9e9e9;
+}
+
+.user-boxdropdown ul li a:hover {
+    animation: jelly 0.5s;
+}
+
+.hr-line {
+    margin: 5px 0px;
 }
 
 /* 输入框的文字提示样式 */
@@ -210,6 +311,18 @@ input::placeholder {
     margin: 23px 0px !important;
 }
 
+.b-radius1 {
+    border-radius: 1rem;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
 .user-select {
     /* 用户不可选中文字 */
     user-select: none;
@@ -217,7 +330,6 @@ input::placeholder {
 
 /* 显示一行文字超出隐藏 */
 .text-show-1 {
-    /* 超出隐藏 */
     /* 超出隐藏 */
     overflow: hidden;
     /* 查出部分使用...代替 */
@@ -419,7 +531,7 @@ input::placeholder {
 
 .content .content-list .Product-title .p-desc {
     height: auto;
-    min-height: 1.5rem;
+    min-height: 3rem;
     line-height: 1.5rem;
     font-size: 0.75rem;
     letter-spacing: 0.5px;
@@ -526,19 +638,27 @@ input::placeholder {
     padding: 5px 16px;
     border: 1px #ccc;
     border-radius: 6px;
-    background-color: #337ab7;
+    background-color: #E72463;
     color: white;
 }
 
 .btn-Page:hover {
-    background-color: rgba(51, 122, 183, 0.95);
-    box-shadow: 0px 0px 3px #337ab7 !important;
+    box-shadow: 0px 0px 3px #f8467e !important;
+    animation: Jelly 0.5s;
 }
 
+.a-active{
+    background-color: #E72463 !important;
+    color: white !important;
+}
 /* 按钮果冻效果 */
 
 button:hover, .fa:hover {
     cursor: pointer;
+    animation: jelly 0.5s;
+}
+
+.jelly {
     animation: jelly 0.5s;
 }
 
@@ -618,7 +738,7 @@ button:focus {
         /* 字体间距 */
         letter-spacing: 2px;
     }
-    
+
 
     /* 头部导航文字 */
     .header-title {
@@ -741,7 +861,22 @@ button:focus {
     }
 }
 
+@media (max-width: 800px) {}
+
 @media (max-width: 1000px) {
+
+    /* 商品的销量 */
+    .Price-box .float-end {
+        display: none;
+    }
+
+    /* 商品的销量 */
+    .content .content-list .Product-rating span {
+        font-size: 0.75rem !important;
+        padding-right: 0px !important;
+        display: inline-block;
+    }
+
     .text-xxl-start {
         text-align: left !important;
     }

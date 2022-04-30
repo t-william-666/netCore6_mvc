@@ -44,8 +44,8 @@ namespace coreWeb_MVC.Models.Other
         }
         /// <summary>
         /// hash校验的方法
+        /// </summary> 
         /// 这时我们需要输入用户输入的密码，盐，以及生成好的hash值，就可以判断用户输入的密码是否正确了。
-        /// </summary>
         /// <param name="password"></param>
         /// <param name="salt"></param>
         /// <param name="hash"></param>

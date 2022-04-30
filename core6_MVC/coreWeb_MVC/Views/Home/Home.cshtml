@@ -1,8 +1,6 @@
-﻿@{
+﻿@using coreWeb_MVC.Models
+@{
     Layout = null;
-
-    User us = ViewBag.userInfo as User;
-    List<User> user = ViewBag.userInfo as List<User>;
 
 
 }
@@ -33,6 +31,9 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
     <script src="~/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <!-- 引入Vue的JS文件 -->
+    <script src="./js/Vue.js"></script>
+    <script src="./js/axios.min.js"></script>
 </head>
 
 
@@ -46,23 +47,61 @@
                     <div class="col-lg-6 col-md-6 col-6">
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
-                                <p class="section-title-1 fs-3"><a href="#">CiYuanCang</a></p>
+                                <p class="section-title-1 fs-3"><a href="/Home/Home">CiYuanCang</a></p>
                             </div>
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8">
-                                <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
-                                <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
-                                @if (us != null)
-                                {
-                                    us.UserID.ToString();
+
+                                @if (ViewBag.userInfo == null)
+                                {   <a href="#" class="headerimg position-relative">
+                                      <img src="/images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box">
+                                    
+                                    </a>
+                                    <div class="user-boxdropdown">
+                                      <div class="user-imgbox">
+                                          <div class="headerimg-two">
+                                              <a href="#">
+                                                  <img src="~/images/bg.png" alt="">
+                                              </a>
+                                          </div>
+                                          <p>
+                                              <a href="#">用户名称</a>
+                                          </p>
+                                      </div>
+                                      <ul>
+                                            @if (ViewBag.userMenu != null)
+                                            {
+                                                foreach(var item in ViewBag.userMenu)
+                                                {
+                                                    <li><a href="@item.TitleUrl"><i class="@item.Title"></i> @item.TitleDesc</a></li>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <li><a href=""><i class="fa fa-user"></i> 个人信息</a></li>
+                                                <li><a href=""><i class="fa fa-file-text"></i> 我的订单</a></li>
+                                                <li><a href=""><i class="fa fa-bus"></i> 物流查询</a></li>
+                                                <li><a href=""><i class="fa fa-home"></i> 收货地址</a></li>
+                                                <li><a href=""><i class="fa fa-comment"></i> 评价中心</a></li>
+                                            }
+                                            
+                                          <hr class="hr-line">
+                                          <li><a href="#"><i class="fa "></i> 退出登录</a></li>
+                                      </ul>
+                                    </div>
                                 }
-                                @if (user != null)
+                                else
                                 {
-                                    foreach (var u in user)
-                                    {
-                                        u.UserID.ToString();
-                                    }
+                                    <a asp-controller="Home" asp-action="Login" class="p-h20 px-2 colorBlock">
+                                        登录
+                                    </a>
+                                    <a asp-area="" asp-controller="Home" asp-action="Register" class="p-h20 px-2 colorBlock">
+                                        注册
+                                    </a>
+
+                                    <!--<button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>-->
+                                    <!--<button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>-->
                                 }
-                                @ViewBag.user
+
                             </div>
                         </div>
                     </div>
@@ -81,7 +120,7 @@
                                             0
                                         </span>
                                     </a>
-                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
+                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
 
                                         <div class="single-cart-item">
                                             <div class="cart-img">
@@ -308,42 +347,96 @@
             <div id="MyCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators 指标 轮播图片的索引 -->
                 <ol class="carousel-indicators">
-                    <li data-target="#MyCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#MyCarousel" data-slide-to="1"></li>
-                    <li data-target="#MyCarousel" data-slide-to="2"></li>
+                    @if (ViewBag.Banner != null)
+                    {
+                        for (int i = 0; i < (ViewBag.Banner as List<BannerImage>).Count(); i++)
+                        {
+                            if (i == 0)
+                            {
+                                <li data-target="#MyCarousel" data-slide-to="@i" class="active"></li>
+                            }
+                            else
+                            {
+                                <li data-target="#MyCarousel" data-slide-to="@i"></li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <li data-target="#MyCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#MyCarousel" data-slide-to="1"></li>
+                        <li data-target="#MyCarousel" data-slide-to="2"></li>
+                    }
                 </ol>
 
                 <!-- Wrapper for slides 幻灯片包装 放轮播图片 -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <a href="#">
-                            <img src="~/images/other/1.jpg" alt="...">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>轮播图片标题</h3>
-                            <p>轮播图片内容</p>
-                        </div>
-                    </div>
 
-                    <div class="item">
-                        <a href="#">
-                            <img src="~/images/other/2.jpg" alt="...">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>轮播图片标题22</h3>
-                            <p>轮播图片内容22</p>
+                    @if (ViewBag.Banner != null)
+                    {
+                        <!--  ViewBag.Banner as List<BannerImage>  -->
+                        foreach (BannerImage banner in ViewBag.Banner)
+                        {
+                            <!--判断是否是第一条数据 实则加 active 样式-->
+                            if ((ViewBag.Banner).IndexOf(banner) == 0)
+                            {
+                                <div class="item active">
+                                    <a href="#">
+                                        <img src="@banner.Path" alt="...">
+                                    </a>
+                                    <div class="carousel-caption">
+                                        <h3>@banner.Title</h3>
+                                        <p>@banner.TitleDesc</p>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item ">
+                                    <a href="#">
+                                        <img src="@banner.Path" alt="...">
+                                    </a>
+                                    <div class="carousel-caption">
+                                        <h3>@banner.Title</h3>
+                                        <p>@banner.TitleDesc</p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <div class="item active">
+                            <a href="#">
+                                <img src="~/images/other/1.jpg" alt="...">
+                            </a>
+                            <div class="carousel-caption">
+                                <h3>轮播图片标题</h3>
+                                <p>轮播图片内容</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="item">
-                        <a href="#">
-                            <img src="~/images/other/3.jpg" alt="...">
-                        </a>
-                        <div class="carousel-caption">
-                            <h3>轮播图片标题33</h3>
-                            <p>轮播图片内容44</p>
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/images/other/2.jpg" alt="...">
+                            </a>
+                            <div class="carousel-caption">
+                                <h3>轮播图片标题22</h3>
+                                <p>轮播图片内容22</p>
+                            </div>
                         </div>
-                    </div>
+
+                        <div class="item">
+                            <a href="#">
+                                <img src="~/images/other/3.jpg" alt="...">
+                            </a>
+                            <div class="carousel-caption">
+                                <h3>轮播图片标题33</h3>
+                                <p>轮播图片内容44</p>
+                            </div>
+                        </div>
+                    }
+
                 </div>
 
                 <!-- Controls 控制轮播的 上一页 与 下一页 -->
@@ -364,24 +457,37 @@
             <!-- 菜单导航条 -->
             <div class="menu">
                 <ul class="d-flex justify-content-evenly">
-                    <li class="">
-                        <a href="#" class="menu-title1">手办周边</a><a href="#" class="menu-title2">手办</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="menu-title1">图书漫画</a><a href="#" class="menu-title2">书画</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="menu-title1">服装服饰</a><a href="#" class="menu-title2">服饰</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="menu-title1">洗护用品</a><a href="#" class="menu-title2">洗护</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="menu-title1">前往桃园</a><a href="#" class="menu-title2">桃园</a>
-                    </li>
-                    <li class="">
-                        <a href="#" class="menu-title1">岁的法国</a><a href="#" class="menu-title2">岁月</a>
-                    </li>
+                    @if (ViewBag.Menulist != null)
+                    {
+                        foreach (TitleList menulist in ViewBag.Menulist)
+                        {
+                            <li class="">
+                                <a href="#" class="menu-title1">@menulist.TitleDesc</a><a href="#" class="menu-title2">@menulist.Title</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="">
+                            <a href="#" class="menu-title1">手办周边</a><a href="#" class="menu-title2">手办</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="menu-title1">图书漫画</a><a href="#" class="menu-title2">书画</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="menu-title1">服装服饰</a><a href="#" class="menu-title2">服饰</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="menu-title1">洗护用品</a><a href="#" class="menu-title2">洗护</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="menu-title1">前往桃园</a><a href="#" class="menu-title2">桃园</a>
+                        </li>
+                        <li class="">
+                            <a href="#" class="menu-title1">岁的法国</a><a href="#" class="menu-title2">岁月</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
 
@@ -415,863 +521,936 @@
         <div class="content-list">
             <div class="row shop_wrapper grid_3">
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
-                        <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                @if (ViewBag.Productlist != null)
+                {
+                    foreach (var item in ViewBag.Productlist)
+                    {
+                        <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                            <div class="position-relative Product-box pb-4">
+                                  <!-- 商品图片 -->
+                                  <div class="px-2 pt-2">
+                                        <div class="product-image position-relative">
+                                            <a href="#">
+                                                <img src="@item.ImgPath1" alt="" class="product-image-1 w-100 h-100">
+                                                <img src="@item.ImgPath2" alt="" class="product-image-2 position-absolute w-100 ">
+                                            </a>
+                                        </div>
+                                  </div>
+                                  <!-- 商品名称 -->
+                                  <div class="Product-title my-2 px-2">
+                                        <p class="p-title" title="@item.ProductName">
+                                            <a href="#" class="text-show-1">
+                                                @item.ProductName
+                                            </a>
+                                        </p>
+                                        <p class="p-desc px-1 " title="@item.ProductIntroduce">
+                                            <a href="#" class="text-show-2 opacity-75">
+                                                @item.ProductIntroduce
+                                            </a>
+                                        </p>
+                                  </div>
+                                  <!-- 商品评分 -->
+                                  <div class="Product-rating px-2">
+                                     
+                                        <i class="@item.Star1"></i>
+                                        <i class="@item.Star2"></i>
+                                        <i class="@item.Star3"></i>
+                                        <i class="@item.Star4"></i>
+                                        <i class="@item.Star5"></i>
+
+                                        <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">@item.ProductNum</span></span>
+                                  </div>
+                                  <!-- 保存商品编号 -->
+                                  <div class="d-none">
+                                      <input type="text" id="productID">
+                                  </div>
+                                  <!-- 商品价格 -->
+                                  <div class="Price-box mb-5 ">
+                                        @if (@item.discountType == 0)
+                                        {
+                                            <span class="regular-price px-1">￥@item.ActivityPrice</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="regular-price px-1">￥@item.Price*@item.discount</span>
+                                        }
+                                        <span class="old-price px-2"><del>￥@item.Price</del></span>
+                                        <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">@item.ProductNum</span></span>
+                                  </div>
+                                  <!-- 加入购物车按钮 -->
+                                  <div class="btn-box d-flex justify-content-evenly">
+                                        <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                            <i class="fa fa-heart">&nbsp; 收藏</i>
+                                        </button>
+                                        <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                            <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                        </button>
+                                  </div>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
+                    }
+                }
+                else
+                {
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
+                        <div class="px-2 pt-2">
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
                         <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
                         <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
 
-                            <!-- 全星 -->
-                            <!-- <i class="fa fa-star"></i> -->
-                            <!-- 无星-有线条 -->
-                            <!-- <i class="fa fa-star-o"></i> -->
-                            <!-- 半星-无线条 -->
-                            <!-- <i class="fa fa-star-half"></i> -->
-                            <!-- 半星 -->
-                            <!-- <i class="fa fa-star-half-o"></i> -->
-                            <!-- <i class="fa fa-star-half-empty"></i> -->
-                            <!-- <i class="fa fa-star-half-full"></i> -->
-                            <!-- <i class="fa fa-star-half-empty"></i> -->
-                            <!-- 移动端端 显示销售数量 -->
+                                <!-- 全星 -->
+                                <!-- <i class="fa fa-star"></i> -->
+                                <!-- 无星-有线条 -->
+                                <!-- <i class="fa fa-star-o"></i> -->
+                                <!-- 半星-无线条 -->
+                                <!-- <i class="fa fa-star-half"></i> -->
+                                <!-- 半星 -->
+                                <!-- <i class="fa fa-star-half-o"></i> -->
+                                <!-- <i class="fa fa-star-half-empty"></i> -->
+                                <!-- <i class="fa fa-star-half-full"></i> -->
+                                <!-- <i class="fa fa-star-half-empty"></i> -->
+                                <!-- 移动端端 显示销售数量 -->
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">9999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
+                            </div>
+                            <!-- 商品价格 -->
                         <div class="Price-box mb-5 ">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
                         <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
-                        <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
-
-                            <!-- 移动端端 显示销售数量 -->
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
-                        <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
-                        <div class="btn-box d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
-                        </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                    <div class="position-relative Product-box pb-4">
-                        <!-- 商品图片 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
                         <div class="px-2 pt-2">
-                            <div class="product-image position-relative">
-                                <a href="#">
-                                    <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                    <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                </a>
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                        <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                        <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
                             </div>
                         </div>
-                        <!-- 商品名称 -->
-                        <div class="Product-title my-2 px-2">
-                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                <a href="#" class="text-show-1">
-                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                </a>
-                            </p>
-                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                <a href="#" class="text-show-2 opacity-75">
-                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                </a>
-                            </p>
-                        </div>
-                        <!-- 商品评分 -->
-                        <div class="Product-rating px-2">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-full"></i>
-                            <i class="fa fa-star-o"></i>
+                    </div>
 
-                            <!-- 移动端端 显示销售数量 -->
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
+                        <div class="px-2 pt-2">
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                        <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                        <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
                             <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 商品价格 -->
+                            </div>
+                            <!-- 商品价格 -->
                         <div class="Price-box mb-5">
-                            <span class="regular-price px-1">￥99.9</span>
-                            <span class="old-price px-2"><del>￥199.9</del></span>
-                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                        </div>
-                        <!-- 加入购物车按钮 -->
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
                         <div class="btn-box d-flex justify-content-evenly ">
-                            <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                <i class="fa fa-heart">&nbsp; 收藏</i>
-                            </button>
-                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                            </button>
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
+
 
             </div>
 
@@ -1286,11 +1465,11 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class=""><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    <li class="li-num "><a href="#">1</a></li>
+                    <li class="li-num "><a href="#">2</a></li>
+                    <li class="li-num "><a href="#">3</a></li>
+                    <li class="li-num "><a href="#">4</a></li>
+                    <li class="li-num "><a href="#">5</a></li>
                     <li>
                         <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -1443,8 +1622,21 @@
 
     <!-- Main JS -->
     <script src="~/js/main.js"></script>
-
+    <script src="~/layer/layer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="~/layer/xadmin.js"></script>
     <script>
+
+        //mouseover（覆盖） mouseenter(进入)
+        $('#headerImage').on('mouseenter', function () {
+            $(this).addClass('d-none');
+            $('.user-boxdropdown').addClass('d-block jelly');
+        })
+
+        //使用 mouseout（）鼠标没有离开也会出发 有bug 所以使用mouseleave（鼠标离开才有效果）
+        $('.user-boxdropdown').on('mouseleave', function () {
+            $(this).removeClass('d-block jelly');
+            $('#headerImage').removeClass('d-none');
+        })
 
         // 控制轮播的速度 2秒跳转到下一张
         $('.carousel').carousel({
@@ -1457,7 +1649,7 @@
             $(this).addClass('active').siblings().removeClass('active');
         })
 
-
+        //收藏
         $('.addLike').on('click', function () {
             ////有该类则移除，没有该类则添加
             //$(this).toggleClass('addactive');
@@ -1478,6 +1670,7 @@
 
         })
 
+        //购物车
         $('.addCart').on('click', function () {
             layer.msg('加入购物车成功', {
                 icon: 6

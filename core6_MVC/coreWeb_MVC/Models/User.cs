@@ -16,5 +16,7 @@ namespace coreWeb_MVC.Models
         public DateTime? Birthday { get; set; }
         public DateTime? CreatedAt { get; set; }
         public string? UserImage { get; set; }
+        public int UserType { get; set; }
+        public DateTime? AddDate { get; set; }
     }
 }

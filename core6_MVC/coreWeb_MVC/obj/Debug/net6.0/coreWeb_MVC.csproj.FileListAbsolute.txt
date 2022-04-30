@@ -530,6 +530,13 @@ C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debu
 C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\ref\coreWeb_MVC.dll
 C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\coreWeb_MVC.csproj.AssemblyReference.cache
 C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\refint\coreWeb_MVC.dll
+C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\.filenesting.json
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\appsettings.json
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\coreWeb_MVC.staticwebassets.runtime.json
@@ -542,6 +549,8 @@ C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\De
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\MessagePack.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\MessagePack.Annotations.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.Build.Locator.dll
@@ -550,7 +559,6 @@ C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\De
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Features.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Features.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.Scripting.dll
@@ -598,7 +606,6 @@ C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\De
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Composition.AttributedModel.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Composition.Convention.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Composition.Hosting.dll
@@ -609,7 +616,6 @@ C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\De
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Runtime.Caching.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Security.Permissions.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Windows.Extensions.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -801,6 +807,3 @@ C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\De
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\coreWeb_MVC.pdb
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\coreWeb_MVC.genruntimeconfig.cache
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\ref\coreWeb_MVC.dll
-C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll

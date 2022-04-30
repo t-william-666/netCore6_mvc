@@ -17,9 +17,13 @@ Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
 // 下面这句是生成数据库模型-----------------------------------【SQL Sever数据库生成数据库模型】------------------------------------------
 Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+--项目不能报错
+Scaffold-DbContext "Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
 // 下面这句是更新数据库模型-----------------------------------【SQL Sever数据库更新数据库模型】------------------------------------------
 Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Connection=True;User ID=登录名;Password=密码;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -UseDatabaseNames
+--项目不能报错
+Scaffold-DbContext "Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -UseDatabaseNames
 
 
 另一个方法
@@ -29,14 +33,14 @@ Scaffold-DbContext "Server=服务器名称;Database=数据库名称;Trusted_Conn
 
 
 
-// 下面这句是添加数据库模型-----------------------------------【根据数据模型 添加SQL Sever数据库】------------------------------------------
+// 下面这句是添加数据库模型-----------------------------------【根据数据模型 添加SQL Sever数据库】---------------------------------------
 //步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
 第一步输入  Add-Migration init
 第二步看情况 如果出现To undo this action, use Remove-Migration. 则需要继续输入命令：Update-Database init
 第三步输入  Update-Database 出现Done.表示成功创建数据库
 
 
-// 下面这句是添加数据库模型-----------------------------------【根据数据模型 更改SQL Sever数据库】------------------------------------------
+// 下面这句是添加数据库模型-----------------------------------【根据数据模型 更改SQL Sever数据库】---------------------------------------
 //步骤开始 》》 “工具”>“NuGet 包管理器”>“包管理器控制台”
 第一步输入  Enable-Migrations -EnableAutomaticMigrations   执行成功后，添加Migrations文件夹，并生成类文件Configuration.cs 启用迁移-启用自动迁移
 第二步输入  Add-Migration InitialCreate    执行成功后，在Migrations文件夹中新增类文件201309201556388_InitialCreate.cs
@@ -135,10 +139,44 @@ Scaffold-DbContext "server=服务器名称;userid=登录名;pwd=密码;port=端�
 
 
 
+=============================================使用sql语句给SQL server数据库添加外键===============================================
+ALTER TABLE Product --外键表
+   ADD CONSTRAINT FK_Shop_Product FOREIGN KEY (ShopID)
+      REFERENCES Shop (ShopID) --主键表 
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+;
 
+=============================================使用sql语句给SQL server数据库添加触发器===============================================
 
-
-
+USE [TestDB]
+GO
+/****** Object:  Trigger [dbo].[triggerProductImage]    Script Date: 2022/4/25 11:57:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER trigger [dbo].[triggerProductImage]  
+on [dbo].[ProductImage] after 
+insert as
+begin
+--声明变量
+declare @id int,@pID nvarchar(50), @maxNum int,@other int
+--给声明的变量赋值（如果是与表有关 必须要用select，其他可用set）
+select @id=ImgID from inserted 
+select @pID =ProductID from inserted
+--获取该条商品图片最大的排序
+set @maxNum =(select max(ImgOrderby) from ProductImage where ProductID=@pID) set @other=1
+--修改新增商品图片的排序
+if(@maxNum is null)
+    begin
+      update ProductImage  set ImgOrderby = 1 where ImgID=@id
+    end
+else
+    begin
+      update ProductImage  set ImgOrderby = @maxNum+1 where ImgID=@id
+    end
+end
 
 
 

@@ -57,15 +57,13 @@
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">账号：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" value="22"
-                        placeholder="请输入账号" v-model="user">
+                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" value="22" placeholder="请输入账号" v-model="user">
                 </div>
             </div>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">密码：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center"
-                        placeholder="请输入密码" v-model="pass">
+                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center" placeholder="请输入密码" v-model="pass">
                 </div>
             </div>
             <div class="row py-md-2">
@@ -83,8 +81,7 @@
                 </p>
             </div>
             <div class="d-flex justify-content-center my-md-5 ">
-                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnLogin"
-                    v-on:click="loginWeb">登录</button>
+                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnLogin" v-on:click="loginWeb">登录</button>
             </div>
         </div>
     </div>
@@ -93,7 +90,7 @@
 <script type="text/javascript" src="~/layer/xadmin.js"></script>
 <script>
 
-   //去除多余的零
+    //去除多余的零
     function numberclert(number, n) {
         n = n ? parseFloat(n) : 8;
         if (n == null || n == "") {
@@ -110,7 +107,7 @@
         $(this).animate("jelly", 0.5);
     })
     $(document).ready(function () {
-        alert(11111)
+        //alert(11111)
     })
 
     ////使用Jquery的Ajax请求
@@ -220,6 +217,8 @@
 
         }
     })
+
+   
 </script>
 
 </html>
