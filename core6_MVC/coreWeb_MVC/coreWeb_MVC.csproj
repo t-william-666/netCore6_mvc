@@ -36,7 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="bin\Debug\net6.0\coreWeb_MVC.dll" />
     <None Include="bin\Debug\net6.0\coreWeb_MVC.exe" />
     <None Include="bin\Debug\net6.0\coreWeb_MVC.pdb" />

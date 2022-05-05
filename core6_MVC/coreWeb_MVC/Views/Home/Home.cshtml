@@ -49,45 +49,52 @@
                             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
                                 <p class="section-title-1 fs-3"><a href="/Home/Home">CiYuanCang</a></p>
                             </div>
-                            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8">
+                            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8 hadmain-nav">
 
                                 @if (ViewBag.userInfo == null)
-                                {   <a href="#" class="headerimg position-relative">
-                                      <img src="/images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box">
-                                    
-                                    </a>
-                                    <div class="user-boxdropdown">
-                                      <div class="user-imgbox">
-                                          <div class="headerimg-two">
-                                              <a href="#">
-                                                  <img src="~/images/bg.png" alt="">
-                                              </a>
-                                          </div>
-                                          <p>
-                                              <a href="#">用户名称</a>
-                                          </p>
-                                      </div>
-                                      <ul>
-                                            @if (ViewBag.userMenu != null)
-                                            {
-                                                foreach(var item in ViewBag.userMenu)
-                                                {
-                                                    <li><a href="@item.TitleUrl"><i class="@item.Title"></i> @item.TitleDesc</a></li>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <li><a href=""><i class="fa fa-user"></i> 个人信息</a></li>
-                                                <li><a href=""><i class="fa fa-file-text"></i> 我的订单</a></li>
-                                                <li><a href=""><i class="fa fa-bus"></i> 物流查询</a></li>
-                                                <li><a href=""><i class="fa fa-home"></i> 收货地址</a></li>
-                                                <li><a href=""><i class="fa fa-comment"></i> 评价中心</a></li>
-                                            }
-                                            
-                                          <hr class="hr-line">
-                                          <li><a href="#"><i class="fa "></i> 退出登录</a></li>
-                                      </ul>
-                                    </div>
+                                {  
+                                    <ul>
+                                        <li class="li-head">
+                                           <div class="headbox">
+                                               <a href="#" class="headerimg position-relative">
+                                                   <img src="/images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
+                                               
+                                               </a>
+                                           </div>
+                                           <div class="user-boxdropdown">
+                                               <div class="user-imgbox">
+                                                   <div class="headerimg-two">
+                                                       <a href="#">
+                                                           <img src="~/images/bg.png" alt="">
+                                                       </a>
+                                                   </div>
+                                                   <p>
+                                                       <a href="#">用户名称</a>
+                                                   </p>
+                                               </div>
+                                               <ul>
+                                                     @if (ViewBag.userMenu != null)
+                                                     {
+                                                         foreach(var item in ViewBag.userMenu)
+                                                         {
+                                                             <li><a href="@item.TitleUrl"><i class="@item.Title"></i> @item.TitleDesc</a></li>
+                                                         }
+                                                     }
+                                                     else
+                                                     {
+                                                         <li><a href=""><i class="fa fa-user"></i> 个人信息</a></li>
+                                                         <li><a href=""><i class="fa fa-file-text"></i> 我的订单</a></li>
+                                                         <li><a href=""><i class="fa fa-bus"></i> 物流查询</a></li>
+                                                         <li><a href=""><i class="fa fa-home"></i> 收货地址</a></li>
+                                                         <li><a href=""><i class="fa fa-comment"></i> 评价中心</a></li>
+                                                     }
+                                                     
+                                                   <hr class="hr-line">
+                                                   <li><a href="#"><i class="fa "></i> 退出登录</a></li>
+                                               </ul>
+                                           </div>
+                                        </li>
+                                    </ul>
                                 }
                                 else
                                 {
@@ -525,7 +532,7 @@
                 {
                     foreach (var item in ViewBag.Productlist)
                     {
-                        <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="col-lg-3 col-sm-4 col-xs-6 mb-2 mt-2 ">
                             <div class="position-relative Product-box pb-4">
                                   <!-- 商品图片 -->
                                   <div class="px-2 pt-2">
@@ -572,7 +579,8 @@
                                         }
                                         else
                                         {
-                                            <span class="regular-price px-1">￥@item.Price*@item.discount</span>
+                                            <!-- ToString("#0.00") 或 ToString("F") 保存两位小数 -->
+                                            <span class="regular-price px-1">￥@(((item.Price)*(item.discount)).ToString("#0.00"))</span>
                                         }
                                         <span class="old-price px-2"><del>￥@item.Price</del></span>
                                         <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">@item.ProductNum</span></span>
@@ -1624,19 +1632,7 @@
     <script src="~/js/main.js"></script>
     <script src="~/layer/layer.js" charset="utf-8"></script>
     <script type="text/javascript" src="~/layer/xadmin.js"></script>
-    <script>
-
-        //mouseover（覆盖） mouseenter(进入)
-        $('#headerImage').on('mouseenter', function () {
-            $(this).addClass('d-none');
-            $('.user-boxdropdown').addClass('d-block jelly');
-        })
-
-        //使用 mouseout（）鼠标没有离开也会出发 有bug 所以使用mouseleave（鼠标离开才有效果）
-        $('.user-boxdropdown').on('mouseleave', function () {
-            $(this).removeClass('d-block jelly');
-            $('#headerImage').removeClass('d-none');
-        })
+    <script>    
 
         // 控制轮播的速度 2秒跳转到下一张
         $('.carousel').carousel({
