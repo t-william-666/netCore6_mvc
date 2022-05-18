@@ -326,16 +326,16 @@
 		parentsDiv.removeClass('grid_3 grid_4 grid_5 grid_list').addClass(viewMode);
 
 		if(viewMode == 'grid_3'){
-			parentsDiv.children().addClass('col-lg-4 col-md-6 col-sm-6').removeClass('col-lg-3 col-cust-5 col-12');
+			parentsDiv.children().addClass('col-lg-4 col-md-6 col-sm-6  col-xs-6').removeClass('col-lg-3 col-cust-5 col-12');
 			
 		}
 
 		if(viewMode == 'grid_4'){
-			parentsDiv.children().addClass('col-lg-3 col-md-6 col-sm-6').removeClass('col-lg-4 col-cust-5 col-12');
+			parentsDiv.children().addClass('col-lg-3 col-sm-4 col-xs-6').removeClass('col-lg-4 col-md-6 col-sm-6 col-cust-5 col-12');
 		}
 		
 		if(viewMode == 'grid_list'){
-			parentsDiv.children().addClass('col-12').removeClass('col-lg-3 col-lg-4 col-md-6 col-sm-6 col-cust-5');
+			parentsDiv.children().addClass('col-12').removeClass('col-lg-3 col-lg-4 col-sm-4 col-md-6 col-sm-6 col-xs-6 col-cust-5');
 		}
 			
 	});

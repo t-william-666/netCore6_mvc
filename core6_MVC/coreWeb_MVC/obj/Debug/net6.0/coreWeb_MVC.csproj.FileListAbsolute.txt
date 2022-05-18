@@ -263,7 +263,6 @@ D:\core2022\coreWeb_MVC\coreWeb_MVC\bin\Debug\net6.0\runtimes\win\lib\netstandar
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\.filenesting.json
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\appsettings.json
 C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\coreWeb_MVC.staticwebassets.runtime.json

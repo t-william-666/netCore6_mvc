@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PBvaUhhB0jCDfTlPoZ7zY/c4xiyMSxyxrp9b2PhspIo=",
+  "Hash": "bLTnKmLdPhPrMB8a3fPlxbKNSbzsuciKJ1W9dJIKrQE=",
   "Source": "coreWeb_MVC",
   "BasePath": "_content/coreWeb_MVC",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "coreWeb_MVC\\wwwroot",
       "Source": "coreWeb_MVC",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\bundle\\coreWeb_MVC.styles.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\bundle\\coreWeb_MVC.styles.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "coreWeb_MVC.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\bundle\\coreWeb_MVC.styles.css"
+      "OriginalItemSpec": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\bundle\\coreWeb_MVC.styles.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\coreWeb_MVC.bundle.scp.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\coreWeb_MVC.bundle.scp.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "coreWeb_MVC.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\coreWeb_MVC.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\coreWeb_MVC.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap-theme.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap-theme.css.map",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap-theme.min.css",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/css/bootstrap-theme.min.css.map",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\css\\bootstrap-theme.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.eot",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.eot",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.eot"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.svg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.svg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.svg",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.svg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.ttf",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.ttf",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.ttf"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.woff",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.woff",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.woff"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.woff2",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.woff2",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\fonts\\glyphicons-halflings-regular.woff2"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\bootstrap.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\bootstrap.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\hammer.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\hammer.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/js/hammer.js",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\js\\hammer.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\hammer.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\hammer.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/js/hammer.min.js",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\js\\hammer.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\npm.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\bootstrap-3.4.1-dist\\js\\npm.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "bootstrap-3.4.1-dist/js/npm.js",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap-3.4.1-dist\\js\\npm.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\animate.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\animate.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/animate.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\css\\animate.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\index.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\index.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/index.css",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\css\\index.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\animate.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\animate.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/animate.min.css",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\animate.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\jquery-ui.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\jquery-ui.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/jquery-ui.min.css",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\jquery-ui.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\magnific-popup.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\magnific-popup.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/magnific-popup.css",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\magnific-popup.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\nice-select.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\nice-select.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/nice-select.min.css",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\nice-select.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\plugins.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\plugins.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/plugins.css",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\plugins.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\plugins.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\plugins.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/plugins.min.css",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\plugins.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\swiper-bundle.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\plugins\\swiper-bundle.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/plugins/swiper-bundle.min.css",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\css\\plugins\\swiper-bundle.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\site.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\style.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\style.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\bootstrap.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\bootstrap.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/vendor/bootstrap.min.css",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\css\\vendor\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\font.awesome.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\font.awesome.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/vendor/font.awesome.min.css",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\css\\vendor\\font.awesome.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\iconfont.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\iconfont.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/vendor/iconfont.css",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\css\\vendor\\iconfont.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\linearicons.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\linearicons.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/vendor/linearicons.min.css",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\css\\vendor\\linearicons.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\vendor.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\vendor.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/vendor/vendor.css",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\css\\vendor\\vendor.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\vendor.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\css\\vendor\\vendor.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "css/vendor/vendor.min.css",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\css\\vendor\\vendor.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\favicon.ico",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\FontAwesome.otf",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\FontAwesome.otf",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/FontAwesome.otf",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\FontAwesome.otf"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.eot",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/fontawesome-webfont.eot",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.svg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/fontawesome-webfont.svg",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.ttf",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/fontawesome-webfont.ttf",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.woff",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/fontawesome-webfont.woff",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\fontawesome-webfont.woff2",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/fontawesome-webfont.woff2",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.eot",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.eot",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/Linearicons-Free.eot",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Linearicons-Free.eot"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.svg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.svg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/Linearicons-Free.svg",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Linearicons-Free.svg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.ttf",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.ttf",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/Linearicons-Free.ttf",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Linearicons-Free.ttf"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.woff",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.woff",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/Linearicons-Free.woff",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Linearicons-Free.woff"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.woff2",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\fonts\\Linearicons-Free.woff2",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "fonts/Linearicons-Free.woff2",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\Linearicons-Free.woff2"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\bg.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\bg.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/bg.png",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bg.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\CommentImage\\fadf8f4844ebceedaa41956a889608b5.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\CommentImage\\fadf8f4844ebceedaa41956a889608b5.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/CommentImage/fadf8f4844ebceedaa41956a889608b5.jpg",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CommentImage\\fadf8f4844ebceedaa41956a889608b5.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\CommentImage\\small223420RYybl1641220460.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\CommentImage\\small223420RYybl1641220460.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/CommentImage/small223420RYybl1641220460.jpg",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CommentImage\\small223420RYybl1641220460.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\favicon.ico",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\favicon.ico",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/favicon.ico",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\images\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\1.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\1.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/other/1.jpg",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\images\\other\\1.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\2.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\2.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/other/2.jpg",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\images\\other\\2.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\3.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\3.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/other/3.jpg",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\images\\other\\3.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\fadf8f4844ebceedaa41956a889608b5.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\fadf8f4844ebceedaa41956a889608b5.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/other/fadf8f4844ebceedaa41956a889608b5.jpg",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\images\\other\\fadf8f4844ebceedaa41956a889608b5.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\small223420RYybl1641220460.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\other\\small223420RYybl1641220460.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/other/small223420RYybl1641220460.jpg",
       "AssetKind": "All",
@@ -1003,10 +1003,197 @@
       "OriginalItemSpec": "wwwroot\\images\\other\\small223420RYybl1641220460.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\fadf8f4844ebceedaa41956a889608b5.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1000549.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1000549.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1000549.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1000638.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1000638.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1000638.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1000925.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1000925.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1000925.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1001251.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1001251.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1001251.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1001373.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1001373.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1001373.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1001376.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1001376.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1001376.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1001408.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1001408.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1001408.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1001894.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1001894.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1001894.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\1002224.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/1002224.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\1002224.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\anime_art_fantasy-wallpaper-1600x900.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/anime_art_fantasy-wallpaper-1600x900.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\anime_art_fantasy-wallpaper-1600x900.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\crossfire_warzone_strategy_war_game_2-wallpaper-1600x900.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/crossfire_warzone_strategy_war_game_2-wallpaper-1600x900.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\crossfire_warzone_strategy_war_game_2-wallpaper-1600x900.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\fadf8f4844ebceedaa41956a889608b5.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/ProductImage/fadf8f4844ebceedaa41956a889608b5.jpg",
       "AssetKind": "All",
@@ -1020,10 +1207,44 @@
       "OriginalItemSpec": "wwwroot\\images\\ProductImage\\fadf8f4844ebceedaa41956a889608b5.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\small223420RYybl1641220460.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\girl_pubg_video_game-wallpaper-1600x900.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/girl_pubg_video_game-wallpaper-1600x900.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\girl_pubg_video_game-wallpaper-1600x900.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\peaceful-wallpaper-1600x900.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/peaceful-wallpaper-1600x900.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\peaceful-wallpaper-1600x900.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\small223420RYybl1641220460.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/ProductImage/small223420RYybl1641220460.jpg",
       "AssetKind": "All",
@@ -1037,10 +1258,282 @@
       "OriginalItemSpec": "wwwroot\\images\\ProductImage\\small223420RYybl1641220460.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ShopImage\\fadf8f4844ebceedaa41956a889608b5.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\space_65-wallpaper-1600x900.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/space_65-wallpaper-1600x900.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\space_65-wallpaper-1600x900.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\the_best_is_yet_to_come-wallpaper-1600x900.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/the_best_is_yet_to_come-wallpaper-1600x900.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\the_best_is_yet_to_come-wallpaper-1600x900.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\360wallpaper.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/360wallpaper.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\360wallpaper.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\360wallpaper_dt.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/360wallpaper_dt.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\360wallpaper_dt.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01357f643b52981135.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01357f643b52981135.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01357f643b52981135.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t015c86a065d6227d94.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t015c86a065d6227d94.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t015c86a065d6227d94.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t015dd7f38a871b4a8a.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t015dd7f38a871b4a8a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t015dd7f38a871b4a8a.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t016fedb58faae61897.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t016fedb58faae61897.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t016fedb58faae61897.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t0170d47f59ebacd3e0.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t0170d47f59ebacd3e0.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t0170d47f59ebacd3e0.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t0173102b158b489eb8.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t0173102b158b489eb8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t0173102b158b489eb8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01b0d154478655ddf4.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01b0d154478655ddf4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01b0d154478655ddf4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01c1d1c2021159af82.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01c1d1c2021159af82.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01c1d1c2021159af82.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01c2b9096bfe484b8e.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01c2b9096bfe484b8e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01c2b9096bfe484b8e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01c2c970191d36a0d7.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01c2c970191d36a0d7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01c2c970191d36a0d7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01d06b7a1fc2fffd9c.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01d06b7a1fc2fffd9c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01d06b7a1fc2fffd9c.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ProductImage\\wpcache\\t01fe0ee863c09f702d.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "BasePath": "_content/coreWeb_MVC",
+      "RelativePath": "images/ProductImage/wpcache/t01fe0ee863c09f702d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ProductImage\\wpcache\\t01fe0ee863c09f702d.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ShopImage\\fadf8f4844ebceedaa41956a889608b5.jpg",
+      "SourceId": "coreWeb_MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/ShopImage/fadf8f4844ebceedaa41956a889608b5.jpg",
       "AssetKind": "All",
@@ -1054,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\images\\ShopImage\\fadf8f4844ebceedaa41956a889608b5.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ShopImage\\small223420RYybl1641220460.jpg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\ShopImage\\small223420RYybl1641220460.jpg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/ShopImage/small223420RYybl1641220460.jpg",
       "AssetKind": "All",
@@ -1071,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\images\\ShopImage\\small223420RYybl1641220460.jpg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\star\\emptystar.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\star\\emptystar.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/star/emptystar.png",
       "AssetKind": "All",
@@ -1088,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star\\emptystar.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\star\\fullstar.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\star\\fullstar.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/star/fullstar.png",
       "AssetKind": "All",
@@ -1105,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star\\fullstar.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\star\\halfstar.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\star\\halfstar.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/star/halfstar.png",
       "AssetKind": "All",
@@ -1122,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star\\halfstar.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\UserHeaderImage\\bg.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\images\\UserHeaderImage\\bg.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "images/UserHeaderImage/bg.png",
       "AssetKind": "All",
@@ -1139,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\images\\UserHeaderImage\\bg.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\axios.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\axios.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/axios.min.js",
       "AssetKind": "All",
@@ -1156,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\js\\axios.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\color.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\color.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/color.js",
       "AssetKind": "All",
@@ -1173,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\js\\color.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\gsap.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\gsap.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/gsap.min.js",
       "AssetKind": "All",
@@ -1190,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\js\\gsap.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\jquery-3.5.1.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\jquery-3.5.1.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/jquery-3.5.1.min.js",
       "AssetKind": "All",
@@ -1207,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\js\\jquery-3.5.1.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\ladash.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\ladash.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/ladash.min.js",
       "AssetKind": "All",
@@ -1224,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\js\\ladash.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\main.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\main.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/main.js",
       "AssetKind": "All",
@@ -1241,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\js\\main.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery.ajaxchimp.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery.ajaxchimp.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/jquery.ajaxchimp.min.js",
       "AssetKind": "All",
@@ -1258,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\jquery.ajaxchimp.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery.countdown.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery.countdown.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/jquery.countdown.min.js",
       "AssetKind": "All",
@@ -1275,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\jquery.countdown.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery.magnific-popup.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery.magnific-popup.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/jquery.magnific-popup.min.js",
       "AssetKind": "All",
@@ -1292,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\jquery.magnific-popup.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery-ui.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\jquery-ui.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/jquery-ui.min.js",
       "AssetKind": "All",
@@ -1309,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\jquery-ui.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\nice-select.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\nice-select.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/nice-select.min.js",
       "AssetKind": "All",
@@ -1326,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\nice-select.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\plugins.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\plugins.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/plugins.js",
       "AssetKind": "All",
@@ -1343,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\plugins.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\plugins.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\plugins.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/plugins.min.js",
       "AssetKind": "All",
@@ -1360,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\plugins.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\swiper-bundle.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\plugins\\swiper-bundle.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/plugins/swiper-bundle.min.js",
       "AssetKind": "All",
@@ -1377,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\js\\plugins\\swiper-bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\tween.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\tween.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/tween.min.js",
       "AssetKind": "All",
@@ -1394,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\js\\tween.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\TweenLite.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\TweenLite.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/TweenLite.min.js",
       "AssetKind": "All",
@@ -1411,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\js\\TweenLite.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\unpkg.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\unpkg.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/unpkg.js",
       "AssetKind": "All",
@@ -1428,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\js\\unpkg.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\unpkg-1.7.0.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\unpkg-1.7.0.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/unpkg-1.7.0.js",
       "AssetKind": "All",
@@ -1445,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\js\\unpkg-1.7.0.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\velocity.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\velocity.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/velocity.min.js",
       "AssetKind": "All",
@@ -1462,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\js\\velocity.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\bootstrap.bundle.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/vendor/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1479,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\js\\vendor\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\jquery-3.5.1.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\jquery-3.5.1.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/vendor/jquery-3.5.1.min.js",
       "AssetKind": "All",
@@ -1496,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\js\\vendor\\jquery-3.5.1.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\modernizr-3.7.1.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\modernizr-3.7.1.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/vendor/modernizr-3.7.1.min.js",
       "AssetKind": "All",
@@ -1513,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\js\\vendor\\modernizr-3.7.1.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\vendor.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\vendor.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/vendor/vendor.js",
       "AssetKind": "All",
@@ -1530,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\js\\vendor\\vendor.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\vendor.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vendor\\vendor.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/vendor/vendor.min.js",
       "AssetKind": "All",
@@ -1547,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\js\\vendor\\vendor.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\Vue.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\Vue.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/Vue.js",
       "AssetKind": "All",
@@ -1564,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Vue.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vue-resource.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\js\\vue-resource.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "js/vue-resource.min.js",
       "AssetKind": "All",
@@ -1581,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\js\\vue-resource.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\layui.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\layui.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/layui.css",
       "AssetKind": "All",
@@ -1598,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\layui.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\layui.mobile.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\layui.mobile.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/layui.mobile.css",
       "AssetKind": "All",
@@ -1615,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\layui.mobile.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\code.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\code.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/code.css",
       "AssetKind": "All",
@@ -1632,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\code.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\laydate\\default\\laydate.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\laydate\\default\\laydate.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/laydate/default/laydate.css",
       "AssetKind": "All",
@@ -1649,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\laydate\\default\\laydate.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\icon.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\icon.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/layer/default/icon.png",
       "AssetKind": "All",
@@ -1666,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\layer\\default\\icon.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\icon-ext.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\icon-ext.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/layer/default/icon-ext.png",
       "AssetKind": "All",
@@ -1683,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\layer\\default\\icon-ext.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\layer.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\layer.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/layer/default/layer.css",
       "AssetKind": "All",
@@ -1700,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\layer\\default\\layer.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\loading-0.gif",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\loading-0.gif",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/layer/default/loading-0.gif",
       "AssetKind": "All",
@@ -1717,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\layer\\default\\loading-0.gif"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\loading-1.gif",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\loading-1.gif",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/layer/default/loading-1.gif",
       "AssetKind": "All",
@@ -1734,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\layer\\default\\loading-1.gif"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\loading-2.gif",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\css\\modules\\layer\\default\\loading-2.gif",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/css/modules/layer/default/loading-2.gif",
       "AssetKind": "All",
@@ -1751,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\css\\modules\\layer\\default\\loading-2.gif"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\laydate.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\laydate.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/laydate.js",
       "AssetKind": "All",
@@ -1768,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\laydate.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\layer.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\layer.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/layer.js",
       "AssetKind": "All",
@@ -1785,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\layer.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\mobile\\layer.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\mobile\\layer.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/mobile/layer.js",
       "AssetKind": "All",
@@ -1802,10 +2295,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\mobile\\layer.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\mobile\\need\\layer.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\mobile\\need\\layer.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/mobile/need/layer.css",
       "AssetKind": "All",
@@ -1819,10 +2312,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\mobile\\need\\layer.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.eot",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.eot",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/font/iconfont.eot",
       "AssetKind": "All",
@@ -1836,10 +2329,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\font\\iconfont.eot"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.svg",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.svg",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/font/iconfont.svg",
       "AssetKind": "All",
@@ -1853,10 +2346,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\font\\iconfont.svg"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.ttf",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.ttf",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/font/iconfont.ttf",
       "AssetKind": "All",
@@ -1870,10 +2363,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\font\\iconfont.ttf"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.woff",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\font\\iconfont.woff",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/font/iconfont.woff",
       "AssetKind": "All",
@@ -1887,10 +2380,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\font\\iconfont.woff"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\icon.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\icon.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/icon.png",
       "AssetKind": "All",
@@ -1904,10 +2397,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\icon.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\icon-ext.png",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\icon-ext.png",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/icon-ext.png",
       "AssetKind": "All",
@@ -1921,10 +2414,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\icon-ext.png"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\laydate.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\laydate.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/laydate.css",
       "AssetKind": "All",
@@ -1938,10 +2431,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\laydate.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\layer.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\layer.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/layer.css",
       "AssetKind": "All",
@@ -1955,10 +2448,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\layer.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\loading-0.gif",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\loading-0.gif",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/loading-0.gif",
       "AssetKind": "All",
@@ -1972,10 +2465,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\loading-0.gif"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\loading-1.gif",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\loading-1.gif",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/loading-1.gif",
       "AssetKind": "All",
@@ -1989,10 +2482,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\loading-1.gif"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\loading-2.gif",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\theme\\default\\loading-2.gif",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/theme/default/loading-2.gif",
       "AssetKind": "All",
@@ -2006,10 +2499,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\theme\\default\\loading-2.gif"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\xadmin.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\layer\\xadmin.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "layer/xadmin.js",
       "AssetKind": "All",
@@ -2023,10 +2516,10 @@
       "OriginalItemSpec": "wwwroot\\layer\\xadmin.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -2040,10 +2533,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -2057,10 +2550,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -2074,10 +2567,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -2091,10 +2584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -2108,10 +2601,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -2125,10 +2618,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -2142,10 +2635,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -2159,10 +2652,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -2176,10 +2669,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -2193,10 +2686,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -2210,10 +2703,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -2227,10 +2720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -2244,10 +2737,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -2261,10 +2754,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -2278,10 +2771,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -2295,10 +2788,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -2312,10 +2805,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -2329,10 +2822,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -2346,10 +2839,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -2363,10 +2856,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -2380,10 +2873,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -2397,10 +2890,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -2414,10 +2907,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -2431,10 +2924,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -2448,10 +2941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -2465,10 +2958,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -2482,10 +2975,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -2499,10 +2992,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -2516,10 +3009,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -2533,10 +3026,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -2550,10 +3043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -2567,10 +3060,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -2584,10 +3077,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -2601,10 +3094,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2618,10 +3111,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2635,10 +3128,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -2652,10 +3145,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -2669,10 +3162,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -2686,10 +3179,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -2703,10 +3196,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -2720,10 +3213,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -2737,10 +3230,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -2754,10 +3247,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2771,10 +3264,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -2788,10 +3281,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -2805,10 +3298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -2822,10 +3315,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -2839,10 +3332,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -2856,10 +3349,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -2873,10 +3366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -2890,10 +3383,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -2907,10 +3400,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -2924,10 +3417,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -2941,10 +3434,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -2958,10 +3451,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -2975,10 +3468,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "coreWeb_MVC",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\wwwroot\\",
       "BasePath": "_content/coreWeb_MVC",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

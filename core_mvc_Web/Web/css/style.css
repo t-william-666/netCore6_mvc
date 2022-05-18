@@ -3526,8 +3526,9 @@ mark {
 }
 
 .shop_wrapper.grid_list .product-item {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
+    /* 去除上下内边距 */
+    /* padding-bottom: 30px;
+    margin-bottom: 30px; */
     border-bottom: 1px solid #dddddd;
 }
 
@@ -3769,13 +3770,14 @@ mark {
     display: none;
 }
 
-.shop_wrapper.grid_3 .single-product {
+/* 去除下边距 */
+/* .shop_wrapper.grid_3 .single-product {
     margin-bottom: 30px;
 }
 
 .shop_wrapper.grid_4 .single-product {
     margin-bottom: 30px;
-}
+} */
 
 /*-- Shop Product Wrapper End --*/
 /*----------------------------------------*/
@@ -6931,8 +6933,10 @@ mark {
 /*    Product Scss
 /*----------------------------------------*/
 .product-area .single-product {
-    margin-right: 15px;
-    margin-left: 15px;
+    /* 去除左右边距 */
+    /* margin-right: 15px;
+    margin-left: 15px; */
+    /* 动画过渡时间 */
     -webkit-transition: .4s;
     -o-transition: .4s;
     transition: .4s;
@@ -6969,8 +6973,10 @@ mark {
 
 .product-area .single-product .product-content {
     background-color: #ffffff;
-    padding: 20px 20px;
-    text-align: center;
+    /* padding: 20px 20px;
+    text-align: center; */
+    padding: 2rem 0.5rem;
+    text-align: left;
 }
 
 .product-area .single-product .product-content .product-rating {

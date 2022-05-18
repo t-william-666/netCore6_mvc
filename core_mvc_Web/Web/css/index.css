@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: #fffffff8;
 }
 
 .body-bg {
@@ -68,10 +68,6 @@ input[type="text"]:hover, input[type="password"]:hover {
     line-height: 8rem;
     box-shadow: 0px 3px 5px #ccc;
     background-color: rgba(255, 255, 255, 0.9);
-}
-
-.hadmain-nav>ul>.li-head {
-    width: 5rem;
 }
 
 .header .head-box {
@@ -176,6 +172,10 @@ input[type="text"]:hover, input[type="password"]:hover {
 
 .hr-line {
     margin: 5px 0px;
+}
+
+.hadmain-nav>ul>.li-head {
+    width: 5rem;
 }
 
 .hadmain-nav>ul>li:hover .headerimg {
@@ -334,6 +334,10 @@ input::placeholder {
     margin: 23px 0px !important;
 }
 
+.bg-white {
+    background-color: white;
+}
+
 .b-radius1 {
     border-radius: 1rem;
 }
@@ -430,6 +434,50 @@ input::placeholder {
     top: 3px;
 }
 
+/* 搜索框 */
+.search-xbox {
+    width: 100%;
+    height: 8rem;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.search-xbox .searchCon-box {
+    display: flex;
+    justify-content: center;
+}
+
+.search-xbox .searchCon-box .search-text {
+    width: 35%;
+    height: 4.5rem;
+    padding-left: 1rem;
+    font-size: 1.6rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: 1px solid #ccc;
+}
+
+.search-xbox .searchCon-box .search-btn {
+    width: 8%;
+    height: 4.5rem;
+    border: none;
+    outline: none;
+    background-color: #E72463;
+    color: white;
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.search-xbox .searchCon-box .search-text:hover {
+    box-shadow: 0px 0px 3px 0px rgba(255, 25, 25, 0.6);
+}
+
+.search-xbox .searchCon-box .search-btn:hover {
+    background-color: rgba(231, 36, 99, 0.8);
+}
+
 /* 主体内容 */
 .content {
     margin-top: 0px;
@@ -505,16 +553,23 @@ input::placeholder {
 .content .content-list .Product-box {
     background-color: #fff;
     border-radius: 0.75rem;
-    box-shadow: 5px 10px 10px 0 #ecf0f3;
+    box-shadow: 0px 3px 5px rgb(180, 180, 180);
+}
+/* 搜索页面商品的盒子 */
+.product-item {
+    box-shadow: 0px 3px 5px rgb(180, 180, 180);
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    overflow: hidden;
 }
 
-.content .content-list .Product-box:hover {
-    box-shadow: 0px 10px 20px 0px rgba(186, 186, 186, 0.5);
+.content .content-list .Product-box:hover, .shop_wrapper .product-item:hover {
+    box-shadow: 5px 5px 10px 0px rgb(205, 205, 205);
     transition: .4s;
 }
 
 /* 商品图片 */
-.content .content-list div a img {
+.content .content-list .product-image.position-relative a img {
     border-radius: 0.5rem;
     overflow: hidden;
 }
@@ -675,8 +730,30 @@ input::placeholder {
     color: white !important;
 }
 
-/* 按钮果冻效果 */
+.body-up {
+    position: fixed;
+    right: 5rem;
+    bottom: 10rem;
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    font-size: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 3px 10px 0px #ccc;
+}
 
+.body-up:hover {
+    color: white;
+    background-color: #E72463;
+    box-shadow: 0px 5px 12px 0px rgba(231, 36, 99, 0.6);
+    animation: jelly 0.5s;
+}
+
+/* 按钮果冻效果 */
 button:hover, .fa:hover {
     cursor: pointer;
     animation: jelly 0.5s;
@@ -780,6 +857,36 @@ button:focus {
     /* 头部导航文字 */
     .header-title {
         display: none;
+    }
+
+    /* 搜索框 */
+    .search-xbox {
+        width: 100%;
+        height: 6rem;
+        margin: 1rem;
+    }
+
+    .search-xbox .searchCon-box .search-text {
+        width: 20rem;
+        height: 4rem;
+        padding-left: 1rem;
+        font-size: 1.6rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        border: 1px solid #ccc;
+    }
+
+    .search-xbox .searchCon-box .search-btn {
+        width: 8rem;
+        height: 4rem;
+        border: none;
+        outline: none;
+        background-color: #E72463;
+        color: white;
+        font-size: 1.6rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
     }
 
     /* 菜单导航栏 */

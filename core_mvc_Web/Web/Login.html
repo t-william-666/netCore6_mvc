@@ -50,6 +50,78 @@
             </div>
         </div>
     </header>
+    <style>
+        .td-title {
+            padding: 0px;
+            margin: 0px;
+            width: 25%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .txtApproval {
+            border-top: none;
+            border-bottom: #7F9DB9 1px solid;
+            border-left: none;
+            border-right: none;
+            background-color: Transparent;
+            font-size: 12px;
+        }
+
+        .txtApproval:focus {
+            border-top: none;
+            border-bottom: #7F9DB9 1px solid;
+            border-left: none;
+            border-right: none;
+        }
+    </style>
+    <table width="100%">
+        <!-- 各个年度的批复费用 -->
+        <tr>
+            <td>2222222222</td>
+            <td>2222222222</td>
+            <td>2222222222</td>
+            <td>2222222222</td>
+            <td>2222222222</td>
+            <td>2222222222</td>
+        </tr>
+        <tr>
+           
+            <td colspan="6">
+                <div class="td-title">
+                    <asp:Label ID="This_Year" runat="server" Text="Label">2022年批复费用</asp:Label>
+
+                    <span class="td-amount">
+                        <input id="This_Year_Approval" class="txtApproval" type="text" value="100">万元
+                    </span>
+                </div>
+
+                <div class="td-title">
+                    <asp:Label ID="First_Year" runat="server" Text="Label">2022年批复费用</asp:Label>
+
+                    <span class="td-amount">
+                        <input id="First_Year_Approval" class="txtApproval" type="text" value="100">万元
+                    </span>
+                </div>
+
+                <div class="td-title">
+                    <asp:Label ID="Second_Year" runat="server" Text="Label">2022年批复费用</asp:Label>
+
+                    <span class="td-amount">
+                        <input id="Second_Year_Approval" class="txtApproval" type="text" value="100">万元
+                    </span>
+                </div>
+
+                <div class="td-title">
+                    <asp:Label ID="Third_Year" runat="server" Text="Label">2022年批复费用</asp:Label>
+
+                    <span class="td-amount">
+                        <input id="Third_Year_Approval" class="txtApproval" type="text" value="100">万元
+                    </span>
+                </div>
+            </td>
+        </tr>
+    </table>
 
     <div class="content" id="app">
         <div class="content-center container">
@@ -57,13 +129,15 @@
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">账号：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" value="22" placeholder="请输入账号" v-model="user">
+                    <input type="text" id="txtLogin" class="form-control d-inline-block align-self-center" value="22"
+                        placeholder="请输入账号" v-model="user">
                 </div>
             </div>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">密码：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center" placeholder="请输入密码" v-model="pass">
+                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center"
+                        placeholder="请输入密码" v-model="pass">
                 </div>
             </div>
             <div class="row py-md-2">
@@ -81,7 +155,8 @@
                 </p>
             </div>
             <div class="d-flex justify-content-center my-md-5 ">
-                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnLogin" v-on:click="loginWeb">登录</button>
+                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnLogin"
+                    v-on:click="loginWeb">登录</button>
             </div>
         </div>
     </div>
@@ -218,7 +293,7 @@
         }
     })
 
-   
+
 </script>
 
 </html>
