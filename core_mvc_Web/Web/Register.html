@@ -30,7 +30,7 @@
 
     <!-- 引入主要样式 -->
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/style.css">
+    
     <!-- 引入Jquery的JS文件 -->
     <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
@@ -75,14 +75,14 @@
         <div class="content-center container">
             <p class="fs-3 text-center my-md-2">用户注册</p>
             <div class="row my-md-3">
-                <div class="col-lg-3 col-xs-3">账号：</div>
+                <div class="col-lg-3 col-xs-3"><i class="fa fa-user"></i>账号：</div>
                 <div class="col-lg-9 col-xs-9">
                     <input type="text" id="txtRegister" class="form-control d-inline-block align-self-center"
                         placeholder="请输入账号" v-model="user">
                 </div>
             </div>
             <div class="row my-md-3">
-                <div class="col-lg-3 col-xs-3">密码：</div>
+                <div class="col-lg-3 col-xs-3"><i class="fa fa-lock"></i>密码：</div>
                 <div class="col-lg-9 col-xs-9">
                     <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center"
                         placeholder="请输入密码" v-model="pass">
@@ -102,13 +102,13 @@
                     </p>
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-6 text-xxl-end">
-                    <p class="row justify-content-lg-end my-md-2 ">
+                    <p class="row justify-content-lg-end my-md-2">
                         <input type="text" class="d-inline-block col-lg-8 pw-100 rounded-1" placeholder="验证码">
                         <button type="button" class="d-inline-block col-lg-4 pw-60 rounded-1 fs-13">获取验证码</button>
                     </p>
                 </div>
             </div>
-            <div class="d-flex justify-content-center my-md-5 ">
+            <div class="d-flex justify-content-center my-md-5 animation-jelly">
                 <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister"
                     v-on:click="registerWeb">注册</button>
             </div>
@@ -116,8 +116,8 @@
         </div>
     </div>
 </body>
-<script src="~/layer/layer.js" charset="utf-8"></script>
-<script type="text/javascript" src="~/layer/xadmin.js"></script>
+<script src="./layer/layer.js" charset="utf-8"></script>
+<script type="text/javascript" src="./layer/xadmin.js"></script>
 <script>
     // $("button").on('click', function () {
     //     alert(1)

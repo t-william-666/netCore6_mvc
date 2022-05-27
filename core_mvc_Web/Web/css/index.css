@@ -30,7 +30,7 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus {
     text-decoration: none;
 }
 
@@ -221,9 +221,20 @@ input::placeholder {
     background-color: rgba(255, 255, 255, 0.85);
 }
 
+.btnlogreg {
+    outline: none;
+    border: none;
+    font-size: inherit;
+    background-color: transparent;
+    color: inherit;
+    font-size: 14px;
+}
+
+.btnlogreg:hover,.btnlogreg:focus{
+    color: rgb(9, 199, 9);
+}
 
 /* 装文本框的盒子高度 */
-
 .content-center .my-md-3 {
     height: 6rem;
     line-height: 6rem;
@@ -231,7 +242,6 @@ input::placeholder {
 
 
 /* 文本框高度 */
-
 .content-center .form-control {
     height: 4rem;
     line-height: 4rem;
@@ -279,7 +289,6 @@ input::placeholder {
 
 
 /* 字体垂直居中 */
-
 .txt-middle {
     display: table-cell;
     vertical-align: middle;
@@ -287,7 +296,6 @@ input::placeholder {
 
 
 /* 验证码 */
-
 .p-txt {
     height: 3rem;
     line-height: 3rem;
@@ -657,8 +665,13 @@ input::placeholder {
 
 .content .content-list .Product-box:hover,
 .shop_wrapper .product-item:hover {
-    box-shadow: 5px 5px 10px 0px rgb(205, 205, 205);
-    transition: .4s;
+    box-shadow: 0px 3px 20px 0px rgb(139, 139, 139);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    transform: translateY(-8px);
+
+
 }
 
 
@@ -683,7 +696,7 @@ input::placeholder {
     opacity: 0;
 }
 
-.content .content-list .product-image :hover .product-image-2 {
+.content .content-list .product-image:hover .product-image-2 {
     visibility: visible;
     opacity: 1;
     -webkit-transition: .4s;
@@ -691,6 +704,13 @@ input::placeholder {
     transition: .4s;
 }
 
+.single-product .Product-box:hover .product-image .product-image-2 {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
 
 /* 商品名称 */
 

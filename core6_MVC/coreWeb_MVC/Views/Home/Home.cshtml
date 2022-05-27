@@ -13,27 +13,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
-    <!-- Favicon 图标 页面图标 -->
+     <!-- Favicon 图标 页面图标 -->
     <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="~/images/favicon.ico">
-    <!-- <link rel="stylesheet" href="icon" type="image/png" href="~/images/bg.png"> -->
+    <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
     <!-- 引入bootstrap样式 -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/bootstrap/lib/bootstrap/dist/css/bootstrap.css">
     <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
-    <link rel="stylesheet" href="~/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
     <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
     <link rel="stylesheet" href="~/css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="~/css/vendor/linearicons.min.css">
+
+    <!-- Swiper CSS 刷子轮播 -->
+    <link rel="stylesheet" href="~/css/plugins/swiper-bundle.min.css">
+    <!-- Animation CSS 动画 -->
+    <link rel="stylesheet" href="~/css/plugins/animate.min.css">
+    <!-- Jquery ui CSS Jquery界面 -->
+    <link rel="stylesheet" href="~/css/plugins/jquery-ui.min.css">
+    <!-- Nice Select CSS 下拉框样式 -->
+    <link rel="stylesheet" href="~/css/plugins/nice-select.min.css">
+    <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
+    <link rel="stylesheet" href="~/css/plugins/magnific-popup.css">
+
     <!-- 引入主要样式 -->
     <link rel="stylesheet" href="~/css/index.css">
     <link rel="stylesheet" href="~/css/style.css">
+    
     <!-- 引入Jquery的JS文件 -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/bootstrap/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
-    <script src="~/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="~/bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
     <!-- 引入Vue的JS文件 -->
-    <script src="./js/Vue.js"></script>
-    <script src="./js/axios.min.js"></script>
+    <script src="~/js/Vue.js"></script>
+    <script src="~/js/axios.min.js"></script>
 </head>
 
 
@@ -532,7 +546,7 @@
                 {
                     foreach (var item in ViewBag.Productlist)
                     {
-                        <div class="col-lg-3 col-sm-4 col-xs-6 mb-3 mt-2 ">
+                        <div class="col-lg-3 col-sm-4 col-xs-6 mb-3 mt-2 single-product">
                             <div class="position-relative Product-box pb-4">
                                   <!-- 商品图片 -->
                                   <div class="px-2 pt-2">
@@ -1498,17 +1512,17 @@
 
         <!-- 其他 -->
         <div class="mb-3">
-            <p>fsdfsfsfsfsfffs</p>
+            <p></p>
         </div>
 
     </div>
 
     <!-- 滚动条监听，返回顶部 -->
     <div class="scroll-to-top">
-      <p>
-        <i class="fa fa-long-arrow-up"></i>
-        <!-- <i class="fa fa-arrow-circle-up"></i> -->
-      </p>
+        <p title="返回顶部">
+            <i class="fa fa-long-arrow-up"></i>
+            <!-- <i class="fa fa-arrow-circle-up"></i> -->
+        </p>
     </div>
 
     <!-- 尾部页脚 -->

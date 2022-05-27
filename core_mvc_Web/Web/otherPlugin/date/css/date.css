@@ -14,11 +14,6 @@
         *zoom: 1;
     }
 
-    a, a:hover, a:active, a:visited {
-        text-decoration: none;
-        color: #333;
-    }
-
     .html-unscrollable {
         overflow: hidden;
         height: 100%

@@ -31,10 +31,14 @@
     <link rel="stylesheet" href="./otherPlugin/city/css/city-picker.css">
     <!-- 时间日期插件样式 -->
     <link rel="stylesheet" href="./otherPlugin/date/css/date.css">
+    <!-- 用户头像插件样式 -->
+    <link rel="stylesheet" href="./otherPlugin/userheader/css/cropper.min.css">
+    <link rel="stylesheet" href="./otherPlugin/userheader/css/ImgCropping.css">
 
     <!-- 引入主要样式 -->
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/style.css">
+
     <!-- 引入Jquery的JS文件 -->
     <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
@@ -655,20 +659,40 @@
                                                         <legend>更改头像</legend>
                                                         <div class="row">
                                                             <div class="col-lg-6 col-custom">
-                                                                <div class="single-input-item mb-3">
-                                                                    <label class="required mb-1">
-                                                                        当前头像
-                                                                    </label>
-                                                                    <img src="./images/other/1.jpg" alt="" />
+                                                                <button type="button" id="replaceImg" class="l-btn">更换图片</button>
+                                                                <div class="change_userimg border-radius">
+                                                                    <img id="finalImg" src="./images/bg.png" width="100%">
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-6 col-custom">
-                                                                <div class="single-input-item mb-3">
-                                                                    <label for="confirm-pwd"
-                                                                        class="required mb-1">选择头像</label>
-                                                                    <input type="file" id="user_headerimg"
-                                                                        name="file" />
+                                                                <!--图片裁剪框 start-->
+                                                                <div style="display: none" class="tailoring-container">
+                                                                    <div class="black-cloth" onclick="closeTailor(this)"></div>
+                                                                    <div class="tailoring-content">
+                                                                            <div class="tailoring-content-one">
+                                                                                <label title="上传图片" for="chooseImg" class="l-btn choose-btn">
+                                                                                    <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="chooseImg" class="hidden" onchange="selectImg(this)">
+                                                                                    选择图片
+                                                                                </label>
+                                                                                <div class="close-tailoring"  onclick="closeTailor(this)">×</div>
+                                                                            </div>
+                                                                            <div class="tailoring-content-two">
+                                                                                <div class="tailoring-box-parcel">
+                                                                                    <img id="tailoringImg">
+                                                                                </div>
+                                                                                <div class="preview-box-parcel">
+                                                                                    <p>图片预览：</p>
+                                                                                    <div class="square previewImg"></div>
+                                                                                    <div class="circular previewImg"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="tailoring-content-three">
+                                                                                <button type="button" class="l-btn cropper-reset-btn">复位</button>
+                                                                                <button type="button" class="l-btn cropper-rotate-btn">旋转</button>
+                                                                                <button type="button" class="l-btn cropper-scaleX-btn">换向</button>
+                                                                                <button type="button" class="l-btn sureCut" id="sureCut">确定</button>
+                                                                            </div>
+                                                                        </div>
                                                                 </div>
+                                                                <!--图片裁剪框 end-->
                                                             </div>
                                                         </div>
                                                     </fieldset>
@@ -1040,7 +1064,9 @@
     <!-- 时间日期插件 -->
     <script type="text/javascript" src="./otherPlugin/date/js/date.js"></script>
     <script type="text/javascript" src="./otherPlugin/date/js/iscroll_date.js"></script>
-
+    <!-- 用户头像插件 -->
+    <script src="./otherPlugin/userheader/js/cropper.min.js"></script>
+    <script src="./otherPlugin/userheader/js/userImage.js"></script>
 
     <!-- Main JS 根据需求个性编写 -->
     <script src="./js/main.js"></script>
