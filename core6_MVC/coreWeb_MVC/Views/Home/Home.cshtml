@@ -68,11 +68,11 @@
                                                            <img src="~/images/bg.png" alt="">
                                                        </a>
                                                    </div>
-                                                   <p>
+                                                   <p class="animation-jelly">
                                                        <a href="#">用户名称</a>
                                                    </p>
                                                </div>
-                                               <ul>
+                                               <ul class="animation-jelly">
                                                      @if (ViewBag.userMenu != null)
                                                      {
                                                          foreach(var item in ViewBag.userMenu)
@@ -114,7 +114,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-6 col-custom">
                         <div class="header-right-area main-nav">
-                            <ul class="nav">
+                            <ul class="nav animation-jelly">
                                 <!-- 购物车 -->
                                 <li class="minicart-wrap">
                                     <a href="#" class="minicart-btn toolbar-btn">
@@ -1502,6 +1502,15 @@
         </div>
 
     </div>
+
+    <!-- 滚动条监听，返回顶部 -->
+    <div class="scroll-to-top">
+      <p>
+        <i class="fa fa-long-arrow-up"></i>
+        <!-- <i class="fa fa-arrow-circle-up"></i> -->
+      </p>
+    </div>
+
     <!-- 尾部页脚 -->
     <footer class="footer-area mt-no-text">
         <div class="footer-widget-area">

@@ -10,29 +10,50 @@
     <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="./images/favicon.ico">
     <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
     <!-- 引入bootstrap样式 -->
-    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap/lib/bootstrap/dist/css/bootstrap.css">
     <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
-    <link rel="stylesheet" href="./bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
     <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
     <link rel="stylesheet" href="./css/vendor/font.awesome.min.css">
     <link rel="stylesheet" href="./css/vendor/linearicons.min.css">
+
+    <!-- Swiper CSS 刷子轮播 -->
+    <link rel="stylesheet" href="./css/plugins/swiper-bundle.min.css">
+    <!-- Animation CSS 动画 -->
+    <link rel="stylesheet" href="./css/plugins/animate.min.css">
+    <!-- Jquery ui CSS Jquery界面 -->
+    <link rel="stylesheet" href="./css/plugins/jquery-ui.min.css">
+    <!-- Nice Select CSS 下拉框样式 -->
+    <link rel="stylesheet" href="./css/plugins/nice-select.min.css">
+    <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
+    <link rel="stylesheet" href="./css/plugins/magnific-popup.css">
 
     <!-- 引入主要样式 -->
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/style.css">
     <!-- 引入Jquery的JS文件 -->
-    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
-    <script src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
-    <script src="./bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
     <!-- 引入Vue的JS文件 -->
     <script src="./js/Vue.js"></script>
     <script src="./js/axios.min.js"></script>
 </head>
 
 
-<body class="">
+<body>
+
+    <!--===== Pre-Loading Area 预警器 Start =====-->
+    <div id="preloader">
+        <div class="preloader">
+            <div class="spinner-block">
+                <h1 class="spinner spinner-3 mb-0">.</h1>
+            </div>
+        </div>
+    </div>
+    <!--==== Pre-Loading Area 预警器 End ====-->
 
     <!-- 头部 -->
     <header>
@@ -70,11 +91,11 @@
                                                         <img src="./images/bg.png" alt="">
                                                     </a>
                                                 </div>
-                                                <p>
+                                                <p class="animation-jelly">
                                                     <a href="#">用户名称</a>
                                                 </p>
                                             </div>
-                                            <ul>
+                                            <ul class="animation-jelly">
                                                 <li><a href="#"><i class="fa fa-user"></i> 个人信息</a></li>
                                                 <li><a href="#"><i class="fa fa-file-text"></i> 我的订单</a></li>
                                                 <li><a href="#"><i class="fa fa-bus"></i> 物流查询</a></li>
@@ -91,7 +112,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-6 col-custom">
                         <div class="header-right-area main-nav">
-                            <ul class="nav">
+                            <ul class="nav animation-jelly">
                                 <!-- 购物车 -->
                                 <li class="minicart-wrap">
                                     <a href="#" class="minicart-btn toolbar-btn">
@@ -324,6 +345,7 @@
             <!-- off-canvas menu end 侧边栏 结束 手机端 PC端 -->
         </div>
     </header>
+
     <!-- 主体内容 -->
     <div class="content">
         <!-- 轮播 -->
@@ -1394,11 +1416,10 @@
     </div>
 
     <!-- 滚动条监听，返回顶部 -->
-    <div class="body-up" v-bind:class:={d-none:this_block}>
-        <p>
+    <div class="scroll-to-top">
+        <p title="返回顶部">
             <i class="fa fa-long-arrow-up"></i>
             <!-- <i class="fa fa-arrow-circle-up"></i> -->
-
         </p>
     </div>
 
@@ -1503,8 +1524,8 @@
                         <div class="copyright-content">
                             <p>
                                 版权所有 © 2022 <a href="http://www.bootstrapmb.com/"
-                                    title="http://www.bootstrapmb.com/">主题由</a> |
-                                夜雨倾城&nbsp;<strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
+                                    title="http://www.bootstrapmb.com/">主题由</a> | 夜雨倾城&nbsp;
+                                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
                                     title="http://www.bootstrapmb.com/">主题</a>.
                             </p>
                         </div>
@@ -1516,21 +1537,25 @@
 
 
 
-    <!-- Swiper Slider JS -->
+    <!-- Swiper Slider JS 刷子轮播 -->
     <script src="./js/plugins/swiper-bundle.min.js"></script>
-    <!-- nice select JS -->
+    <!-- nice select JS 动画 -->
     <script src="./js/plugins/nice-select.min.js"></script>
-    <!-- Ajaxchimpt js -->
+    <!-- Ajaxchimpt JS 邮箱Ajax -->
     <script src="./js/plugins/jquery.ajaxchimp.min.js"></script>
-    <!-- Jquery Ui js -->
+    <!-- Jquery Ui JS Jquery界面 -->
     <script src="./js/plugins/jquery-ui.min.js"></script>
-    <!-- Jquery Countdown js -->
+    <!-- nice select JS 下拉框选项插件 -->
+    <script src="./js/plugins/nice-select.min.js"></script>
+    <!-- Jquery Countdown JS 时间倒计时插件 -->
     <script src="./js/plugins/jquery.countdown.min.js"></script>
-    <!-- jquery magnific popup js -->
+    <!-- jquery magnific popup JS  图片弹出窗口--放大图并可轮播 -->
     <script src="./js/plugins/jquery.magnific-popup.min.js"></script>
-    <!-- Main JS -->
+
+    <!-- Main JS 根据需求个性编写 -->
     <script src="./js/main.js"></script>
 
+    <!-- layerUI JS  -->
     <script src="./layer/layer.js" charset="utf-8"></script>
     <script type="text/javascript" src="./layer/xadmin.js"></script>
 
@@ -1551,28 +1576,27 @@
         // }, 1000)
 
 
-        ////-----使用鼠标移入与移除事件
-        //mouseover（覆盖） mouseenter(进入)
-        $('#headerImage').on('mouseenter', function () {
-            $(this).addClass('d-none');
-            $('.user-boxdropdown').addClass('d-block jelly');
-        })
-        document.onclick = function (e) {
-            var thisClick = $(this).parents().hasClass('user-boxdropdown');
-            console.log(thisClick)
-            alert(thisClick)
-            if (thisClick) {
-                $('.user-boxdropdown').click(function () {
-                    $('#headerImage').addClass('d-none');
-                    $('.user-boxdropdown').addClass('d-block jelly');
-                })
-            }
-            else {
-                $('#headerImage').removeClass('d-none');
-                $('.user-boxdropdown').removeClass('d-block jelly');
-            }
+        // ////-----使用鼠标移入与移除事件
+        // //mouseover（覆盖） mouseenter(进入)
+        // $('#headerImage').on('mouseenter', function () {
+        //     $(this).addClass('d-none');
+        //     $('.user-boxdropdown').addClass('d-block jelly');
+        // })
+        // document.onclick = function (e) {
+        //     var thisClick = $(this).parents().hasClass('user-boxdropdown');
+        //     console.log(thisClick)
+        //     //alert(thisClick)
+        //     if (thisClick) {
+        //         $('.user-boxdropdown').click(function () {
+        //             $('#headerImage').addClass('d-none');
+        //             $('.user-boxdropdown').addClass('d-block jelly');
+        //         })
+        //     } else {
+        //         $('#headerImage').removeClass('d-none');
+        //         $('.user-boxdropdown').removeClass('d-block jelly');
+        //     }
 
-        }
+        // }
         // //使用 mouseout（）鼠标没有离开也会出发 有bug 所以使用mouseleave（鼠标离开才有效果）
         // $('.user-boxdropdown').on('mouseleave', function () {
         //     $(this).removeClass('d-block jelly');
@@ -1640,8 +1664,7 @@
                 layer.msg('已成功移除该商品收藏', {
                     icon: 0
                 });
-            }
-            else {
+            } else {
                 $(this).addClass('addactive');
                 layer.msg('已成功添加该商品收藏', {
                     icon: 6

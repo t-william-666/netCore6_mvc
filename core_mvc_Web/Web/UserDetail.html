@@ -1,12 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>用户中心</title>
+    <!-- Favicon 图标 页面图标 -->
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="./images/favicon.ico">
+    <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
+    <!-- 引入bootstrap样式 -->
+    <link rel="stylesheet" href="./bootstrap/lib/bootstrap/dist/css/bootstrap.css">
+    <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
+    <link rel="stylesheet" href="./bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
+    <link rel="stylesheet" href="./css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="./css/vendor/linearicons.min.css">
+
+    <!-- Swiper CSS 刷子轮播 -->
+    <link rel="stylesheet" href="./css/plugins/swiper-bundle.min.css">
+    <!-- Animation CSS 动画 -->
+    <link rel="stylesheet" href="./css/plugins/animate.min.css">
+    <!-- Jquery ui CSS Jquery界面 -->
+    <link rel="stylesheet" href="./css/plugins/jquery-ui.min.css">
+    <!-- Nice Select CSS 下拉框样式 -->
+    <link rel="stylesheet" href="./css/plugins/nice-select.min.css">
+    <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
+    <link rel="stylesheet" href="./css/plugins/magnific-popup.css">
+    <!-- 城市联动插件样式 -->
+    <link rel="stylesheet" href="./otherPlugin/city/css/city-picker.css">
+    <!-- 时间日期插件样式 -->
+    <link rel="stylesheet" href="./otherPlugin/date/css/date.css">
+
+    <!-- 引入主要样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 引入Jquery的JS文件 -->
+    <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
+    <!-- 引入bootstrap的JS样式 -->
+    <script src="./bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
+    <script src="./bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <!-- 引入Vue的JS文件 -->
+    <script src="./js/Vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+
+
 </head>
+
 <body>
-    
+    <!-- 头部 -->
+    <header>
+        <div class="header main-header-area header-sticky ">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-6">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
+                                <p class="section-title-1 fs-3"><a href="#">CiYuanCang</a></p>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8  hadmain-nav">
+                                <ul>
+                                    <!-- <li>
+                                            <a href="#">
+                                                <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
+                                            </a>
+                                        </li> -->
+                                    <li class="li-head">
+                                        <a href="#" class="headerimg position-relative">
+                                            <img src="./images/bg.png" alt="headerImage" id="headerImage"
+                                                class="img-circle head-box headerImage">
+
+                                        </a>
+
+                                        <div class="user-boxdropdown">
+                                            <div class="user-imgbox">
+                                                <div class="headerimg-two">
+                                                    <a href="#">
+                                                        <img src="./images/bg.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <p class="animation-jelly">
+                                                    <a href="#">用户名称</a>
+                                                </p>
+                                            </div>
+                                            <ul class="animation-jelly">
+                                                <li><a href="#"><i class="fa fa-user"></i> 个人信息</a></li>
+                                                <li><a href="#"><i class="fa fa-file-text"></i> 我的订单</a></li>
+                                                <li><a href="#"><i class="fa fa-bus"></i> 物流查询</a></li>
+                                                <li><a href="#"><i class="fa fa-home"></i> 收货地址</a></li>
+                                                <li><a href="#"><i class="fa fa-comment"></i> 评价中心</a></li>
+                                                <hr class="hr-line">
+                                                <li><a href="#"><i class="fa "></i> 退出登录</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-6 col-custom">
+                        <div class="header-right-area main-nav">
+                            <ul class="nav animation-jelly">
+                                <!-- 购物车 -->
+                                <li class="minicart-wrap">
+                                    <a href="#" class="minicart-btn toolbar-btn">
+                                        <i class="fa fa-shopping-cart">
+                                            <br>
+                                            <span>购物车 </span>
+                                        </i>
+                                        <!--购物车数量-->
+                                        <span class="cart-item_count2">
+                                            0
+                                        </span>
+                                    </a>
+                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
+
+                                        <div class="single-cart-item">
+                                            <div class="cart-img">
+                                                <a href="#">
+                                                    <img src="#" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="cart-text">
+                                                <h5 class="title">
+                                                    <a href="#" class="text-truncate-2">
+                                                        商品名称
+                                                    </a>
+                                                </h5>
+                                                <div class="cart-text-btn">
+                                                    <div class="cart-qty">
+                                                        <span>1</span>
+                                                        <span class="cart-price">￥199</span>
+                                                    </div>
+                                                    <button type="button"><i class="ion-trash-b"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-price-total d-flex justify-content-between">
+                                            <h5>合计 :</h5>
+                                            <h5 class="active">￥0</h5>
+                                        </div>
+                                        <div class="cart-links d-flex justify-content-between">
+                                            <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                                查看购物车
+                                            </a>
+                                            <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 订单 -->
+                                <li class="sidemenu-wrap">
+                                    <a href="#">
+                                        <i class="fa fa-file-text">
+                                            <br>
+                                            <span>我的订单</span>
+                                        </i>
+                                    </a>
+                                </li>
+                                <!-- 收藏 -->
+                                <li class="minicart-wrap">
+                                    <a href="#" class="minicart-btn toolbar-btn">
+                                        <i class="fa fa fa-heart">
+                                            <br>
+                                            <span>我的收藏</span>
+                                        </i>
+                                        <span class="cart-item_count2">
+                                            0
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- 更多关于 -->
+                                <li class="account-menu-wrap d-none d-lg-flex">
+                                    <a href="#" class="off-canvas-menu-btn">
+                                        <i class="fa fa-bars">
+                                            <br>
+                                            <span>关于我们</span>
+                                        </i>
+                                    </a>
+                                </li>
+                                <li class="mobile-menu-btn d-lg-none">
+                                    <a class="off-canvas-btn" href="#">
+                                        <i class="fa fa-bars"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- off-canvas menu start 侧边栏 开始 手机端 PC端 -->
+            <aside class="off-canvas-wrapper" id="mobileMenu">
+                <div class="off-canvas-overlay"></div>
+                <div class="off-canvas-inner-content">
+                    <div class="btn-close-off-canvas">
+                        <i class="fa fa-times"></i>
+                    </div>
+                    <div class="off-canvas-inner">
+                        <div class="search-box-offcanvas">
+                            <form>
+                                <input type="text" placeholder="Search product...">
+                                <button class="search-btn"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- mobile menu end -->
+                        <div class="offcanvas-widget-area">
+                            <div class="switcher">
+                                <div class="language">
+                                    <span class="switcher-title">语言: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">简体中文</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">German</a></li>
+                                                    <li><a href="#">French</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="currency">
+                                    <span class="switcher-title">货币结算: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">￥ 人民币</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">€ 英镑</a></li>
+                                                    <li><a href="#">$ 美元</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-info-wrap text-left text-black">
+                                <ul class="address-info">
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <a href="#">(1245) 2456 012</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <a href="#">info@yourdomain.com</a>
+                                    </li>
+                                </ul>
+                                <div class="widget-social">
+                                    <a href="#"><i class="fa fa-wechat wechat-color"></i></a>
+                                    <a href="#"><i class="fa fa-qq qq-color"></i></a>
+                                    <a href="#"><i class="fa fa-weibo weibo-color"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest-square pinterest-color"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <aside class="off-canvas-menu-wrapper" id="sideMenu">
+                <div class="off-canvas-overlay"></div>
+                <div class="off-canvas-inner-content">
+                    <div class="off-canvas-inner">
+                        <div class="btn-close-off-canvas">
+                            <i class="fa fa-times"></i>
+                        </div>
+                        <!-- offcanvas widget area start -->
+                        <div class="offcanvas-widget-area">
+                            <ul class="menu-top-menu">
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                            <p class="desc-content">
+                                上天在茫茫人海中安排您与我相识并促成了交易，我们万分感激您。原始社会末开始商品交易至今也说不清历经了多少年，科技发展及人类进步使我与您在这特殊的载体里进行交易。<br />
+                                我暂时见不到您，但我用心聆听您的心声我暂时见不到您，所以深思熟虑中也难免与您的需求存有细微偏差即便发现存有误差时我恳请您直接与我对话表达您的意见，我尽力改善服务至您高度满意为止。望您在评价中点亮所有星星给我指明为您服务的明灯。
+
+                            </p>
+                            <div class="switcher">
+                                <div class="language">
+                                    <span class="switcher-title">语言: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">简体中文</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">German</a></li>
+                                                    <li><a href="#">French</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="currency">
+                                    <span class="switcher-title">货币结算: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">￥ 人民币</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">$ 美元</a></li>
+                                                    <li><a href="#">€ 英镑</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-info-wrap text-left text-black">
+                                <ul class="address-info">
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <a href="#">(1245) 2456 012</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <a href="#">info@yourdomain.com</a>
+                                    </li>
+                                </ul>
+                                <div class="widget-social">
+                                    <a href="#"><i class="fa fa-wechat wechat-color"></i></a>
+                                    <a href="#"><i class="fa fa-qq qq-color"></i></a>
+                                    <a href="#"><i class="fa fa-weibo weibo-color"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest-square pinterest-color"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- offcanvas widget area end -->
+                    </div>
+                </div>
+            </aside>
+            <!-- off-canvas menu end 侧边栏 结束 手机端 PC端 -->
+        </div>
+    </header>
+
+
+    <!-- 主内容 -->
+    <div class="my-account-wrapper mt-no-text">
+        <div class="container container-default-2 custom-area">
+            <div class="row">
+                <div class="col-lg-12 col-custom">
+                    <!-- My Account Page Start 个人中心 -->
+                    <div class="myaccount-page-wrapper">
+                        <!-- My Account Tab Menu Start 左侧列表栏 -->
+                        <!-- 以下使用bootstrap的选项卡实现 -->
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-custom">
+                                <div class="myaccount-tab-menu nav" role="tablist">
+                                    <a href="#account-orders" data-toggle="tab"><i class="fa fa-file-text"></i>我的订单</a>
+                                    <a href="#account-likes" data-toggle="tab"><i class="fa fa-heart"></i>我的收藏</a>
+                                    <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i>修改个人信息</a>
+                                    <a href="#account-address" data-toggle="tab"><i class="fa fa-home"></i>收货地址管理</a>
+                                    <a href="#account-logistics" data-toggle="tab"><i class="fa fa-bus"></i>商品物流查询</a>
+                                    <a href="#account-comment" data-toggle="tab"><i class="fa fa-comment"></i>商品评价管理</a>
+                                </div>
+                            </div>
+                            <!-- My Account Tab Menu End 左侧列表栏 -->
+                            <!-- 右侧显示盒子 -->
+                            <div class="col-lg-9 col-md-8 col-custom">
+                                <div class="tab-content" id="myaccountContent">
+                                    <!-- 我的订单 -->
+                                    <div class="tab-pane fade" id="account-orders" role="tabpanel">
+                                        <div class="myaccount-content">
+                                            <h3>订单</h3>
+                                            <div class="myaccount-table table-responsive text-center">
+                                                <div class="accordion" id="accordionExample">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                            <h2 class="mb-0">
+                                                                <button class="btn btn-link btn-block text-left"
+                                                                    type="button" data-toggle="collapse"
+                                                                    data-target="#demo_@item.orderID"
+                                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                                    @item.orderTime 下的订单
+                                                                </button>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="demo_@item.orderID" class="collapse"
+                                                            aria-labelledby="headingOne"
+                                                            data-parent="#accordionExample">
+                                                            <div class="card-body">
+                                                                <ul class="list-unstyled">
+                                                                    <li class="media row">
+                                                                        <img src="~/Content/ShopImage/@e.Shop.Shopimg"
+                                                                            class="mr-3 col-lg-3" alt="..."
+                                                                            style="width:160px;height:160px">
+                                                                        <div class="media-body col-lg-6">
+                                                                            <h5 class="mt-0 mb-1"
+                                                                                style="height:40px;width:100%;overflow:hidden;white-space: break-spaces;text-overflow: ellipsis;">
+                                                                            </h5>
+                                                                            <p>
+                                                                               
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-lg-3">
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 我的订单结束 -->
+                                    <!-- 我的收藏 -->
+                                    <div class="tab-pane fade" id="account-likes" role="tabpanel">
+                                        <div class="myaccount-content content">
+                                            <h3 id="collect">我收藏的商品</h3>
+                                            <div class="row mb-1 content-list w-100 clearMx">
+
+                                                <div class="col-lg-4 col-sm-6 col-xs-6 mb-3 mt-2 single-product">
+                                                    <div class="position-relative Product-box pb-4">
+                                                        <!-- 商品图片 -->
+                                                        <div class="px-2 pt-2">
+                                                            <div class="product-image position-relative">
+                                                                <a href="#">
+                                                                    <img src="./images/other/small223420RYybl1641220460.jpg"
+                                                                        alt="" class="product-image-1 w-100 h-100">
+                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg"
+                                                                        alt=""
+                                                                        class="product-image-2 position-absolute w-100 ">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 商品名称 -->
+                                                        <div class="Product-title my-2 px-2">
+                                                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                                                <a href="#" class="text-show-1">
+                                                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                                                </a>
+                                                            </p>
+                                                            <p class="p-desc px-1 "
+                                                                title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                                                <a href="#" class="text-show-2 opacity-75">
+                                                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                        <!-- 商品评分 -->
+                                                        <div class="Product-rating px-2">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-full"></i>
+
+                                                            <!-- 移动端端 显示销售数量 -->
+                                                            <span class="float-end fs-5 pe-4">销量：<span
+                                                                    class="sale-num fs-3">99999</span></span>
+                                                        </div>
+                                                        <!-- 商品价格 -->
+                                                        <div class="Price-box mb-5 ">
+                                                            <span class="regular-price px-1">￥99.9</span>
+                                                            <span class="old-price px-2"><del>￥199.9</del></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span
+                                                                    class="sale-num fs-3">999</span></span>
+                                                        </div>
+                                                        <!-- 查看按钮 -->
+                                                        <div class="btn-box d-flex justify-content-evenly">
+                                                            <button type="button" class="btn btn-cancel px-3 py-2">
+                                                                <i class="fa fa-trash-o">&nbsp; 删除</i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-Cart px-4 py-2 addCart">
+                                                                <i class="fa fa-eye">&nbsp; 查看详情</i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-6 col-xs-6 mb-3 mt-2 single-product">
+                                                    <div class="position-relative Product-box pb-4">
+                                                        <!-- 商品图片 -->
+                                                        <div class="px-2 pt-2">
+                                                            <div class="product-image position-relative">
+                                                                <a href="#">
+                                                                    <img src="./images/other/small223420RYybl1641220460.jpg"
+                                                                        alt="" class="product-image-1 w-100 h-100">
+                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg"
+                                                                        alt=""
+                                                                        class="product-image-2 position-absolute w-100 ">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 商品名称 -->
+                                                        <div class="Product-title my-2 px-2">
+                                                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                                                <a href="#" class="text-show-1">
+                                                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                                                </a>
+                                                            </p>
+                                                            <p class="p-desc px-1 "
+                                                                title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                                                <a href="#" class="text-show-2 opacity-75">
+                                                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                        <!-- 商品评分 -->
+                                                        <div class="Product-rating px-2">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-full"></i>
+
+                                                            <!-- 移动端端 显示销售数量 -->
+                                                            <span class="float-end fs-5 pe-4">销量：<span
+                                                                    class="sale-num fs-3">9999</span></span>
+                                                        </div>
+                                                        <!-- 商品价格 -->
+                                                        <div class="Price-box mb-5 ">
+                                                            <span class="regular-price px-1">￥99.9</span>
+                                                            <span class="old-price px-2"><del>￥199.9</del></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span
+                                                                    class="sale-num fs-3">999</span></span>
+                                                        </div>
+                                                        <!-- 查看按钮 -->
+                                                        <div class="btn-box d-flex justify-content-evenly">
+                                                            <button type="button" class="btn btn-cancel px-3 py-2">
+                                                                <i class="fa fa-trash-o">&nbsp; 删除</i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-Cart px-4 py-2 addCart">
+                                                                <i class="fa fa-eye">&nbsp; 查看详情</i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-6 col-xs-6 mb-3 mt-2 single-product">
+                                                    <div class="position-relative Product-box pb-4">
+                                                        <!-- 商品图片 -->
+                                                        <div class="px-2 pt-2">
+                                                            <div class="product-image position-relative">
+                                                                <a href="#">
+                                                                    <img src="./images/other/small223420RYybl1641220460.jpg"
+                                                                        alt="" class="product-image-1 w-100 h-100">
+                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg"
+                                                                        alt=""
+                                                                        class="product-image-2 position-absolute w-100 ">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 商品名称 -->
+                                                        <div class="Product-title my-2 px-2">
+                                                            <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                                                <a href="#" class="text-show-1">
+                                                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                                                </a>
+                                                            </p>
+                                                            <p class="p-desc px-1 "
+                                                                title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                                                <a href="#" class="text-show-2 opacity-75">
+                                                                    商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                                                </a>
+                                                            </p>
+                                                        </div>
+                                                        <!-- 商品评分 -->
+                                                        <div class="Product-rating px-2">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star-half-full"></i>
+
+                                                            <!-- 移动端端 显示销售数量 -->
+                                                            <span class="float-end fs-5 pe-4">销量：<span
+                                                                    class="sale-num fs-3">9999</span></span>
+                                                        </div>
+                                                        <!-- 商品价格 -->
+                                                        <div class="Price-box mb-5 ">
+                                                            <span class="regular-price px-1">￥99.9</span>
+                                                            <span class="old-price px-2"><del>￥199.9</del></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span
+                                                                    class="sale-num fs-3">999</span></span>
+                                                        </div>
+                                                        <!-- 查看按钮 -->
+                                                        <div class="btn-box d-flex justify-content-evenly">
+                                                            <button type="button" class="btn btn-cancel px-3 py-2">
+                                                                <i class="fa fa-trash-o">&nbsp; 删除</i>
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-Cart px-4 py-2 addCart">
+                                                                <i class="fa fa-eye">&nbsp; 查看详情</i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h5 class="mt-0">您没有收藏的商品</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 我的收藏结束 -->
+                                    <!-- 修改个人信息 -->
+                                    <div class="tab-pane fade" id="account-info" role="tabpanel">
+                                        <div class="myaccount-content">
+                                            <h3>个人信息</h3>
+                                            <div class="account-details-form">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
+                                                    class="layui-form " lay-filter="example">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-custom">
+                                                            <div class="single-input-item mb-3">
+                                                                <label for="user_name" class="required mb-1">
+                                                                    昵称
+                                                                </label>
+                                                                <input type="text" id="user_name" name="UserName"
+                                                                    placeholder="请输入昵称" value="沐雨清晨" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-custom">
+                                                            <div class="single-input-item mb-3">
+                                                                <label for="user_email" class="required mb-1">
+                                                                    邮箱
+                                                                </label>
+                                                                <input type="text" id="user_email" name="Email"
+                                                                    placeholder="请输入邮箱" value="1839368291@qq.com" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-input-item mb-3">
+                                                        <label for="user_birthday" class="required mb-1">
+                                                            生日
+                                                        </label>
+                                                        <!-- 日期容器 -->
+                                                        <div id="datePlugin"></div>
+                                                        <input type="text" id="user_birthday" name="birthday"
+                                                            placeholder="" value="" />
+                                                    </div>
+                                                    <div class="single-input-item mb-3">
+                                                        <label for="user_introduce" class="required mb-1">
+                                                            个人介绍
+                                                        </label>
+                                                        <textarea id="user_introduce" class="" placeholder="个人介绍"
+                                                            cols="30" rows="6">text="这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;" 
+                                                        </textarea>
+                                                    </div>
+
+                                                    <fieldset>
+                                                        <legend>更改头像</legend>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-custom">
+                                                                <div class="single-input-item mb-3">
+                                                                    <label class="required mb-1">
+                                                                        当前头像
+                                                                    </label>
+                                                                    <img src="./images/other/1.jpg" alt="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-custom">
+                                                                <div class="single-input-item mb-3">
+                                                                    <label for="confirm-pwd"
+                                                                        class="required mb-1">选择头像</label>
+                                                                    <input type="file" id="user_headerimg"
+                                                                        name="file" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset>
+                                                        <legend>更改密码</legend>
+                                                        <div class="single-input-item mb-3">
+                                                            <label for="current-pwd" class="required mb-1">
+                                                                当前密码
+                                                            </label>
+                                                            <input type="password" id="current-pwd" name="Password"
+                                                                placeholder="请输入当前密码" />
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-custom">
+                                                                <div class="single-input-item mb-3">
+                                                                    <label for="new-pwd" class="required mb-1">
+                                                                        新密码
+                                                                    </label>
+                                                                    <input type="password" id="new-pwd"
+                                                                        name="AddPassword" placeholder="请输入新密码" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-custom">
+                                                                <div class="single-input-item mb-3">
+                                                                    <label for="confirm-pwd"
+                                                                        class="required mb-1">确认密码</label>
+                                                                    <input type="password" id="confirm-pwd"
+                                                                        name="rePassword" placeholder="确认密码" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <div class="single-input-item single-item-button">
+                                                        <button type="button" id="changeBtn"
+                                                            class="btn flosun-button secondary-btn theme-color rounded-0">
+                                                            保存更改
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 修改个人信息结束-->
+                                    <!-- 收货地址管理 -->
+                                    <div class="tab-pane fade" id="account-address" role="tabpanel">
+                                        <div class="myaccount-content">
+                                            <h3>收货地址管理</h3>
+                                            <div class="account-details-form">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
+                                                    class="layui-form " lay-filter="example">
+                                                    <!--加载已添加的地址-->
+                                                    <div class="mb-3">
+                                                        <div class="row clearMx mb-3 pb-2 border-1 ">
+                                                            <div class="col-lg-8 col-custom">
+                                                                <div class="">
+                                                                    <label class="required mb-1">
+                                                                        收货人：
+                                                                    </label>
+                                                                    <span>张三李四</span>
+                                                                    <label class="required mb-1">
+                                                                        联系方式：
+                                                                    </label>
+                                                                    <span>123456789011</span>
+                                                                </div>
+                                                                <p>
+                                                                    <label for="display-name" class="required mb-1">
+                                                                        地址:
+                                                                    </label>
+                                                                    广东省石帆胜丰士大夫士大夫撒旦发士大夫士大夫石帆胜丰是否是事实是事实水水水水水水水水水水水水水水水水水水水水水水水
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-lg-4 col-custom d-flex align-items-center">
+                                                                <div class="d-flex w-100 justify-content-between">
+                                                                    <button type="button"
+                                                                        class="btn flosun-button delete-btn me-0 rounded-0"
+                                                                        value="@item.addressID">
+                                                                        删除
+                                                                    </button>
+                                                                    <button type="button"
+                                                                        class="btn flosun-button primary-btn rounded-0 black-btn updateBtn"
+                                                                        value="@item.addressID">
+                                                                        修改
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row clearMx mb-3 pb-2 border-1 ">
+                                                            <div class="col-lg-8 col-custom">
+                                                                <div class="">
+                                                                    <label class="required mb-1">
+                                                                        收货人：
+                                                                    </label>
+                                                                    <span>张三李四</span>
+                                                                    <label class="required mb-1">
+                                                                        联系方式：
+                                                                    </label>
+                                                                    <span>123456789011</span>
+                                                                </div>
+                                                                <p>
+                                                                    <label for="display-name" class="required mb-1">
+                                                                        地址:
+                                                                    </label>
+                                                                    广东省石帆胜丰士大夫士大夫撒旦发士大夫士大夫石帆胜丰是否是事实是事实水水水水水水水水水水水水水水水水水水水水水水水
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-lg-4 col-custom d-flex align-items-center">
+                                                                <div class="d-flex w-100 justify-content-between">
+                                                                    <button type="button"
+                                                                        class="btn flosun-button delete-btn me-0 rounded-0"
+                                                                        value="@item.addressID">
+                                                                        删除
+                                                                    </button>
+                                                                    <button type="button"
+                                                                        class="btn flosun-button primary-btn rounded-0 black-btn updateBtn"
+                                                                        value="@item.addressID">
+                                                                        修改
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--添加新收货地址-->
+                                                    <div class="single-input-item mb-3">
+                                                        <label for="display-name" class="required mb-1">
+                                                            添加收货地址:
+                                                        </label>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-custom">
+                                                                <div class="single-input-item mb-3">
+                                                                    <label class="required mb-1">
+                                                                        收货人：
+                                                                    </label>
+                                                                    <input type="password" id="new-pwd"
+                                                                        name="AddPassword" placeholder="请输入收货人" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-custom">
+                                                                <div class="single-input-item mb-3">
+                                                                    <label class="required mb-1">
+                                                                        联系方式：
+                                                                    </label>
+                                                                    <input type="text" id="confirm-pwd"
+                                                                        name="rePassword" placeholder="请输入收货人联系方式" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 地址 -->
+                                                        <div class="">
+                                                            <label for="display-name" class="required mb-1">
+                                                                地址:
+                                                            </label>
+                                                            <div class="docs-methods">
+                                                                <form class="form-inline">
+                                                                    <div id="row distpicker">
+                                                                        <div class="form-group col-sm-8 col-xs-8">
+                                                                            <div class="single-input-item mb-3"
+                                                                                style="position: relative;">
+                                                                                <input id="city-picker3"
+                                                                                    class="form-control" readonly
+                                                                                    type="text" value=""
+                                                                                    data-toggle="city-picker">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group col-sm-4 col-xs-4">
+                                                                            <div class="py-1 ms-3">
+                                                                                <button
+                                                                                    class="btn flosun-button primary-btn rounded-0 d-block"
+                                                                                    id="reset" type="button">重置</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mb-4 mt-3">
+                                                            <input type="text" name="name" class="address_detail"
+                                                                value="" placeholder="请输入详细地址" />
+                                                        </div>
+                                                        <div class="single-input-item single-item-button">
+                                                            <button type="button" id="changeBtn"
+                                                                class="btn flosun-button secondary-btn theme-color rounded-0">
+                                                                保存更改
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 收货地址管理结束 -->
+                                    <!-- 商品物流查询 -->
+                                    <div class="tab-pane fade" id="account-logistics" role="tabpanel">
+                                        <div class="myaccount-content">
+                                            <h3>商品物流查询</h3>
+                                            <div class="account-details-form">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
+                                                    class="layui-form " lay-filter="example">
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 商品物流查询结束 -->
+                                    <!-- 商品评价管理 -->
+                                    <div class="tab-pane fade" id="account-comment" role="tabpanel">
+                                        <div class="myaccount-content">
+                                            <h3>商品评价管理</h3>
+                                            <div class="account-details-form">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
+                                                    class="layui-form " lay-filter="example">
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 商品评价管理结束 -->
+                                </div>
+                            </div> <!-- My Account Tab Content End -->
+                        </div>
+                    </div> <!-- My Account Page End -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 滚动条监听，返回顶部 -->
+    <div class="scroll-to-top">
+        <p title="返回顶部">
+            <i class="fa fa-long-arrow-up"></i>
+            <!-- <i class="fa fa-arrow-circle-up"></i> -->
+        </p>
+    </div>
+
+    <!-- 尾部页脚 -->
+    <footer class="footer-area mt-no-text">
+        <div class="footer-widget-area">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
+                        <div class="single-footer-widget m-0">
+                            <div class="footer-logo section-title">
+                                <a href="#" class="section-title-1" style="font-size:36px;color:#fff;">
+                                    CiYuanCang
+                                </a>
+                            </div>
+                            <p class="desc-content">最好玩的二次元周边网站，只为你提供更好愉悦的购物体验！</p>
+                            <div class="social-links">
+                                <ul class="d-flex">
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Facebook">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Linkedin">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Youtube">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Vimeo">
+                                            <i class="fa fa-vimeo"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">信息</h2>
+                            <ul class="widget-list">
+                                <li><a href="#">我们公司</a></li>
+                                <li><a href="#">联系我们</a></li>
+                                <li><a href="#">我们的服务</a></li>
+                                <li><a href="#">为什么是我们？</a></li>
+                                <li><a href="#">职业</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">快速链接</h2>
+                            <ul class="widget-list">
+                                <li><a href="#">关于</a></li>
+                                <li><a href="#">博客</a></li>
+                                <li><a href="#">店铺</a></li>
+                                <li><a href="#">物流</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">支持</h2>
+                            <ul class="widget-list">
+                                <li><a href="#">在线支持</a></li>
+                                <li><a href="#">配送政策</a></li>
+                                <li><a href="#">退货服务</a></li>
+                                <li><a href="#">隐私策略</a></li>
+                                <li><a href="#">服务条款</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">查看信息</h2>
+                            <div class="widget-body">
+                                <address>
+                                    123, ABC, Road ##, Main City, Your address goes here.<br>Phone: 01234 567
+                                    890<br>Email: https://ciyuangou.com
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container custom-area">
+                <div class="row">
+                    <div class="col-12 text-center col-custom">
+                        <div class="copyright-content">
+                            <p>
+                                版权所有 © 2022 <a href="http://www.bootstrapmb.com/"
+                                    title="http://www.bootstrapmb.com/">主题由</a> | 夜雨倾城&nbsp;
+                                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
+                                    title="http://www.bootstrapmb.com/">主题</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Swiper Slider JS 刷子轮播 -->
+    <script src="./js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select JS 动画 -->
+    <script src="./js/plugins/nice-select.min.js"></script>
+    <!-- Ajaxchimpt JS 邮箱Ajax -->
+    <script src="./js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Ui JS Jquery界面 -->
+    <script src="./js/plugins/jquery-ui.min.js"></script>
+    <!-- nice select JS 下拉框选项插件 -->
+    <script src="./js/plugins/nice-select.min.js"></script>
+    <!-- Jquery Countdown JS 时间倒计时插件 -->
+    <script src="./js/plugins/jquery.countdown.min.js"></script>
+    <!-- jquery magnific popup JS  图片弹出窗口--放大图并可轮播 -->
+    <script src="./js/plugins/jquery.magnific-popup.min.js"></script>
+    <!-- 城市联动插件 -->
+    <script src="./otherPlugin/city/js/city-picker.data.js"></script>
+    <script src="./otherPlugin/city/js/city-picker.js"></script>
+    <script src="./otherPlugin/city/js/main.js"></script>
+    <!-- 时间日期插件 -->
+    <script type="text/javascript" src="./otherPlugin/date/js/date.js"></script>
+    <script type="text/javascript" src="./otherPlugin/date/js/iscroll_date.js"></script>
+
+
+    <!-- Main JS 根据需求个性编写 -->
+    <script src="./js/main.js"></script>
+
+    <!-- layerUI JS  -->
+    <script src="./layer/layer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./layer/xadmin.js"></script>
+
+    <script>
+        $(function () {
+            //初始化日期插件	
+            $('#user_birthday').date();
+        });
+    </script>
 </body>
+
 </html>
