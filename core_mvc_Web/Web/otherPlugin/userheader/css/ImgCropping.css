@@ -145,6 +145,7 @@
 .change_userimg{
     width: 150px;
     height: 150px;
+    overflow: hidden;
 }
 @media all and (max-width: 768px) {
     .tailoring-container .tailoring-content{

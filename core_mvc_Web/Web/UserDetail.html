@@ -373,40 +373,40 @@
                                     <div class="tab-pane fade" id="account-orders" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>订单</h3>
-                                            <div class="myaccount-table table-responsive text-center">
+                                            <div class="">
                                                 <div class="accordion" id="accordionExample">
                                                     <div class="card">
                                                         <div class="card-header" id="headingOne">
                                                             <h2 class="mb-0">
                                                                 <button class="btn btn-link btn-block text-left"
                                                                     type="button" data-toggle="collapse"
-                                                                    data-target="#demo_@item.orderID"
+                                                                    data-target="#demo_1"
                                                                     aria-expanded="true" aria-controls="collapseOne">
                                                                     @item.orderTime 下的订单
                                                                 </button>
                                                             </h2>
                                                         </div>
-                                                        <div id="demo_@item.orderID" class="collapse"
+                                                        <div id="demo_1" class="collapse"
                                                             aria-labelledby="headingOne"
                                                             data-parent="#accordionExample">
                                                             <div class="card-body">
-                                                                <ul class="list-unstyled">
-                                                                    <li class="media row">
-                                                                        <img src="~/Content/ShopImage/@e.Shop.Shopimg"
-                                                                            class="mr-3 col-lg-3" alt="..."
-                                                                            style="width:160px;height:160px">
-                                                                        <div class="media-body col-lg-6">
-                                                                            <h5 class="mt-0 mb-1"
-                                                                                style="height:40px;width:100%;overflow:hidden;white-space: break-spaces;text-overflow: ellipsis;">
-                                                                            </h5>
-                                                                            <p>
-                                                                               
-                                                                            </p>
+                                                                <div class="row">
+                                                                    <div class="col-xs-6">
+                                                                        <div>
+                                                                            <img src="./images/bg.png" alt="">
                                                                         </div>
-                                                                        <div class="col-lg-3">
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+                                                                        <div>
+                                                                            <h4>商品名称</h4>
+                                                                            <p>这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过</p>
+                                                                            <div class="d-flex">
+
+                                                                            </div>
                                                                         </div>
-                                                                    </li>
-                                                                </ul>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -617,6 +617,63 @@
                                             <div class="account-details-form">
                                                 <form action="/User/Update" method="post" enctype="multipart/form-data"
                                                     class="layui-form " lay-filter="example">
+
+                                                    <div class="row">
+                                                        <label for="user_name" class="required mb-1">
+                                                            个人头像
+                                                        </label>
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="change_userimg rounded-circle">
+                                                                <img id="finalImg" src="./images/bg.png" width="100%">
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex justify-content-center my-2">
+                                                            <button type="button" id="replaceImg"
+                                                                class="l-btn">更换图片</button>
+                                                        </div>
+
+                                                        <!--图片裁剪框 start-->
+                                                        <div style="display: none" class="tailoring-container">
+                                                            <div class="black-cloth" onclick="closeTailor(this)">
+                                                            </div>
+                                                            <div class="tailoring-content">
+                                                                <div class="tailoring-content-one">
+                                                                    <label title="上传图片" for="chooseImg"
+                                                                        class="l-btn choose-btn">
+                                                                        <input type="file"
+                                                                            accept="image/jpg,image/jpeg,image/png"
+                                                                            name="file" id="chooseImg" class="hidden"
+                                                                            onchange="selectImg(this)">
+                                                                        选择图片
+                                                                    </label>
+                                                                    <div class="close-tailoring"
+                                                                        onclick="closeTailor(this)">×</div>
+                                                                </div>
+                                                                <div class="tailoring-content-two">
+                                                                    <div class="tailoring-box-parcel">
+                                                                        <img id="tailoringImg">
+                                                                    </div>
+                                                                    <div class="preview-box-parcel">
+                                                                        <p>图片预览：</p>
+                                                                        <div class="square previewImg"></div>
+                                                                        <div class="circular previewImg"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tailoring-content-three">
+                                                                    <button type="button"
+                                                                        class="l-btn cropper-reset-btn">复位</button>
+                                                                    <button type="button"
+                                                                        class="l-btn cropper-rotate-btn">旋转</button>
+                                                                    <button type="button"
+                                                                        class="l-btn cropper-scaleX-btn">换向</button>
+                                                                    <button type="button" class="l-btn sureCut"
+                                                                        id="sureCut">确定</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--图片裁剪框 end-->
+                                                    </div>
+
                                                     <div class="row">
                                                         <div class="col-lg-6 col-custom">
                                                             <div class="single-input-item mb-3">
@@ -629,23 +686,39 @@
                                                         </div>
                                                         <div class="col-lg-6 col-custom">
                                                             <div class="single-input-item mb-3">
-                                                                <label for="user_email" class="required mb-1">
-                                                                    邮箱
+                                                                <label for="user_ID" class="required mb-1">
+                                                                    账号信息
                                                                 </label>
-                                                                <input type="text" id="user_email" name="Email"
-                                                                    placeholder="请输入邮箱" value="1839368291@qq.com" />
+                                                                <input type="text" id="user_ID" name="userID"
+                                                                    placeholder="账号信息" value="1839368291" />
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="single-input-item mb-3">
-                                                        <label for="user_birthday" class="required mb-1">
-                                                            生日
-                                                        </label>
-                                                        <!-- 日期容器 -->
-                                                        <div id="datePlugin"></div>
-                                                        <input type="text" id="user_birthday" name="birthday"
-                                                            placeholder="" value="" />
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-custom">
+                                                            <div class="single-input-item mb-3">
+                                                                <label for="user_email" class="required mb-1">
+                                                                    邮箱
+                                                                </label>
+                                                                <input type="text" id="user_email" name="UserEmail"
+                                                                    placeholder="请输入邮箱" value="1839368291@qq.com" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-custom">
+                                                            <div class="single-input-item mb-3">
+                                                                <label for="user_birthday" class="required mb-1">
+                                                                    个人生日
+                                                                </label>
+                                                                <!-- 日期容器 -->
+                                                                <div id="datePlugin"></div>
+                                                                <input type="text" id="user_birthday" name="birthday"
+                                                                    placeholder="请选择出生日" value="" />
+                                                            </div>
+                                                        </div>
                                                     </div>
+
+
                                                     <div class="single-input-item mb-3">
                                                         <label for="user_introduce" class="required mb-1">
                                                             个人介绍
@@ -655,47 +728,6 @@
                                                         </textarea>
                                                     </div>
 
-                                                    <fieldset>
-                                                        <legend>更改头像</legend>
-                                                        <div class="row">
-                                                            <div class="col-lg-6 col-custom">
-                                                                <button type="button" id="replaceImg" class="l-btn">更换图片</button>
-                                                                <div class="change_userimg border-radius">
-                                                                    <img id="finalImg" src="./images/bg.png" width="100%">
-                                                                </div>
-                                                                <!--图片裁剪框 start-->
-                                                                <div style="display: none" class="tailoring-container">
-                                                                    <div class="black-cloth" onclick="closeTailor(this)"></div>
-                                                                    <div class="tailoring-content">
-                                                                            <div class="tailoring-content-one">
-                                                                                <label title="上传图片" for="chooseImg" class="l-btn choose-btn">
-                                                                                    <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="chooseImg" class="hidden" onchange="selectImg(this)">
-                                                                                    选择图片
-                                                                                </label>
-                                                                                <div class="close-tailoring"  onclick="closeTailor(this)">×</div>
-                                                                            </div>
-                                                                            <div class="tailoring-content-two">
-                                                                                <div class="tailoring-box-parcel">
-                                                                                    <img id="tailoringImg">
-                                                                                </div>
-                                                                                <div class="preview-box-parcel">
-                                                                                    <p>图片预览：</p>
-                                                                                    <div class="square previewImg"></div>
-                                                                                    <div class="circular previewImg"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="tailoring-content-three">
-                                                                                <button type="button" class="l-btn cropper-reset-btn">复位</button>
-                                                                                <button type="button" class="l-btn cropper-rotate-btn">旋转</button>
-                                                                                <button type="button" class="l-btn cropper-scaleX-btn">换向</button>
-                                                                                <button type="button" class="l-btn sureCut" id="sureCut">确定</button>
-                                                                            </div>
-                                                                        </div>
-                                                                </div>
-                                                                <!--图片裁剪框 end-->
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
                                                     <fieldset>
                                                         <legend>更改密码</legend>
                                                         <div class="single-input-item mb-3">
@@ -720,7 +752,7 @@
                                                                     <label for="confirm-pwd"
                                                                         class="required mb-1">确认密码</label>
                                                                     <input type="password" id="confirm-pwd"
-                                                                        name="rePassword" placeholder="确认密码" />
+                                                                        name="rePassword" placeholder="请输入确认密码" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -923,7 +955,7 @@
 
     <!-- 滚动条监听，返回顶部 -->
     <div class="scroll-to-top">
-        <p title="返回顶部">
+        <p data-toggle='tooltip' data-placement='left' title="返回顶部">
             <i class="fa fa-long-arrow-up"></i>
             <!-- <i class="fa fa-arrow-circle-up"></i> -->
         </p>

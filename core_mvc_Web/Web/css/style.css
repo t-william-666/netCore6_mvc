@@ -8305,3 +8305,18 @@ mark {
 .modal-open .modal-product .quantity-with-btn .add-to_btn {
     margin-top: 20px;
 }
+
+/* 解决引入bootstrap3.4版本的样式冲突 */
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: auto !important;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        width: auto !important;
+        margin: 30px auto;
+    }
+}

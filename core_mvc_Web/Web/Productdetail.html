@@ -6,41 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品详情</title>
-   <!-- Favicon 图标 页面图标 -->
-   <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="./images/favicon.ico">
-   <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
-   <!-- 引入bootstrap样式 -->
-   <link rel="stylesheet" href="./bootstrap/lib/bootstrap/dist/css/bootstrap.css">
-   <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
-   <link rel="stylesheet" href="./bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
-   <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
-   <link rel="stylesheet" href="./css/vendor/font.awesome.min.css">
-   <link rel="stylesheet" href="./css/vendor/linearicons.min.css">
+    <!-- Favicon 图标 页面图标 -->
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="./images/favicon.ico">
+    <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
+    <!-- 引入bootstrap样式 -->
+    <link rel="stylesheet" href="./bootstrap/lib/bootstrap/dist/css/bootstrap.css">
+    <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
+    <link rel="stylesheet" href="./bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
+    <link rel="stylesheet" href="./css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="./css/vendor/linearicons.min.css">
 
-   <!-- Swiper CSS 刷子轮播 -->
-   <link rel="stylesheet" href="./css/plugins/swiper-bundle.min.css">
-   <!-- Animation CSS 动画 -->
-   <link rel="stylesheet" href="./css/plugins/animate.min.css">
-   <!-- Jquery ui CSS Jquery界面 -->
-   <link rel="stylesheet" href="./css/plugins/jquery-ui.min.css">
-   <!-- Nice Select CSS 下拉框样式 -->
-   <link rel="stylesheet" href="./css/plugins/nice-select.min.css">
-   <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
-   <link rel="stylesheet" href="./css/plugins/magnific-popup.css">
+    <!-- Swiper CSS 刷子轮播 -->
+    <link rel="stylesheet" href="./css/plugins/swiper-bundle.min.css">
+    <!-- Animation CSS 动画 -->
+    <link rel="stylesheet" href="./css/plugins/animate.min.css">
+    <!-- Jquery ui CSS Jquery界面 -->
+    <link rel="stylesheet" href="./css/plugins/jquery-ui.min.css">
+    <!-- Nice Select CSS 下拉框样式 -->
+    <link rel="stylesheet" href="./css/plugins/nice-select.min.css">
+    <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
+    <link rel="stylesheet" href="./css/plugins/magnific-popup.css">
 
-   <!-- 引入主要样式 -->
-   <link rel="stylesheet" href="./css/index.css">
-   <link rel="stylesheet" href="./css/style.css">
-   
-   <!-- 引入Jquery的JS文件 -->
-   <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
-   <!-- 引入bootstrap的JS样式 -->
-   <script src="./bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-   <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
-   <script src="./bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
-   <!-- 引入Vue的JS文件 -->
-   <script src="./js/Vue.js"></script>
-   <script src="./js/axios.min.js"></script>
+    <!-- 引入主要样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- 引入Jquery的JS文件 -->
+    <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
+    <!-- 引入bootstrap的JS样式 -->
+    <script src="./bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
+    <script src="./bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <!-- 引入Vue的JS文件 -->
+    <script src="./js/Vue.js"></script>
+    <script src="./js/axios.min.js"></script>
 
 
 </head>
@@ -620,7 +620,6 @@
                     <div class="product-slider swiper-container anime-element-multi">
                         <!-- 下面图片轮播切换功能 由 swiper轮播组件实现 -->
                         <div class="swiper-wrapper">
-
                             <div class="single-item swiper-slide">
                                 <div class="single-product position-relative mb-30">
                                     <div class="product-image">
@@ -634,47 +633,57 @@
                                             新品
                                         </span>
                                         <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
+                                            <a href='#' title='Compare'>
+                                                <i class='lnr lnr-sync' data-toggle='tooltip' data-placement='left'
+                                                    title='对比'></i>
                                             </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
+                                            <a class='addCollectLike' title='Add To Wishlist'>
+                                                <i class='lnr lnr-heart ' data-toggle='tooltip' data-placement='left'
+                                                    title='收藏'></i>
                                             </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
+                                            <a href='#exampleModalCenter' title='Quick View' data-toggle='modal'
+                                                class='lookBox' data-target='#exampleModalCenter'>
+                                                <i class='lnr lnr-eye' data-toggle='tooltip' data-placement='left'
+                                                    title='查看'></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
+
+                                    <div class='product-content shops'>
+                                        <div class='product-title'>
+                                            <h4 class='title-2'>
+                                                <a href='#' class='text-truncate-2'>
+                                                    商品名称
+                                                </a>
                                             </h4>
+                                            <p class='desc-content text-truncate-2'>
+                                                商品描述。。。。。。
+                                            </p>
                                         </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
+                                        <!-- 商品星级评分 -->
+                                        <div class='product-rating'>
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
                                         </div>
                                         <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
+                                        <div class="Price-box mb-5 ">
                                             <span class="regular-price px-1">￥99.9</span>
                                             <span class="old-price px-2"><del>￥199.9</del></span>
                                             <span class="float-end fs-5 pe-4">销量：<span
                                                     class="sale-num fs-3">999</span></span>
                                         </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
+                                        <!-- 加入购物车按钮 -->
+                                        <div class="btn-box d-flex justify-content-evenly">
+                                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                                            </button>
+                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -692,47 +701,57 @@
                                             新品
                                         </span>
                                         <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="fa fa-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
+                                            <a href='#' title='Compare'>
+                                                <i class='lnr lnr-sync' data-toggle='tooltip' data-placement='left'
+                                                    title='对比'></i>
                                             </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
+                                            <a class='addCollectLike' title='Add To Wishlist'>
+                                                <i class='lnr lnr-heart ' data-toggle='tooltip' data-placement='left'
+                                                    title='收藏'></i>
                                             </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
+                                            <a href='#exampleModalCenter' title='Quick View' data-toggle='modal'
+                                                class='lookBox' data-target='#exampleModalCenter'>
+                                                <i class='lnr lnr-eye' data-toggle='tooltip' data-placement='left'
+                                                    title='查看'></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
+
+                                    <div class='product-content shops'>
+                                        <div class='product-title'>
+                                            <h4 class='title-2'>
+                                                <a href='#' class='text-truncate-2'>
+                                                    商品名称
+                                                </a>
                                             </h4>
+                                            <p class='desc-content text-truncate-2'>
+                                                商品描述。。。。。。
+                                            </p>
                                         </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
+                                        <!-- 商品星级评分 -->
+                                        <div class='product-rating'>
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
                                         </div>
                                         <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
+                                        <div class="Price-box mb-5 ">
                                             <span class="regular-price px-1">￥99.9</span>
                                             <span class="old-price px-2"><del>￥199.9</del></span>
                                             <span class="float-end fs-5 pe-4">销量：<span
                                                     class="sale-num fs-3">999</span></span>
                                         </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
+                                        <!-- 加入购物车按钮 -->
+                                        <div class="btn-box d-flex justify-content-evenly">
+                                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                                            </button>
+                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -750,47 +769,57 @@
                                             新品
                                         </span>
                                         <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="fa fa-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
+                                            <a href='#' title='Compare'>
+                                                <i class='lnr lnr-sync' data-toggle='tooltip' data-placement='left'
+                                                    title='对比'></i>
                                             </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
+                                            <a class='addCollectLike' title='Add To Wishlist'>
+                                                <i class='lnr lnr-heart ' data-toggle='tooltip' data-placement='left'
+                                                    title='收藏'></i>
                                             </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
+                                            <a href='#exampleModalCenter' title='Quick View' data-toggle='modal'
+                                                class='lookBox' data-target='#exampleModalCenter'>
+                                                <i class='lnr lnr-eye' data-toggle='tooltip' data-placement='left'
+                                                    title='查看'></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
+
+                                    <div class='product-content shops'>
+                                        <div class='product-title'>
+                                            <h4 class='title-2'>
+                                                <a href='#' class='text-truncate-2'>
+                                                    商品名称
+                                                </a>
                                             </h4>
+                                            <p class='desc-content text-truncate-2'>
+                                                商品描述。。。。。。
+                                            </p>
                                         </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
+                                        <!-- 商品星级评分 -->
+                                        <div class='product-rating'>
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
                                         </div>
                                         <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
+                                        <div class="Price-box mb-5 ">
                                             <span class="regular-price px-1">￥99.9</span>
                                             <span class="old-price px-2"><del>￥199.9</del></span>
                                             <span class="float-end fs-5 pe-4">销量：<span
                                                     class="sale-num fs-3">999</span></span>
                                         </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
+                                        <!-- 加入购物车按钮 -->
+                                        <div class="btn-box d-flex justify-content-evenly">
+                                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                                            </button>
+                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -808,47 +837,57 @@
                                             新品
                                         </span>
                                         <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="fa fa-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
+                                            <a href='#' title='Compare'>
+                                                <i class='lnr lnr-sync' data-toggle='tooltip' data-placement='left'
+                                                    title='对比'></i>
                                             </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
+                                            <a class='addCollectLike' title='Add To Wishlist'>
+                                                <i class='lnr lnr-heart ' data-toggle='tooltip' data-placement='left'
+                                                    title='收藏'></i>
                                             </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
+                                            <a href='#exampleModalCenter' title='Quick View' data-toggle='modal'
+                                                class='lookBox' data-target='#exampleModalCenter'>
+                                                <i class='lnr lnr-eye' data-toggle='tooltip' data-placement='left'
+                                                    title='查看'></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
+
+                                    <div class='product-content shops'>
+                                        <div class='product-title'>
+                                            <h4 class='title-2'>
+                                                <a href='#' class='text-truncate-2'>
+                                                    商品名称
+                                                </a>
                                             </h4>
+                                            <p class='desc-content text-truncate-2'>
+                                                商品描述。。。。。。
+                                            </p>
                                         </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
+                                        <!-- 商品星级评分 -->
+                                        <div class='product-rating'>
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
                                         </div>
                                         <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
+                                        <div class="Price-box mb-5 ">
                                             <span class="regular-price px-1">￥99.9</span>
                                             <span class="old-price px-2"><del>￥199.9</del></span>
                                             <span class="float-end fs-5 pe-4">销量：<span
                                                     class="sale-num fs-3">999</span></span>
                                         </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
+                                        <!-- 加入购物车按钮 -->
+                                        <div class="btn-box d-flex justify-content-evenly">
+                                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                                            </button>
+                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -866,47 +905,57 @@
                                             新品
                                         </span>
                                         <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="fa fa-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
+                                            <a href='#' title='Compare'>
+                                                <i class='lnr lnr-sync' data-toggle='tooltip' data-placement='left'
+                                                    title='对比'></i>
                                             </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
+                                            <a class='addCollectLike' title='Add To Wishlist'>
+                                                <i class='lnr lnr-heart ' data-toggle='tooltip' data-placement='left'
+                                                    title='收藏'></i>
                                             </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
+                                            <a href='#exampleModalCenter' title='Quick View' data-toggle='modal'
+                                                class='lookBox' data-target='#exampleModalCenter'>
+                                                <i class='lnr lnr-eye' data-toggle='tooltip' data-placement='left'
+                                                    title='查看'></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
+
+                                    <div class='product-content shops'>
+                                        <div class='product-title'>
+                                            <h4 class='title-2'>
+                                                <a href='#' class='text-truncate-2'>
+                                                    商品名称
+                                                </a>
                                             </h4>
+                                            <p class='desc-content text-truncate-2'>
+                                                商品描述。。。。。。
+                                            </p>
                                         </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
+                                        <!-- 商品星级评分 -->
+                                        <div class='product-rating'>
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
                                         </div>
                                         <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
+                                        <div class="Price-box mb-5 ">
                                             <span class="regular-price px-1">￥99.9</span>
                                             <span class="old-price px-2"><del>￥199.9</del></span>
                                             <span class="float-end fs-5 pe-4">销量：<span
                                                     class="sale-num fs-3">999</span></span>
                                         </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
+                                        <!-- 加入购物车按钮 -->
+                                        <div class="btn-box d-flex justify-content-evenly">
+                                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                                            </button>
+                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -924,108 +973,61 @@
                                             新品
                                         </span>
                                         <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="fa fa-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
+                                            <a href='#' title='Compare'>
+                                                <i class='lnr lnr-sync' data-toggle='tooltip' data-placement='left'
+                                                    title='对比'></i>
                                             </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
+                                            <a class='addCollectLike' title='Add To Wishlist'>
+                                                <i class='lnr lnr-heart ' data-toggle='tooltip' data-placement='left'
+                                                    title='收藏'></i>
                                             </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
+                                            <a href='#exampleModalCenter' title='Quick View' data-toggle='modal'
+                                                class='lookBox' data-target='#exampleModalCenter'>
+                                                <i class='lnr lnr-eye' data-toggle='tooltip' data-placement='left'
+                                                    title='查看'></i>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
+
+                                    <div class='product-content shops'>
+                                        <div class='product-title'>
+                                            <h4 class='title-2'>
+                                                <a href='#' class='text-truncate-2'>
+                                                    商品名称
+                                                </a>
                                             </h4>
+                                            <p class='desc-content text-truncate-2'>
+                                                商品描述。。。。。。
+                                            </p>
                                         </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
+                                        <!-- 商品星级评分 -->
+                                        <div class='product-rating'>
+                                            <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
                                         </div>
                                         <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
+                                        <div class="Price-box mb-5 ">
                                             <span class="regular-price px-1">￥99.9</span>
                                             <span class="old-price px-2"><del>￥199.9</del></span>
                                             <span class="float-end fs-5 pe-4">销量：<span
                                                     class="sale-num fs-3">999</span></span>
                                         </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
+                                        <!-- 加入购物车按钮 -->
+                                        <div class="btn-box d-flex justify-content-evenly">
+                                            <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                                <i class="fa fa-heart">&nbsp; 收藏</i>
+                                            </button>
+                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                                <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="single-item swiper-slide">
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="/Search/ShopDetail?id=@item.ShopID">
-                                            <img src="./images/other/small223420RYybl1641220460.jpg" alt=""
-                                                class="product-image-1 w-100 h-100">
-                                            <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100 ">
-                                        </a>
-                                        <span class="onsale">
-                                            新品
-                                        </span>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="#" title="Compare">
-                                                <i class="fa fa-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a class="addCollectLike" title="Add To Wishlist">
-                                                <i class="fa fa-heart " data-toggle="tooltip" data-placement="left"
-                                                    title="收藏"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-toggle="modal"
-                                                class="lookBox" data-target="#exampleModalCenter">
-                                                <i class="fa fa-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="查看"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content shops">
-                                        <div class="product-title">
-                                            <h4 class="title-2">
-                                                <a href="#" class="text-truncate-2">商品名称</a>
-                                            </h4>
-                                        </div>
-                                        <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                        <!-- 商品评分 -->
-                                        <div class="Product-rating px-2">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-full"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <!-- 移动端端 显示销售数量 -->
-                                            <!-- <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span> -->
-                                        </div>
-                                        <!-- 商品价格 -->
-                                        <div class="Price-box mb-5">
-                                            <span class="regular-price px-1">￥99.9</span>
-                                            <span class="old-price px-2"><del>￥199.9</del></span>
-                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                    class="sale-num fs-3">999</span></span>
-                                        </div>
-                                        <button type="button" class="btn product-cart addCart">加入购物车</button>
-                                        <a href="cart.html"></a>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                         <!-- Slider pagination -->
@@ -1038,7 +1040,7 @@
 
     <!-- 滚动条监听，返回顶部 -->
     <div class="scroll-to-top">
-        <p title="返回顶部">
+        <p data-toggle='tooltip' data-placement='left' title="返回顶部">
             <i class="fa fa-long-arrow-up"></i>
             <!-- <i class="fa fa-arrow-circle-up"></i> -->
         </p>
@@ -1155,6 +1157,83 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal flosun-modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+                    <span class="close-icon" aria-hidden="true">x</span>
+                </button>
+                <div class="modal-body">
+                    <div class="container-fluid custom-area">
+                        <div class="row">
+                            <div class="col-md-6 col-custom">
+                                <div class="modal-product-img">
+                                    <a class="w-100" href="#">
+                                        <img class="w-100" src="./images/other/1.jpg" alt="Product">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-custom">
+                                <div class="modal-product">
+                                    <div class="product-content">
+                                        <div class="product-title">
+                                            <h4 class="title">商品名称</h4>
+                                        </div>
+                                        <div class="price-box">
+                                            <span class="regular-price ">$80.00</span>
+                                            <span class="old-price"><del>$90.00</del></span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <span>1 Review</span>
+                                        </div>
+                                        <p class="desc-content">we denounce with righteous indignation and dislike men
+                                            who are so beguiled and demoralized by the charms of pleasure of the moment,
+                                            so blinded by desire, that they cannot foresee the pain and trouble that are
+                                            bound to ensue; and equal blame bel...</p>
+                                        <form class="d-flex flex-column w-100" action="#">
+                                            <div class="form-group">
+                                                <select class="form-control nice-select w-100">
+                                                    <option>S</option>
+                                                    <option>M</option>
+                                                    <option>L</option>
+                                                    <option>XL</option>
+                                                    <option>XXL</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                        <div class="quantity-with-btn">
+                                            <div class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="0" type="text">
+                                                    <div class="dec qtybutton">-</div>
+                                                    <div class="inc qtybutton">+</div>
+                                                    <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="add-to_btn">
+                                                <a class="btn product-cart button-icon flosun-button dark-btn"
+                                                    href="cart.html">加入购物车</a>
+                                                <a class="btn flosun-button secondary-btn rounded-0"
+                                                    href="wishlist.html">收藏</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

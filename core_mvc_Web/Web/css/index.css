@@ -656,7 +656,7 @@ input::placeholder {
 
 /* 搜索页面商品的盒子 */
 
-.product-item {
+.product-item,.product-area .single-product {
     box-shadow: 0px 3px 5px rgb(180, 180, 180);
     background-color: #ffffff;
     border-radius: 0.75rem;
