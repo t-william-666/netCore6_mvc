@@ -445,13 +445,13 @@
                     <div class="product-summery position-relative">
                         <div class="product-head mb-3">
                             <h2 class="product-title text-truncate-2">
-                                <input type="text" class="ShopID" value="@item.ShopID" style="display: none;">
-                                @item.ShopName
+                                <input type="text" class="ShopID" value="11" style="display: none;">
+                                商品名称
                             </h2>
                         </div>
                         <div class="price-box mb-2">
-                            <span class="regular-price">￥@item.priceDiscount</span>
-                            <span class="old-price"><del>￥@item.Price</del></span>
+                            <span class="regular-price">￥199.99</span>
+                            <span class="old-price"><del>￥299.99</del></span>
                         </div>
                         <div class="product-rating mb-3">
                             <i class="fa fa-star"></i>
@@ -461,11 +461,14 @@
                             <i class="fa fa-star-o"></i>
                         </div>
                         <div class="sku mb-3">
-                            <span>库存: @item.stock</span>&nbsp;&nbsp;&nbsp;
-                            <span>销量: @item.saleNum</span>
+                            <span>库存: 1000</span>&nbsp;&nbsp;&nbsp;
+                            <span>销量: 000</span>
+                        </div>
+                        <div class="py-3">
+                            <h4>店铺：<a href="ShopDetail.html" class="activeColor">华润万家</a></h4>
                         </div>
                         <p class="desc-content mb-5 text-truncate-2">
-                            @item.Title
+                            商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
                         </p>
                         <div class="quantity-with_btn mb-5 user-select">
                             <div class="quantity">
@@ -516,19 +519,19 @@
                     </ul>
                     <div class="tab-content mb-text" id="myTabContent">
                         <!--商品描述部分-->
-                        <div class="tab-pane fade show active" id="connect-1" role="tabpanel"
+                        <div class="tab-pane fade active in" id="connect-1" role="tabpanel"
                             aria-labelledby="home-tab">
                             <div class="desc-content">
                                 <p style="font-size:20px" class="text-truncate-3">商品标题</p>
                                 <p class="mb-3 text-truncate-3">
                                     描述
                                 </p>
-                                <p><img src="/Content/ShopImage/@item.Shopimg" alt="Alternate Text" /></p>
-                                <p><img src="/Content/ShopImage/@item.Image1" alt="Alternate Text" /></p>
-                                <p><img src="/Content/ShopImage/@item.Image2" alt="Alternate Text" /></p>
-                                <p><img src="/Content/ShopImage/@item.Image3" alt="Alternate Text" /></p>
-                                <p><img src="/Content/ShopImage/@item.Image4" alt="Alternate Text" /></p>
-                                <p><img src="/Content/ShopImage/@item.Image5" alt="Alternate Text" /></p>
+                                <p><img src="" alt="" /></p>
+                                <p><img src="" alt="" /></p>
+                                <p><img src="" alt="" /></p>
+                                <p><img src="" alt="" /></p>
+                                <p><img src="" alt="" /></p>
+                                <p><img src="" alt="" /></p>
                             </div>
                         </div>
                         <!--用户评论部分-->
@@ -562,8 +565,7 @@
                                                         placeholder="请输入你的看法"></textarea>
                                                 </div>
                                                 <div class="comment-form-submit">
-                                                    <button type="button"
-                                                        class="btn flosun-button secondary-btn rounded-0 commentBtn">评论</button>
+                                                    <button type="button" class="btn flosun-button secondary-btn rounded-0 commentBtn">评论</button>
                                                 </div>
                                             </div>
                                         </div>

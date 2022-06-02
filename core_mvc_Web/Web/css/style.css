@@ -3613,6 +3613,7 @@ mark {
 
 .shop_toolbar_wrapper .shop_toolbar_btn button.active {
     border: 1px solid #000000;
+    color: #E72463;
 }
 
 .shop_toolbar_wrapper .shop_toolbar_btn button:last-child {

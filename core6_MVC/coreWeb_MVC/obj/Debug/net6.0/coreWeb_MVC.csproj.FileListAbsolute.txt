@@ -806,3 +806,7 @@ C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debu
 C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\coreWeb_MVC.pdb
 C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\coreWeb_MVC.genruntimeconfig.cache
 C:\Users\韦金耀\Desktop\次元仓\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\ref\coreWeb_MVC.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\coreWeb_MVC.xml
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\obj\Debug\net6.0\coreWeb_MVC.xml
+C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC\bin\Debug\net6.0\NSwag.Annotations.dll

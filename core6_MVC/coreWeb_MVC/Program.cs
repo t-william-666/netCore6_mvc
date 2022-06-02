@@ -8,36 +8,41 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Rewrite;
+//Swagger 自定义和扩展
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using Microsoft.Extensions.PlatformAbstractions;
+using coreWeb_MVC.Models.Other;
 
 
 //===============================================================【添加服务】============================================================================
 //WebApplicationBuilder构造函数
 var builder = WebApplication.CreateBuilder(args);
 
-/// <summary>
-///  将服务添加到容器中  Add services to the container.
-/// </summary>
+//// <summary>
+////  将服务添加到容器中  Add services to the container.
+//// </summary>
 builder.Services.AddControllersWithViews();
 
-/// <summary>
-/// 添加了所有必需的 MVC 服务
-/// </summary>
+//// <summary>
+//// 添加了所有必需的 MVC 服务
+//// </summary>
 builder.Services.AddMvc();
 
-/// <summary>
-/// 注册连接数据库的服务
-/// </summary>
+//// <summary>
+//// 注册连接数据库的服务
+//// </summary>
 //builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer("Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;"));
 builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
-/// <summary>
-///MySQL注册连接数据库的服务
-///</summary>
+//// <summary>
+////MySQL注册连接数据库的服务
+////</summary>
 //builder.Services.AddDbContext<TestDBContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
-/// <summary>
-/// Session（会话）服务
-/// </summary>
+//// <summary>
+//// Session（会话）服务
+//// </summary>
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".AdventureWorks.Session";//会话使用cookie跟踪和标识来自单个浏览器的请求。默认情况下cookie 名为 .AspNetCore.Session，并使用路径 / 
@@ -52,34 +57,71 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
-/// <summary>
-/// Session（会话）服务
-/// </summary>
+//// <summary>
+//// Session（会话）服务
+//// </summary>
 builder.Services.AddHttpContextAccessor();
 
-/// <summary>
-///防伪造服务配置为查找 X-XSRF-TOKEN 标头： 名为 X-XSRF-TOKEN 的请求头中发送令牌
-///使用 JavaScript 发出带有相应标头的 AJAX 请求 表头就必须为 下面命名--X-XSRF-TOKEN
-////// </summary>
+//// <summary>
+////防伪造服务配置为查找 X-XSRF-TOKEN 标头： 名为 X-XSRF-TOKEN 的请求头中发送令牌
+////使用 JavaScript 发出带有相应标头的 AJAX 请求 表头就必须为 下面命名--X-XSRF-TOKEN
+//// </summary>
 //builder.Services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 
-/// <summary>
-/// 添加Swagger   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
-/// </summary>
-builder.Services.AddSwaggerGen(c =>
+//// <summary>
+//// 添加Swagger   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
+//// 将 Swagger 生成器添加到 Program.cs 中的服务集合：
+//// </summary>
+builder.Services.AddSwaggerGen(options =>
 {
-    c.SwaggerDoc("api", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Api", Version = "v1" });
+    //Api标题
+    options.SwaggerDoc("api", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "应用程序接口（api）",
+        Version = "v1",
+        Description = "接口文档说明"
+    });
+
+    ////AddServer用于全局的添加接口域名和前缀（虚拟路径）部分信息，默认情况下，如果我们在SwaggerUi页面使用Try it out去调用接口时，
+    ////默认使用的是当前swaggerUI页面所在的地址域名信息：
+    options.AddServer(new OpenApiServer() { Url = "http://localhost:4460", Description = "地址1" });
+    options.AddServer(new OpenApiServer() { Url = "http://127.0.0.1:5001", Description = "地址2" });
+    options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
+
+
+    //////安装Microsoft.Extensions.PlatformAbstractions组件
+    //// 获取xml文件名
+    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //// 获取xml文件路径
+    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    //// 添加控制器层注释，true表示显示控制器注释
+    //options.IncludeXmlComments(xmlPath, true);
+
+
+    //解决相同类名会报错的问题
+    options.CustomSchemaIds(type => type.FullName);
+    //API接口文件路径
+    var filePath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "coreWeb_MVC.xml");
+    // 添加控制器层注释，true表示显示控制器注释
+    options.IncludeXmlComments(filePath);
+    //请求实体路径
+    var requestfilePath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "coreWeb_MVC.xml");
+    // 添加控制器层注释，true表示显示控制器注释
+    options.IncludeXmlComments(requestfilePath);
+    //options.DescribeAllEnumsAsStrings();
+    //添加对控制器的标签(描述)
+    options.DocumentFilter<ApplyTagDescriptions>();
 });
 
-/// <summary>
-/// 添加Api发现功能   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
-/// </summary>
+//// <summary>
+//// 添加Api发现功能   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
+//// </summary>
 builder.Services.AddEndpointsApiExplorer();
 
 
-/// <summary>
-///添加JWT验证  需要添加 NuGet包==》Authentication.JwtBearer组件
-///</summary>
+//// <summary>
+////添加JWT验证  需要添加 NuGet包==》Authentication.JwtBearer组件
+////</summary>
 // 设置验证方式为 Bearer Token
 // 你也可以添加 using Microsoft.AspNetCore.Authentication.JwtBearer;
 // 使用 JwtBearerDefaults.AuthenticationScheme 代替 字符串 "Brearer"
@@ -113,12 +155,12 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
 
 
 
-//===============================================================【注册服务】============================================================================
+//===============================================================【注册服务的中间件】============================================================================
 var app = builder.Build();
 
-/// <summary>
-/// 配置HTTP请求管道 异常处理中间件  Configure the HTTP request pipeline.
-/// </summary>
+//// <summary>
+//// 配置HTTP请求管道 异常处理中间件  Configure the HTTP request pipeline.
+//// </summary>
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -127,11 +169,27 @@ if (!app.Environment.IsDevelopment())
 //抛出异常测试
 app.MapGet("/throw", () => { throw new Exception("Exception occured"); });
 
+//启用中间件为生成的 JSON 文档 和 Swagger UI 提供服务
 //注册swagger路由   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
-app.UseSwagger();
+//app.UseSwagger();
+app.UseSwagger(options =>
+{
+    //若要选择采用 2.0 格式
+    options.SerializeAsV2 = true;
+});
 
 //注册Swagger UI 路由   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/api/swagger.json", "Api v1"));
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/api/swagger.json", "Api v3");
+
+    ////注入汉化js文件
+    options.InjectJavascript("/js/jquery-3.5.1.min.js");
+    options.InjectJavascript("/swagger-ui/swagger-chinese.js");
+
+    ////注入css文件
+    options.InjectStylesheet("/swagger-ui/swagger.css");
+});
 
 //注册静态文件
 app.UseStaticFiles();

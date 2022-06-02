@@ -53,6 +53,17 @@
 </head>
 
 <body>
+
+    <!--===== Pre-Loading Area 预警器 Start =====-->
+    <div id="preloader">
+        <div class="preloader">
+            <div class="spinner-block">
+                <h1 class="spinner spinner-3 mb-0">.</h1>
+            </div>
+        </div>
+    </div>
+    <!--==== Pre-Loading Area 预警器 End ====-->
+    
     <!-- 头部 -->
     <header>
         <div class="header main-header-area header-sticky ">
@@ -77,8 +88,7 @@
                                         </li> -->
                                     <li class="li-head">
                                         <a href="#" class="headerimg position-relative">
-                                            <img src="./images/bg.png" alt="headerImage" id="headerImage"
-                                                class="img-circle head-box headerImage">
+                                            <img src="./images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
 
                                         </a>
 
@@ -344,6 +354,22 @@
         </div>
     </header>
 
+     <!-- 商品详情头部展示 -->
+     <div class="breadcrumbs-area position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title-3">User Center</h3>
+                        <ul>
+                            <li><a href="home.html">首页</a></li>
+                            <li>用户中心</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- 主内容 -->
     <div class="my-account-wrapper mt-no-text">
@@ -357,12 +383,12 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-custom">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="#account-orders" data-toggle="tab"><i class="fa fa-file-text"></i>我的订单</a>
-                                    <a href="#account-likes" data-toggle="tab"><i class="fa fa-heart"></i>我的收藏</a>
-                                    <a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i>修改个人信息</a>
-                                    <a href="#account-address" data-toggle="tab"><i class="fa fa-home"></i>收货地址管理</a>
-                                    <a href="#account-logistics" data-toggle="tab"><i class="fa fa-bus"></i>商品物流查询</a>
-                                    <a href="#account-comment" data-toggle="tab"><i class="fa fa-comment"></i>商品评价管理</a>
+                                    <a class="active" href="#account-orders" data-toggle="tab" ><i class="fa fa-file-text"></i>我的订单</a>
+                                    <a class="" href="#account-likes" data-toggle="tab" ><i class="fa fa-heart"></i>我的收藏</a>
+                                    <a class="" href="#account-info" data-toggle="tab" ><i class="fa fa-user"></i>修改个人信息</a>
+                                    <a class="" href="#account-address" data-toggle="tab" ><i class="fa fa-home"></i>收货地址管理</a>
+                                    <a class="" href="#account-logistics" data-toggle="tab" ><i class="fa fa-bus"></i>商品物流查询</a>
+                                    <a class="" href="#account-comment" data-toggle="tab" ><i class="fa fa-comment"></i>商品评价管理</a>
                                 </div>
                             </div>
                             <!-- My Account Tab Menu End 左侧列表栏 -->
@@ -370,42 +396,137 @@
                             <div class="col-lg-9 col-md-8 col-custom">
                                 <div class="tab-content" id="myaccountContent">
                                     <!-- 我的订单 -->
-                                    <div class="tab-pane fade" id="account-orders" role="tabpanel">
+                                    <div class="tab-pane fade active in" id="account-orders" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>订单</h3>
-                                            <div class="">
+                                            <div class="order-box">
                                                 <div class="accordion" id="accordionExample">
                                                     <div class="card">
                                                         <div class="card-header" id="headingOne">
-                                                            <h2 class="mb-0">
-                                                                <button class="btn btn-link btn-block text-left"
-                                                                    type="button" data-toggle="collapse"
-                                                                    data-target="#demo_1"
-                                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                            <div class="" data-toggle="collapse" data-target="#demo_1" aria-expanded="true" aria-controls="collapseOne">
+                                                                <div>
                                                                     @item.orderTime 下的订单
-                                                                </button>
-                                                            </h2>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div id="demo_1" class="collapse"
-                                                            aria-labelledby="headingOne"
-                                                            data-parent="#accordionExample">
-                                                            <div class="card-body">
-                                                                <div class="row">
+                                                        <div id="demo_1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                            <div class="card-body border-bottom">
+                                                                <div class="row clearMx">
                                                                     <div class="col-xs-6">
-                                                                        <div>
+                                                                        <div class="order-img">
+                                                                            <a href="#">
+                                                                                <img src="./images/bg.png" alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+                                                                        <div class="">
+                                                                            <div>
+                                                                                <a href="#">
+                                                                                    <h5>商品名称</h5>
+                                                                                    <p class="d-xs-none">
+                                                                                        这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                    </p>
+                                                                                    <!-- 商品价格 -->
+                                                                                    <div class="Price-box mb-5">
+                                                                                        <span class="regular-price px-1">￥99.9</span>
+                                                                                        <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                        <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-end btn-box">
+                                                                                <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                    <i>付款</i>
+                                                                                </button>
+                                                                                <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                    取消订单
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-body border-bottom">
+                                                                <div class="row clearMx">
+                                                                    <div class="col-xs-6">
+                                                                        <div class="order-img">
                                                                             <img src="./images/bg.png" alt="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-xs-6">
-                                                                        <div>
-                                                                            <h4>商品名称</h4>
-                                                                            <p>这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过</p>
-                                                                            <div class="d-flex">
-
+                                                                        <div class="">
+                                                                            <div>
+                                                                                <h5>商品名称</h5>
+                                                                                <p class="d-xs-none">
+                                                                                    这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                </p>
+                                                                                <!-- 商品价格 -->
+                                                                                <div class="Price-box mb-5">
+                                                                                    <span class="regular-price px-1">￥99.9</span>
+                                                                                    <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                    <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-end btn-box">
+                                                                                <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                    <i>付款</i>
+                                                                                </button>
+                                                                                <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                    取消订单
+                                                                                </button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                                <div class="accordion" id="accordionExample">
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                            <div class="" data-toggle="collapse" data-target="#demo_2" aria-expanded="true" aria-controls="collapseOne">
+                                                                <div>
+                                                                    @item.orderTime 下的订单
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div id="demo_2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                            <div class="card-body border-bottom">
+                                                                <div class="row clearMx">
+                                                                    <div class="col-xs-6">
+                                                                        <div class="order-img">
+                                                                            <img src="./images/bg.png" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-6">
+                                                                        <div class="">
+                                                                            <div>
+                                                                                <h5>商品名称</h5>
+                                                                                <p class="d-xs-none">
+                                                                                    这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                </p>
+                                                                                <!-- 商品价格 -->
+                                                                                <div class="Price-box mb-5">
+                                                                                    <span class="regular-price px-1">￥99.9</span>
+                                                                                    <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                    <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="d-flex justify-content-end btn-box">
+                                                                                <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                    <i>付款</i>
+                                                                                </button>
+                                                                                <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                    取消订单
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -424,14 +545,11 @@
                                                 <div class="col-lg-4 col-sm-6 col-xs-6 mb-3 mt-2 single-product">
                                                     <div class="position-relative Product-box pb-4">
                                                         <!-- 商品图片 -->
-                                                        <div class="px-2 pt-2">
+                                                        <div class="likeimg">
                                                             <div class="product-image position-relative">
                                                                 <a href="#">
-                                                                    <img src="./images/other/small223420RYybl1641220460.jpg"
-                                                                        alt="" class="product-image-1 w-100 h-100">
-                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg"
-                                                                        alt=""
-                                                                        class="product-image-2 position-absolute w-100 ">
+                                                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -442,8 +560,7 @@
                                                                     商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
                                                                 </a>
                                                             </p>
-                                                            <p class="p-desc px-1 "
-                                                                title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
                                                                 <a href="#" class="text-show-2 opacity-75">
                                                                     商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
                                                                 </a>
@@ -458,23 +575,20 @@
                                                             <i class="fa fa-star-half-full"></i>
 
                                                             <!-- 移动端端 显示销售数量 -->
-                                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                                    class="sale-num fs-3">99999</span></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">99999</span></span>
                                                         </div>
                                                         <!-- 商品价格 -->
                                                         <div class="Price-box mb-5 ">
                                                             <span class="regular-price px-1">￥99.9</span>
                                                             <span class="old-price px-2"><del>￥199.9</del></span>
-                                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                                    class="sale-num fs-3">999</span></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                                                         </div>
                                                         <!-- 查看按钮 -->
                                                         <div class="btn-box d-flex justify-content-evenly">
                                                             <button type="button" class="btn btn-cancel px-3 py-2">
                                                                 <i class="fa fa-trash-o">&nbsp; 删除</i>
                                                             </button>
-                                                            <button type="button"
-                                                                class="btn btn-Cart px-4 py-2 addCart">
+                                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
                                                                 <i class="fa fa-eye">&nbsp; 查看详情</i>
                                                             </button>
                                                         </div>
@@ -484,14 +598,11 @@
                                                 <div class="col-lg-4 col-sm-6 col-xs-6 mb-3 mt-2 single-product">
                                                     <div class="position-relative Product-box pb-4">
                                                         <!-- 商品图片 -->
-                                                        <div class="px-2 pt-2">
+                                                        <div class="likeimg">
                                                             <div class="product-image position-relative">
                                                                 <a href="#">
-                                                                    <img src="./images/other/small223420RYybl1641220460.jpg"
-                                                                        alt="" class="product-image-1 w-100 h-100">
-                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg"
-                                                                        alt=""
-                                                                        class="product-image-2 position-absolute w-100 ">
+                                                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -502,8 +613,7 @@
                                                                     商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
                                                                 </a>
                                                             </p>
-                                                            <p class="p-desc px-1 "
-                                                                title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
                                                                 <a href="#" class="text-show-2 opacity-75">
                                                                     商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
                                                                 </a>
@@ -518,23 +628,20 @@
                                                             <i class="fa fa-star-half-full"></i>
 
                                                             <!-- 移动端端 显示销售数量 -->
-                                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                                    class="sale-num fs-3">9999</span></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">9999</span></span>
                                                         </div>
                                                         <!-- 商品价格 -->
                                                         <div class="Price-box mb-5 ">
                                                             <span class="regular-price px-1">￥99.9</span>
                                                             <span class="old-price px-2"><del>￥199.9</del></span>
-                                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                                    class="sale-num fs-3">999</span></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                                                         </div>
                                                         <!-- 查看按钮 -->
                                                         <div class="btn-box d-flex justify-content-evenly">
                                                             <button type="button" class="btn btn-cancel px-3 py-2">
                                                                 <i class="fa fa-trash-o">&nbsp; 删除</i>
                                                             </button>
-                                                            <button type="button"
-                                                                class="btn btn-Cart px-4 py-2 addCart">
+                                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
                                                                 <i class="fa fa-eye">&nbsp; 查看详情</i>
                                                             </button>
                                                         </div>
@@ -544,14 +651,11 @@
                                                 <div class="col-lg-4 col-sm-6 col-xs-6 mb-3 mt-2 single-product">
                                                     <div class="position-relative Product-box pb-4">
                                                         <!-- 商品图片 -->
-                                                        <div class="px-2 pt-2">
+                                                        <div class="likeimg">
                                                             <div class="product-image position-relative">
                                                                 <a href="#">
-                                                                    <img src="./images/other/small223420RYybl1641220460.jpg"
-                                                                        alt="" class="product-image-1 w-100 h-100">
-                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg"
-                                                                        alt=""
-                                                                        class="product-image-2 position-absolute w-100 ">
+                                                                    <img src="./images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                                                    <img src="./images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -562,8 +666,7 @@
                                                                     商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
                                                                 </a>
                                                             </p>
-                                                            <p class="p-desc px-1 "
-                                                                title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                                            <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
                                                                 <a href="#" class="text-show-2 opacity-75">
                                                                     商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
                                                                 </a>
@@ -578,23 +681,20 @@
                                                             <i class="fa fa-star-half-full"></i>
 
                                                             <!-- 移动端端 显示销售数量 -->
-                                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                                    class="sale-num fs-3">9999</span></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">9999</span></span>
                                                         </div>
                                                         <!-- 商品价格 -->
                                                         <div class="Price-box mb-5 ">
                                                             <span class="regular-price px-1">￥99.9</span>
                                                             <span class="old-price px-2"><del>￥199.9</del></span>
-                                                            <span class="float-end fs-5 pe-4">销量：<span
-                                                                    class="sale-num fs-3">999</span></span>
+                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                                                         </div>
                                                         <!-- 查看按钮 -->
                                                         <div class="btn-box d-flex justify-content-evenly">
                                                             <button type="button" class="btn btn-cancel px-3 py-2">
                                                                 <i class="fa fa-trash-o">&nbsp; 删除</i>
                                                             </button>
-                                                            <button type="button"
-                                                                class="btn btn-Cart px-4 py-2 addCart">
+                                                            <button type="button" class="btn btn-Cart px-4 py-2 addCart">
                                                                 <i class="fa fa-eye">&nbsp; 查看详情</i>
                                                             </button>
                                                         </div>
@@ -615,8 +715,7 @@
                                         <div class="myaccount-content">
                                             <h3>个人信息</h3>
                                             <div class="account-details-form">
-                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
-                                                    class="layui-form " lay-filter="example">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data" class="layui-form " lay-filter="example">
 
                                                     <div class="row">
                                                         <label for="user_name" class="required mb-1">
@@ -628,8 +727,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="d-flex justify-content-center my-2">
-                                                            <button type="button" id="replaceImg"
-                                                                class="l-btn">更换图片</button>
+                                                            <button type="button" id="replaceImg" class="l-btn">更换图片</button>
                                                         </div>
 
                                                         <!--图片裁剪框 start-->
@@ -638,16 +736,11 @@
                                                             </div>
                                                             <div class="tailoring-content">
                                                                 <div class="tailoring-content-one">
-                                                                    <label title="上传图片" for="chooseImg"
-                                                                        class="l-btn choose-btn">
-                                                                        <input type="file"
-                                                                            accept="image/jpg,image/jpeg,image/png"
-                                                                            name="file" id="chooseImg" class="hidden"
-                                                                            onchange="selectImg(this)">
+                                                                    <label title="上传图片" for="chooseImg" class="l-btn choose-btn">
+                                                                        <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="chooseImg" class="hidden" onchange="selectImg(this)">
                                                                         选择图片
                                                                     </label>
-                                                                    <div class="close-tailoring"
-                                                                        onclick="closeTailor(this)">×</div>
+                                                                    <div class="close-tailoring" onclick="closeTailor(this)">×</div>
                                                                 </div>
                                                                 <div class="tailoring-content-two">
                                                                     <div class="tailoring-box-parcel">
@@ -660,14 +753,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="tailoring-content-three">
-                                                                    <button type="button"
-                                                                        class="l-btn cropper-reset-btn">复位</button>
-                                                                    <button type="button"
-                                                                        class="l-btn cropper-rotate-btn">旋转</button>
-                                                                    <button type="button"
-                                                                        class="l-btn cropper-scaleX-btn">换向</button>
-                                                                    <button type="button" class="l-btn sureCut"
-                                                                        id="sureCut">确定</button>
+                                                                    <button type="button" class="l-btn cropper-reset-btn">复位</button>
+                                                                    <button type="button" class="l-btn cropper-rotate-btn">旋转</button>
+                                                                    <button type="button" class="l-btn cropper-scaleX-btn">换向</button>
+                                                                    <button type="button" class="l-btn sureCut" id="sureCut">确定</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -680,8 +769,7 @@
                                                                 <label for="user_name" class="required mb-1">
                                                                     昵称
                                                                 </label>
-                                                                <input type="text" id="user_name" name="UserName"
-                                                                    placeholder="请输入昵称" value="沐雨清晨" />
+                                                                <input type="text" id="user_name" name="UserName" placeholder="请输入昵称" value="沐雨清晨" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-custom">
@@ -689,8 +777,7 @@
                                                                 <label for="user_ID" class="required mb-1">
                                                                     账号信息
                                                                 </label>
-                                                                <input type="text" id="user_ID" name="userID"
-                                                                    placeholder="账号信息" value="1839368291" />
+                                                                <input type="text" id="user_ID" name="userID" placeholder="账号信息" value="1839368291" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -701,8 +788,7 @@
                                                                 <label for="user_email" class="required mb-1">
                                                                     邮箱
                                                                 </label>
-                                                                <input type="text" id="user_email" name="UserEmail"
-                                                                    placeholder="请输入邮箱" value="1839368291@qq.com" />
+                                                                <input type="text" id="user_email" name="UserEmail" placeholder="请输入邮箱" value="1839368291@qq.com" />
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-custom">
@@ -712,8 +798,7 @@
                                                                 </label>
                                                                 <!-- 日期容器 -->
                                                                 <div id="datePlugin"></div>
-                                                                <input type="text" id="user_birthday" name="birthday"
-                                                                    placeholder="请选择出生日" value="" />
+                                                                <input type="text" id="user_birthday" name="birthday" placeholder="请选择出生日" value="" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -723,8 +808,7 @@
                                                         <label for="user_introduce" class="required mb-1">
                                                             个人介绍
                                                         </label>
-                                                        <textarea id="user_introduce" class="" placeholder="个人介绍"
-                                                            cols="30" rows="6">text="这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;" 
+                                                        <textarea id="user_introduce" class="" placeholder="个人介绍" cols="30" rows="6">text="这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;" 
                                                         </textarea>
                                                     </div>
 
@@ -734,8 +818,7 @@
                                                             <label for="current-pwd" class="required mb-1">
                                                                 当前密码
                                                             </label>
-                                                            <input type="password" id="current-pwd" name="Password"
-                                                                placeholder="请输入当前密码" />
+                                                            <input type="password" id="current-pwd" name="Password" placeholder="请输入当前密码" />
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-lg-6 col-custom">
@@ -743,23 +826,19 @@
                                                                     <label for="new-pwd" class="required mb-1">
                                                                         新密码
                                                                     </label>
-                                                                    <input type="password" id="new-pwd"
-                                                                        name="AddPassword" placeholder="请输入新密码" />
+                                                                    <input type="password" id="new-pwd" name="AddPassword" placeholder="请输入新密码" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-custom">
                                                                 <div class="single-input-item mb-3">
-                                                                    <label for="confirm-pwd"
-                                                                        class="required mb-1">确认密码</label>
-                                                                    <input type="password" id="confirm-pwd"
-                                                                        name="rePassword" placeholder="请输入确认密码" />
+                                                                    <label for="confirm-pwd" class="required mb-1">确认密码</label>
+                                                                    <input type="password" id="confirm-pwd" name="rePassword" placeholder="请输入确认密码" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </fieldset>
                                                     <div class="single-input-item single-item-button">
-                                                        <button type="button" id="changeBtn"
-                                                            class="btn flosun-button secondary-btn theme-color rounded-0">
+                                                        <button type="button" id="changeBtn" class="btn flosun-button secondary-btn theme-color rounded-0">
                                                             保存更改
                                                         </button>
                                                     </div>
@@ -773,8 +852,7 @@
                                         <div class="myaccount-content">
                                             <h3>收货地址管理</h3>
                                             <div class="account-details-form">
-                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
-                                                    class="layui-form " lay-filter="example">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data" class="layui-form " lay-filter="example">
                                                     <!--加载已添加的地址-->
                                                     <div class="mb-3">
                                                         <div class="row clearMx mb-3 pb-2 border-1 ">
@@ -798,14 +876,10 @@
                                                             </div>
                                                             <div class="col-lg-4 col-custom d-flex align-items-center">
                                                                 <div class="d-flex w-100 justify-content-between">
-                                                                    <button type="button"
-                                                                        class="btn flosun-button delete-btn me-0 rounded-0"
-                                                                        value="@item.addressID">
+                                                                    <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="@item.addressID">
                                                                         删除
                                                                     </button>
-                                                                    <button type="button"
-                                                                        class="btn flosun-button primary-btn rounded-0 black-btn updateBtn"
-                                                                        value="@item.addressID">
+                                                                    <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="@item.addressID">
                                                                         修改
                                                                     </button>
                                                                 </div>
@@ -833,14 +907,10 @@
                                                             </div>
                                                             <div class="col-lg-4 col-custom d-flex align-items-center">
                                                                 <div class="d-flex w-100 justify-content-between">
-                                                                    <button type="button"
-                                                                        class="btn flosun-button delete-btn me-0 rounded-0"
-                                                                        value="@item.addressID">
+                                                                    <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="@item.addressID">
                                                                         删除
                                                                     </button>
-                                                                    <button type="button"
-                                                                        class="btn flosun-button primary-btn rounded-0 black-btn updateBtn"
-                                                                        value="@item.addressID">
+                                                                    <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="@item.addressID">
                                                                         修改
                                                                     </button>
                                                                 </div>
@@ -858,8 +928,7 @@
                                                                     <label class="required mb-1">
                                                                         收货人：
                                                                     </label>
-                                                                    <input type="password" id="new-pwd"
-                                                                        name="AddPassword" placeholder="请输入收货人" />
+                                                                    <input type="password" id="new-pwd" name="AddPassword" placeholder="请输入收货人" />
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 col-custom">
@@ -867,8 +936,7 @@
                                                                     <label class="required mb-1">
                                                                         联系方式：
                                                                     </label>
-                                                                    <input type="text" id="confirm-pwd"
-                                                                        name="rePassword" placeholder="请输入收货人联系方式" />
+                                                                    <input type="text" id="confirm-pwd" name="rePassword" placeholder="请输入收货人联系方式" />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -881,19 +949,13 @@
                                                                 <form class="form-inline">
                                                                     <div id="row distpicker">
                                                                         <div class="form-group col-sm-8 col-xs-8">
-                                                                            <div class="single-input-item mb-3"
-                                                                                style="position: relative;">
-                                                                                <input id="city-picker3"
-                                                                                    class="form-control" readonly
-                                                                                    type="text" value=""
-                                                                                    data-toggle="city-picker">
+                                                                            <div class="single-input-item mb-3" style="position: relative;">
+                                                                                <input id="city-picker3" class="form-control" readonly type="text" value="" data-toggle="city-picker">
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group col-sm-4 col-xs-4">
                                                                             <div class="py-1 ms-3">
-                                                                                <button
-                                                                                    class="btn flosun-button primary-btn rounded-0 d-block"
-                                                                                    id="reset" type="button">重置</button>
+                                                                                <button class="btn flosun-button primary-btn rounded-0 d-block" id="reset" type="button">重置</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -901,12 +963,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="mb-4 mt-3">
-                                                            <input type="text" name="name" class="address_detail"
-                                                                value="" placeholder="请输入详细地址" />
+                                                            <input type="text" name="name" class="address_detail" value="" placeholder="请输入详细地址" />
                                                         </div>
                                                         <div class="single-input-item single-item-button">
-                                                            <button type="button" id="changeBtn"
-                                                                class="btn flosun-button secondary-btn theme-color rounded-0">
+                                                            <button type="button" id="changeBtn" class="btn flosun-button secondary-btn theme-color rounded-0">
                                                                 保存更改
                                                             </button>
                                                         </div>
@@ -921,8 +981,7 @@
                                         <div class="myaccount-content">
                                             <h3>商品物流查询</h3>
                                             <div class="account-details-form">
-                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
-                                                    class="layui-form " lay-filter="example">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data" class="layui-form " lay-filter="example">
 
                                                 </form>
                                             </div>
@@ -934,8 +993,7 @@
                                         <div class="myaccount-content">
                                             <h3>商品评价管理</h3>
                                             <div class="account-details-form">
-                                                <form action="/User/Update" method="post" enctype="multipart/form-data"
-                                                    class="layui-form " lay-filter="example">
+                                                <form action="/User/Update" method="post" enctype="multipart/form-data" class="layui-form " lay-filter="example">
 
                                                 </form>
                                             </div>
@@ -1061,10 +1119,8 @@
                     <div class="col-12 text-center col-custom">
                         <div class="copyright-content">
                             <p>
-                                版权所有 © 2022 <a href="http://www.bootstrapmb.com/"
-                                    title="http://www.bootstrapmb.com/">主题由</a> | 夜雨倾城&nbsp;
-                                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
-                                    title="http://www.bootstrapmb.com/">主题</a>.
+                                版权所有 © 2022 <a href="http://www.bootstrapmb.com/" title="http://www.bootstrapmb.com/">主题由</a> | 夜雨倾城&nbsp;
+                                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/" title="http://www.bootstrapmb.com/">主题</a>.
                             </p>
                         </div>
                     </div>

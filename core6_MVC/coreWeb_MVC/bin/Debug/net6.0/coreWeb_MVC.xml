@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>coreWeb_MVC</name>
+    </assembly>
+    <members>
+        <member name="F:coreWeb_MVC.Controllers.BackstageController._context">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Home">
+            <summary>
+            主页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Login">
+            <summary>
+            登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Logining(System.String,System.String)">
+            <summary>
+            登录验证并跳转页面
+            </summary>
+            <param name="userID"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Register">
+            <summary>
+            注册
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Register(System.String,System.String,System.String)">
+            <summary>
+            注册验证并跳转页面
+            </summary>
+            <param name="userID"></param>
+            <param name="password"></param>
+            <param name="passwordTure"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Error">
+            <summary>
+            报错
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:coreWeb_MVC.Controllers.ShopsController">
+            <summary>
+            商店Api接口
+            </summary>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.GetShops">
+            <summary>
+            查询所有商店
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.GetShop(System.String)">
+            <summary>
+            根据商店id查询商店
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.PutShop(System.String,coreWeb_MVC.Models.Shop)">
+            <summary>
+            根据商店id修改商店
+            </summary>
+            <param name="id"></param>
+            <param name="shop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.PostShop(coreWeb_MVC.Models.Shop)">
+            <summary>
+            添加商店
+            </summary>
+            <param name="shop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.DeleteShop(System.String)">
+            <summary>
+            根据商店id删除商店
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:coreWeb_MVC.Models.DBHelper">
+            <summary>
+            使用【ADO.Net】连接数据库
+            </summary>
+        </member>
+        <member name="T:coreWeb_MVC.Models.Other.PasswordHasher">
+            <summary>
+            PBKDF2 密码加密
+            </summary>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.PasswordHasher.HashPassword(System.String,System.String)">
+            <summary>
+            创建一个加密密码的方法，传入需要加密密码，和盐
+            </summary>
+            <param name="value"></param>
+            <param name="salt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.PasswordHasher.HashPassword(System.String)">
+            <summary>
+            存储的用户密码的hash值和盐方法 
+            </summary>
+            用户注册时或修改密码使用
+            <param name="password"></param>
+            <returns></returns>
+            内部的密码加密和校验部分已经完成了，但还有一个问题，就是创建用户密码的时候，如何存储的用户密码的hash值和盐呢，
+            这里我采取使用“点”进行拼接存储，即使用salt.hash的形式，相应的，取值校验，再以“点”进行拆分
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.PasswordHasher.Validate(System.String,System.String,System.String)">
+            <summary>
+            hash校验的方法
+            </summary> 
+            这时我们需要输入用户输入的密码，盐，以及生成好的hash值，就可以判断用户输入的密码是否正确了。
+            <param name="password"></param>
+            <param name="salt"></param>
+            <param name="hash"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.PasswordHasher.VerifyHashedPassword(System.String,System.String)">
+            <summary>
+            对外的密码校验函数  
+            </summary>
+            用户登录验证密码是否正确
+            <param name="password"></param>
+            <param name="storePassword"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.PasswordHasher.GenerateSalt">
+            <summary>
+            随机盐生成的方法
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:coreWeb_MVC.Models.Other.ApplyTagDescriptions">
+            <summary>
+            添加控制器swagger扩展类
+            </summary>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.ApplyTagDescriptions.Apply(Microsoft.OpenApi.Models.OpenApiDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+            <summary>
+            swagger汉化标签
+            </summary>
+            <param name="swaggerDoc"></param>
+            <param name="context"></param>
+        </member>
+    </members>
+</doc>
