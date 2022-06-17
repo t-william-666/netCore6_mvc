@@ -131,7 +131,7 @@
      ////使用Jquery的Ajax请求
      $("#btnLogin").click(function () {
          let getUrl = "/Home/Logining";
-         let userID = $("#txtLogin").val();
+         let account = $("#txtLogin").val();
          let password = $("#txtPassword").val();
 
          $.ajax({
@@ -142,7 +142,7 @@
                  //"X-XSRF-TOKEN":$("#token").val() ////X-XSRF-TOKEN 为 服务配置的标头，且必须为配置的标头名称；否则请求失败！
              },
              data: {
-                 userID, password
+                 account, password
              },
              success: function (da) {
                  if (da == "sorry") {
@@ -179,7 +179,7 @@
                 //    method: "post",
                 //    url: getUrl,
                 //    params: {
-                //        userID: this.user,
+                //        account: this.user,
                 //        password: this.pass
                 //    }
                 //}).then(function (res) {//请求成功

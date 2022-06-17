@@ -1,0 +1,913 @@
+﻿@model IEnumerable<coreWeb_MVC.Models.SupUserProductCartView>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <!-- Favicon 图标 页面图标 -->
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="/images/favicon.ico">
+    <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
+    <!-- 引入bootstrap样式 -->
+    <link rel="stylesheet" href="/bootstrap/lib/bootstrap/dist/css/bootstrap.css">
+    <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
+    <link rel="stylesheet" href="/css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="/css/vendor/linearicons.min.css">
+
+    <!-- Swiper CSS 刷子轮播 -->
+    <link rel="stylesheet" href="/css/plugins/swiper-bundle.min.css">
+    <!-- Animation CSS 动画 -->
+    <link rel="stylesheet" href="/css/plugins/animate.min.css">
+    <!-- Jquery ui CSS Jquery界面 -->
+    <link rel="stylesheet" href="/css/plugins/jquery-ui.min.css">
+    <!-- Nice Select CSS 下拉框样式 -->
+    <link rel="stylesheet" href="/css/plugins/nice-select.min.css">
+    <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
+    <link rel="stylesheet" href="/css/plugins/magnific-popup.css">
+
+    <!-- 引入主要样式 -->
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- 引入Jquery的JS文件 -->
+    <script src="/bootstrap/lib/jquery/dist/jquery.min.js"></script>
+    <!-- 引入bootstrap的JS样式 -->
+    <script src="/bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
+    <script src="/bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <!-- 引入Vue的JS文件 -->
+    <script src="/js/Vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+</head>
+
+<body>
+
+    <!--===== Pre-Loading Area 预警器 Start =====-->
+    <div id="preloader">
+        <div class="preloader">
+            <div class="spinner-block">
+                <h1 class="spinner spinner-3 mb-0">.</h1>
+            </div>
+        </div>
+    </div>
+    <!--==== Pre-Loading Area 预警器 End ====-->
+    <!-- 头部 -->
+    <header>
+        <div class="header main-header-area header-sticky ">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6 col-4">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
+                                <p class="section-title-1 fs-3"><a href="/Home/Home">CiYuanCang</a></p>
+                            </div>
+                            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8 hadmain-nav">
+
+                                @if (ViewBag.userInfo == null)
+                                {
+                                    <ul>
+                                        <li class="li-head">
+                                            <div class="headbox">
+                                                <a href="#" class="headerimg position-relative">
+                                                    <img src="/images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
+
+                                                </a>
+                                            </div>
+                                            <div class="user-boxdropdown">
+                                                <div class="user-imgbox">
+                                                    <div class="headerimg-two">
+                                                        <a href="#">
+                                                            <img src="~/images/bg.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <p class="animation-jelly">
+                                                        <a href="#">用户名称</a>
+                                                    </p>
+                                                </div>
+                                                <ul class="animation-jelly">
+                                                    @if (ViewBag.userMenu != null)
+                                                    {
+                                                        foreach (var item in ViewBag.userMenu)
+                                                        {
+                                                            <li><a href="@item.TitleUrl"><i class="@item.Title"></i> @item.TitleDesc</a></li>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a href=""><i class="fa fa-user"></i> 个人信息</a></li>
+                                                        <li><a href=""><i class="fa fa-file-text"></i> 我的订单</a></li>
+                                                        <li><a href=""><i class="fa fa-bus"></i> 物流查询</a></li>
+                                                        <li><a href=""><i class="fa fa-home"></i> 收货地址</a></li>
+                                                        <li><a href=""><i class="fa fa-comment"></i> 评价中心</a></li>
+                                                    }
+
+                                                    <li class="lineheight3"><hr class="hr-line"></li>
+                                                    <li><a href="#"><i class="fa "></i> 退出登录</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <a asp-controller="Home" asp-action="Login" class="p-h20 px-2 colorBlock">
+                                        登录
+                                    </a>
+                                    <a asp-area="" asp-controller="Home" asp-action="Register" class="p-h20 px-2 colorBlock">
+                                        注册
+                                    </a>
+
+                                    <!--<button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>-->
+                                    <!--<button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>-->
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-8 col-custom">
+                        <div class="header-right-area main-nav">
+                            <ul class="nav animation-jelly">
+                                <!-- 搜索 -->
+                                <li class="minicart-wrap">
+                                    <a href="/Home/Searchproduct" class="minicart-btn toolbar-btn">
+                                        <i class="fa fa-search">
+                                            <br>
+                                            <span>搜索</span>
+                                        </i>
+                                    </a>
+                                </li>
+                                <!-- 购物车 -->
+                                <li class="minicart-wrap">
+                                    <a href="#" class="minicart-btn toolbar-btn">
+                                        <i class="fa fa-shopping-cart">
+                                            <br>
+                                            <span>购物车 </span>
+                                        </i>
+                                        <!--购物车数量-->
+                                        <span class="cart-item_count2">
+                                            0
+                                        </span>
+                                    </a>
+                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
+
+                                        <div class="single-cart-item">
+                                            <div class="cart-img">
+                                                <a href="#">
+                                                    <img src="#" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="cart-text">
+                                                <h5 class="title">
+                                                    <a href="#" class="text-truncate-2">
+                                                        商品名称
+                                                    </a>
+                                                </h5>
+                                                <div class="cart-text-btn">
+                                                    <div class="cart-qty">
+                                                        <span>1</span>
+                                                        <span class="cart-price">￥199</span>
+                                                    </div>
+                                                    <button type="button"><i class="ion-trash-b"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart-price-total d-flex justify-content-between">
+                                            <h5>合计 :</h5>
+                                            <h5 class="active">￥0</h5>
+                                        </div>
+                                        <div class="cart-links d-flex justify-content-between">
+                                            <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                                查看购物车
+                                            </a>
+                                            <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- 订单 -->
+                                <li class="sidemenu-wrap">
+                                    <a href="#">
+                                        <i class="fa fa-file-text">
+                                            <br>
+                                            <span>我的订单</span>
+                                        </i>
+                                    </a>
+                                </li>
+                                <!-- 收藏 -->
+                                <li class="minicart-wrap">
+                                    <a href="#" class="minicart-btn toolbar-btn">
+                                        <i class="fa fa fa-heart">
+                                            <br>
+                                            <span>我的收藏</span>
+                                        </i>
+                                        <span class="cart-item_count2">
+                                            0
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- 更多关于 -->
+                                <li class="account-menu-wrap d-none d-lg-flex">
+                                    <a href="#" class="off-canvas-menu-btn">
+                                        <i class="fa fa-bars">
+                                            <br>
+                                            <span>关于我们</span>
+                                        </i>
+                                    </a>
+                                </li>
+                                <li class="mobile-menu-btn d-lg-none">
+                                    <a class="off-canvas-btn" href="#">
+                                        <i class="fa fa-bars"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- off-canvas menu start 侧边栏 开始 手机端 PC端 -->
+            <aside class="off-canvas-wrapper" id="mobileMenu">
+                <div class="off-canvas-overlay"></div>
+                <div class="off-canvas-inner-content">
+                    <div class="btn-close-off-canvas">
+                        <i class="fa fa-times"></i>
+                    </div>
+                    <div class="off-canvas-inner">
+                        <div class="search-box-offcanvas">
+                            <form>
+                                <input type="text" placeholder="Search product...">
+                                <button class="search-btn"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+
+                        <!-- mobile menu end -->
+                        <div class="offcanvas-widget-area">
+                            <div class="switcher">
+                                <div class="language">
+                                    <span class="switcher-title">语言: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">简体中文</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">German</a></li>
+                                                    <li><a href="#">French</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="currency">
+                                    <span class="switcher-title">货币结算: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">￥ 人民币</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">€ 英镑</a></li>
+                                                    <li><a href="#">$ 美元</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-info-wrap text-left text-black">
+                                <ul class="address-info">
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <a href="#">(1245) 2456 012</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <a href="#">info@yourdomain.com</a>
+                                    </li>
+                                </ul>
+                                <div class="widget-social">
+                                    <a href="#"><i class="fa fa-wechat wechat-color"></i></a>
+                                    <a href="#"><i class="fa fa-qq qq-color"></i></a>
+                                    <a href="#"><i class="fa fa-weibo weibo-color"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest-square pinterest-color"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <aside class="off-canvas-menu-wrapper" id="sideMenu">
+                <div class="off-canvas-overlay"></div>
+                <div class="off-canvas-inner-content">
+                    <div class="off-canvas-inner">
+                        <div class="btn-close-off-canvas">
+                            <i class="fa fa-times"></i>
+                        </div>
+                        <!-- offcanvas widget area start -->
+                        <div class="offcanvas-widget-area">
+                            <ul class="menu-top-menu">
+                                <li><a href="#">About Us</a></li>
+                            </ul>
+                            <p class="desc-content">
+                                上天在茫茫人海中安排您与我相识并促成了交易，我们万分感激您。原始社会末开始商品交易至今也说不清历经了多少年，科技发展及人类进步使我与您在这特殊的载体里进行交易。<br />
+                                我暂时见不到您，但我用心聆听您的心声我暂时见不到您，所以深思熟虑中也难免与您的需求存有细微偏差即便发现存有误差时我恳请您直接与我对话表达您的意见，我尽力改善服务至您高度满意为止。望您在评价中点亮所有星星给我指明为您服务的明灯。
+
+                            </p>
+                            <div class="switcher">
+                                <div class="language">
+                                    <span class="switcher-title">语言: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">简体中文</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">German</a></li>
+                                                    <li><a href="#">French</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="currency">
+                                    <span class="switcher-title">货币结算: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li>
+                                                <a href="#">￥ 人民币</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">$ 美元</a></li>
+                                                    <li><a href="#">€ 英镑</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="top-info-wrap text-left text-black">
+                                <ul class="address-info">
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        <a href="#">(1245) 2456 012</a>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        <a href="#">info@yourdomain.com</a>
+                                    </li>
+                                </ul>
+                                <div class="widget-social">
+                                    <a href="#"><i class="fa fa-wechat wechat-color"></i></a>
+                                    <a href="#"><i class="fa fa-qq qq-color"></i></a>
+                                    <a href="#"><i class="fa fa-weibo weibo-color"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest-square pinterest-color"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- offcanvas widget area end -->
+                    </div>
+                </div>
+            </aside>
+            <!-- off-canvas menu end 侧边栏 结束 手机端 PC端 -->
+        </div>
+    </header>
+
+    <!-- 商品详情头部展示 -->
+    <div class="breadcrumbs-area position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title-3">Shopping Cart</h3>
+                        <ul>
+                            <li><a href="/Home/Home">首页</a></li>
+                            <li>购物车</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 购物车 -->
+    <div class="cart-main-wrapper mt-no-text">
+        <div class="container custom-area">
+            <div class="row">
+                <div class="col-lg-12 col-custom">
+                    <!-- 购物车表格区 -->
+                    <div class="cart-table table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="checkboxBtnAll" style="display: none;">
+                                        <label id="ckeckbox-text" for="checkboxBtnAll">全选</label>
+                                    </th>
+                                    <th class="pro-thumbnail">图片</th>
+                                    <th class="pro-title">商品名称</th>
+                                    <th class="pro-prices">价格</th>
+                                    <th class="pro-quantity">数量</th>
+                                    <th class="pro-subtotals">总计</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model!=null)
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="p-checkbox">
+                                                <input type="checkbox" class="checkboxBtn" value="">
+                                                <input type="hidden" name="" class="@item.CartID" value="" />
+                                            </td>
+                                            <td class="pro-thumbnail">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="@item.ImgPath1" alt="Product" />
+                                                </a>
+                                            </td>
+                                            <td class="pro-title" style="max-width:460px">
+                                                <a href="" class="text-truncate-2">
+                                                    @item.ProductName
+                                                </a>
+                                            </td>
+                                            @if (@item.discountType==0)
+                                            {
+                                                <td class="pro-price">￥@item.ActivityPrice</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="pro-price">￥@(Convert.ToDecimal((item.Price) * (item.discount)).ToString("#0.00"))</td>
+                                            }
+                                            <td class="pro-quantity">
+                                                <div class="quantity">
+                                                    <div class="cart-plus-minus">
+                                                        <input class="cart-plus-minus-box" value="@item.ProductCartNum" type="text">
+                                                        <div class="decs qtybuttons">-</div>
+                                                        <div class="incs qtybuttons">+</div>
+                                                        <div class="decs qtybuttons"><i class="fa fa-minus"></i></div>
+                                                        <div class="incs qtybuttons"><i class="fa fa-plus"></i></div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                             @if (@item.discountType==0)
+                                            {
+                                                <td class="pro-subtotal"><span>￥@(Convert.ToDecimal((item.ActivityPrice)*(item.ProductCartNum)).ToString("#0.00"))</span></td>
+                                            }
+                                            else
+                                            {
+                                                <td class="pro-subtotal"><span>￥@(Convert.ToDecimal((item.Price) * (item.ProductCartNum)).ToString("#0.00"))</span></td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td class="p-checkbox">
+                                            <input type="checkbox" class="checkboxBtn" value="">
+                                            <input type="hidden" name="" class="shopID" value="" />
+                                        </td>
+                                        <td class="pro-thumbnail">
+                                            <a href="#">
+                                                <img class="img-fluid" src="/images/other/1.jpg" alt="Product" />
+                                            </a>
+                                        </td>
+                                        <td class="pro-title" style="max-width:460px">
+                                            <a href="" class="text-truncate-2">
+                                                商品名称
+                                            </a>
+                                        </td>
+                                        <td class="pro-price">￥199</td>
+                                        <td class="pro-quantity">
+                                            <div class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="2" type="text">
+                                                    <div class="decs qtybuttons">-</div>
+                                                    <div class="incs qtybuttons">+</div>
+                                                    <div class="decs qtybuttons"><i class="fa fa-minus"></i></div>
+                                                    <div class="incs qtybuttons"><i class="fa fa-plus"></i></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="pro-subtotal"><span>￥199</span></td>
+                                    </tr>
+                                }
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 购物车结算区 -->
+                    <div class="cart-update-option d-block d-md-flex justify-content-between">
+                        <div class="apply-coupon-wrapper">
+                            <div class=" d-block d-md-flex">
+                                <div>
+                                    <span class="pro-text">订单数量：</span>
+                                    <span class="pro-Number pe-3">0</span>
+                                </div>
+                                <div>
+                                    <span class="pro-text">订单总金额：</span>
+                                    <span class="pro-sumPrice">￥0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex  justify-content-between">
+                            <button type="button" class="btn flosun-button delete-btn rounded-0 deleteBtn">删除</button>
+                            <button type="button" data-toggle="modal" data-target="#Settlement-amount"
+                                    class="btn flosun-button primary-btn rounded-0 black-btn">
+                                购买
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 滚动条监听，返回顶部 -->
+    <div class="scroll-to-top">
+        <p title="返回顶部">
+            <i class="fa fa-long-arrow-up"></i>
+            <!-- <i class="fa fa-arrow-circle-up"></i> -->
+        </p>
+    </div>
+
+    <!-- 尾部页脚 -->
+    <footer class="footer-area mt-no-text">
+        <div class="footer-widget-area">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
+                        <div class="single-footer-widget m-0">
+                            <div class="footer-logo section-title">
+                                <a href="#" class="section-title-1" style="font-size:36px;color:#fff;">
+                                    CiYuanCang
+                                </a>
+                            </div>
+                            <p class="desc-content">最好玩的二次元周边网站，只为你提供更好愉悦的购物体验！</p>
+                            <div class="social-links">
+                                <ul class="d-flex">
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Facebook">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Linkedin">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Youtube">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="rounded-circle" href="#" title="Vimeo">
+                                            <i class="fa fa-vimeo"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">信息</h2>
+                            <ul class="widget-list">
+                                <li><a href="#">我们公司</a></li>
+                                <li><a href="#">联系我们</a></li>
+                                <li><a href="#">我们的服务</a></li>
+                                <li><a href="#">为什么是我们？</a></li>
+                                <li><a href="#">职业</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">快速链接</h2>
+                            <ul class="widget-list">
+                                <li><a href="#">关于</a></li>
+                                <li><a href="#">博客</a></li>
+                                <li><a href="#">店铺</a></li>
+                                <li><a href="#">物流</a></li>
+                                <li><a href="#">联系</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">支持</h2>
+                            <ul class="widget-list">
+                                <li><a href="#">在线支持</a></li>
+                                <li><a href="#">配送政策</a></li>
+                                <li><a href="#">退货服务</a></li>
+                                <li><a href="#">隐私策略</a></li>
+                                <li><a href="#">服务条款</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-custom">
+                        <div class="single-footer-widget">
+                            <h2 class="widget-title">查看信息</h2>
+                            <div class="widget-body">
+                                <address>
+                                    123, ABC, Road ##, Main City, Your address goes here.<br>Phone: 01234 567
+                                    890<br>Email: https://ciyuangou.com
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container custom-area">
+                <div class="row">
+                    <div class="col-12 text-center col-custom">
+                        <div class="copyright-content">
+                            <p>
+                                版权所有 © 2022 <a href="http://www.bootstrapmb.com/" title="http://www.bootstrapmb.com/">主题由</a> |
+                                夜雨倾城&nbsp;
+                                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
+                                                                   title="http://www.bootstrapmb.com/">主题</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 购物车结算弹出窗口 -->
+    <div class="modal flosun-modal fade" id="Settlement-amount" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <button type="button" class="close close-button" data-dismiss="modal" aria-label="Close">
+                    <span class="close-icon" aria-hidden="true">x</span>
+                </button>
+                <div class="modal-body">
+                    <div class="container-fluid custom-area">
+                        <div class="row">
+                            <div class="col-md-6 col-custom">
+                                <div class="modal-product-img">
+                                    <a class="w-100" href="#">
+                                        <img class="w-100" src="/images/other/1.jpg" alt="Product">
+                                    </a>
+                                    <!-- 付款二维码生成 -->
+                                    <div id="RQ" class="payQR-code">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-custom">
+                                <div class="modal-product">
+                                    <div class="product-content">
+                                        <h2 class="mb-4">订单结算</h2>
+                                        <div class="product-title">
+                                            <h4 class="title">订单总数量：<span class="pro-Number">0</span></h4>
+                                        </div>
+                                        <div class="product-title">
+                                            <h4 class="title">订单总金额：<span class="pro-sumPrice sumMoney">￥0.00</span></h4>
+                                        </div>
+                                        <div class="product-title">
+                                            <h4 class="title">
+                                                收货地址：
+                                            </h4>
+                                            <div class="addressBox">
+                                                <select class=" mb-4">
+                                                    <option value="0">你还没有添加收货地址，请到个人中心添加</option>
+                                                    <option value="">无星-有线条</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="product-title">
+                                            <h4 class="title">
+                                                付款方式：
+                                            </h4>
+
+                                            <div class="quantity-with-btn">
+                                                <div class="row justify-content-evenly">
+                                                    <button type="button" class="btn flosun-button rounded-0 ali-btn col-6">
+                                                        <i class="icon-zhifubao" style="color: #ffffff;">支付宝</i>
+                                                    </button>
+                                                    <button type="button" class="btn flosun-button rounded-0 wecaht-btn col-6">
+                                                        <i class="fa fa-wechat" style="color: #ffffff;">微&nbsp;信</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="quantity-with-btn">
+                                              <div class="add-to_btn row justify-content-between">
+                                                <a class="btn flosun-button primary-btn rounded-0 black-btn payBtn  col-6">
+                                                  付&nbsp;款
+                                                </a>
+                                                <a href="/Search/ShopCart" class="btn flosun-button cancel-btn rounded-0  col-6">取&nbsp;消</a>
+                                              </div>
+                                            </div> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper Slider JS 刷子轮播 -->
+    <script src="/js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select JS 动画 -->
+    <script src="/js/plugins/nice-select.min.js"></script>
+    <!-- Ajaxchimpt JS 邮箱Ajax -->
+    <script src="/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Ui JS Jquery界面 -->
+    <script src="/js/plugins/jquery-ui.min.js"></script>
+    <!-- nice select JS 下拉框选项插件 -->
+    <script src="/js/plugins/nice-select.min.js"></script>
+    <!-- Jquery Countdown JS 时间倒计时插件 -->
+    <script src="/js/plugins/jquery.countdown.min.js"></script>
+    <!-- jquery magnific popup JS  图片弹出窗口--放大图并可轮播 -->
+    <script src="/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS 根据需求个性编写 -->
+    <script src="/js/main.js"></script>
+
+    <!-- layerUI JS  -->
+    <script src="/layer/layer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/layer/xadmin.js"></script>
+
+    <script>
+        addPrice();
+        function addPrice() {
+            $(".cart-plus-minus-box").each(function(index) {
+                // 当前区域对应的单价
+                var p = $(".pro-price").eq(index).text();
+                // 当前区域对应的单价
+                var n = $(".cart-plus-minus-box").eq(index).val();
+                // alert(n + p + index);
+                // 返回的是字符串 所以要把￥截取掉 使用substr()截取
+                // 截取后还是字符串，用parseFloat转换为数值型
+                p = parseFloat(p.substr(1));
+                // 保留两位小数点 toFixed(2)
+                var price = (p * n).toFixed(2);
+                // alert(price);
+                // 把计算好的商品总和价放到标签里
+                $(".pro-subtotal").eq(index).text("￥" + price);
+            })
+        }
+
+        // 1.实现全选按钮控制小按钮
+        // 1.1 小按钮的状态与全选按钮的状态保持一致 prop()固有属性检测表单是否被选中
+        $("#checkboxBtnAll").change(function() {
+            $(".checkboxBtn, .checkall").prop("checked", $(this).prop("checked"));
+            // 改变背景色
+            if ($(this).prop("checked")) {
+                // 添加类 改变背景色
+                $(this).parents(".cart-item").addClass("check-cart-item");
+            }
+            else {
+                // 移除类
+                $(this).parents(".cart-item").toggleClass("check-cart-item");
+            }
+            getSum();
+        })
+
+
+        // 1.2 小按钮的状态决定全选按钮状态
+        $(".checkboxBtn").change(function() {
+            // if(按钮选中的个数 === 按钮的总个数){
+            // 全选选中
+            // }else{
+            // 不选择全选
+            // }
+            if ($(".checkboxBtn:checked").length == $(".checkboxBtn").length) {
+                $("#checkboxBtnAll").prop("checked", true);
+            }
+            else {
+                $("#checkboxBtnAll").prop("checked", false);
+            }
+            //重新计算总价
+            getSum();
+        })
+
+
+
+        // 2.点击+ -按钮来增加和减少商品数量
+        // 2.1 +添加数量
+        $(".incs").click(function() {
+            // 获取当前 + 的兄弟表单的值
+            var n = $(this).siblings(".cart-plus-minus-box").val();
+            // 然后点击一次自增——商品数量
+            n++;
+            // console.log(n);
+            // 数量：表单的商品数量
+            console.log(n)
+            $(this).siblings(".cart-plus-minus-box").val(n);
+            // 当前被点击的 + 区域对应的单价
+            var p = $(this).parents(".pro-quantity").siblings(".pro-price").text();
+            // 返回的是字符串 所以要把￥截取掉 使用substr()截取
+            // 截取后还是字符串，用parseFloat转换为数值型
+            p = parseFloat(p.substr(1));
+            console.log(p);
+            // 获取当前的总价
+            var price = $(this).parents(".pro-quantity").siblings(".pro-subtotal").text();
+            // 去掉￥符号
+            price = parseFloat(price.substr(1));
+            // 保留两位小数点 toFixed(2)
+            price = (p * n).toFixed(2);
+            console.log(price);
+            // 把计算好的商品总和价放到标签里
+            $(this).parents(".pro-quantity").siblings(".pro-subtotal").text("￥" + price);
+            //重新计算总价
+            getSum();
+        })
+        // 2.2 -号减少数量
+        $(".decs").click(function() {
+            // 一定是当前加号的兄弟表单的值自增
+            var n = $(this).siblings(".cart-plus-minus-box").val();
+            // 商品数量
+            n--;
+            console.log(n);
+            // 三元表达式：判断数量不能小于0
+            n = n <= 0 ? 1 : n;
+            $(this).siblings(".cart-plus-minus-box").val(n);
+            // 当前+号区域的单价
+            var p = $(this).parents(".pro-quantity").siblings(".pro-price").text();
+            p = parseFloat(p.substr(1));
+            console.log(p);
+            // 获取当前的总价
+            var price = $(this).parents(".pro-quantity").siblings(".pro-subtotal").text();
+            // 去掉￥符号
+            price = parseFloat(price.substr(1));
+            price = (p * n).toFixed(2);
+            console.log(price);
+            $(this).parents(".pro-quantity").siblings(".pro-subtotal").text("￥" + price);
+            //重新计算总价
+            getSum();
+        })
+
+
+        // 3. 这样的话
+        $(".cart-plus-minus-box").keyup(function() {
+            var n = $(this).val();
+            //获取当前+号区域的单价
+            var p = $(this).parents(".pro-quantity").siblings(".pro-price").text();
+            p = parseFloat(p.substr(1));
+            //获取当前总价
+            var price = $(this).parents(".pro-quantity").siblings(".pro-subtotal").text();
+            // 去掉￥符号
+            price = parseFloat(price.substr(1));
+            price = (p * n).toFixed(2);
+            console.log(price);
+            $(this).parents(".pro-quantity").siblings(".pro-subtotal").text("￥" + price);
+            //重新计算总价
+            getSum();
+        })
+
+
+
+        // 4.结算总金额函数方法
+        // 封装一个函数，用来计算小结的内容
+        function getSum() {
+            var totalNumber = 0; // 总件数
+            var totalPrice = 0; // 总价钱
+            // 遍历car-item所有的表单中的商品数量 累加 算出所有商品的总数量
+            $(".cart-plus-minus-box").each(function(i, ele) {
+                // 判断 商品对应的按钮是否选中，选中才会结算 不选中不参与结算
+                var singleBtn = $(this).parents(".pro-quantity").siblings(".p-checkbox").children(".checkboxBtn");
+                if (singleBtn.prop("checked")) {
+                    totalNumber += parseFloat($(ele).val());
+                }
+            })
+            $(".pro-Number").text(totalNumber);
+
+            // 遍历每个car-item中的商品总计 累加起来算出所有商品价
+            $(".pro-subtotal").each(function(i, ele) {
+                var singleBtn = $(this).siblings(".p-checkbox").children(".checkboxBtn");
+                if (singleBtn.prop("checked")) {
+                    totalPrice += parseFloat($(ele).text().substr(1));
+                }
+            })
+            $(".pro-sumPrice").text("￥" + totalPrice.toFixed(2));
+        };
+        // 5. 删除模块 删除按钮
+        $(".deleteBtn").click(function() {
+            $(".checkboxBtn:checked").parents("tr").remove();
+            getSum();
+        });
+
+    </script>
+
+</body>
+
+</html>

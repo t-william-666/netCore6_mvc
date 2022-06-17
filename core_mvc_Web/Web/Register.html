@@ -30,7 +30,7 @@
 
     <!-- 引入主要样式 -->
     <link rel="stylesheet" href="./css/index.css">
-    
+
     <!-- 引入Jquery的JS文件 -->
     <script src="./bootstrap/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
@@ -77,22 +77,19 @@
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3"><i class="fa fa-user"></i>账号：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="text" id="txtRegister" class="form-control d-inline-block align-self-center"
-                        placeholder="请输入账号" v-model="user">
+                    <input type="text" id="txtRegister" class="form-control d-inline-block align-self-center" placeholder="请输入账号" v-model="user">
                 </div>
             </div>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3"><i class="fa fa-lock"></i>密码：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center"
-                        placeholder="请输入密码" v-model="pass">
+                    <input type="password" id="txtPassword" class="form-control d-inline-block align-self-center" placeholder="请输入密码" v-model="pass">
                 </div>
             </div>
             <div class="row my-md-3">
                 <div class="col-lg-3 col-xs-3">确认密码：</div>
                 <div class="col-lg-9 col-xs-9">
-                    <input type="password" id="txtPasswordTrue" class="form-control d-inline-block align-self-center"
-                        placeholder="请输入确认密码" v-model="passtrue">
+                    <input type="password" id="txtPasswordTrue" class="form-control d-inline-block align-self-center" placeholder="请输入确认密码" v-model="passtrue">
                 </div>
             </div>
             <div class="row ">
@@ -109,20 +106,15 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center my-md-5 animation-jelly">
-                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister"
-                    v-on:click="registerWeb">注册</button>
+                <button type="button" class="btn btn-success w-50 d-inline-block" id="btnRegister" v-on:click="registerWeb">注册</button>
             </div>
 
         </div>
     </div>
 </body>
-<script src="./layer/layer.js" charset="utf-8"></script>
-<script type="text/javascript" src="./layer/xadmin.js"></script>
+
+<script src="./js/propup-layer/index.js"></script>
 <script>
-    // $("button").on('click', function () {
-    //     alert(1)
-    //     $(this).animate("jelly", 0.5);
-    // })
 
     ////使用Jquery的Ajax请求
     $("#btnRegister").click(function () {
@@ -209,6 +201,21 @@
                 //     });
                 //     return;
                 // }
+
+                if (this.user === "") {
+
+                    this.$popup({
+                       // imgUrl: require('../../../static/images/shadow.png'), // 顶部图片
+                        title: '我是标题',
+                        content: '我是内容',
+                        btnText: '我是按钮',
+                        click: () => {
+                            // 点击按钮事件
+                            this.$router.push('……')
+                        }
+                    })
+
+                }
 
                 //请求路径
                 let getUrl = "http://localhost:4460/Home/Register";

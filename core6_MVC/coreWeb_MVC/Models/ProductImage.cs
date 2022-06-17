@@ -13,6 +13,10 @@ namespace coreWeb_MVC.Models
         public string? ImgPath { get; set; }
         public string? ImgSize { get; set; }
         public int? ImgOrderby { get; set; }
+        public int ImgState { get; set; }
         public DateTime AddDate { get; set; }
+
+        public virtual Product? Product { get; set; }
+        public virtual Shop? Shop { get; set; }
     }
 }

@@ -9,12 +9,6 @@
             构造函数
             </summary>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.HomeController.Home">
-            <summary>
-            主页
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:coreWeb_MVC.Controllers.HomeController.Login">
             <summary>
             登录
@@ -25,7 +19,7 @@
             <summary>
             登录验证并跳转页面
             </summary>
-            <param name="userID"></param>
+            <param name="account"></param>
             <param name="password"></param>
             <returns></returns>
         </member>
@@ -39,15 +33,91 @@
             <summary>
             注册验证并跳转页面
             </summary>
-            <param name="userID"></param>
+            <param name="account"></param>
             <param name="password"></param>
-            <param name="passwordTure"></param>
+            <param name="passwordTrue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Home">
+            <summary>
+            主页
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Usercenter">
+            <summary>
+            用户个人中心
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Searchproduct">
+            <summary>
+            搜索商品页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Productdetail(System.String)">
+            <summary>
+            商品详情页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Shopdetail(System.String)">
+            <summary>
+            商家详情页面
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Cart">
+            <summary>
+            购物车页面
+            </summary>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.HomeController.Error">
             <summary>
             报错
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:coreWeb_MVC.Controllers.ProductsController">
+            <summary>
+            商品Api接口
+            </summary>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProducts">
+            <summary>
+            查询所有商品
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProduct(System.String)">
+            <summary>
+            根据商品id查询商品
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.PutProduct(System.String,coreWeb_MVC.Models.Product)">
+            <summary>
+            根据商品id修改商品
+            </summary>
+            <param name="id"></param>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.PostProduct(coreWeb_MVC.Models.Product)">
+            <summary>
+            添加商品
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.DeleteProduct(System.String)">
+            <summary>
+            根据商品id删除商品
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:coreWeb_MVC.Controllers.ShopsController">

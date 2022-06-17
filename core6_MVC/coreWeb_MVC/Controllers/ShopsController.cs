@@ -22,11 +22,11 @@ namespace coreWeb_MVC.Controllers
         {
             _context = context;
         }
+
         /// <summary>
         /// 查询所有商店
         /// </summary>
         /// <returns></returns>
-        // GET: api/Shops
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Shop>>> GetShops()
         {
@@ -36,12 +36,12 @@ namespace coreWeb_MVC.Controllers
             }
             return await _context.Shops.ToListAsync();
         }
+
         /// <summary>
         /// 根据商店id查询商店
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // GET: api/Shops/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Shop>> GetShop(string id)
         {
@@ -64,14 +64,13 @@ namespace coreWeb_MVC.Controllers
 
             return shop2;
         }
+
         /// <summary>
         /// 根据商店id修改商店
         /// </summary>
         /// <param name="id"></param>
         /// <param name="shop"></param>
         /// <returns></returns>
-        // PUT: api/Shops/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutShop(string id, Shop shop)
         {
@@ -100,13 +99,12 @@ namespace coreWeb_MVC.Controllers
 
             return NoContent();
         }
+
         /// <summary>
         /// 添加商店
         /// </summary>
         /// <param name="shop"></param>
         /// <returns></returns>
-        // POST: api/Shops
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Shop>> PostShop(Shop shop)
         {
@@ -133,12 +131,12 @@ namespace coreWeb_MVC.Controllers
 
             return CreatedAtAction("GetShop", new { id = shop.ShopID }, shop);
         }
+
         /// <summary>
         /// 根据商店id删除商店
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // DELETE: api/Shops/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteShop(string id)
         {

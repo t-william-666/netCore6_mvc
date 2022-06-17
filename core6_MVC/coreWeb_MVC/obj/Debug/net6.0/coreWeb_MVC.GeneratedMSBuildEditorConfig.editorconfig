@@ -15,12 +15,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\aa\Desktop\本地库\core_MVC\netCore6_mvc\core6_MVC\coreWeb_MVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Deful/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVmdWxcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Deful/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVmdWxcSW5kZXguY3NodG1s
+[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Home.cshtml]
@@ -39,8 +35,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Productdetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0ZGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Searchproduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2hwcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Shopdetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG9wZGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Home/Usercenter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyY2VudGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aa/Desktop/本地库/core_MVC/netCore6_mvc/core6_MVC/coreWeb_MVC/Views/Shared/Error.cshtml]

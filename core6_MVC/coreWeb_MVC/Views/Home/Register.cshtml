@@ -133,7 +133,7 @@
     ////使用Jquery的Ajax请求
     //$("#btnRegister").click(function () {
     //    let getUrl = "/Home/Register";
-    //    let userID = $("#txtRegister").val();
+    //    let account = $("#txtRegister").val();
     //    let password = $("#txtPassword").val();
     //    let passwordTrue=$("#txtPasswordTrue").val();
         
@@ -146,7 +146,7 @@
     //             //"X-XSRF-TOKEN":$("#token").val() ////X-XSRF-TOKEN 为 服务配置的标头，且必须为配置的标头名称；否则请求失败！
     //        },
     //        data: {
-    //            userID, password,passwordTrue
+    //            account, password,passwordTrue
     //        },
     //        success: function (da) {
     //            if (da == "sorry") {
@@ -181,7 +181,7 @@
                     url: getUrl,
                     headers:{"RequestVerificationToken":"@requestToken"},
                     params: {
-                        userID: this.user,
+                        account: this.user,
                         password: this.pass,
                         passwordTrue:this.passtrue
                     }

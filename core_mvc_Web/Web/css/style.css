@@ -4479,6 +4479,18 @@ mark {
     width: 10px;
 }
 
+.text-truncate-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 文字过长换行 */
+    word-wrap: break-word;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    /*需要控制的文本行数 overflow: hidden;*/
+}
+
 .text-truncate-2 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -4573,25 +4585,7 @@ mark {
     justify-content: end;
 }
 
-
-/* 已评论的星星的样式 */
-
-.product-rating .full-star {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    line-height: 15px;
-    box-sizing: border-box;
-}
-
-.product-rating .full-star img {
-    width: 100%;
-    height: 100%;
-}
-
-
 /*查看更多评论样式*/
-
 .seeMore {
     width: 100%;
     height: 30px;

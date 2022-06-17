@@ -95,7 +95,7 @@ input[type="password"]:hover {
     top: 7.5rem;
     left: -9rem;
     border-radius: 1rem;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
     display: none;
 }
@@ -331,7 +331,11 @@ input::placeholder {
     box-shadow: 0px 0px 2px rgba(9, 199, 9, 0.6);
     transition: 0.3s;
 }
-
+.lineheight3{
+    height: 3px !important;
+    line-height: 3px !important;
+    border: none;
+}
 .p-h20 {
     height: 20px;
     line-height: 20px;
@@ -340,6 +344,10 @@ input::placeholder {
 .p-h20>* {
     color: rgb(99, 99, 99);
     cursor: pointer;
+}
+
+.fs-12 {
+    font-size: 12px !important;
 }
 
 .fs-13 {
@@ -537,6 +545,10 @@ input::placeholder {
     -webkit-line-clamp: 5;
 }
 
+.text-2 {
+    text-indent: 2em;
+}
+
 .main-nav .nav>li>a:hover,
 .main-nav .nav>li>a:focus {
     background-color: rgba(255, 255, 255, 0) !important;
@@ -685,7 +697,7 @@ input::placeholder {
 
 .content .content-list .Product-box:hover,
 .shop_wrapper .product-item:hover {
-    box-shadow: 0px 3px 20px 0px rgb(235, 235, 235);
+    box-shadow: 0px 3px 20px 0px rgb(210, 210, 210);
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
@@ -744,23 +756,31 @@ input::placeholder {
     height: auto;
 }
 
-.content .content-list .Product-title .p-title {
+.content .content-list .Product-title .p-title, .Product-title .p-title {
     height: 2rem;
     line-height: 2rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    color: #000;
+    font-weight: bolder;
 }
 
-.content .content-list .Product-title .p-desc {
+.content .content-list .Product-title .p-desc, .Product-title .p-desc {
     height: auto;
-    min-height: 3rem;
+    min-height: 3.2rem;
     line-height: 1.5rem;
-    font-size: 0.75rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
 }
 
+.product-title .desc-content{
+    height: 3.2rem;
+    line-height: 1.6rem;
+
+}
 
 /* 商品评分 */
-.content .content-list .Product-rating {
+.content .content-list .Product-rating,
+.product-area .single-product .product-content .product-rating {
     height: 2rem;
     line-height: 2rem;
 }
@@ -776,7 +796,7 @@ input::placeholder {
     display: none;
 }
 
-.content .content-list .Product-rating .sale-num {
+.content .content-list .Product-rating .sale-num,.sale-num {
     font-style: oblique;
     color: #E72463;
 }
@@ -1091,14 +1111,21 @@ button:focus {
     }
 
     /* 商品评分 */
-    .content .content-list .Product-rating i {
-        font-size: 1rem !important;
+    .content .content-list .Product-rating i, .product-rating i {
+        font-size: 13px !important;
+        color: #E72463;
     }
 
-    .content .content-list .Product-rating span {
+    .content .content-list .Product-rating span, .Product-rating span{
         font-size: 0.75rem !important;
         padding-right: 0px !important;
         display: inline-block;
+    }
+
+    .product-area .single-product .product-content {
+        background-color: #ffffff;
+        padding: 1rem 0.5rem !important;
+        text-align: left;
     }
 
     /* 分页 */
@@ -1136,6 +1163,7 @@ button:focus {
         background-color: #337ab7;
         color: white;
     }
+
 
     /* 商品的销量 */
     .Price-box .float-end {

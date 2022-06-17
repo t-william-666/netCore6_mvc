@@ -41,6 +41,10 @@ builder.Services.AddDbContext<TestDBContext>(options => options.UseSqlServer(bui
 //builder.Services.AddDbContext<TestDBContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("SqlServerConnection")));
 
 //// <summary>
+////分布式内存缓存
+/////// <summary>
+builder.Services.AddDistributedMemoryCache();
+//// <summary>
 //// Session（会话）服务
 //// </summary>
 builder.Services.AddSession(options =>
@@ -49,18 +53,19 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(60);//设置session的过期时间
     options.Cookie.HttpOnly = true;//设置在浏览器不能通过js获得该cookie的值 
 
-    //SameSite用来防止 CSRF 攻击 和用户追踪（第三方恶意获取cookie），限制第三方 Cookie，从而减少安全风险。
-    options.Cookie.SameSite = SameSiteMode.None;//设置了Strict或Lax以后，基本就杜绝了 CSRF 攻击；  None：没有限制。
-    //是否只能通过HTTPS请求来传输Cookie信息。
+    ////SameSite用来防止 CSRF 攻击 和用户追踪（第三方恶意获取cookie），限制第三方 Cookie，从而减少安全风险。
+    //options.Cookie.SameSite = SameSiteMode.None;//设置了Strict或Lax以后，基本就杜绝了 CSRF 攻击；  None：没有限制。
+    ////是否只能通过HTTPS请求来传输Cookie信息。
     options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-    //指示此 Cookie 是否对于应用程序正常运行至关重要。 如果为 true，则可能会绕过同意策略检查。 默认值为 false。
-    options.Cookie.IsEssential = true;
+    ////指示此 Cookie 是否对于应用程序正常运行至关重要。 如果为 true，则可能会绕过同意策略检查。 默认值为 false。
+    options.Cookie.IsEssential = false;
 });
-
 //// <summary>
 //// Session（会话）服务
 //// </summary>
 builder.Services.AddHttpContextAccessor();
+
+
 
 //// <summary>
 ////防伪造服务配置为查找 X-XSRF-TOKEN 标头： 名为 X-XSRF-TOKEN 的请求头中发送令牌
@@ -193,6 +198,8 @@ app.UseSwaggerUI(options =>
 
 //注册静态文件
 app.UseStaticFiles();
+//注册默认文件映射
+app.UseDefaultFiles();
 
 //注册路由
 app.UseRouting();
@@ -218,6 +225,7 @@ var antiforgery = app.Services.GetRequiredService<IAntiforgery>();
 //配置路由
 app.MapControllerRoute(
     name: "default",
+    //启动时默认路由-Home控制器-Index页面
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
 

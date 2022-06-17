@@ -7,6 +7,9 @@ namespace coreWeb_MVC.Models
     {
         public Product()
         {
+            ProductComments = new HashSet<ProductComment>();
+            ProductImages = new HashSet<ProductImage>();
+            ProductOrderDetails = new HashSet<ProductOrderDetail>();
             ShopImages = new HashSet<ShopImage>();
         }
 
@@ -21,13 +24,17 @@ namespace coreWeb_MVC.Models
         public int? discountType { get; set; }
         public int? ProductNum { get; set; }
         public string? ProductIntroduce { get; set; }
-        public string? ProductStarNum { get; set; }
+        public decimal? ProductStarNum { get; set; }
         public int? ProductState { get; set; }
-        public int? ShopStock { get; set; }
-        public DateTime? AddDate { get; set; }
+        public int? ProductStock { get; set; }
+        public DateTime AddDate { get; set; }
 
-        public virtual ProductStarRating? ProductStarNumNavigation { get; set; }
+        public virtual ShopProductStarRating? ProductStarNumNavigation { get; set; }
+        public virtual ShopProductType? ProductTypeNavigation { get; set; }
         public virtual Shop? Shop { get; set; }
+        public virtual ICollection<ProductComment> ProductComments { get; set; }
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
+        public virtual ICollection<ProductOrderDetail> ProductOrderDetails { get; set; }
         public virtual ICollection<ShopImage> ShopImages { get; set; }
     }
 }

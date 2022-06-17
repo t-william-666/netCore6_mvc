@@ -235,7 +235,6 @@ input::placeholder {
 }
 
 /* 装文本框的盒子高度 */
-
 .content-center .my-md-3 {
     height: 6rem;
     line-height: 6rem;
@@ -243,7 +242,6 @@ input::placeholder {
 
 
 /* 文本框高度 */
-
 .content-center .form-control {
     height: 4rem;
     line-height: 4rem;
@@ -291,7 +289,6 @@ input::placeholder {
 
 
 /* 字体垂直居中 */
-
 .txt-middle {
     display: table-cell;
     vertical-align: middle;
@@ -299,7 +296,6 @@ input::placeholder {
 
 
 /* 验证码 */
-
 .p-txt {
     height: 3rem;
     line-height: 3rem;
@@ -307,8 +303,8 @@ input::placeholder {
 
 .pw-100 {
     width: 10rem;
-    height: 3rem;
-    line-height: 3rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
     border: 1px #ccc solid;
     padding-left: 8px;
 }
@@ -318,8 +314,8 @@ input::placeholder {
 
 .pw-60 {
     width: 8rem;
-    height: 3rem;
-    line-height: 3rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
     color: white;
     background-color: rgb(9, 199, 9);
     border: 0px;
@@ -362,6 +358,30 @@ input::placeholder {
     font-size: 18px !important;
 }
 
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.fw-800 {
+    font-weight: 800 !important;
+}
+
 .my-23 {
     margin: 23px 0px !important;
 }
@@ -371,7 +391,7 @@ input::placeholder {
 }
 
 .b-radius1 {
-    border-radius: 1rem;
+    border-radius: 1rem !important;
 }
 
 .d-none {
@@ -380,6 +400,18 @@ input::placeholder {
 
 .d-block {
     display: block;
+}
+
+.h-10 {
+    height: 10rem !important;
+}
+
+.h-10 {
+    height: 10rem !important;
+}
+
+.h-15 {
+    height: 15rem !important;
 }
 
 /* 取消边距 */
@@ -505,6 +537,9 @@ input::placeholder {
     -webkit-line-clamp: 5;
 }
 
+.text-2{
+    text-indent: 2em;
+}
 .main-nav .nav>li>a:hover,
 .main-nav .nav>li>a:focus {
     background-color: rgba(255, 255, 255, 0) !important;
@@ -512,7 +547,6 @@ input::placeholder {
 
 
 /* 选择框---记住密码 */
-
 .check-position {
     position: relative;
     top: 3px;
@@ -520,7 +554,6 @@ input::placeholder {
 
 
 /* 搜索框 */
-
 .search-xbox {
     width: 100%;
     height: 8rem;
@@ -566,7 +599,6 @@ input::placeholder {
 
 
 /* 主体内容 */
-
 .content {
     margin-top: 0px;
     height: auto;
@@ -574,7 +606,6 @@ input::placeholder {
 
 
 /* 轮播 */
-
 .Carousel-bg {
     margin: auto;
     /* background: linear-gradient(90deg, #7aff68 25%, #ff5f9c 50%, #ff3434 75%, #38ff49 100%); */
@@ -597,9 +628,7 @@ input::placeholder {
     cursor: pointer;
 }
 
-
 /* 菜单导航栏 */
-
 .content-menu {
     width: 100%;
     height: auto;
@@ -649,19 +678,9 @@ input::placeholder {
     width: 100% !important;
 }
 
-/* 商品的盒子 */
-
-.content .content-list .Product-box {
-    background-color: #fff;
-    border-radius: 0.75rem;
-    box-shadow: 0px 3px 5px rgb(180, 180, 180);
-}
-
-
-/* 搜索页面商品的盒子 */
-
-.product-item {
-    box-shadow: 0px 3px 5px rgb(180, 180, 180);
+/* 页面商品的盒子 */
+.content .content-list .Product-box, .product-area .single-product {
+    box-shadow: 0px 3px 10px 0px rgb(230, 230, 230);
     background-color: #ffffff;
     border-radius: 0.75rem;
     overflow: hidden;
@@ -669,7 +688,7 @@ input::placeholder {
 
 .content .content-list .Product-box:hover,
 .shop_wrapper .product-item:hover {
-    box-shadow: 0px 3px 20px 0px rgb(139, 139, 139);
+    box-shadow: 0px 3px 20px 0px rgb(210, 210, 210);
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
@@ -680,9 +699,16 @@ input::placeholder {
 
 
 /* 商品图片 */
-
 .content .content-list .product-image.position-relative a img {
     border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.content .content-list .likeimg .product-image.position-relative a img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
     overflow: hidden;
 }
 
@@ -717,7 +743,6 @@ input::placeholder {
 }
 
 /* 商品名称 */
-
 .content .content-list .Product-title {
     height: auto;
 }
@@ -738,7 +763,6 @@ input::placeholder {
 
 
 /* 商品评分 */
-
 .content .content-list .Product-rating {
     height: 2rem;
     line-height: 2rem;
@@ -800,7 +824,7 @@ input::placeholder {
     color: white;
 }
 
-.btn-box .btn-Heart {
+.btn-box .btn-Heart, .btn-box .btn-pay {
     background-color: #e72463;
     box-shadow: none !important;
 }
@@ -837,7 +861,6 @@ input::placeholder {
 .addactive {
     background-color: red !important;
 }
-
 
 /* 分页 */
 
@@ -898,6 +921,24 @@ input::placeholder {
     animation: jelly 0.5s;
 }
 
+.accordion .card-header {
+    background-color: #E72463;
+    color: white;
+}
+
+.accordion .card-header .btn {
+    color: white;
+    outline: none;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.shop-introduce {
+    margin: 3rem 0rem;
+}
 
 /* 按钮果冻效果 */
 
@@ -1108,8 +1149,8 @@ button:focus {
     .btn-box .btn-Heart,
     .btn-box .btn-Cart {
         font-size: 1rem;
-        padding-left: 3px !important;
-        padding-right: 3px !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
     }
 
     .text-xxl-start {
@@ -1153,6 +1194,14 @@ button:focus {
     .my-md-5 {
         margin-top: 3rem !important;
         margin-bottom: 3rem !important;
+    }
+
+    .d-xs-none {
+        display: none !important;
+    }
+
+    .btn {
+        font-size: 12px !important;
     }
 }
 

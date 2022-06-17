@@ -1,3 +1,4 @@
+
 (function($) {
     "use strict";
     /*----------------------------------------
@@ -33,7 +34,7 @@
 
     $(".btn-close-off-canvas,.off-canvas-overlay").on('click', function() {
         $("body").removeClass('fix');
-        $(".off-canvas-menu-wrapper").removeClass('open');
+        $(".off-canvas-menu-wrapper").removeClass('open');  
     });
 
 
@@ -487,4 +488,12 @@
         $('body').delay(350).css({ 'overflow': 'visible' });
     });
 
+    /* 选项卡切换样式 */
+    function activeClick(){
+        $('.myaccount-tab-menu > a,.nav-tabs .nav-item > a').click(function(){
+            $('.myaccount-tab-menu > a,.nav-tabs .nav-item > a').removeClass('active');
+            $(this).addClass('active');
+        })
+    }
+    activeClick();
 })(jQuery);

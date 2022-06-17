@@ -157,8 +157,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 ALTER trigger [dbo].[triggerProductImage]  
-on [dbo].[ProductImage] after 
-insert as
+on [dbo].[ProductImage] 
+after insert 
+as
 begin
 --声明变量
 declare @id int,@pID nvarchar(50), @maxNum int,@other int
