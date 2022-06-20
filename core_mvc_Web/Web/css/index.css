@@ -792,7 +792,7 @@ input::placeholder {
     color: #E72463;
 }
 
-.content .content-list .Product-rating span {
+.content .content-list .Product-rating span,.product-content .product-rating span {
     display: none;
 }
 
@@ -1116,7 +1116,7 @@ button:focus {
         color: #E72463;
     }
 
-    .content .content-list .Product-rating span, .Product-rating span{
+    .content .content-list .Product-rating span,.product-content .Product-rating span{
         font-size: 0.75rem !important;
         padding-right: 0px !important;
         display: inline-block;

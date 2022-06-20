@@ -23,7 +23,7 @@ namespace coreWeb_MVC.Models
         public string? ImgPath { get; set; }
         public string? ImgSize { get; set; }
         public int? ImgOrderby { get; set; }
-        public DateTime? ImgAddDate { get; set; }
+        public DateTime ImgAddDate { get; set; }
         public decimal StarNum { get; set; }
         public string? StarDesc { get; set; }
         public string? Star1 { get; set; }

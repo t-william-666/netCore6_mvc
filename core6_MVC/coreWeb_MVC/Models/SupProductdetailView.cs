@@ -19,7 +19,7 @@ namespace coreWeb_MVC.Models
         public decimal? ProductStarNum { get; set; }
         public int? ProductState { get; set; }
         public int? ProductStock { get; set; }
-        public DateTime? AddDate { get; set; }
+        public DateTime AddDate { get; set; }
         public int ImgID { get; set; }
         public string? ImgType { get; set; }
         public string? ImgName { get; set; }

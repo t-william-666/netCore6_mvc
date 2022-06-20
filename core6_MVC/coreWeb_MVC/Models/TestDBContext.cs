@@ -545,7 +545,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductDesc).HasMaxLength(50);
 
-                entity.Property(e => e.ProductID).HasMaxLength(50);
+                entity.Property(e => e.ProductID).HasMaxLength(100);
 
                 entity.Property(e => e.ProductIntroduce).HasMaxLength(500);
 
@@ -561,7 +561,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ShopBoss).HasMaxLength(50);
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
 
                 entity.Property(e => e.ShopIntroduce).HasMaxLength(500);
 
@@ -618,7 +618,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ShopBoss).HasMaxLength(50);
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
 
                 entity.Property(e => e.ShopIntroduce).HasMaxLength(500);
 
@@ -665,13 +665,19 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.CommentTxt).HasColumnType("text");
 
-                entity.Property(e => e.Expr1).HasColumnType("datetime");
+                entity.Property(e => e.ImgID).HasMaxLength(100);
 
-                entity.Property(e => e.ProductID).HasMaxLength(50);
+                entity.Property(e => e.ImgSize).HasMaxLength(200);
+
+                entity.Property(e => e.Introduce).HasMaxLength(200);
+
+                entity.Property(e => e.ProductID).HasMaxLength(100);
 
                 entity.Property(e => e.Sex)
                     .HasMaxLength(4)
                     .IsFixedLength();
+
+                entity.Property(e => e.ShopID).HasMaxLength(50);
 
                 entity.Property(e => e.Star1).HasMaxLength(200);
 
@@ -685,9 +691,11 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.StarDesc).HasMaxLength(50);
 
-                entity.Property(e => e.UserEmail).HasMaxLength(50);
+                entity.Property(e => e.StarNum).HasColumnType("decimal(5, 2)");
 
-                entity.Property(e => e.UserID).HasMaxLength(50);
+                entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.Property(e => e.UserImagePath).HasMaxLength(1000);
 
                 entity.Property(e => e.UserName).HasMaxLength(50);
             });
@@ -871,7 +879,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductDesc).HasMaxLength(50);
 
-                entity.Property(e => e.ProductID).HasMaxLength(50);
+                entity.Property(e => e.ProductID).HasMaxLength(100);
 
                 entity.Property(e => e.ProductIntroduce).HasMaxLength(500);
 
@@ -883,7 +891,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductTypeName).HasMaxLength(50);
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
 
                 entity.Property(e => e.TypeName).HasMaxLength(20);
 
@@ -918,7 +926,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductStarNum).HasColumnType("decimal(5, 2)");
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
 
                 entity.Property(e => e.UserID).HasMaxLength(100);
 
@@ -943,7 +951,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductDesc).HasMaxLength(50);
 
-                entity.Property(e => e.ProductID).HasMaxLength(50);
+                entity.Property(e => e.ProductID).HasMaxLength(100);
 
                 entity.Property(e => e.ProductIntroduce).HasMaxLength(500);
 
@@ -957,7 +965,7 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ShopBoss).HasMaxLength(50);
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
 
                 entity.Property(e => e.ShopIntroduce).HasMaxLength(500);
 

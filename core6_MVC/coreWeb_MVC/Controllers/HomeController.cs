@@ -260,7 +260,7 @@ namespace coreWeb_MVC.Controllers
             //商品描述
             ViewBag.ProductDesc = await _dbContext.ProductImages.Where(p => p.ProductID == prodtctID).ToListAsync();
             //用户评论
-            ViewBag.ProductComment = await _dbContext.SupUserCommentViews.Where(p => p.ProductID == prodtctID).OrderBy(p => p.AddDate).ToListAsync();
+            //ViewBag.ProductComment = await _dbContext.SupUserCommentViews.Where(p => p.ProductID == prodtctID).OrderBy(p => p.AddDate).ToListAsync();
             //物流政策
             ViewBag.Productagreement = await _dbContext.TitleLists.Where(p => p.about == "agreement").OrderBy(p => p.TitleOrderby).ToListAsync();
 

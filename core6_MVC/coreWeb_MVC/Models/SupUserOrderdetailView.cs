@@ -16,7 +16,7 @@ namespace coreWeb_MVC.Models
         public int? OrderNum { get; set; }
         public int OrderType { get; set; }
         public int OrderState { get; set; }
-        public DateTime? OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
         public int DetailID { get; set; }
         public decimal ProductPrice { get; set; }
         public decimal? DiscountPrice { get; set; }
@@ -35,7 +35,7 @@ namespace coreWeb_MVC.Models
         public decimal? ProductStarNum { get; set; }
         public int? ProductState { get; set; }
         public int? ProductStock { get; set; }
-        public DateTime? AddDate { get; set; }
+        public DateTime AddDate { get; set; }
         public string? ProductTypeName { get; set; }
         public string? ProductDesc { get; set; }
         public string? TypeName { get; set; }
