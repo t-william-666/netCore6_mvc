@@ -1,6 +1,7 @@
 ﻿@using coreWeb_MVC.Models
 @{
     Layout = null;
+    User userInfo = ViewBag.userInfo;
 }
 
 <!DOCTYPE html>
@@ -12,40 +13,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <!-- Favicon 图标 页面图标 -->
-    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="~/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="/images/favicon.ico">
     <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
     <!-- 引入bootstrap样式 -->
-    <link rel="stylesheet" href="~/bootstrap/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap/lib/bootstrap/dist/css/bootstrap.css">
     <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
-    <link rel="stylesheet" href="~/bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap/bootstrap-3.4.1-dist/css/bootstrap.css">
     <!-- 字体和图标样式 必须有fonts文件且 font.awesome.min.css 的路径是正确的-->
-    <link rel="stylesheet" href="~/css/vendor/font.awesome.min.css">
-    <link rel="stylesheet" href="~/css/vendor/linearicons.min.css">
+    <link rel="stylesheet" href="/css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="/css/vendor/linearicons.min.css">
 
     <!-- Swiper CSS 刷子轮播 -->
-    <link rel="stylesheet" href="~/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/plugins/swiper-bundle.min.css">
     <!-- Animation CSS 动画 -->
-    <link rel="stylesheet" href="~/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="/css/plugins/animate.min.css">
     <!-- Jquery ui CSS Jquery界面 -->
-    <link rel="stylesheet" href="~/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="/css/plugins/jquery-ui.min.css">
     <!-- Nice Select CSS 下拉框样式 -->
-    <link rel="stylesheet" href="~/css/plugins/nice-select.min.css">
+    <link rel="stylesheet" href="/css/plugins/nice-select.min.css">
     <!-- Magnific Popup 图片弹出窗口--放大图并可轮播 -->
-    <link rel="stylesheet" href="~/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="/css/plugins/magnific-popup.css">
 
     <!-- 引入主要样式 -->
-    <link rel="stylesheet" href="~/css/index.css">
-    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- 引入Jquery的JS文件 -->
-    <script src="~/bootstrap/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/bootstrap/lib/jquery/dist/jquery.min.js"></script>
     <!-- 引入bootstrap的JS样式 -->
-    <script src="~/bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- 引入bootstrap的JS样式 这个版本轮播样式才有效果-->
-    <script src="~/bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>
     <!-- 引入Vue的JS文件 -->
-    <script src="~/js/Vue.js"></script>
-    <script src="~/js/axios.min.js"></script>
+    <script src="/js/Vue.js"></script>
+    <script src="/js/axios.min.js"></script>
 </head>
 
 
@@ -72,13 +73,13 @@
                             </div>
                             <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8 hadmain-nav">
 
-                                @if (ViewBag.userInfo == null)
+                                @if (userInfo != null)
                                 {
                                     <ul>
                                         <li class="li-head">
                                             <div class="headbox">
                                                 <a href="#" class="headerimg position-relative">
-                                                    <img src="/images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
+                                                    <img src="@userInfo.UserImageLists.FirstOrDefault().UserImagePath" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
 
                                                 </a>
                                             </div>
@@ -86,11 +87,11 @@
                                                 <div class="user-imgbox">
                                                     <div class="headerimg-two">
                                                         <a href="#">
-                                                            <img src="~/images/bg.png" alt="">
+                                                            <img src="@userInfo.UserImageLists.FirstOrDefault().UserImagePath" alt="">
                                                         </a>
                                                     </div>
                                                     <p class="animation-jelly">
-                                                        <a href="#">用户名称</a>
+                                                        <a href="/Home/Usercenter">@userInfo.UserName</a>
                                                     </p>
                                                 </div>
                                                 <ul class="animation-jelly">
@@ -136,98 +137,169 @@
                     <div class="col-lg-6 col-md-6 col-8 col-custom">
                         <div class="header-right-area main-nav">
                             <ul class="nav animation-jelly">
-                                <!-- 搜索 -->
-                                <li class="minicart-wrap">
-                                    <a href="/Home/Searchproduct" class="minicart-btn toolbar-btn">
-                                        <i class="fa fa-search">
-                                            <br>
-                                            <span>搜索</span>
-                                        </i>
-                                    </a>
-                                </li>
-                                <!-- 购物车 -->
-                                <li class="minicart-wrap">
-                                    <a href="/Home/Cart" class="minicart-btn toolbar-btn">
-                                        <i class="fa fa-shopping-cart">
-                                            <br>
-                                            <span>购物车 </span>
-                                        </i>
-                                        <!--购物车数量-->
-                                        <span class="cart-item_count2">
-                                            0
-                                        </span>
-                                    </a>
-                                    <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
-
-                                        <div class="single-cart-item">
-                                            <div class="cart-img">
-                                                <a href="#">
-                                                    <img src="#" alt="">
+                                @if (ViewBag.headerMenu != null)
+                                {
+                                    @foreach (TitleList item in ViewBag.headerMenu)
+                                    {
+                                        if (@item.TitleDesc=="购物车")
+                                        {
+                                            <li class="@item.TitleClass">
+                                                <a href="@item.TitleUrl" class="minicart-btn toolbar-btn">
+                                                    <i class="@item.Title">
+                                                        <br>
+                                                        <span>@item.TitleDesc </span>
+                                                    </i>
+                                                    <!--购物车数量-->
+                                                    <span class="cart-item_count2">
+                                                        0
+                                                    </span>
                                                 </a>
-                                            </div>
-                                            <div class="cart-text">
-                                                <h5 class="title">
-                                                    <a href="#" class="text-truncate-2">
-                                                        商品名称
-                                                    </a>
-                                                </h5>
-                                                <div class="cart-text-btn">
-                                                    <div class="cart-qty">
-                                                        <span>1</span>
-                                                        <span class="cart-price">￥199</span>
+                                                <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
+                                            
+                                                    <div class="single-cart-item">
+                                                        <div class="cart-img">
+                                                            <a href="#">
+                                                                <img src="#" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <div class="cart-text">
+                                                            <h5 class="title">
+                                                                <a href="#" class="text-truncate-2">
+                                                                    商品名称
+                                                                </a>
+                                                            </h5>
+                                                            <div class="cart-text-btn">
+                                                                <div class="cart-qty">
+                                                                    <span>1</span>
+                                                                    <span class="cart-price">￥199</span>
+                                                                </div>
+                                                                <button type="button"><i class="ion-trash-b"></i></button>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <button type="button"><i class="ion-trash-b"></i></button>
+                                            
+                                                    <div class="cart-price-total d-flex justify-content-between">
+                                                        <h5>合计 :</h5>
+                                                        <h5 class="active">￥0</h5>
+                                                    </div>
+                                                    <div class="cart-links d-flex justify-content-between">
+                                                        <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                                            查看购物车
+                                                        </a>
+                                                        <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="@item.TitleClass">
+                                                <a href="@item.TitleUrl" class="@item.TitleClass1">
+                                                    <i class="@item.Title">
+                                                        <br>
+                                                        <span>@item.TitleDesc</span>
+                                                    </i>
+                                                </a>
+                                            </li>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <!-- 搜索 -->
+                                    <li class="minicart-wrap">
+                                        <a href="/Home/Searchshopproduct" class="minicart-btn toolbar-btn">
+                                            <i class="fa fa-search">
+                                                <br>
+                                                <span>搜索</span>
+                                            </i>
+                                        </a>
+                                    </li>
+                                    <!-- 购物车 -->
+                                    <li class="minicart-wrap">
+                                        <a href="/Home/Cart" class="minicart-btn toolbar-btn">
+                                            <i class="fa fa-shopping-cart">
+                                                <br>
+                                                <span>购物车 </span>
+                                            </i>
+                                            <!--购物车数量-->
+                                            <span class="cart-item_count2">
+                                                0
+                                            </span>
+                                        </a>
+                                        <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
+                                    
+                                            <div class="single-cart-item">
+                                                <div class="cart-img">
+                                                    <a href="#">
+                                                        <img src="#" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="cart-text">
+                                                    <h5 class="title">
+                                                        <a href="#" class="text-truncate-2">
+                                                            商品名称
+                                                        </a>
+                                                    </h5>
+                                                    <div class="cart-text-btn">
+                                                        <div class="cart-qty">
+                                                            <span>1</span>
+                                                            <span class="cart-price">￥199</span>
+                                                        </div>
+                                                        <button type="button"><i class="ion-trash-b"></i></button>
+                                                    </div>
                                                 </div>
                                             </div>
+                                    
+                                            <div class="cart-price-total d-flex justify-content-between">
+                                                <h5>合计 :</h5>
+                                                <h5 class="active">￥0</h5>
+                                            </div>
+                                            <div class="cart-links d-flex justify-content-between">
+                                                <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                                    查看购物车
+                                                </a>
+                                                <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                            </div>
                                         </div>
+                                    </li>
+                                    <!-- 订单 -->
+                                    <li class="sidemenu-wrap">
+                                        <a href="#">
+                                            <i class="fa fa-file-text">
+                                                <br>
+                                                <span>我的订单</span>
+                                            </i>
+                                        </a>
+                                    </li>
+                                    <!-- 收藏 -->
+                                    <li class="minicart-wrap">
+                                        <a href="#" class="minicart-btn toolbar-btn">
+                                            <i class="fa fa fa-heart">
+                                                <br>
+                                                <span>我的收藏</span>
+                                            </i>
+                                            <span class="cart-item_count2">
+                                                0
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <!-- 更多关于 -->
+                                    <li class="account-menu-wrap d-none d-lg-flex">
+                                        <a href="#" class="off-canvas-menu-btn">
+                                            <i class="fa fa-bars">
+                                                <br>
+                                                <span>关于我们</span>
+                                            </i>
+                                        </a>
+                                    </li>
+                                    <li class="mobile-menu-btn d-lg-none">
+                                        <a class="off-canvas-btn" href="#">
+                                            <i class="fa fa-bars"></i>
+                                        </a>
+                                    </li>
+                                }
 
-                                        <div class="cart-price-total d-flex justify-content-between">
-                                            <h5>合计 :</h5>
-                                            <h5 class="active">￥0</h5>
-                                        </div>
-                                        <div class="cart-links d-flex justify-content-between">
-                                            <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
-                                                查看购物车
-                                            </a>
-                                            <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- 订单 -->
-                                <li class="sidemenu-wrap">
-                                    <a href="#">
-                                        <i class="fa fa-file-text">
-                                            <br>
-                                            <span>我的订单</span>
-                                        </i>
-                                    </a>
-                                </li>
-                                <!-- 收藏 -->
-                                <li class="minicart-wrap">
-                                    <a href="#" class="minicart-btn toolbar-btn">
-                                        <i class="fa fa fa-heart">
-                                            <br>
-                                            <span>我的收藏</span>
-                                        </i>
-                                        <span class="cart-item_count2">
-                                            0
-                                        </span>
-                                    </a>
-                                </li>
-                                <!-- 更多关于 -->
-                                <li class="account-menu-wrap d-none d-lg-flex">
-                                    <a href="#" class="off-canvas-menu-btn">
-                                        <i class="fa fa-bars">
-                                            <br>
-                                            <span>关于我们</span>
-                                        </i>
-                                    </a>
-                                </li>
-                                <li class="mobile-menu-btn d-lg-none">
-                                    <a class="off-canvas-btn" href="#">
-                                        <i class="fa fa-bars"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -445,7 +517,7 @@
                     {
                         <div class="item active">
                             <a href="#">
-                                <img src="~/images/other/1.jpg" alt="...">
+                                <img src="/images/other/1.jpg" alt="...">
                             </a>
                             <div class="carousel-caption">
                                 <h3>轮播图片标题</h3>
@@ -455,7 +527,7 @@
 
                         <div class="item">
                             <a href="#">
-                                <img src="~/images/other/2.jpg" alt="...">
+                                <img src="/images/other/2.jpg" alt="...">
                             </a>
                             <div class="carousel-caption">
                                 <h3>轮播图片标题22</h3>
@@ -465,7 +537,7 @@
 
                         <div class="item">
                             <a href="#">
-                                <img src="~/images/other/3.jpg" alt="...">
+                                <img src="/images/other/3.jpg" alt="...">
                             </a>
                             <div class="carousel-caption">
                                 <h3>轮播图片标题33</h3>
@@ -638,8 +710,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -702,8 +774,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -754,61 +826,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- 商品名称 -->
-                            <div class="Product-title my-2 px-2">
-                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
-                                    <a href="#" class="text-show-1">
-                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
-                                    </a>
-                                </p>
-                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
-                                    <a href="#" class="text-show-2 opacity-75">
-                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
-                                    </a>
-                                </p>
-                            </div>
-                            <!-- 商品评分 -->
-                            <div class="Product-rating px-2">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-full"></i>
-                                <i class="fa fa-star-o"></i>
-
-                                <!-- 移动端端 显示销售数量 -->
-                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                            </div>
-                            <!-- 商品价格 -->
-                            <div class="Price-box mb-5">
-                                <span class="regular-price px-1">￥99.9</span>
-                                <span class="old-price px-2"><del>￥199.9</del></span>
-                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                            </div>
-                            <!-- 加入购物车按钮 -->
-                            <div class="btn-box d-flex justify-content-evenly">
-                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
-                                    <i class="fa fa-heart">&nbsp; 收藏</i>
-                                </button>
-                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
-                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
-                        <div class="position-relative Product-box pb-4">
-                            <!-- 商品图片 -->
-                            <div class="px-2 pt-2">
-                                <div class="product-image position-relative">
-                                    <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -860,8 +879,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -913,8 +932,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -966,8 +985,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1019,8 +1038,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1072,8 +1091,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1125,8 +1144,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1178,8 +1197,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1231,8 +1250,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1284,8 +1303,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1337,8 +1356,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1390,8 +1409,8 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1443,8 +1462,61 @@
                             <div class="px-2 pt-2">
                                 <div class="product-image position-relative">
                                     <a href="#">
-                                        <img src="~/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
-                                        <img src="~/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- 商品名称 -->
+                            <div class="Product-title my-2 px-2">
+                                <p class="p-title" title="商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称">
+                                    <a href="#" class="text-show-1">
+                                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                                    </a>
+                                </p>
+                                <p class="p-desc px-1 " title="商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。">
+                                    <a href="#" class="text-show-2 opacity-75">
+                                        商品的描述商品的，这个商品呱呱呱呱呱呱，这个商品顶呱呱呱呱呱呱，这个商品很顶呱呱呱呱呱呱，这个商品非常顶呱呱呱呱呱呱，这个商品超级顶呱呱呱呱呱呱。
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- 商品评分 -->
+                            <div class="Product-rating px-2">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-full"></i>
+                                <i class="fa fa-star-o"></i>
+
+                                <!-- 移动端端 显示销售数量 -->
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 商品价格 -->
+                            <div class="Price-box mb-5">
+                                <span class="regular-price px-1">￥99.9</span>
+                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                            </div>
+                            <!-- 加入购物车按钮 -->
+                            <div class="btn-box d-flex justify-content-evenly">
+                                <button type="button" class="btn btn-Heart px-3 py-2 addLike">
+                                    <i class="fa fa-heart">&nbsp; 收藏</i>
+                                </button>
+                                <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-4 col-xs-6 mb-5 mt-2 ">
+                        <div class="position-relative Product-box pb-4">
+                            <!-- 商品图片 -->
+                            <div class="px-2 pt-2">
+                                <div class="product-image position-relative">
+                                    <a href="#">
+                                        <img src="/images/other/small223420RYybl1641220460.jpg" alt="" class="product-image-1 w-100 h-100">
+                                        <img src="/images/other/fadf8f4844ebceedaa41956a889608b5.jpg" alt="" class="product-image-2 position-absolute w-100 ">
                                     </a>
                                 </div>
                             </div>
@@ -1657,22 +1729,22 @@
 
 
     <!-- Swiper Slider JS -->
-    <script src="~/js/plugins/swiper-bundle.min.js"></script>
+    <script src="/js/plugins/swiper-bundle.min.js"></script>
     <!-- nice select JS -->
-    <script src="~/js/plugins/nice-select.min.js"></script>
+    <script src="/js/plugins/nice-select.min.js"></script>
     <!-- Ajaxchimpt js -->
-    <script src="~/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="/js/plugins/jquery.ajaxchimp.min.js"></script>
     <!-- Jquery Ui js -->
-    <script src="~/js/plugins/jquery-ui.min.js"></script>
+    <script src="/js/plugins/jquery-ui.min.js"></script>
     <!-- Jquery Countdown js -->
-    <script src="~/js/plugins/jquery.countdown.min.js"></script>
+    <script src="/js/plugins/jquery.countdown.min.js"></script>
     <!-- jquery magnific popup js -->
-    <script src="~/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="/js/plugins/jquery.magnific-popup.min.js"></script>
 
     <!-- Main JS -->
-    <script src="~/js/main.js"></script>
-    <script src="~/layer/layer.js" charset="utf-8"></script>
-    <script type="text/javascript" src="~/layer/xadmin.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/layer/layer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/layer/xadmin.js"></script>
     <script>
 
         // 控制轮播的速度 2秒跳转到下一张

@@ -7,8 +7,8 @@
         {
             "type": "pwa-msedge",
             "request": "launch",
-            "name": "Open Register.html",
-            "file": "c:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core_mvc_Web\\Web\\Register.html"
+            "name": "Open Home.html",
+            "file": "c:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core_mvc_Web\\Web\\Home.html"
         }
     ]
 }

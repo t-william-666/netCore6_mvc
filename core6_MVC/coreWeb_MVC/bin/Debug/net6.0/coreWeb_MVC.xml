@@ -50,7 +50,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.HomeController.Searchproduct">
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Searchshopproduct">
             <summary>
             搜索商品页面
             </summary>

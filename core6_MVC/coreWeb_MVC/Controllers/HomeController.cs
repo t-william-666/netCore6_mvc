@@ -144,18 +144,21 @@ namespace coreWeb_MVC.Controllers
         /// 主页
         /// </summary>
         /// <returns></returns>
-        public IActionResult Home()
+        public async Task<IActionResult> Home()
         {
+            //右侧菜单栏
+            TempData["headMenu"] = await _dbContext.TitleLists.Where(p => p.about == "header-tab").OrderBy(p => p.TitleOrderby).ToListAsync();
+            ViewBag.headerMenu = TempData["headMenu"];
             //用户二级菜单栏 使用TempData跨页面传递数据（因为搜索页面也用到）
-            TempData["userMenu"] = _dbContext.TitleLists.Where(p => p.about == "user-menu").OrderBy(p => p.TitleOrderby).ToList();
+            TempData["userMenu"] = await _dbContext.TitleLists.Where(p => p.about == "user-menu").OrderBy(p => p.TitleOrderby).ToListAsync();
             ViewBag.userMenu = TempData["userMenu"];
             //广告轮播图获取
-            ViewBag.Banner = _dbContext.BannerImages.Where(p => p.State == 1).ToList();
+            ViewBag.Banner = await _dbContext.BannerImages.Where(p => p.State == 1).ToListAsync();
             //菜单导航栏-菜单导航条 使用TempData跨页面传递数据（因为搜索页面也用到）
-            TempData["Menulist"] = _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "导航栏").OrderByDescending(p => p.TitleOrderby).ToList();
+            TempData["Menulist"] = await _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "menu").OrderByDescending(p => p.TitleOrderby).ToListAsync();
             ViewBag.Menulist = TempData["Menulist"];
             //获取商品信息商品图片商品评分 Skip 跳过多少条数据 Take输出多少条数据
-            ViewBag.Productlist = _dbContext.SuperProductViews.Take(12).ToList();
+            ViewBag.Productlist = await _dbContext.SuperProductViews.Take(12).ToListAsync();
             #region 使用Join连接
             //ViewBag.Productlist = _dbContext.Products.Join(_dbContext.TitleLists, p => p.ProductState, t => t.Title, (p, t) => new SuperProductView
             //{
@@ -180,12 +183,11 @@ namespace coreWeb_MVC.Controllers
             ViewBag.user = _session.GetString("user");
             if (!string.IsNullOrWhiteSpace(uID))
             {
-                var user = _dbContext.Users.Where(p => p.UserID == uID).FirstOrDefault();
+                //获取用户全部信息及头像
+                var user = _dbContext.Users.Include(p=>p.UserImageLists.Where(p=>p.ImgState==1)).Where(p => p.UserID == uID).FirstOrDefault();
                 //var user = _dbContext.Users.Find(uID);
                 ViewData["ss"] = user;
                 ViewBag.userInfo = user;
-
-                ViewBag.user = _session.GetString("user");
             }
 
             return View();
@@ -226,7 +228,7 @@ namespace coreWeb_MVC.Controllers
         /// 搜索商品页面
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> Searchproduct()
+        public async Task<IActionResult> Searchshopproduct()
         {
             ////使用第二种TempData[""]更好，数据共享不需要频繁请求数据库
             //ViewBag.Menulist = _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "导航栏").OrderBy(p => p.TitleOrderby).ToList();
@@ -237,7 +239,6 @@ namespace coreWeb_MVC.Controllers
             ViewBag.productlist = await _dbContext.SuperProductViews.Take(12).ToListAsync();
             return View();
         }
-
         /// <summary>
         /// 商品详情页面
         /// </summary>

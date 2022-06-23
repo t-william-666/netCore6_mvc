@@ -13,7 +13,7 @@
     <title>用户中心</title>
     <!-- Favicon 图标 页面图标 -->
     <link rel="shortcut icon" type="image/x-icon" v-text="msg" href="/images/favicon.ico">
-    <!-- <link rel="stylesheet" href="icon" type="image/png" href="./images/bg.png"> -->
+    <!-- <link rel="stylesheet" href="icon" type="image/png" href="/images/bg.png"> -->
     <!-- 引入bootstrap样式 -->
     <link rel="stylesheet" href="/bootstrap/lib/bootstrap/dist/css/bootstrap.css">
     <!-- 引入bootstrap样式 这个版本轮播样式才有效果 -->
@@ -419,7 +419,7 @@
                                     {
                                         @foreach (TitleList item in ViewBag.userMenu)
                                         {
-                                            <a class="active" href="#account-orders" data-toggle="tab"><i class="@item.Title"></i>@item.TitleDesc</a>
+                                            <a id="@item.Titleothername" class="active" href="@item.TitleUrl" data-toggle="tab"><i class="@item.Title"></i>@item.TitleDesc</a>
                                         }
                                     }
                                     else
@@ -443,29 +443,156 @@
                                         <div class="myaccount-content">
                                             <h3>订单</h3>
                                             <div class="order-box">
-                                                <div class="accordion" id="accordionExample">
-                                                    <div class="card">
-                                                        <div class="card-header" id="headingOne">
-                                                            <div class="" data-toggle="collapse" data-target="#demo_1" aria-expanded="true" aria-controls="collapseOne">
-                                                                <div>
-                                                                    orderTime 下的订单
+                                                @if (ViewBag.userOrder != null)
+                                                {
+                                                    @foreach (ProductOrder item in ViewBag.userOrder)
+                                                    {
+                                                        <div class="accordion" id="accordionExample">
+                                                            <div class="card">
+                                                                <div class="card-header" id="headingOne">
+                                                                    <div class="" data-toggle="collapse" data-target="#demo_1" aria-expanded="true" aria-controls="collapseOne">
+                                                                        <div>
+                                                                            @item.OrderDate   下的订单
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="demo_1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                    <div class="card-body border-bottom">
+                                                                        <div class="row clearMx">
+                                                                            <div class="col-xs-6">
+                                                                                <div class="order-img">
+                                                                                    <a href="#">
+                                                                                        <img src="/images/bg.png" alt="">
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                                <div class="">
+                                                                                    <div>
+                                                                                        <a href="#">
+                                                                                            <h5>商品名称</h5>
+                                                                                            <p class="d-xs-none">
+                                                                                                这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                            </p>
+                                                                                            <!-- 商品价格 -->
+                                                                                            <div class="Price-box mb-5">
+                                                                                                <span class="regular-price px-1">￥99.9</span>
+                                                                                                <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                                <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                            </div>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-end btn-box">
+                                                                                        <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                            <i>付款</i>
+                                                                                        </button>
+                                                                                        <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                            取消订单
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="card-body border-bottom">
+                                                                        <div class="row clearMx">
+                                                                            <div class="col-xs-6">
+                                                                                <div class="order-img">
+                                                                                    <img src="/images/bg.png" alt="">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                                <div class="">
+                                                                                    <div>
+                                                                                        <h5>商品名称</h5>
+                                                                                        <p class="d-xs-none">
+                                                                                            这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                        </p>
+                                                                                        <!-- 商品价格 -->
+                                                                                        <div class="Price-box mb-5">
+                                                                                            <span class="regular-price px-1">￥99.9</span>
+                                                                                            <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="d-flex justify-content-end btn-box">
+                                                                                        <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                            <i>付款</i>
+                                                                                        </button>
+                                                                                        <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                            取消订单
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div id="demo_1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                            <div class="card-body border-bottom">
-                                                                <div class="row clearMx">
-                                                                    <div class="col-xs-6">
-                                                                        <div class="order-img">
-                                                                            <a href="#">
-                                                                                <img src="./images/bg.png" alt="">
-                                                                            </a>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <div class="accordion" id="accordionExample">
+                                                        <div class="card">
+                                                            <div class="card-header" id="headingOne">
+                                                                <div class="" data-toggle="collapse" data-target="#demo_1" aria-expanded="true" aria-controls="collapseOne">
+                                                                    <div>
+                                                                        orderTime 下的订单
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="demo_1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                <div class="card-body border-bottom">
+                                                                    <div class="row clearMx">
+                                                                        <div class="col-xs-6">
+                                                                            <div class="order-img">
+                                                                                <a href="#">
+                                                                                    <img src="/images/bg.png" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-xs-6">
+                                                                            <div class="">
+                                                                                <div>
+                                                                                    <a href="#">
+                                                                                        <h5>商品名称</h5>
+                                                                                        <p class="d-xs-none">
+                                                                                            这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                        </p>
+                                                                                        <!-- 商品价格 -->
+                                                                                        <div class="Price-box mb-5">
+                                                                                            <span class="regular-price px-1">￥99.9</span>
+                                                                                            <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                            <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-end btn-box">
+                                                                                    <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                        <i>付款</i>
+                                                                                    </button>
+                                                                                    <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                        取消订单
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-xs-6">
-                                                                        <div class="">
-                                                                            <div>
-                                                                                <a href="#">
+                                                                </div>
+
+                                                                <div class="card-body border-bottom">
+                                                                    <div class="row clearMx">
+                                                                        <div class="col-xs-6">
+                                                                            <div class="order-img">
+                                                                                <img src="/images/bg.png" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-xs-6">
+                                                                            <div class="">
+                                                                                <div>
                                                                                     <h5>商品名称</h5>
                                                                                     <p class="d-xs-none">
                                                                                         这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
@@ -476,49 +603,15 @@
                                                                                         <span class="old-price px-2"><del>￥199.9</del></span>
                                                                                         <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                                                                                     </div>
-                                                                                </a>
-                                                                            </div>
-                                                                            <div class="d-flex justify-content-end btn-box">
-                                                                                <button type="button" class="btn btn-pay mx-2 px-3 py-2">
-                                                                                    <i>付款</i>
-                                                                                </button>
-                                                                                <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
-                                                                                    取消订单
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="card-body border-bottom">
-                                                                <div class="row clearMx">
-                                                                    <div class="col-xs-6">
-                                                                        <div class="order-img">
-                                                                            <img src="./images/bg.png" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xs-6">
-                                                                        <div class="">
-                                                                            <div>
-                                                                                <h5>商品名称</h5>
-                                                                                <p class="d-xs-none">
-                                                                                    这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
-                                                                                </p>
-                                                                                <!-- 商品价格 -->
-                                                                                <div class="Price-box mb-5">
-                                                                                    <span class="regular-price px-1">￥99.9</span>
-                                                                                    <span class="old-price px-2"><del>￥199.9</del></span>
-                                                                                    <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
                                                                                 </div>
-                                                                            </div>
-                                                                            <div class="d-flex justify-content-end btn-box">
-                                                                                <button type="button" class="btn btn-pay mx-2 px-3 py-2">
-                                                                                    <i>付款</i>
-                                                                                </button>
-                                                                                <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
-                                                                                    取消订单
-                                                                                </button>
+                                                                                <div class="d-flex justify-content-end btn-box">
+                                                                                    <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                        <i>付款</i>
+                                                                                    </button>
+                                                                                    <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                        取消订单
+                                                                                    </button>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -526,47 +619,47 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="accordion" id="accordionExample">
-                                                    <div class="card">
-                                                        <div class="card-header" id="headingOne">
-                                                            <div class="" data-toggle="collapse" data-target="#demo_2" aria-expanded="true" aria-controls="collapseOne">
-                                                                <div>
-                                                                    orderTime 下的订单
+                                                    <div class="accordion" id="accordionExample">
+                                                        <div class="card">
+                                                            <div class="card-header" id="headingOne">
+                                                                <div class="" data-toggle="collapse" data-target="#demo_2" aria-expanded="true" aria-controls="collapseOne">
+                                                                    <div>
+                                                                        orderTime 下的订单
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div id="demo_2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                                            <div class="card-body border-bottom">
-                                                                <div class="row clearMx">
-                                                                    <div class="col-xs-6">
-                                                                        <div class="order-img">
-                                                                            <img src="./images/bg.png" alt="">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-xs-6">
-                                                                        <div class="">
-                                                                            <div>
-                                                                                <h5>商品名称</h5>
-                                                                                <p class="d-xs-none">
-                                                                                    这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
-                                                                                </p>
-                                                                                <!-- 商品价格 -->
-                                                                                <div class="Price-box mb-5">
-                                                                                    <span class="regular-price px-1">￥99.9</span>
-                                                                                    <span class="old-price px-2"><del>￥199.9</del></span>
-                                                                                    <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
-                                                                                </div>
+                                                            <div id="demo_2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                <div class="card-body border-bottom">
+                                                                    <div class="row clearMx">
+                                                                        <div class="col-xs-6">
+                                                                            <div class="order-img">
+                                                                                <img src="/images/bg.png" alt="">
                                                                             </div>
-                                                                            <div class="d-flex justify-content-end btn-box">
-                                                                                <button type="button" class="btn btn-pay mx-2 px-3 py-2">
-                                                                                    <i>付款</i>
-                                                                                </button>
-                                                                                <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
-                                                                                    取消订单
-                                                                                </button>
+                                                                        </div>
+                                                                        <div class="col-xs-6">
+                                                                            <div class="">
+                                                                                <div>
+                                                                                    <h5>商品名称</h5>
+                                                                                    <p class="d-xs-none">
+                                                                                        这是一个非常奇怪的商品，自己的米拥有。赶紧来购买吧！！！走过路过不要错过
+                                                                                    </p>
+                                                                                    <!-- 商品价格 -->
+                                                                                    <div class="Price-box mb-5">
+                                                                                        <span class="regular-price px-1">￥99.9</span>
+                                                                                        <span class="old-price px-2"><del>￥199.9</del></span>
+                                                                                        <span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">999</span></span>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="d-flex justify-content-end btn-box">
+                                                                                    <button type="button" class="btn btn-pay mx-2 px-3 py-2">
+                                                                                        <i>付款</i>
+                                                                                    </button>
+                                                                                    <button type="button" class="btn btn-cancel mx-2 px-3 py-2">
+                                                                                        取消订单
+                                                                                    </button>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -574,7 +667,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+
+                                                }
+
                                             </div>
                                         </div>
                                     </div>
@@ -839,7 +934,7 @@
                                                                 </label>
                                                                 <div class="d-flex justify-content-center">
                                                                     <div class="change_userimg rounded-circle">
-                                                                        <img id="finalImg" src="@item.UserImageLists">
+                                                                        <img id="finalImg" src="@item.UserImageLists.FirstOrDefault().UserImagePath">
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex justify-content-center my-2">
@@ -885,7 +980,7 @@
                                                                         <label for="user_name" class="required mb-1">
                                                                             昵称
                                                                         </label>
-                                                                        <input type="text" id="user_name" name="UserName" placeholder="请输入昵称" value="沐雨清晨" />
+                                                                        <input type="text" id="user_name" name="UserName" placeholder="请输入昵称" value="@item.UserName" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-custom">
@@ -893,7 +988,7 @@
                                                                         <label for="user_ID" class="required mb-1">
                                                                             账号信息
                                                                         </label>
-                                                                        <input type="text" id="user_ID" name="userID" placeholder="账号信息" value="1839368291" />
+                                                                        <input type="text" id="user_ID" name="userID" placeholder="账号信息" value="@item.Account" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -904,7 +999,7 @@
                                                                         <label for="user_email" class="required mb-1">
                                                                             邮箱
                                                                         </label>
-                                                                        <input type="text" id="user_email" name="UserEmail" placeholder="请输入邮箱" value="1839368291@qq.com" />
+                                                                        <input type="text" id="user_email" name="UserEmail" placeholder="请输入邮箱" value="@item.UserEmail" />
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-custom">
@@ -914,7 +1009,7 @@
                                                                         </label>
                                                                         <!-- 日期容器 -->
                                                                         <div id="datePlugin"></div>
-                                                                        <input type="text" id="user_birthday" name="birthday" placeholder="请选择出生日" value="" />
+                                                                        <input type="text" id="user_birthday" name="birthday" placeholder="请选择出生日" value="@item.Birthday" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -924,8 +1019,7 @@
                                                                 <label for="user_introduce" class="required mb-1">
                                                                     个人介绍
                                                                 </label>
-                                                                <textarea id="user_introduce" class="" placeholder="个人介绍" cols="30" rows="6">text="这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;" 
-                                                                    </textarea>
+                                                                <textarea id="user_introduce" class="" placeholder="个人介绍" cols="30" rows="6">@item.Introduce</textarea>
                                                             </div>
 
                                                             <fieldset>
@@ -969,7 +1063,7 @@
                                                             </label>
                                                             <div class="d-flex justify-content-center">
                                                                 <div class="change_userimg rounded-circle">
-                                                                    <img id="finalImg" src="./images/bg.png">
+                                                                    <img id="finalImg" src="/images/bg.png">
                                                                 </div>
                                                             </div>
                                                             <div class="d-flex justify-content-center my-2">
@@ -1055,7 +1149,7 @@
                                                                 个人介绍
                                                             </label>
                                                             <textarea id="user_introduce" class="" placeholder="个人介绍" cols="30" rows="6">text="这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;这是我i的个人介绍;" 
-                                                                </textarea>
+                                                                    </textarea>
                                                         </div>
 
                                                         <fieldset>
@@ -1103,67 +1197,107 @@
                                                 <form action="/User/Update" method="post" enctype="multipart/form-data" class="layui-form " lay-filter="example">
                                                     <!--加载已添加的地址-->
                                                     <div class="mb-3">
-                                                        <div class="row clearMx mb-3 pb-2 border-1 ">
-                                                            <div class="col-lg-8 col-custom">
-                                                                <div class="">
-                                                                    <label class="required mb-1">
-                                                                        收货人：
-                                                                    </label>
-                                                                    <span>张三李四</span>
-                                                                    <label class="required mb-1">
-                                                                        联系方式：
-                                                                    </label>
-                                                                    <span>123456789011</span>
+                                                        @if (ViewBag.userAddress != null)
+                                                        {
+                                                            @foreach (UserAddress item in ViewBag.userAddress)
+                                                            {
+                                                                <div class="row clearMx mb-3 pb-2 border-1 ">
+                                                                    <div class="col-lg-8 col-custom">
+                                                                        <div class="">
+                                                                            <label class="required mb-1">
+                                                                                收货人：
+                                                                            </label>
+                                                                            <span>@item.UserName</span>
+                                                                            <label class="required mb-1">
+                                                                                联系方式：
+                                                                            </label>
+                                                                            <span>@item.Mobile</span>
+                                                                        </div>
+                                                                        <p>
+                                                                            <label for="display-name" class="required mb-1">
+                                                                                地址:
+                                                                            </label>
+                                                                            @item.Province @item.City @item.Area @item.Town @item.DetailAddress
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-custom d-flex align-items-center">
+                                                                        <div class="d-flex w-100 justify-content-between">
+                                                                            <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="addressID">
+                                                                                删除
+                                                                            </button>
+                                                                            <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="addressID">
+                                                                                修改
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <p>
-                                                                    <label for="display-name" class="required mb-1">
-                                                                        地址:
-                                                                    </label>
-                                                                    广东省石帆胜丰士大夫士大夫撒旦发士大夫士大夫石帆胜丰是否是事实是事实水水水水水水水水水水水水水水水水水水水水水水水
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-4 col-custom d-flex align-items-center">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="addressID">
-                                                                        删除
-                                                                    </button>
-                                                                    <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="addressID">
-                                                                        修改
-                                                                    </button>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="row clearMx mb-3 pb-2 border-1 ">
+                                                                <div class="col-lg-8 col-custom">
+                                                                    <div class="">
+                                                                        <label class="required mb-1">
+                                                                            收货人：
+                                                                        </label>
+                                                                        <span>张三李四</span>
+                                                                        <label class="required mb-1">
+                                                                            联系方式：
+                                                                        </label>
+                                                                        <span>123456789011</span>
+                                                                    </div>
+                                                                    <p>
+                                                                        <label for="display-name" class="required mb-1">
+                                                                            地址:
+                                                                        </label>
+                                                                        广东省石帆胜丰士大夫士大夫撒旦发士大夫士大夫石帆胜丰是否是事实是事实水水水水水水水水水水水水水水水水水水水水水水水
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-4 col-custom d-flex align-items-center">
+                                                                    <div class="d-flex w-100 justify-content-between">
+                                                                        <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="addressID">
+                                                                            删除
+                                                                        </button>
+                                                                        <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="addressID">
+                                                                            修改
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div class="row clearMx mb-3 pb-2 border-1 ">
-                                                            <div class="col-lg-8 col-custom">
-                                                                <div class="">
-                                                                    <label class="required mb-1">
-                                                                        收货人：
-                                                                    </label>
-                                                                    <span>张三李四</span>
-                                                                    <label class="required mb-1">
-                                                                        联系方式：
-                                                                    </label>
-                                                                    <span>123456789011</span>
+                                                            <div class="row clearMx mb-3 pb-2 border-1 ">
+                                                                <div class="col-lg-8 col-custom">
+                                                                    <div class="">
+                                                                        <label class="required mb-1">
+                                                                            收货人：
+                                                                        </label>
+                                                                        <span>张三李四</span>
+                                                                        <label class="required mb-1">
+                                                                            联系方式：
+                                                                        </label>
+                                                                        <span>123456789011</span>
+                                                                    </div>
+                                                                    <p>
+                                                                        <label for="display-name" class="required mb-1">
+                                                                            地址:
+                                                                        </label>
+                                                                        广东省石帆胜丰士大夫士大夫撒旦发士大夫士大夫石帆胜丰是否是事实是事实水水水水水水水水水水水水水水水水水水水水水水水
+                                                                    </p>
                                                                 </div>
-                                                                <p>
-                                                                    <label for="display-name" class="required mb-1">
-                                                                        地址:
-                                                                    </label>
-                                                                    广东省石帆胜丰士大夫士大夫撒旦发士大夫士大夫石帆胜丰是否是事实是事实水水水水水水水水水水水水水水水水水水水水水水水
-                                                                </p>
-                                                            </div>
-                                                            <div class="col-lg-4 col-custom d-flex align-items-center">
-                                                                <div class="d-flex w-100 justify-content-between">
-                                                                    <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="addressID">
-                                                                        删除
-                                                                    </button>
-                                                                    <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="addressID">
-                                                                        修改
-                                                                    </button>
+                                                                <div class="col-lg-4 col-custom d-flex align-items-center">
+                                                                    <div class="d-flex w-100 justify-content-between">
+                                                                        <button type="button" class="btn flosun-button delete-btn me-0 rounded-0" value="addressID">
+                                                                            删除
+                                                                        </button>
+                                                                        <button type="button" class="btn flosun-button primary-btn rounded-0 black-btn updateBtn" value="addressID">
+                                                                            修改
+                                                                        </button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        }
+
                                                     </div>
                                                     <!--添加新收货地址-->
                                                     <div class="single-input-item mb-3">
@@ -1403,7 +1537,7 @@
     <script src="/otherPlugin/userheader/js/userImage.js"></script>
 
     <!-- Main JS 根据需求个性编写 -->
-    <script src="./js/main.js"></script>
+    <script src="/js/main.js"></script>
 
     <!-- layerUI JS  -->
     <script src="/layer/layer.js" charset="utf-8"></script>
@@ -1414,6 +1548,12 @@
             //初始化日期插件
             $('#user_birthday').date();
         });
+
+        $(document).ready(function() {
+            var hashID = window.location.hash;
+            console.log(22)
+            $("#to-account-info").click();
+        })
     </script>
 </body>
 

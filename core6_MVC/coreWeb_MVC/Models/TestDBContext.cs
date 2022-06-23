@@ -1008,9 +1008,19 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.Title).HasMaxLength(50);
 
+                entity.Property(e => e.TitleClass).HasMaxLength(50);
+
+                entity.Property(e => e.TitleClass1).HasMaxLength(50);
+
+                entity.Property(e => e.TitleClass2).HasMaxLength(50);
+
+                entity.Property(e => e.TitleClass3).HasMaxLength(50);
+
                 entity.Property(e => e.TitleDesc).HasMaxLength(250);
 
                 entity.Property(e => e.TitleUrl).HasMaxLength(500);
+
+                entity.Property(e => e.Titleothername).HasMaxLength(50);
 
                 entity.Property(e => e.about).HasMaxLength(50);
             });
