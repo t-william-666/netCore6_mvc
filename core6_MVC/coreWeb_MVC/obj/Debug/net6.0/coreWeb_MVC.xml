@@ -23,6 +23,12 @@
             <param name="password"></param>
             <returns></returns>
         </member>
+        <member name="M:coreWeb_MVC.Controllers.HomeController.Loginout">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:coreWeb_MVC.Controllers.HomeController.Register">
             <summary>
             注册

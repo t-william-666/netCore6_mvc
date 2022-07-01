@@ -82,9 +82,13 @@ namespace coreWeb_MVC.Controllers
             }
 
         }
-
-        public IActionResult Log()
+        /// <summary>
+        /// 退出登录
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Loginout()
         {
+            HttpContext.Session.SetString("userInfo", "");
             return RedirectToAction("Home");
         }
         /// <summary>
@@ -114,7 +118,7 @@ namespace coreWeb_MVC.Controllers
             }
             else
             {
-                var findUser = _dbContext.Users.Where(p => p.UserID == account);
+                var findUser = _dbContext.Users.Where(p => p.Account == account);
                 //Any()大概意思就是如果有数据则返回true ，否则返回false。
                 if (findUser.Any())
                 {
@@ -124,6 +128,7 @@ namespace coreWeb_MVC.Controllers
                 password = PasswordHasher.HashPassword(password);
                 User user = new User()
                 {
+                    UserID = "22222",
                     Account = account,
                     Password = password,
                     UserName = "新用户",
@@ -134,7 +139,7 @@ namespace coreWeb_MVC.Controllers
                 //_dbContext.Set<User>().Add(user);
                 _dbContext.SaveChanges();
                 //保存注册用户数据对象(会话)
-                //HttpContext.Session.SetString("userInfo", account);
+                HttpContext.Session.SetString("userInfo", account);
 
                 return RedirectToAction("Home");
             }
@@ -155,7 +160,7 @@ namespace coreWeb_MVC.Controllers
             //广告轮播图获取
             ViewBag.Banner = await _dbContext.BannerImages.Where(p => p.State == 1).ToListAsync();
             //菜单导航栏-菜单导航条 使用TempData跨页面传递数据（因为搜索页面也用到）
-            TempData["Menulist"] = await _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "menu").OrderByDescending(p => p.TitleOrderby).ToListAsync();
+            TempData["Menulist"] = await _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "menu").OrderBy(p => p.TitleOrderby).ToListAsync();
             ViewBag.Menulist = TempData["Menulist"];
             //获取商品信息商品图片商品评分 Skip 跳过多少条数据 Take输出多少条数据
             ViewBag.Productlist = await _dbContext.SuperProductViews.Take(12).ToListAsync();

@@ -5,6 +5,11 @@ namespace coreWeb_MVC.Models
 {
     public partial class ProductComment
     {
+        public ProductComment()
+        {
+            ProductCommentReplies = new HashSet<ProductCommentReply>();
+        }
+
         public int CommentID { get; set; }
         public string UserID { get; set; } = null!;
         public string? ShopID { get; set; }
@@ -19,5 +24,6 @@ namespace coreWeb_MVC.Models
         public virtual Product Product { get; set; } = null!;
         public virtual User User { get; set; } = null!;
         public virtual ProductCommentImage ProductCommentImage { get; set; } = null!;
+        public virtual ICollection<ProductCommentReply> ProductCommentReplies { get; set; }
     }
 }

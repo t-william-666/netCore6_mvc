@@ -63,33 +63,33 @@
         </div>
     </div>
     <!--==== Pre-Loading Area 预警器 End ====-->
-    
+
     <!-- 头部 -->
     <header>
         <div class="header main-header-area header-sticky ">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6 col-6">
+                    <div class="col-lg-6 col-md-6 col-4">
                         <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
+                            <div class="col-lg-3 col-md-4 col-sm-5 header-title section-title">
                                 <p class="section-title-1 fs-3"><a href="#">CiYuanCang</a></p>
                             </div>
-                            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8  hadmain-nav">
+                            <div class="col-lg-9 col-md-8 col-sm-7 col-12 hadmain-nav">
                                 <ul>
-                                    <!-- <li>
-                                            <a href="#">
-                                                <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
-                                            </a>
-                                        </li> -->
-                                    <li class="li-head">
+                                    <li>
+                                        <a href="./Login.html">
+                                            <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./Register.html">
+                                            <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
+                                        </a>
+                                    </li>
+                                     
+                                    <!-- <li class="li-head">
                                         <a href="#" class="headerimg position-relative">
                                             <img src="./images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
-
                                         </a>
 
                                         <div class="user-boxdropdown">
@@ -104,7 +104,7 @@
                                                 </p>
                                             </div>
                                             <ul class="animation-jelly">
-                                                <li><a href="#"><i class="fa fa-user"></i> 个人信息</a></li>
+                                                <li><a href="./UserDetail.html#to-account-info"><i class="fa fa-user"></i> 个人信息</a></li>
                                                 <li><a href="#"><i class="fa fa-file-text"></i> 我的订单</a></li>
                                                 <li><a href="#"><i class="fa fa-bus"></i> 物流查询</a></li>
                                                 <li><a href="#"><i class="fa fa-home"></i> 收货地址</a></li>
@@ -113,17 +113,26 @@
                                                 <li><a href="#"><i class="fa "></i> 退出登录</a></li>
                                             </ul>
                                         </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-6 col-custom">
+                    <div class="col-lg-6 col-md-6 col-8 col-custom">
                         <div class="header-right-area main-nav">
                             <ul class="nav animation-jelly">
+                                <!-- 搜索 -->
+                                <li class="minicart-wrap">
+                                    <a href="./SearchShop.html" class="minicart-btn toolbar-btn">
+                                        <i class="fa fa-search">
+                                            <br>
+                                            <span>搜索</span>
+                                        </i>
+                                    </a>
+                                </li>
                                 <!-- 购物车 -->
                                 <li class="minicart-wrap">
-                                    <a href="#" class="minicart-btn toolbar-btn">
+                                    <a href="./cart.html" class="minicart-btn toolbar-btn">
                                         <i class="fa fa-shopping-cart">
                                             <br>
                                             <span>购物车 </span>
@@ -131,7 +140,7 @@
                                         <!--购物车数量-->
                                         <span class="cart-item_count2">
                                             0
-                                        </span>
+                                        </span> 
                                     </a>
                                     <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
 
@@ -171,7 +180,7 @@
                                 </li>
                                 <!-- 订单 -->
                                 <li class="sidemenu-wrap">
-                                    <a href="#">
+                                    <a href="./UserDetail.html">
                                         <i class="fa fa-file-text">
                                             <br>
                                             <span>我的订单</span>
@@ -180,7 +189,7 @@
                                 </li>
                                 <!-- 收藏 -->
                                 <li class="minicart-wrap">
-                                    <a href="#" class="minicart-btn toolbar-btn">
+                                    <a href="./UserDetail.html" class="minicart-btn toolbar-btn">
                                         <i class="fa fa fa-heart">
                                             <br>
                                             <span>我的收藏</span>
@@ -798,7 +807,7 @@
                                                                 </label>
                                                                 <!-- 日期容器 -->
                                                                 <div id="datePlugin"></div>
-                                                                <input type="text" id="user_birthday" name="birthday" placeholder="请选择出生日" value="" />
+                                                                <input type="text" id="user_birthday" class="user_birthday" name="birthday" placeholder="请选择出生日" value="" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1159,21 +1168,22 @@
     <!-- Main JS 根据需求个性编写 -->
     <script src="./js/main.js"></script>
 
-    <!-- layerUI JS  -->
-    <script src="./layer/layer.js" charset="utf-8"></script>
+    <!-- layUI JS -->
+    <script type="text/javascript" src="./layer/layer.js" charset="utf-8"></script>
     <script type="text/javascript" src="./layer/xadmin.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
 
     <script>
-        $(function () {
-            //初始化日期插件	
-            $('#user_birthday').date();
-        });
+        // $(function () {
+        //     //初始化日期插件	
+        //     $('#user_birthday').date();
+        // });
 
-        $(document).ready(function(){
-            var hashID = window.location.hash;
-            console.log(22)
-            $(hashID).click();
-        })
+        // $(document).ready(function(){
+        //     var hashID = window.location.hash;
+        //     console.log(22)
+        //     $(hashID).click();
+        // })
 
         // window.onload=function(){
         //     var hashid = window.location.hash;

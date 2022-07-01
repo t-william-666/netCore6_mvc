@@ -43,67 +43,86 @@
 </head>
 
 <body>
+
+  <!--===== Pre-Loading Area 预警器 Start =====-->
+  <div id="preloader">
+    <div class="preloader">
+      <div class="spinner-block">
+        <h1 class="spinner spinner-3 mb-0">.</h1>
+      </div>
+    </div>
+  </div>
+  <!--==== Pre-Loading Area 预警器 End ====-->
+
   <!-- 头部 -->
   <header>
     <div class="header main-header-area header-sticky ">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 col-md-6 col-6">
+          <div class="col-lg-6 col-md-6 col-4">
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
+              <div class="col-lg-3 col-md-4 col-sm-5 header-title section-title">
                 <p class="section-title-1 fs-3"><a href="#">CiYuanCang</a></p>
               </div>
-              <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8  hadmain-nav">
+              <div class="col-lg-9 col-md-8 col-sm-7 col-12 hadmain-nav">
                 <ul>
-                  <!-- <li>
-                                        <a href="#">
-                                            <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
-                                        </a>
-                                    </li> -->
-                  <li class="li-head">
-                    <a href="#" class="headerimg position-relative">
-                      <img src="./images/bg.png" alt="headerImage" id="headerImage"
-                        class="img-circle head-box headerImage">
-
+                  <li>
+                    <a href="./Login.html">
+                      <button type="button" id="btnLogin" class="p-h20 px-2 colorBlock">登录</button>
                     </a>
-
-                    <div class="user-boxdropdown">
-                      <div class="user-imgbox">
-                        <div class="headerimg-two">
-                          <a href="#">
-                            <img src="./images/bg.png" alt="">
-                          </a>
-                        </div>
-                        <p class="animation-jelly">
-                          <a href="#">用户名称</a>
-                        </p>
-                      </div>
-                      <ul class="animation-jelly">
-                        <li><a href="#"><i class="fa fa-user"></i> 个人信息</a></li>
-                        <li><a href="#"><i class="fa fa-file-text"></i> 我的订单</a></li>
-                        <li><a href="#"><i class="fa fa-bus"></i> 物流查询</a></li>
-                        <li><a href="#"><i class="fa fa-home"></i> 收货地址</a></li>
-                        <li><a href="#"><i class="fa fa-comment"></i> 评价中心</a></li>
-                        <hr class="hr-line">
-                        <li><a href="#"><i class="fa "></i> 退出登录</a></li>
-                      </ul>
-                    </div>
                   </li>
+                  <li>
+                    <a href="./Register.html">
+                      <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
+                    </a>
+                  </li>
+
+                  <!-- <li class="li-head">
+                                        <a href="#" class="headerimg position-relative">
+                                            <img src="./images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
+                                        </a>
+
+                                        <div class="user-boxdropdown">
+                                            <div class="user-imgbox">
+                                                <div class="headerimg-two">
+                                                    <a href="#">
+                                                        <img src="./images/bg.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <p class="animation-jelly">
+                                                    <a href="#">用户名称</a>
+                                                </p>
+                                            </div>
+                                            <ul class="animation-jelly">
+                                                <li><a href="./UserDetail.html#to-account-info"><i class="fa fa-user"></i> 个人信息</a></li>
+                                                <li><a href="#"><i class="fa fa-file-text"></i> 我的订单</a></li>
+                                                <li><a href="#"><i class="fa fa-bus"></i> 物流查询</a></li>
+                                                <li><a href="#"><i class="fa fa-home"></i> 收货地址</a></li>
+                                                <li><a href="#"><i class="fa fa-comment"></i> 评价中心</a></li>
+                                                <hr class="hr-line">
+                                                <li><a href="#"><i class="fa "></i> 退出登录</a></li>
+                                            </ul>
+                                        </div>
+                                    </li> -->
                 </ul>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-6 col-custom">
+          <div class="col-lg-6 col-md-6 col-8 col-custom">
             <div class="header-right-area main-nav">
               <ul class="nav animation-jelly">
+                <!-- 搜索 -->
+                <li class="minicart-wrap">
+                  <a href="./SearchShop.html" class="minicart-btn toolbar-btn">
+                    <i class="fa fa-search">
+                      <br>
+                      <span>搜索</span>
+                    </i>
+                  </a>
+                </li>
                 <!-- 购物车 -->
                 <li class="minicart-wrap">
-                  <a href="#" class="minicart-btn toolbar-btn">
+                  <a href="./cart.html" class="minicart-btn toolbar-btn">
                     <i class="fa fa-shopping-cart">
                       <br>
                       <span>购物车 </span>
@@ -151,7 +170,7 @@
                 </li>
                 <!-- 订单 -->
                 <li class="sidemenu-wrap">
-                  <a href="#">
+                  <a href="./UserDetail.html">
                     <i class="fa fa-file-text">
                       <br>
                       <span>我的订单</span>
@@ -160,7 +179,7 @@
                 </li>
                 <!-- 收藏 -->
                 <li class="minicart-wrap">
-                  <a href="#" class="minicart-btn toolbar-btn">
+                  <a href="./UserDetail.html" class="minicart-btn toolbar-btn">
                     <i class="fa fa fa-heart">
                       <br>
                       <span>我的收藏</span>
@@ -421,8 +440,7 @@
             </div>
             <div class="d-flex  justify-content-between">
               <button type="button" class="btn flosun-button delete-btn rounded-0 deleteBtn">删除</button>
-              <button type="button" data-toggle="modal" data-target="#Settlement-amount"
-                class="btn flosun-button primary-btn rounded-0 black-btn">购买</button>
+              <button type="button" data-toggle="modal" data-target="#Settlement-amount" class="btn flosun-button primary-btn rounded-0 black-btn">购买</button>
             </div>
           </div>
         </div>
@@ -540,8 +558,7 @@
               <p>
                 版权所有 © 2022 <a href="http://www.bootstrapmb.com/" title="http://www.bootstrapmb.com/">主题由</a> |
                 夜雨倾城&nbsp;
-                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/"
-                  title="http://www.bootstrapmb.com/">主题</a>.
+                <strong>FloSun</strong>&nbsp;by <a href="http://www.bootstrapmb.com/" title="http://www.bootstrapmb.com/">主题</a>.
               </p>
             </div>
           </div>

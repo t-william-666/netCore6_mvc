@@ -68,10 +68,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-4">
                         <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-6 col-4 header-title section-title">
+                            <div class="col-lg-3 col-md-4 col-sm-5 header-title section-title">
                                 <p class="section-title-1 fs-3"><a href="/Home/Home">CiYuanCang</a></p>
                             </div>
-                            <div class="col-lg-9 col-md-8 col-sm-7 col-xs-6 col-8 hadmain-nav">
+                            <div class="col-lg-9 col-md-8 col-sm-7col-12 hadmain-nav">
 
                                 @if (ViewBag.userInfo == null)
                                 {
@@ -715,8 +715,7 @@
                                             <div class="comment-form-area">
                                                 <div class="comment-form-comment mb-3">
                                                     <label>评论内容</label>
-                                                    <textarea id="commentBox" class="comment-notes" required="required"
-                                                              placeholder="请输入你的看法"></textarea>
+                                                    <textarea id="commentBox" class="comment-notes" required="required" placeholder="请输入你的看法"></textarea>
                                                 </div>
                                                 <div class="comment-form-submit">
                                                     <button type="button" class="btn flosun-button secondary-btn rounded-0 commentBtn">评论</button>
@@ -733,12 +732,251 @@
                                     {
                                         @foreach (var item in ViewBag.ProductComment)
                                         {
-                                            
+
                                         }
                                     }
                                     else
                                     {
-                                        
+                                        <div class="review_address_inner">
+                                            <div class="pro_review mb-3 w-100">
+                                                <div class="review_thumb mobile-none">
+                                                    <!-- 用户头像 -->
+                                                    <img alt="review images" src="/images/bg.png">
+                                                </div>
+                                                <div class="review_details w-100">
+                                                    <div class="commtentBox">
+                                                        <div class="review_info mb-2 d-flex">
+                                                            <div class="review_thumb d-md-none">
+                                                                <!-- 用户头像 -->
+                                                                <img alt="review images" src="/images/bg.png">
+                                                            </div>
+                                                            <div class="mobile-px1">
+                                                                <div class="product-rating mb-2">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-half-full"></i>
+                                                                </div>
+                                                                <h5 class="clearMy">用户名称<span> 评论时间 </span></h5>
+                                                            </div>
+                                                        </div>
+                                                        <!--评论内容-->
+                                                        <p class="text-truncate-3 ">
+                                                            评论内容!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                        </p>
+                                                        <p class="d-flex justify-content-end">
+                                                            <button type="button" class="commsBtn px-3" data-toggle="collapse" data-target="#comtnextlist_1" aria-expanded="true">
+                                                                <i class="fa fa-commenting-o">
+                                                                    <span class="commtext">评论(2)</span>
+                                                                </i>
+                                                            </button>
+                                                            <button type="button" class="likeBtn active">
+                                                                <i class="fa fa-thumbs-up">
+                                                                    <span class="likeNum">99</span>
+                                                                </i>
+                                                            </button>
+                                                        </p>
+                                                    </div>
+
+                                                    <hr class="hr-line">
+                                                    <!-- 多层评论嵌套-->
+                                                    <div id="comtnextlist_1" class="commentBoxmore collapse">
+                                                        <div class="review_address_inner">
+                                                            <div class="pro_review mb-3 w-100">
+                                                                <div class="review_thumb2 mobile-none">
+                                                                    <!-- 用户头像 -->
+                                                                    <img alt="review images" src="/images/bg.png">
+                                                                </div>
+                                                                <div class="review_details w-100">
+                                                                    <div class="review_info mb-2">
+                                                                        <h5>
+                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <span class="fs-12">回复</span>
+                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <span class="fs-12"> 评论时间 </span>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <!--评论内容-->
+                                                                    <p class="text-truncate-3 ">
+                                                                        评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                                    </p>
+                                                                    <p class="d-flex justify-content-end">
+                                                                        <button type="button" class="commBtn px-3">
+                                                                            <i class="fa fa-commenting-o">
+                                                                                <span class="commtext">评论</span>
+                                                                            </i>
+                                                                        </button>
+
+                                                                        <button type="button" class="likeBtn active">
+                                                                            <i class="fa fa-thumbs-up">
+                                                                                <span class="likeNum">99</span>
+                                                                            </i>
+                                                                        </button>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="review_address_inner">
+                                                            <div class="pro_review mb-3 w-100">
+                                                                <div class="review_thumb2 mobile-none">
+                                                                    <!-- 用户头像 -->
+                                                                    <img alt="review images" src="/images/bg.png">
+                                                                </div>
+                                                                <div class="review_details w-100">
+                                                                    <div class="review_info mb-2">
+                                                                        <h5>
+                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <span class="fs-12">回复</span>
+                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <span class="fs-12"> 评论时间 </span>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <!--评论内容-->
+                                                                    <p class="text-truncate-3 ">
+                                                                        评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                                    </p>
+                                                                    <p class="d-flex justify-content-end">
+                                                                        <button type="button" class="commBtn px-3">
+                                                                            <i class="fa fa-commenting-o">
+                                                                                <span class="commtext">评论</span>
+                                                                            </i>
+                                                                        </button>
+
+                                                                        <button type="button" class="likeBtn active">
+                                                                            <i class="fa fa-thumbs-up">
+                                                                                <span class="likeNum">99</span>
+                                                                            </i>
+                                                                        </button>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="seeComMore fs-13">查看更多</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="review_address_inner">
+                                            <div class="pro_review mb-3 w-100">
+                                                <div class="review_thumb mobile-none">
+                                                    <!-- 用户头像 -->
+                                                    <img alt="review images" src="/images/bg.png">
+                                                </div>
+                                                <div class="review_details w-100">
+                                                    <div class="commtentBox">
+                                                        <div class="review_info mb-2 d-flex">
+                                                            <div class="review_thumb d-md-none">
+                                                                <!-- 用户头像 -->
+                                                                <img alt="review images" src="/images/bg.png">
+                                                            </div>
+                                                            <div class="mobile-px1">
+                                                                <div class="product-rating mb-2">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star-half-full"></i>
+                                                                </div>
+                                                                <h5 class="clearMy">用户名称<span> 评论时间 </span></h5>
+                                                            </div>
+                                                        </div>
+                                                        <!--评论内容-->
+                                                        <p class="text-truncate-3 ">
+                                                            评论内容!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                        </p>
+                                                        <p class="d-flex justify-content-end">
+                                                            <button type="button" class="commsBtn px-3" data-toggle="collapse" data-target="#comtnextlist_2" aria-expanded="true">
+                                                                <i class="fa fa-commenting-o">
+                                                                    <span class="commtext">评论(2)</span>
+                                                                </i>
+                                                            </button>
+                                                            <button type="button" class="likeBtn active">
+                                                                <i class="fa fa-thumbs-up">
+                                                                    <span class="likeNum">99</span>
+                                                                </i>
+                                                            </button>
+                                                        </p>
+                                                    </div>
+                                                    <hr class="hr-line">
+                                                    <!-- 多层评论嵌套-->
+                                                    <div id="comtnextlist_2" class="commentBoxmore collapse">
+                                                        <div class="review_address_inner">
+                                                            <div class="pro_review mb-3 w-100">
+                                                                <div class="review_thumb2 mobile-none">
+                                                                    <!-- 用户头像 -->
+                                                                    <img alt="review images" src="/images/bg.png">
+                                                                </div>
+                                                                <div class="review_details w-100">
+                                                                    <div class="review_info mb-2">
+                                                                        <h5>
+                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <span class="fs-12">回复</span>
+                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <span class="fs-12"> 评论时间 </span>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <!--评论内容-->
+                                                                    <p class="text-truncate-3 ">
+                                                                        评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                                    </p>
+                                                                    <p class="d-flex justify-content-end">
+                                                                        <button type="button" class="commBtn px-3">
+                                                                            <i class="fa fa-commenting-o">
+                                                                                <span class="commtext">评论</span>
+                                                                            </i>
+                                                                        </button>
+
+                                                                        <button type="button" class="likeBtn active">
+                                                                            <i class="fa fa-thumbs-up">
+                                                                                <span class="likeNum">99</span>
+                                                                            </i>
+                                                                        </button>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="review_address_inner">
+                                                            <div class="pro_review mb-3 w-100">
+                                                                <div class="review_thumb2 mobile-none">
+                                                                    <!-- 用户头像 -->
+                                                                    <img alt="review images" src="./images/bg.png">
+                                                                </div>
+                                                                <div class="review_details w-100">
+                                                                    <div class="review_info mb-2">
+                                                                        <h5>
+                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <span class="fs-12">回复</span>
+                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <span class="fs-12"> 评论时间 </span>
+                                                                        </h5>
+                                                                    </div>
+                                                                    <!--评论内容-->
+                                                                    <p class="text-truncate-3 ">
+                                                                        评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                                    </p>
+                                                                    <p class="d-flex justify-content-end">
+                                                                        <button type="button" class="commBtn px-3">
+                                                                            <i class="fa fa-commenting-o">
+                                                                                <span class="commtext">评论</span>
+                                                                            </i>
+                                                                        </button>
+
+                                                                        <button type="button" class="likeBtn active">
+                                                                            <i class="fa fa-thumbs-up">
+                                                                                <span class="likeNum">99</span>
+                                                                            </i>
+                                                                        </button>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="seeComMore">查看更多</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     }
                                 </div>
                                 <div class="seeMore">查看更多</div>
@@ -1528,6 +1766,18 @@
     <!-- layUI JS -->
     <script src="/layer/layer.js" charset="utf-8"></script>
     <script type="text/javascript" src="/layer/xadmin.js"></script>
+
+    <script>
+        $('.commsBtn').click(function() {
+            let findactive = $(this).parents('.review_details').find('.commentBoxmore').hasClass('in');
+            console.log(findactive);
+            if (findactive) {
+                $(this).removeClass('active');
+            } else {
+                $(this).addClass('active');
+            }
+        })
+    </script>
 
 </body>
 

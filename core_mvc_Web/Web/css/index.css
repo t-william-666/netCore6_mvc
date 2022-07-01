@@ -82,6 +82,8 @@ input[type="password"]:hover {
 
 .header .colorBlock {
     color: #000000;
+    font-size: 16px;
+    font-style: initial;
 }
 
 
@@ -176,6 +178,10 @@ input[type="password"]:hover {
 
 .hr-line {
     margin: 5px 0px;
+}
+
+.hadmain-nav ul li {
+    display: inline-block !important;
 }
 
 .hadmain-nav>ul .headerImage {
@@ -618,7 +624,6 @@ input::placeholder {
     height: auto;
 }
 
-
 /* 轮播 */
 .Carousel-bg {
     margin: auto;
@@ -714,7 +719,6 @@ input::placeholder {
 
 }
 
-
 /* 商品图片 */
 .content .content-list .product-image.position-relative a img {
     border-radius: 0.5rem;
@@ -809,7 +813,6 @@ input::placeholder {
     color: #E72463;
 }
 
-
 /* 商品价格 */
 
 .Price-box span,
@@ -834,7 +837,6 @@ input::placeholder {
     font-style: oblique;
     color: #E72463;
 }
-
 
 /* 加入购物车按钮 */
 
@@ -902,9 +904,7 @@ input::placeholder {
     border-radius: 6px;
 }
 
-
 /* 分页按钮 */
-
 .btn-Page {
     padding: 5px 16px;
     border: 1px #ccc;
@@ -964,9 +964,20 @@ input::placeholder {
 .shop-introduce {
     margin: 3rem 0rem;
 }
+.bg{
+    background-color: #000;
+}
+.commentBoxmore {
+    background-color: white;
+}
+
+ .single-product-main-area .review_details:before {
+    width: 0rem;
+    height: 0rem;
+    display: none;
+}
 
 /* 按钮果冻效果 */
-
 .animation-jelly button:hover,
 .animation-jelly a:hover,
 .animation-jelly .fa:hover {
@@ -1022,6 +1033,17 @@ button:focus {
 }
 
 @media (max-width: 480px) {
+    .mobile-none{
+        display: none;
+    }
+    .mobile-px1{
+        padding: 1rem;
+    }
+    .hadmain-nav ul li {
+        display: flex;
+        text-align: center;
+    }
+
     .hadmain-nav>ul>.li-head {
         margin: 0rem 2rem;
     }
@@ -1105,6 +1127,14 @@ button:focus {
         border-bottom-right-radius: 1rem;
     }
 
+    #MyCarousel {
+        width: 100%;
+    }
+
+    .content .content-list {
+        width: 85%;
+    }
+
     /* 菜单导航栏 */
     .content-menu .menu ul {
         width: 100% !important;
@@ -1172,6 +1202,10 @@ button:focus {
         color: white;
     }
 
+    /* 商品详情评论 */
+    .single-product-main-area .review_details:before {
+        display: none !important;
+    }
 
     /* 商品的销量 */
     .Price-box .float-end {

@@ -149,17 +149,19 @@ ALTER TABLE Product --外键表
 
 =============================================使用sql语句给SQL server数据库添加触发器===============================================
 
-USE [TestDB]
-GO
-/****** Object:  Trigger [dbo].[triggerProductImage]    Script Date: 2022/4/25 11:57:51 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER trigger [dbo].[triggerProductImage]  
-on [dbo].[ProductImage] 
-after insert 
-as
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE TRIGGER trig_ProductImage
+   ON  [dbo].[ProductImage] 
+   AFTER insert
+AS 
 begin
 --声明变量
 declare @id int,@pID nvarchar(50), @maxNum int,@other int
@@ -178,6 +180,7 @@ else
       update ProductImage  set ImgOrderby = @maxNum+1 where ImgID=@id
     end
 end
+go
 
 
 

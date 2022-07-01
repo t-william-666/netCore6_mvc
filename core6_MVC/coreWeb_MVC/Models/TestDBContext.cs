@@ -23,6 +23,7 @@ namespace coreWeb_MVC.Models
         public virtual DbSet<ProductComment> ProductComments { get; set; } = null!;
         public virtual DbSet<ProductCommentImage> ProductCommentImages { get; set; } = null!;
         public virtual DbSet<ProductCommentLike> ProductCommentLikes { get; set; } = null!;
+        public virtual DbSet<ProductCommentReply> ProductCommentReplies { get; set; } = null!;
         public virtual DbSet<ProductImage> ProductImages { get; set; } = null!;
         public virtual DbSet<ProductOrder> ProductOrders { get; set; } = null!;
         public virtual DbSet<ProductOrderDetail> ProductOrderDetails { get; set; } = null!;
@@ -258,9 +259,30 @@ namespace coreWeb_MVC.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CommentID).HasMaxLength(50);
+                entity.Property(e => e.UserID).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<ProductCommentReply>(entity =>
+            {
+                entity.HasKey(e => e.CommreplyID);
+
+                entity.ToTable("ProductCommentReply");
+
+                entity.Property(e => e.ComText).HasMaxLength(500);
 
                 entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.Property(e => e.addDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.toUserID).HasMaxLength(100);
+
+                entity.HasOne(d => d.Comment)
+                    .WithMany(p => p.ProductCommentReplies)
+                    .HasForeignKey(d => d.CommentID)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductCommentReply_ProductComment");
             });
 
             modelBuilder.Entity<ProductImage>(entity =>
