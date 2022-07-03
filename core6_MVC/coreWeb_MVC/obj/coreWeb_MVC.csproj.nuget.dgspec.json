@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj": {}
   },
   "projects": {
@@ -12,12 +13,27 @@
         "projectPath": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
         "packagesPath": "C:\\Users\\aa\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\",
+=======
+    "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
+        "projectName": "coreWeb_MVC",
+        "projectPath": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
+        "packagesPath": "C:\\Users\\韦金耀\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\韦金耀\\Desktop\\次元仓\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\obj\\",
+>>>>>>> main
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\aa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\韦金耀\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -119,7 +135,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+>>>>>>> main
         }
       }
     }
