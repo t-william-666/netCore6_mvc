@@ -293,7 +293,23 @@ $('.likeBtn').click(function () {
     }
 
 })
+//回复评论
+$('.replyBtn').click(function(){
+    let replyclass=$(this).parent('p').find('.replyBtn').hasClass("active");
+    $('.replyBtn').removeClass('active');
+    $('.replyBox').addClass('d-none')
+    if (replyclass) {
+        $(this).removeClass('active')
+        $(this).parents('.commentBoxmore').find('.replyBox').addClass('d-none');
+    } else {
+        $(this).addClass('active');
+        //获取回复的用户名
+        let comname=$(this).parents('.comdetails').find('.usercom').text();
+        $(this).parents('.commentBoxmore').find('.replytext').attr('placeholder','回复 @'+comname+':')
+        $(this).parents('.commentBoxmore').find('.replyBox').removeClass('d-none');
+    }
 
+})
 
 // 用户评论的星级评分
 var starNum = 0; //获取星星的数量
