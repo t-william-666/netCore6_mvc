@@ -171,6 +171,18 @@
             使用【ADO.Net】连接数据库
             </summary>
         </member>
+        <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateUserID">
+            <summary>
+            生成用户编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateProductID(System.String)">
+            <summary>
+            生成商品编号
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:coreWeb_MVC.Models.Other.PasswordHasher">
             <summary>
             PBKDF2 密码加密

@@ -297,11 +297,6 @@
 		<None Include="Views\Shared\_header.cshtml" />
 		<None Include="Views\Shared\_Layout.cshtml" />
 		<None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
-		<None Include="Views\Users\Create.cshtml" />
-		<None Include="Views\Users\Delete.cshtml" />
-		<None Include="Views\Users\Details.cshtml" />
-		<None Include="Views\Users\Edit.cshtml" />
-		<None Include="Views\Users\Index.cshtml" />
 		<None Include="Views\_ViewImports.cshtml" />
 		<None Include="Views\_ViewStart.cshtml" />
 		<None Include="wwwroot\bootstrap\bootstrap-3.4.1-dist\css\bootstrap-theme.css.map" />
@@ -425,7 +420,7 @@
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
 		<PackageReference Include="NSwag.Annotations" Version="13.16.1" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
 	</ItemGroup>
 

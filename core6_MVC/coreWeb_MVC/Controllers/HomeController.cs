@@ -151,6 +151,7 @@ namespace coreWeb_MVC.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Home()
         {
+            string y = CreatecodeNumber.CreateUserID();
             //右侧菜单栏
             TempData["headMenu"] = await _dbContext.TitleLists.Where(p => p.about == "header-tab").OrderBy(p => p.TitleOrderby).ToListAsync();
             ViewBag.headerMenu = TempData["headMenu"];
