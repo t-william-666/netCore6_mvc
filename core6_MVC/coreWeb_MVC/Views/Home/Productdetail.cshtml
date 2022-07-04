@@ -741,14 +741,14 @@
                                             <div class="pro_review mb-3 w-100">
                                                 <div class="review_thumb mobile-none">
                                                     <!-- 用户头像 -->
-                                                    <img alt="review images" src="/images/bg.png">
+                                                    <img alt="review images" src="./images/bg.png">
                                                 </div>
                                                 <div class="review_details w-100">
                                                     <div class="commtentBox">
                                                         <div class="review_info mb-2 d-flex">
                                                             <div class="review_thumb d-md-none">
                                                                 <!-- 用户头像 -->
-                                                                <img alt="review images" src="/images/bg.png">
+                                                                <img alt="review images" src="./images/bg.png">
                                                             </div>
                                                             <div class="mobile-px1">
                                                                 <div class="product-rating mb-2">
@@ -766,7 +766,9 @@
                                                             评论内容!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                                         </p>
                                                         <p class="d-flex justify-content-end">
-                                                            <button type="button" class="commsBtn px-3" data-toggle="collapse" data-target="#comtnextlist_1" aria-expanded="true">
+                                                            <button type="button" class="commsBtn px-3"
+                                                                data-toggle="collapse" data-target="#comtnextlist_1"
+                                                                aria-expanded="true">
                                                                 <i class="fa fa-commenting-o">
                                                                     <span class="commtext">评论(2)</span>
                                                                 </i>
@@ -778,7 +780,6 @@
                                                             </button>
                                                         </p>
                                                     </div>
-
                                                     <hr class="hr-line">
                                                     <!-- 多层评论嵌套-->
                                                     <div id="comtnextlist_1" class="commentBoxmore collapse">
@@ -786,14 +787,14 @@
                                                             <div class="pro_review mb-3 w-100">
                                                                 <div class="review_thumb2 mobile-none">
                                                                     <!-- 用户头像 -->
-                                                                    <img alt="review images" src="/images/bg.png">
+                                                                    <img alt="review images" src="./images/bg.png">
                                                                 </div>
-                                                                <div class="review_details w-100">
+                                                                <div class="review_details comdetails w-100">
                                                                     <div class="review_info mb-2">
                                                                         <h5>
-                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <a href="#" class="fs-13 usercom">夜雨倾城</a>
                                                                             <span class="fs-12">回复</span>
-                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <a href="#" class="fs-13 tousercom">用户名称2</a>
                                                                             <span class="fs-12"> 评论时间 </span>
                                                                         </h5>
                                                                     </div>
@@ -802,9 +803,9 @@
                                                                         评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                                                     </p>
                                                                     <p class="d-flex justify-content-end">
-                                                                        <button type="button" class="commBtn px-3">
+                                                                        <button type="button" class="replyBtn px-3">
                                                                             <i class="fa fa-commenting-o">
-                                                                                <span class="commtext">评论</span>
+                                                                                <span class="commtext">回复</span>
                                                                             </i>
                                                                         </button>
 
@@ -821,25 +822,25 @@
                                                             <div class="pro_review mb-3 w-100">
                                                                 <div class="review_thumb2 mobile-none">
                                                                     <!-- 用户头像 -->
-                                                                    <img alt="review images" src="/images/bg.png">
+                                                                    <img alt="review images" src="./images/bg.png">
                                                                 </div>
-                                                                <div class="review_details w-100">
+                                                                <div class="review_details comdetails w-100">
                                                                     <div class="review_info mb-2">
                                                                         <h5>
-                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <a href="#" class="fs-13 usercom">古风落叶</a>
                                                                             <span class="fs-12">回复</span>
-                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <a href="#" class="fs-13 tousercom">用户名称22</a>
                                                                             <span class="fs-12"> 评论时间 </span>
                                                                         </h5>
                                                                     </div>
                                                                     <!--评论内容-->
                                                                     <p class="text-truncate-3 ">
-                                                                        评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                                        评论内容dfdfd飞洒地方撒旦发射点发射点发射点发射点发太热太热特让更多人环绕太阳交通银行或多方通话双方他的ffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                                                     </p>
                                                                     <p class="d-flex justify-content-end">
-                                                                        <button type="button" class="commBtn px-3">
+                                                                        <button type="button" class="replyBtn px-3">
                                                                             <i class="fa fa-commenting-o">
-                                                                                <span class="commtext">评论</span>
+                                                                                <span class="commtext">回复</span>
                                                                             </i>
                                                                         </button>
 
@@ -852,7 +853,21 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="seeComMore fs-13">查看更多</div>
+
+                                                        <!-- 回复评论 -->
+                                                        <div class="replyBox d-none">
+                                                            <div class="row clearMx">
+                                                                <div class="col-sm-10 col-9 clearPx">
+                                                                    <textarea id="replytext" class="replytext" placeholder="回复@yon:" cols="80" rows="5"></textarea>
+                                                                </div>
+                                                                <div class="col-sm-2 col-3 clearPx">
+                                                                    <button type="button" class="replycombtn">回复评论</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="seeComMore">查看更多</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -862,14 +877,14 @@
                                             <div class="pro_review mb-3 w-100">
                                                 <div class="review_thumb mobile-none">
                                                     <!-- 用户头像 -->
-                                                    <img alt="review images" src="/images/bg.png">
+                                                    <img alt="review images" src="./images/bg.png">
                                                 </div>
                                                 <div class="review_details w-100">
                                                     <div class="commtentBox">
                                                         <div class="review_info mb-2 d-flex">
                                                             <div class="review_thumb d-md-none">
                                                                 <!-- 用户头像 -->
-                                                                <img alt="review images" src="/images/bg.png">
+                                                                <img alt="review images" src="./images/bg.png">
                                                             </div>
                                                             <div class="mobile-px1">
                                                                 <div class="product-rating mb-2">
@@ -906,14 +921,14 @@
                                                             <div class="pro_review mb-3 w-100">
                                                                 <div class="review_thumb2 mobile-none">
                                                                     <!-- 用户头像 -->
-                                                                    <img alt="review images" src="/images/bg.png">
+                                                                    <img alt="review images" src="./images/bg.png">
                                                                 </div>
-                                                                <div class="review_details w-100">
+                                                                <div class="review_details comdetails w-100">
                                                                     <div class="review_info mb-2">
                                                                         <h5>
-                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <a href="#" class="fs-13 usercom">给他点颜色</a>
                                                                             <span class="fs-12">回复</span>
-                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <a href="#" class="fs-13 tousercom">用户名称2</a>
                                                                             <span class="fs-12"> 评论时间 </span>
                                                                         </h5>
                                                                     </div>
@@ -922,9 +937,9 @@
                                                                         评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                                                     </p>
                                                                     <p class="d-flex justify-content-end">
-                                                                        <button type="button" class="commBtn px-3">
+                                                                        <button type="button" class="replyBtn px-3">
                                                                             <i class="fa fa-commenting-o">
-                                                                                <span class="commtext">评论</span>
+                                                                                <span class="commtext">回复</span>
                                                                             </i>
                                                                         </button>
 
@@ -943,23 +958,23 @@
                                                                     <!-- 用户头像 -->
                                                                     <img alt="review images" src="./images/bg.png">
                                                                 </div>
-                                                                <div class="review_details w-100">
+                                                                <div class="review_details comdetails w-100">
                                                                     <div class="review_info mb-2">
                                                                         <h5>
-                                                                            <a href="#" class="fs-13">用户名称1</a>
+                                                                            <a href="#" class="fs-13 usercom">辉夜姬</a>
                                                                             <span class="fs-12">回复</span>
-                                                                            <a href="#" class="fs-13">用户名称2</a>
+                                                                            <a href="#" class="fs-13 tousercom">用户名称22</a>
                                                                             <span class="fs-12"> 评论时间 </span>
                                                                         </h5>
                                                                     </div>
                                                                     <!--评论内容-->
                                                                     <p class="text-truncate-3 ">
-                                                                        评论内容dfdfdffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                                        评论内容dfdfd飞洒地方撒旦发射点发射点发射点发射点发太热太热特让更多人环绕太阳交通银行或多方通话双方他的ffdf!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                                                                     </p>
                                                                     <p class="d-flex justify-content-end">
-                                                                        <button type="button" class="commBtn px-3">
+                                                                        <button type="button" class="replyBtn px-3">
                                                                             <i class="fa fa-commenting-o">
-                                                                                <span class="commtext">评论</span>
+                                                                                <span class="commtext">回复</span>
                                                                             </i>
                                                                         </button>
 
@@ -972,14 +987,36 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <!-- 回复评论 -->
+                                                        <div class="replyBox d-none">
+                                                            <div class=" row clearMx">
+                                                                <div class="col-sm-10 col-9 clearPx">
+                                                                    <textarea id="replytext" class="replytext" placeholder="回复@yon:" cols="80" rows="5"></textarea>
+                                                                </div>
+                                                                <div class="col-sm-2 col-3 clearPx">
+                                                                    <button type="button" class="replycombtn">回复评论</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
                                                         <div class="seeComMore">查看更多</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- 更多评论 -->
+                                        <div class="review_address_inner">
+                                            <div class="pro_review mb-3 w-100">
+                                                <div class="review_thumb mobile-none">
+                                                </div>
+                                                <div class="seeMore">查看更多用户评论</div>
+                                            </div>
+                                        </div>
                                     }
                                 </div>
-                                <div class="seeMore">查看更多</div>
                             </div>
                             <!-- End Single Content -->
                         </div>

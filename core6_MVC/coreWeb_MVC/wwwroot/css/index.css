@@ -180,10 +180,6 @@ input[type="password"]:hover {
     margin: 5px 0px;
 }
 
-.hadmain-nav ul li {
-    display: inline-block !important;
-}
-
 .hadmain-nav>ul .headerImage {
     box-shadow: 0 0px 5px 0px #ccc;
 }

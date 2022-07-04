@@ -48,6 +48,8 @@ namespace coreWeb_MVC.Models
         public virtual DbSet<UserImageList> UserImageLists { get; set; } = null!;
         public virtual DbSet<UserLike> UserLikes { get; set; } = null!;
         public virtual DbSet<UserLoginLog> UserLoginLogs { get; set; } = null!;
+        public virtual DbSet<UserLookProduct> UserLookProducts { get; set; } = null!;
+        public virtual DbSet<UserSearch> UserSearches { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -94,6 +96,9 @@ namespace coreWeb_MVC.Models
                     .HasName("PK_Shop");
 
                 entity.ToTable("Product");
+
+                entity.HasIndex(e => e.ProductID, "IX_ProductID")
+                    .IsUnique();
 
                 entity.Property(e => e.ProductID).HasMaxLength(100);
 
@@ -431,6 +436,9 @@ namespace coreWeb_MVC.Models
                     .HasName("PK_Shop_1");
 
                 entity.ToTable("Shop");
+
+                entity.HasIndex(e => e.ID, "IX_ShopID")
+                    .IsUnique();
 
                 entity.Property(e => e.ShopID).HasMaxLength(100);
 
@@ -1049,9 +1057,8 @@ namespace coreWeb_MVC.Models
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasKey(e => e.UserID);
-
-                entity.HasIndex(e => e.ID, "ix_com_Users");
+                entity.HasKey(e => e.UserID)
+                    .IsClustered(false);
 
                 entity.Property(e => e.UserID).HasMaxLength(100);
 
@@ -1062,8 +1069,6 @@ namespace coreWeb_MVC.Models
                     .HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.Address).HasMaxLength(50);
-
-                entity.Property(e => e.ID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Introduce).HasMaxLength(200);
 
@@ -1206,6 +1211,53 @@ namespace coreWeb_MVC.Models
                 entity.Property(e => e.LoginVpnIP3).HasMaxLength(250);
 
                 entity.Property(e => e.UserID).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<UserLookProduct>(entity =>
+            {
+                entity.HasKey(e => e.LookID);
+
+                entity.ToTable("UserLookProduct");
+
+                entity.Property(e => e.AddDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.PoductID).HasMaxLength(100);
+
+                entity.Property(e => e.ShopID).HasMaxLength(100);
+
+                entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.HasOne(d => d.Poduct)
+                    .WithMany(p => p.UserLookProducts)
+                    .HasForeignKey(d => d.PoductID)
+                    .HasConstraintName("FK_UserLookProduct_Product");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserLookProducts)
+                    .HasForeignKey(d => d.UserID)
+                    .HasConstraintName("FK_UserLookProduct_Users");
+            });
+
+            modelBuilder.Entity<UserSearch>(entity =>
+            {
+                entity.HasKey(e => e.searchID);
+
+                entity.ToTable("UserSearch");
+
+                entity.Property(e => e.AddDate)
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.SearchName).HasMaxLength(250);
+
+                entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserSearches)
+                    .HasForeignKey(d => d.UserID)
+                    .HasConstraintName("FK_UserSearch_Users");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pkDM22VsephGNNri0/bLSGZM5FMjrYPOVwT1gvXPnPZWomL0lg4x7HoaCcuFDc3cXuWrRCAIm8tAJwkkq/Wc2w==",
+  "dgSpecHash": "uyxMai0oDeOZgj9a5JutOgfFRux7l5hhZBTZQmgmqmZMo9fQLzA2JsnTEZyexZUqw5lDhjPSnQ7Aw0wlRwt94Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\aa\\Desktop\\本地库\\core_MVC\\netCore6_mvc\\core6_MVC\\coreWeb_MVC\\coreWeb_MVC.csproj",
   "expectedPackageFiles": [
@@ -61,7 +61,6 @@
     "C:\\Users\\aa\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\aa\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\aa\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
-    "C:\\Users\\aa\\.nuget\\packages\\microsoft.extensions.platformabstractions\\1.1.0\\microsoft.extensions.platformabstractions.1.1.0.nupkg.sha512",
     "C:\\Users\\aa\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\aa\\.nuget\\packages\\microsoft.identity.client\\4.21.1\\microsoft.identity.client.4.21.1.nupkg.sha512",
     "C:\\Users\\aa\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.0\\microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",

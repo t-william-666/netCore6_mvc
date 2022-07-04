@@ -11,9 +11,10 @@ namespace coreWeb_MVC.Models
             ProductOrders = new HashSet<ProductOrder>();
             UserAddresses = new HashSet<UserAddress>();
             UserImageLists = new HashSet<UserImageList>();
+            UserLookProducts = new HashSet<UserLookProduct>();
+            UserSearches = new HashSet<UserSearch>();
         }
 
-        public int ID { get; set; }
         public string UserID { get; set; } = null!;
         public string? Account { get; set; }
         public string Password { get; set; } = null!;
@@ -33,5 +34,7 @@ namespace coreWeb_MVC.Models
         public virtual ICollection<ProductOrder> ProductOrders { get; set; }
         public virtual ICollection<UserAddress> UserAddresses { get; set; }
         public virtual ICollection<UserImageList> UserImageLists { get; set; }
+        public virtual ICollection<UserLookProduct> UserLookProducts { get; set; }
+        public virtual ICollection<UserSearch> UserSearches { get; set; }
     }
 }

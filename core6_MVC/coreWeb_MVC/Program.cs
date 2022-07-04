@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Rewrite;
 //Swagger 自定义和扩展
 using Microsoft.OpenApi.Models;
 using System.Reflection;
-using Microsoft.Extensions.PlatformAbstractions;
 using coreWeb_MVC.Models.Other;
 
 
@@ -94,28 +93,14 @@ builder.Services.AddSwaggerGen(options =>
     options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
 
 
-    //////安装Microsoft.Extensions.PlatformAbstractions组件
-    //// 获取xml文件名
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //// 获取xml文件路径
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //// 添加控制器层注释，true表示显示控制器注释
-    //options.IncludeXmlComments(xmlPath, true);
-
-
-    //解决相同类名会报错的问题
-    options.CustomSchemaIds(type => type.FullName);
-    //API接口文件路径
-    var filePath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "coreWeb_MVC.xml");
+    ////安装Microsoft.Extensions.PlatformAbstractions组件
+    // 获取xml文件名
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    // 获取xml文件路径
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     // 添加控制器层注释，true表示显示控制器注释
-    options.IncludeXmlComments(filePath);
-    //请求实体路径
-    var requestfilePath = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "coreWeb_MVC.xml");
-    // 添加控制器层注释，true表示显示控制器注释
-    options.IncludeXmlComments(requestfilePath);
-    //options.DescribeAllEnumsAsStrings();
-    //添加对控制器的标签(描述)
-    options.DocumentFilter<ApplyTagDescriptions>();
+    options.IncludeXmlComments(xmlPath, true);
+
 });
 
 //// <summary>
