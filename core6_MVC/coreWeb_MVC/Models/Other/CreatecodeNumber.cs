@@ -45,6 +45,20 @@
             productID = productID + date + nutime;
             return productID;
         }
+        /// <summary>
+        /// 生成订单编号
+        /// </summary>
+        /// <returns></returns>
+        public static string CreateOrderID()
+        {
+            string OrderNo =  "OD";
+            //获取当前时间到秒
+            string date = DateTime.Now.ToString("yyyyMMddhhmmss");
+            //获取当前时间的微妙
+            string nutime = DateTime.Now.ToString("FFFF");
+            OrderNo = OrderNo + date + nutime;
+            return OrderNo;
+        }
 
     }
 }

@@ -17,9 +17,13 @@
 
 	<ItemGroup>
 		<Compile Remove="View\**" />
+		<Compile Remove="wwwroot\images\productImafge\**" />
 		<Content Remove="View\**" />
+		<Content Remove="wwwroot\images\productImafge\**" />
 		<EmbeddedResource Remove="View\**" />
+		<EmbeddedResource Remove="wwwroot\images\productImafge\**" />
 		<None Remove="View\**" />
+		<None Remove="wwwroot\images\productImafge\**" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -427,7 +431,6 @@
 	<ItemGroup>
 		<Folder Include="bin\Debug\net6.0\ref\" />
 		<Folder Include="Migrations\" />
-		<Folder Include="wwwroot\images\productImafge\" />
 	</ItemGroup>
 
 </Project>

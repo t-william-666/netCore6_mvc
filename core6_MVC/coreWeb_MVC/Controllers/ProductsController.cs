@@ -60,6 +60,28 @@ namespace coreWeb_MVC.Controllers
         }
 
         /// <summary>
+        /// 根据商品类型查询商品
+        /// </summary>
+        /// <param name="producttype"></param>
+        /// <returns></returns>
+        [HttpGet("{producttype}")]
+        public async Task<ActionResult<List<Product>>> GetProductList(string producttype="")
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+            var product = await _context.Products.Where(p => p.ProductType == int.Parse(producttype)).ToListAsync();
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return product;
+        }
+
+        /// <summary>
         /// 根据商品id修改商品
         /// </summary>
         /// <param name="id"></param>

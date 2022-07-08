@@ -27,7 +27,7 @@ namespace coreWeb_MVC.Models
         public virtual DbSet<ProductImage> ProductImages { get; set; } = null!;
         public virtual DbSet<ProductOrder> ProductOrders { get; set; } = null!;
         public virtual DbSet<ProductOrderDetail> ProductOrderDetails { get; set; } = null!;
-        public virtual DbSet<ProductPorderLogistic> ProductPorderLogistics { get; set; } = null!;
+        public virtual DbSet<ProductOrderLogistic> ProductOrderLogistics { get; set; } = null!;
         public virtual DbSet<ProductStar> ProductStars { get; set; } = null!;
         public virtual DbSet<Shop> Shops { get; set; } = null!;
         public virtual DbSet<ShopImage> ShopImages { get; set; } = null!;
@@ -134,12 +134,12 @@ namespace coreWeb_MVC.Models
                 entity.HasOne(d => d.ProductTypeNavigation)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.ProductType)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Product_ShopProductTypes");
 
                 entity.HasOne(d => d.Shop)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.ShopID)
-                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Shop_Product");
             });
 
@@ -158,11 +158,23 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductCartNum).HasDefaultValueSql("((1))");
 
-                entity.Property(e => e.ProductID).HasMaxLength(50);
+                entity.Property(e => e.ProductID).HasMaxLength(100);
 
                 entity.Property(e => e.ProductPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.UserID).HasMaxLength(50);
+                entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ProductCarts)
+                    .HasForeignKey(d => d.ProductID)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductCart_Product");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.ProductCarts)
+                    .HasForeignKey(d => d.UserID)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductCart_Users");
             });
 
             modelBuilder.Entity<ProductCollect>(entity =>
@@ -332,7 +344,7 @@ namespace coreWeb_MVC.Models
 
                 entity.ToTable("ProductOrder");
 
-                entity.Property(e => e.OrderNo).HasMaxLength(50);
+                entity.Property(e => e.OrderNo).HasMaxLength(100);
 
                 entity.Property(e => e.OrderAmountPrice).HasColumnType("decimal(18, 2)");
 
@@ -354,6 +366,11 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.UserID).HasMaxLength(100);
 
+                entity.HasOne(d => d.OrderAddress)
+                    .WithMany(p => p.ProductOrders)
+                    .HasForeignKey(d => d.OrderAddressId)
+                    .HasConstraintName("FK_ProductOrder_ProductOrder");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.ProductOrders)
                     .HasForeignKey(d => d.UserID)
@@ -372,15 +389,15 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.OrderDetailState).HasDefaultValueSql("((1))");
 
-                entity.Property(e => e.OrderNo).HasMaxLength(50);
+                entity.Property(e => e.OrderNo).HasMaxLength(100);
 
                 entity.Property(e => e.ProductID).HasMaxLength(100);
 
                 entity.Property(e => e.ProductPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
 
-                entity.Property(e => e.UserID).HasMaxLength(50);
+                entity.Property(e => e.UserID).HasMaxLength(100);
 
                 entity.HasOne(d => d.OrderNoNavigation)
                     .WithMany(p => p.ProductOrderDetails)
@@ -395,9 +412,10 @@ namespace coreWeb_MVC.Models
                     .HasConstraintName("FK_ProductOrderDetail_Product");
             });
 
-            modelBuilder.Entity<ProductPorderLogistic>(entity =>
+            modelBuilder.Entity<ProductOrderLogistic>(entity =>
             {
-                entity.HasKey(e => e.LogisticsID);
+                entity.HasKey(e => e.LogisticsID)
+                    .HasName("PK_ProductPorderLogistics");
 
                 entity.Property(e => e.LogisticsID).ValueGeneratedNever();
 
@@ -412,9 +430,9 @@ namespace coreWeb_MVC.Models
                 entity.Property(e => e.ExpressID).HasMaxLength(200);
 
                 entity.HasOne(d => d.Detail)
-                    .WithMany(p => p.ProductPorderLogistics)
+                    .WithMany(p => p.ProductOrderLogistics)
                     .HasForeignKey(d => d.DetailID)
-                    .HasConstraintName("FK_ProductPorderLogistics_ProductOrderDetail");
+                    .HasConstraintName("FK_ProductOrderLogistics_ProductOrderDetail");
             });
 
             modelBuilder.Entity<ProductStar>(entity =>
@@ -842,6 +860,12 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.AddDate).HasColumnType("datetime");
 
+                entity.Property(e => e.Area).HasMaxLength(50);
+
+                entity.Property(e => e.City).HasMaxLength(50);
+
+                entity.Property(e => e.DetailAddress).HasMaxLength(100);
+
                 entity.Property(e => e.DiscountPrice).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.ExpressCompany).HasMaxLength(100);
@@ -850,11 +874,21 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ExpressID).HasMaxLength(200);
 
-                entity.Property(e => e.ImgPath1).HasMaxLength(1000);
+                entity.Property(e => e.Mobile).HasMaxLength(11);
 
-                entity.Property(e => e.ImgPath2).HasMaxLength(1000);
+                entity.Property(e => e.OrderAmountPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.OrderNo).HasMaxLength(50);
+                entity.Property(e => e.OrderDate).HasColumnType("datetime");
+
+                entity.Property(e => e.OrderDiscountPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.OrderName).HasMaxLength(50);
+
+                entity.Property(e => e.OrderNo).HasMaxLength(100);
+
+                entity.Property(e => e.OrderSumPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Other).HasMaxLength(200);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
 
@@ -868,9 +902,15 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductStarNum).HasColumnType("decimal(5, 2)");
 
-                entity.Property(e => e.ShopID).HasMaxLength(50);
+                entity.Property(e => e.Province).HasMaxLength(50);
 
-                entity.Property(e => e.UserID).HasMaxLength(50);
+                entity.Property(e => e.ShopID).HasMaxLength(100);
+
+                entity.Property(e => e.Town).HasMaxLength(50);
+
+                entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.Property(e => e.UserName).HasMaxLength(50);
 
                 entity.Property(e => e.discount).HasColumnType("decimal(5, 2)");
             });
@@ -885,13 +925,19 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.AddDate).HasColumnType("datetime");
 
-                entity.Property(e => e.DiscountPrice).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.Area).HasMaxLength(50);
 
-                entity.Property(e => e.Expr1).HasMaxLength(100);
+                entity.Property(e => e.City).HasMaxLength(50);
+
+                entity.Property(e => e.DetailAddress).HasMaxLength(100);
+
+                entity.Property(e => e.DiscountPrice).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.ImgPath1).HasMaxLength(1000);
 
                 entity.Property(e => e.ImgPath2).HasMaxLength(1000);
+
+                entity.Property(e => e.Mobile).HasMaxLength(11);
 
                 entity.Property(e => e.OrderAmountPrice).HasColumnType("decimal(18, 2)");
 
@@ -901,9 +947,11 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.OrderName).HasMaxLength(50);
 
-                entity.Property(e => e.OrderNo).HasMaxLength(50);
+                entity.Property(e => e.OrderNo).HasMaxLength(100);
 
                 entity.Property(e => e.OrderSumPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Other).HasMaxLength(200);
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
 
@@ -921,11 +969,17 @@ namespace coreWeb_MVC.Models
 
                 entity.Property(e => e.ProductTypeName).HasMaxLength(50);
 
+                entity.Property(e => e.Province).HasMaxLength(50);
+
                 entity.Property(e => e.ShopID).HasMaxLength(100);
+
+                entity.Property(e => e.Town).HasMaxLength(50);
 
                 entity.Property(e => e.TypeName).HasMaxLength(20);
 
                 entity.Property(e => e.UserID).HasMaxLength(100);
+
+                entity.Property(e => e.UserName).HasMaxLength(50);
 
                 entity.Property(e => e.discount).HasColumnType("decimal(5, 2)");
             });
@@ -1166,6 +1220,8 @@ namespace coreWeb_MVC.Models
                 entity.Property(e => e.AddDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.LikeID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LikeType).HasDefaultValueSql("((1))");
 

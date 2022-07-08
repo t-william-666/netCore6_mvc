@@ -88,18 +88,18 @@ builder.Services.AddSwaggerGen(options =>
 
     ////AddServer用于全局的添加接口域名和前缀（虚拟路径）部分信息，默认情况下，如果我们在SwaggerUi页面使用Try it out去调用接口时，
     ////默认使用的是当前swaggerUI页面所在的地址域名信息：
-    options.AddServer(new OpenApiServer() { Url = "http://localhost:4460", Description = "地址1" });
-    options.AddServer(new OpenApiServer() { Url = "http://127.0.0.1:5001", Description = "地址2" });
-    options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
+    //options.AddServer(new OpenApiServer() { Url = "http://localhost:4460", Description = "地址1" });
+    //options.AddServer(new OpenApiServer() { Url = "http://127.0.0.1:5001", Description = "地址2" });
+    //options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
 
 
-    ////安装Microsoft.Extensions.PlatformAbstractions组件
-    // 获取xml文件名
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    // 获取xml文件路径
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    // 添加控制器层注释，true表示显示控制器注释
-    options.IncludeXmlComments(xmlPath, true);
+    //////安装Microsoft.Extensions.PlatformAbstractions组件
+    //// 获取xml文件名
+    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //// 获取xml文件路径
+    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    //// 添加控制器层注释，true表示显示控制器注释
+    //options.IncludeXmlComments(xmlPath, true);
 
 });
 

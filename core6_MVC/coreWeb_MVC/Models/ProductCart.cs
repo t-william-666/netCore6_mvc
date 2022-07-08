@@ -12,5 +12,8 @@ namespace coreWeb_MVC.Models
         public decimal? ProductPrice { get; set; }
         public int CartType { get; set; }
         public DateTime AddDate { get; set; }
+
+        public virtual Product Product { get; set; } = null!;
+        public virtual User User { get; set; } = null!;
     }
 }

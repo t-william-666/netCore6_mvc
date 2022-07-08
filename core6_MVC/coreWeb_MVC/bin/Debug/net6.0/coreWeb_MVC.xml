@@ -104,6 +104,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductList(System.String)">
+            <summary>
+            根据商品类型查询商品
+            </summary>
+            <param name="producttype"></param>
+            <returns></returns>
+        </member>
         <member name="M:coreWeb_MVC.Controllers.ProductsController.PutProduct(System.String,coreWeb_MVC.Models.Product)">
             <summary>
             根据商品id修改商品
@@ -166,6 +173,118 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:coreWeb_MVC.Controllers.UsercenterController">
+            <summary>
+            用户中心api接口
+            </summary>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.#ctor(coreWeb_MVC.Models.TestDBContext)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserlike(System.String)">
+            <summary>
+            查询用户我的收藏
+            </summary>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.DeleteUserlike(System.String)">
+            <summary>
+            删除用户我的收藏
+            </summary>
+            <param name="likeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserOrder(System.String)">
+            <summary>
+            查询用户订单
+            </summary>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.InsertUserPrder(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            添加用户订单
+            </summary>
+            <param name="CartID">购物车编号list</param>
+            <param name="amountprice">总价格</param>
+            <param name="discountprice">优惠价</param>
+            <param name="paytype">付款类型</param>
+            <param name="addressID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateUserorder(System.String)">
+            <summary>
+            修改用户订单状态
+            </summary>
+            <param name="detailID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.DeleteUserOrder(System.String,System.String)">
+            <summary>
+            删除用户订单
+            </summary>
+            <param name="orderID"></param>
+            <param name="detailID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserInfo(System.String)">
+            <summary>
+            获取用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.AddUserInfo(coreWeb_MVC.Models.User)">
+            <summary>
+            添加用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateUserInfo(coreWeb_MVC.Models.User,System.String)">
+            <summary>
+            修改用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.DeleteUserInfo(System.String)">
+            <summary>
+            删除用户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetAddress(System.String)">
+            <summary>
+            查询用户地址
+            </summary>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.AddAddress(coreWeb_MVC.Models.UserAddress,System.String)">
+            <summary>
+            添加用户地址
+            </summary>
+            <param name="userAddress"></param>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateAddress(coreWeb_MVC.Models.UserAddress,System.String)">
+            <summary>
+            修改用户地址
+            </summary>
+            <param name="userAddress"></param>
+            <param name="addresID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateAddress(System.String)">
+            <summary>
+            删除用户地址
+            </summary>
+            <param name="addressID"></param>
+            <returns></returns>
+        </member>
         <member name="T:coreWeb_MVC.Models.DBHelper">
             <summary>
             使用【ADO.Net】连接数据库
@@ -177,9 +296,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateShopID">
+            <summary>
+            生成商店编号
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateProductID(System.String)">
             <summary>
             生成商品编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateOrderID">
+            <summary>
+            生成订单编号
             </summary>
             <returns></returns>
         </member>

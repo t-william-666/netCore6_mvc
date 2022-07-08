@@ -12,7 +12,7 @@ namespace coreWeb_MVC.Models
     {
         // 连接数据库SQL
         public static string conStr = "Server=.;Database=TestDB;Trusted_Connection=True;User ID=sa;Password=123456;";
-        public static SqlConnection connection = null;
+        public static SqlConnection? connection ;
  
         // 打开数据库
         private static void openSqlData()

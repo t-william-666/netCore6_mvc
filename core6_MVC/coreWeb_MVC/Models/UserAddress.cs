@@ -5,6 +5,11 @@ namespace coreWeb_MVC.Models
 {
     public partial class UserAddress
     {
+        public UserAddress()
+        {
+            ProductOrders = new HashSet<ProductOrder>();
+        }
+
         public int AddressID { get; set; }
         public string UserID { get; set; } = null!;
         public string? UserName { get; set; }
@@ -19,5 +24,6 @@ namespace coreWeb_MVC.Models
         public DateTime AddDate { get; set; }
 
         public virtual User User { get; set; } = null!;
+        public virtual ICollection<ProductOrder> ProductOrders { get; set; }
     }
 }

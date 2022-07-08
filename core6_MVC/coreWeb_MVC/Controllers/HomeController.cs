@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using coreWeb_MVC.Models.Other;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
+
 namespace coreWeb_MVC.Controllers
 {
     public class HomeController : Controller
@@ -60,7 +62,7 @@ namespace coreWeb_MVC.Controllers
         [ValidateAntiForgeryToken]//令牌
         public IActionResult Logining(string account, string password)
         {
-            var user = _dbContext.Users.Where(p => p.Account == account && p.Password == password).FirstOrDefault();
+            var user = _dbContext.Users.Where(p => p.Account == account && p.Password == password && p.UserState > 0).FirstOrDefault();
 #pragma warning disable CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
             User users = _dbContext.Users.Where(p => p.Account == account).FirstOrDefault();
 #pragma warning restore CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
@@ -71,7 +73,7 @@ namespace coreWeb_MVC.Controllers
             {
                 //保存登录用户数据对象(会话)
                 HttpContext.Session.SetString("userInfo", users.UserID);
-
+                TempData["userID"] = user.UserID;
                 _session.SetString("user", users.UserID);
                 //重新定向
                 return RedirectToAction("Home");
@@ -128,7 +130,7 @@ namespace coreWeb_MVC.Controllers
                 password = PasswordHasher.HashPassword(password);
                 User user = new User()
                 {
-                    UserID = "22222",
+                    UserID = CreatecodeNumber.CreateUserID(),//生成用户编号
                     Account = account,
                     Password = password,
                     UserName = "新用户",
@@ -140,6 +142,7 @@ namespace coreWeb_MVC.Controllers
                 _dbContext.SaveChanges();
                 //保存注册用户数据对象(会话)
                 HttpContext.Session.SetString("userInfo", account);
+                TempData["userID"] = user.UserID;
 
                 return RedirectToAction("Home");
             }
@@ -151,7 +154,6 @@ namespace coreWeb_MVC.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Home()
         {
-            string y = CreatecodeNumber.CreateUserID();
             //右侧菜单栏
             TempData["headMenu"] = await _dbContext.TitleLists.Where(p => p.about == "header-tab").OrderBy(p => p.TitleOrderby).ToListAsync();
             ViewBag.headerMenu = TempData["headMenu"];
@@ -190,7 +192,7 @@ namespace coreWeb_MVC.Controllers
             if (!string.IsNullOrWhiteSpace(uID))
             {
                 //获取用户全部信息及头像
-                var user = _dbContext.Users.Include(p=>p.UserImageLists.Where(p=>p.ImgState==1)).Where(p => p.UserID == uID).FirstOrDefault();
+                var user = _dbContext.Users.Include(p => p.UserImageLists.Where(p => p.ImgState == 1)).Where(p => p.UserID == uID).FirstOrDefault();
                 //var user = _dbContext.Users.Find(uID);
                 ViewData["ss"] = user;
                 ViewBag.userInfo = user;
@@ -217,16 +219,15 @@ namespace coreWeb_MVC.Controllers
             //我的订单
             ViewBag.userOrder = await _dbContext.ProductOrders.Include(p => p.ProductOrderDetails).Where(p => p.UserID == uID).ToListAsync();
             //我的收藏
-            ViewBag.userHeart = await _dbContext.SupUserLikeProductViews.Where(p => p.UserID == uID).ToListAsync();
+            ViewBag.userHeart = await _dbContext.SupUserLikeProductViews.Where(p => p.UserID == uID && p.LikeType == 1).ToListAsync();
             //修改个人信息
             ViewBag.userIntroduce = await _dbContext.Users.Include(o => o.UserImageLists.Where(p => p.ImgState == 1)).Where(p => p.UserID == uID).ToListAsync();
             //收货地址管理
-            ViewBag.userAddress = await _dbContext.UserAddresses.Where(p => p.UserID == uID).ToListAsync();
+            ViewBag.userAddress = await _dbContext.UserAddresses.Where(p => p.UserID == uID && p.State == 1).ToListAsync();
             //商品物流查询
             ViewBag.userLogistics = "";
             //商品评价管理
             ViewBag.userProductComment = await _dbContext.ProductOrderDetails.Where(p => p.UserID == uID).ToListAsync();
-
             return View();
         }
 
@@ -267,7 +268,7 @@ namespace coreWeb_MVC.Controllers
             //商品描述
             ViewBag.ProductDesc = await _dbContext.ProductImages.Where(p => p.ProductID == prodtctID).ToListAsync();
             //用户评论
-            //ViewBag.ProductComment = await _dbContext.SupUserCommentViews.Where(p => p.ProductID == prodtctID).OrderBy(p => p.AddDate).ToListAsync();
+            ViewBag.ProductComment = await _dbContext.SupUserCommentViews.Where(p => p.ProductID == prodtctID).OrderBy(p => p.AddDate).ToListAsync();
             //物流政策
             ViewBag.Productagreement = await _dbContext.TitleLists.Where(p => p.about == "agreement").OrderBy(p => p.TitleOrderby).ToListAsync();
 

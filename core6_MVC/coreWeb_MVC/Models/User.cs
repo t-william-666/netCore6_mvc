@@ -7,6 +7,7 @@ namespace coreWeb_MVC.Models
     {
         public User()
         {
+            ProductCarts = new HashSet<ProductCart>();
             ProductComments = new HashSet<ProductComment>();
             ProductOrders = new HashSet<ProductOrder>();
             UserAddresses = new HashSet<UserAddress>();
@@ -30,6 +31,7 @@ namespace coreWeb_MVC.Models
         public int UserState { get; set; }
         public DateTime? AddDate { get; set; }
 
+        public virtual ICollection<ProductCart> ProductCarts { get; set; }
         public virtual ICollection<ProductComment> ProductComments { get; set; }
         public virtual ICollection<ProductOrder> ProductOrders { get; set; }
         public virtual ICollection<UserAddress> UserAddresses { get; set; }
