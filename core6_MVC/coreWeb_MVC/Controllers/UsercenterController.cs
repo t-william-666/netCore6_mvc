@@ -1,8 +1,11 @@
 ﻿using coreWeb_MVC.Models;
 using coreWeb_MVC.Models.Other;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using System.Linq.Expressions;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +16,7 @@ namespace coreWeb_MVC.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]授权验证（需要Tokens令牌）
     public class UsercenterController : ControllerBase
     {
         private readonly TestDBContext _dbContext;
@@ -31,53 +35,122 @@ namespace coreWeb_MVC.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        [HttpGet("userID")]
+        [HttpGet("getAllUserLike")]
         public async Task<IActionResult> GetUserlike(string userID = "")
         {
-            if (string.IsNullOrWhiteSpace(userID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(userID))
+                {
+                    return NotFound();
+                }
+                var userlike = await _dbContext.SupUserLikeProductViews.Where(p => p.UserID == userID && p.LikeType == 1).ToListAsync();
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 1,
+                    data = userlike,
+                    msg = "查询用户收藏成功"
+                };
+                return Ok(apiModel);
             }
-            return (IActionResult)await _dbContext.SupUserLikeProductViews.Where(p => p.UserID == userID && p.LikeType == 1).ToListAsync();
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "查询用户收藏失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 删除用户我的收藏
         /// </summary>
         /// <param name="likeID"></param>
         /// <returns></returns>
-        [HttpDelete("likeID")]
+        [HttpDelete("deleteUserLike")]
         public async Task<IActionResult> DeleteUserlike(string likeID)
         {
-            if (_dbContext.UserLikes == null || string.IsNullOrWhiteSpace(likeID))
+            try
             {
-                return NotFound();
+                if (_dbContext.UserLikes == null || string.IsNullOrWhiteSpace(likeID))
+                {
+                    return NotFound();
+                }
+                var userLike = await _dbContext.UserLikes.Where(p => p.LikeID == int.Parse(likeID)).FirstOrDefaultAsync();
+                if (userLike == null)
+                {
+                    return NotFound();
+                }
+                _dbContext.Remove(userLike);
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "删除我的收藏成功" : "删除我的收藏失败"
+                };
+                return Ok(apiModel);
             }
-            var userLike = await _dbContext.UserLikes.Where(p => p.LikeID == int.Parse(likeID)).FirstOrDefaultAsync();
-            if (userLike == null)
+            catch (Exception)
             {
-                return NotFound();
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "删除用户收藏失败"
+                };
+                return Ok(apiModel);
+                throw;
             }
-            _dbContext.Remove(userLike);
-            await _dbContext.SaveChangesAsync();
-            return Ok();
+
         }
         #endregion
 
         #region===>>>用户中心的我的订单
         /// <summary>
-        /// 查询用户订单
+        /// 查询用户订单 US202206141001
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        [HttpGet("userID")]
+        [HttpGet("getAllOrder")]
         public async Task<IActionResult> GetUserOrder(string userID = "")
         {
-            if (string.IsNullOrWhiteSpace(userID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(userID))
+                {
+                    return NotFound();
+                }
+                var userOrder = await _dbContext.ProductOrders.Include(p => p.ProductOrderDetails).Where(p => p.UserID == userID).ToListAsync();
+                var da = JsonConvert.SerializeObject(userOrder, new JsonSerializerSettings()
+                {
+                    //防止导航属性循环引用而报错
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 1,
+                    data = JsonConvert.DeserializeObject(da),
+                    msg = "查询用户订单成功"
+                };
+                return Ok(apiModel);
             }
-            var userOrder = await _dbContext.ProductOrders.Include(p => p.ProductOrderDetails).Where(p => p.UserID == userID).ToListAsync();
-            return Ok(userOrder);
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "查询用户订单失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 添加用户订单
@@ -88,7 +161,7 @@ namespace coreWeb_MVC.Controllers
         /// <param name="paytype">付款类型</param>
         /// <param name="addressID"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("insertOrder")]
         public async Task<IActionResult> InsertUserPrder(string CartID, string amountprice, string discountprice, string paytype, string addressID)
         {
             //FromSqlRaw 或 ExecuteSqlRaw 执行sql语句
@@ -101,6 +174,7 @@ namespace coreWeb_MVC.Controllers
             //FormattableString sql = $"select * from Product where ProdictID in ({CartID})";
             ////查询要添加的订单商品
             //var addOrder = await _dbContext.Products.FromSqlInterpolated(sql).Include(p => p.ProductCarts).ToListAsync();
+
             //使用局部变量using
             using (var dbOrderContext = new TestDBContext())
             {
@@ -166,38 +240,72 @@ namespace coreWeb_MVC.Controllers
                     dbOrderContext.AddRange(orderDetails);
                     //删除购物车已付款的订单数据
                     dbOrderContext.RemoveRange(deleteCart);
-                    await dbOrderContext.SaveChangesAsync();
+                    bool success = await dbOrderContext.SaveChangesAsync() > 0;
                     //提交事务
                     await dbOrderContext.Database.CommitTransactionAsync();
+                    ApiModel apiModel = new ApiModel()
+                    {
+                        status = success ? 1 : 0,
+                        data = new object(),
+                        msg = success ? "添加用户订单成功" : "添加用户订单失败"
+                    };
+                    return Ok(apiModel);
                 }
                 catch (Exception)
                 {
                     //回滚事务
                     await dbOrderContext.Database.RollbackTransactionAsync();
+                    ApiModel apiModel = new ApiModel()
+                    {
+                        status = 0,
+                        data = new object(),
+                        msg = "添加用户订单失败"
+                    };
+                    return Ok(apiModel);
                     throw;
                 }
 
             }
 
-            return Ok();
         }
         /// <summary>
-        /// 修改用户订单状态
+        /// 修改用户订单
         /// </summary>
         /// <param name="detailID"></param>
         /// <returns></returns>
-        [HttpPut("detailID")]
+        [HttpPut("updateOrder")]
         public async Task<IActionResult> UpdateUserorder(string detailID)
         {
-            if (string.IsNullOrWhiteSpace(detailID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(detailID))
+                {
+                    return NotFound();
+                }
+                var orderDetail = await _dbContext.ProductOrderDetails.Where(p => p.DetailID == int.Parse(detailID)).FirstOrDefaultAsync();
+                orderDetail.OrderDetailState = orderDetail.OrderDetailState + 1;
+                _dbContext.ProductOrderDetails.Attach(orderDetail);
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "修改用户订单成功" : "修改用户订单失败"
+                };
+                return Ok(apiModel);
             }
-            var orderDetail = await _dbContext.ProductOrderDetails.Where(p => p.DetailID == int.Parse(detailID)).FirstOrDefaultAsync();
-            orderDetail.OrderDetailState = orderDetail.OrderDetailState + 1;
-            _dbContext.ProductOrderDetails.Attach(orderDetail);
-            _dbContext.SaveChanges();
-            return Ok();
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "修改用户订单失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 删除用户订单
@@ -205,38 +313,59 @@ namespace coreWeb_MVC.Controllers
         /// <param name="orderID"></param>
         /// <param name="detailID"></param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("deleteOrder")]
         public async Task<IActionResult> DeleteUserOrder(string orderID = "", string detailID = "")
         {
-            if (string.IsNullOrWhiteSpace(orderID) && string.IsNullOrWhiteSpace(detailID))
+            try
             {
-                return NotFound();
-            }
-            if (!string.IsNullOrWhiteSpace(detailID))//删除单条订单详情
-            {
-                var deleteOrder = await _dbContext.ProductOrderDetails.SingleOrDefaultAsync(p => p.DetailID == int.Parse(detailID));
-                if (deleteOrder != null)
+                if (string.IsNullOrWhiteSpace(orderID) && string.IsNullOrWhiteSpace(detailID))
                 {
+                    return NotFound();
+                }
+                if (!string.IsNullOrWhiteSpace(detailID))//删除单条订单详情
+                {
+                    var deleteOrder = await _dbContext.ProductOrderDetails.SingleOrDefaultAsync(p => p.DetailID == int.Parse(detailID));
+                    if (deleteOrder != null)
+                    {
+                        _dbContext.Remove(deleteOrder);
+                    }
+                }
+                if (!string.IsNullOrWhiteSpace(orderID))//删除整个订单
+                {
+                    //使用级联删除
+                    var deleteOrder = await _dbContext.ProductOrders.Where(p => p.OrderNo == orderID).Include(p => p.ProductOrderDetails).ToListAsync();
+
+                    ////使用断开关系（外键）
+                    //var delorder=await _dbContext.ProductOrders.Where(p=>p.OrderNo==orderID).Include(p => p.ProductOrderDetails).FirstOrDefaultAsync();
+                    //foreach (ProductOrderDetail item in delorder.ProductOrderDetails)
+                    //{
+                    //    item.OrderNo = item.OrderNo+"_del";//修改子表的外键（也可以清空为null）
+                    //}
+                    //delorder.ProductOrderDetails.Clear();//获取删除所有的子表关联的数据
+
                     _dbContext.Remove(deleteOrder);
                 }
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "删除用户订单成功" : "删除用户订单失败"
+                };
+                return Ok(apiModel);
             }
-            if (!string.IsNullOrWhiteSpace(orderID))//删除整个订单
+            catch (Exception)
             {
-                //使用级联删除
-                var deleteOrder = await _dbContext.ProductOrders.Where(p => p.OrderNo == orderID).Include(p => p.ProductOrderDetails).ToListAsync();
-
-                ////使用断开关系（外键）
-                //var delorder=await _dbContext.ProductOrders.Where(p=>p.OrderNo==orderID).Include(p => p.ProductOrderDetails).FirstOrDefaultAsync();
-                //foreach (ProductOrderDetail item in delorder.ProductOrderDetails)
-                //{
-                //    item.OrderNo = item.OrderNo+"_del";//修改子表的外键（也可以清空为null）
-                //}
-                //delorder.ProductOrderDetails.Clear();//获取删除所有的子表关联的数据
-
-                _dbContext.Remove(deleteOrder);
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "删除用户订单失败"
+                };
+                return Ok(apiModel);
+                throw;
             }
-            _dbContext.SaveChanges();
-            return Ok();
+
         }
         #endregion
 
@@ -245,65 +374,154 @@ namespace coreWeb_MVC.Controllers
         /// 获取用户信息
         /// </summary>
         /// <returns></returns>
-        [HttpGet("userID")]
+        [HttpGet("getoneUserInfo")]
         public async Task<IActionResult> GetUserInfo(string userID = "")
         {
-            if (string.IsNullOrWhiteSpace(userID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(userID))
+                {
+                    return NotFound();
+                }
+                var userInfo = await _dbContext.Users.Where(p => p.UserID == userID).Include(p => p.UserImageLists.Where(p=>p.ImgState==1)).FirstOrDefaultAsync();
+                var da = JsonConvert.SerializeObject(userInfo, new JsonSerializerSettings()
+                {
+                    //防止导航属性循环引用而报错
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = JsonConvert.DeserializeObject(da),
+                    msg = "获取用户信息成功"
+                };
+                return Ok(apiModel);
             }
-            var userInfo = await _dbContext.Users.Where(p => p.UserID == userID).Include(p => p.UserImageLists).FirstOrDefaultAsync();
-            return Ok(userInfo);
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "获取用户信息失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 添加用户信息
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("insertUserInfo")]
         public async Task<IActionResult> AddUserInfo(User user)
         {
-            if (user == null)
+            try
             {
-                return NotFound();
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                user.UserID = CreatecodeNumber.CreateUserID();//生成用户编号
+                user.Password = PasswordHasher.HashPassword(user.Password);//加密密码
+                await _dbContext.Users.AddAsync(user);
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "添加用户信息成功" : "添加用户信息失败"
+                };
+                return Ok(apiModel);
             }
-            user.UserID = CreatecodeNumber.CreateUserID();//生成用户编号
-            user.Password = PasswordHasher.HashPassword(user.Password);//加密密码
-            await _dbContext.Users.AddAsync(user);
-            _dbContext.SaveChanges();
-            return Ok();
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "添加用户信息失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 修改用户信息
         /// </summary>
         /// <returns></returns>
-        [HttpPut("userID")]
+        [HttpPut("updateUserInfo")]
         public async Task<IActionResult> UpdateUserInfo(User user, string userID = "")
         {
-            if (string.IsNullOrWhiteSpace(userID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(userID))
+                {
+                    return NotFound();
+                }
+                var userInfo = await _dbContext.Users.Where(p => p.UserID == userID).FirstOrDefaultAsync();
+                _dbContext.Update(user);
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "修改用户信息成功" : "修改用户信息失败"
+                };
+                return Ok(apiModel);
             }
-            var userInfo = await _dbContext.Users.Where(p => p.UserID == userID).FirstOrDefaultAsync();
-            _dbContext.Update(user);
-            _dbContext.SaveChanges();
-            return Ok();
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "修改用户信息失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 删除用户信息
         /// </summary>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("deleteUserInfo")]
         public async Task<IActionResult> DeleteUserInfo(string userID = "")
         {
-            if (string.IsNullOrWhiteSpace(userID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(userID))
+                {
+                    return NotFound();
+                }
+                var delete = await _dbContext.Users.SingleAsync(p => p.UserID == userID);
+                delete.UserState = 0;
+                _dbContext.Update(delete);
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "删除用户信息成功" : "删除用户信息失败"
+                };
+                return Ok(apiModel);
             }
-            var delete = await _dbContext.Users.SingleAsync(p => p.UserID == userID);
-            delete.UserState = 0;
-            _dbContext.Update(delete);
-            _dbContext.SaveChanges();
-            return Ok();
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "删除用户信息失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         #endregion
 
@@ -313,15 +531,36 @@ namespace coreWeb_MVC.Controllers
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        [HttpGet("userID")]
+        [HttpGet("getAllUserAddress")]
         public async Task<IActionResult> GetAddress(string userID = "")
         {
-            if (string.IsNullOrWhiteSpace(userID))
+            try
             {
-                return NotFound();
+                if (string.IsNullOrWhiteSpace(userID))
+                {
+                    return NotFound();
+                }
+                var address = await _dbContext.UserAddresses.Where(p => p.UserID == userID && p.State == 1).ToListAsync();
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 1,
+                    data = address,
+                    msg = "查询用户地址成功"
+                };
+                return Ok(apiModel);
             }
-            var address = await _dbContext.UserAddresses.Where(p => p.UserID == userID && p.State == 1).ToListAsync();
-            return Ok(address);
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "查询用户地址失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         /// <summary>
         /// 添加用户地址
@@ -329,17 +568,37 @@ namespace coreWeb_MVC.Controllers
         /// <param name="userAddress"></param>
         /// <param name="userID"></param>
         /// <returns></returns>
-        [HttpPost]
+        [HttpPost("insertUserAddress")]
         public async Task<IActionResult> AddAddress(UserAddress userAddress, string userID = "")
         {
-            if (userAddress == null)
+            try
             {
-                return NotFound();
+                if (userAddress == null)
+                {
+                    return NotFound();
+                }
+                await _dbContext.UserAddresses.AddAsync(userAddress);
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "添加用户地址成功" : "添加用户地址失败"
+                };
+                return Ok(apiModel);
             }
-            await _dbContext.UserAddresses.AddAsync(userAddress);
-            _dbContext.SaveChanges();
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "添加用户地址失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
 
-            return Ok();
         }
         /// <summary>
         /// 修改用户地址
@@ -347,46 +606,77 @@ namespace coreWeb_MVC.Controllers
         /// <param name="userAddress"></param>
         /// <param name="addresID"></param>
         /// <returns></returns>
-        [HttpPut("addressID")]
+        [HttpPut("updateUserAddress")]
         public async Task<IActionResult> UpdateAddress(UserAddress userAddress, string addresID = "")
         {
-            if (userAddress == null)
-            {
-                return NotFound();
-            }
-            //_dbContext.UserAddresses.Update(userAddress);
-            _dbContext.Entry(userAddress).State = EntityState.Modified;
-            _dbContext.SaveChanges();
             try
             {
-                await _dbContext.SaveChangesAsync();
+                if (userAddress == null)
+                {
+                    return NotFound();
+                }
+                //_dbContext.UserAddresses.Update(userAddress);
+                _dbContext.Entry(userAddress).State = EntityState.Modified;
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "修改用户地址成功" : "修改用户地址失败"
+                };
+                return Ok(apiModel);
             }
             catch (Exception)
             {
-                return NotFound();
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "修改用户地址失败"
+                };
+                return Ok(apiModel);
                 throw;
             }
 
-            return Ok();
         }
         /// <summary>
         /// 删除用户地址
         /// </summary>
         /// <param name="addressID"></param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("deleteUserAddress")]
         public async Task<IActionResult> UpdateAddress(string addressID = "")
         {
-            if (addressID == null)
+            try
             {
-                return NotFound();
-            }
-            var delete = await _dbContext.UserAddresses.Where(p => p.AddressID == int.Parse(addressID)).FirstOrDefaultAsync();
-            delete.State = 0;
-            _dbContext.UserAddresses.Update(delete);
-            _dbContext.SaveChanges();
+                if (addressID == null)
+                {
+                    return NotFound();
+                }
+                var delete = await _dbContext.UserAddresses.Where(p => p.AddressID == int.Parse(addressID)).FirstOrDefaultAsync();
+                delete.State = 0;
+                bool success = await _dbContext.SaveChangesAsync() > 0;
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = success ? 1 : 0,
+                    data = new object(),
+                    msg = success ? "删除用户地址成功" : "删除用户地址失败"
+                };
+                return Ok(apiModel);
 
-            return Ok();
+            }
+            catch (Exception)
+            {
+                ApiModel apiModel = new ApiModel()
+                {
+                    status = 0,
+                    data = new object(),
+                    msg = "删除用户地址失败"
+                };
+                return Ok(apiModel);
+                throw;
+            }
+
         }
         #endregion
 
@@ -399,25 +689,25 @@ namespace coreWeb_MVC.Controllers
 
 
 
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        //[HttpPost]
+        //public void Post([FromBody] string value)
+        //{
+        //}
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

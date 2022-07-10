@@ -86,6 +86,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:coreWeb_MVC.Controllers.JWTtokensController">
+            <summary>
+            JWT 生成接口令牌
+            </summary>
+        </member>
         <member name="T:coreWeb_MVC.Controllers.ProductsController">
             <summary>
             商品Api接口
@@ -200,7 +205,7 @@
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserOrder(System.String)">
             <summary>
-            查询用户订单
+            查询用户订单 US202206141001
             </summary>
             <param name="userID"></param>
             <returns></returns>
@@ -290,6 +295,21 @@
             使用【ADO.Net】连接数据库
             </summary>
         </member>
+        <member name="P:coreWeb_MVC.Models.Other.ApiModel.status">
+            <summary>
+            api请求状态 1成功、2失败
+            </summary>
+        </member>
+        <member name="P:coreWeb_MVC.Models.Other.ApiModel.data">
+            <summary>
+            api请求的数据
+            </summary>
+        </member>
+        <member name="P:coreWeb_MVC.Models.Other.ApiModel.msg">
+            <summary>
+            api提示信息
+            </summary>
+        </member>
         <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateUserID">
             <summary>
             生成用户编号
@@ -311,6 +331,12 @@
         <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateOrderID">
             <summary>
             生成订单编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.MyJPIF.GetJsonPatchInputFormatter">
+            <summary>
+            添加对 JSON Patch 使用 Newtonsoft.Json的支持
             </summary>
             <returns></returns>
         </member>

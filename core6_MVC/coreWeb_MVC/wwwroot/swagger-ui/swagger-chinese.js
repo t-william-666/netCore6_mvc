@@ -15,6 +15,8 @@
  * 2. 然后在下面的 window.SwaggerTranslator.learn 中添加中英文对应关系
  *      添加： "Hello World": "你好，世界",
  */
+
+$("div").attr("data-sw-translate", "");
 window.SwaggerTranslator = {
     _words: [],
 

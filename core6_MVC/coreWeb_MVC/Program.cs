@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using coreWeb_MVC.Models.Other;
+using Newtonsoft.Json.Serialization;
 
 
 //===============================================================【添加服务】============================================================================
@@ -88,18 +89,18 @@ builder.Services.AddSwaggerGen(options =>
 
     ////AddServer用于全局的添加接口域名和前缀（虚拟路径）部分信息，默认情况下，如果我们在SwaggerUi页面使用Try it out去调用接口时，
     ////默认使用的是当前swaggerUI页面所在的地址域名信息：
-    //options.AddServer(new OpenApiServer() { Url = "http://localhost:4460", Description = "地址1" });
-    //options.AddServer(new OpenApiServer() { Url = "http://127.0.0.1:5001", Description = "地址2" });
-    //options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
+    options.AddServer(new OpenApiServer() { Url = "http://localhost:4460", Description = "地址1" });
+    options.AddServer(new OpenApiServer() { Url = "http://127.0.0.1:5001", Description = "地址2" });
+    options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
 
 
-    //////安装Microsoft.Extensions.PlatformAbstractions组件
-    //// 获取xml文件名
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //// 获取xml文件路径
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //// 添加控制器层注释，true表示显示控制器注释
-    //options.IncludeXmlComments(xmlPath, true);
+    ////安装Microsoft.Extensions.PlatformAbstractions组件
+    // 获取xml文件名
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    // 获取xml文件路径
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    // 添加控制器层注释，true表示显示控制器注释
+    options.IncludeXmlComments(xmlPath, true);
 
 });
 
@@ -108,6 +109,21 @@ builder.Services.AddSwaggerGen(options =>
 //// </summary>
 builder.Services.AddEndpointsApiExplorer();
 
+//// <summary>
+//// 添加 JSON Patch 支持
+//// </summary>
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+    /////防止导航属性循环引用而报错
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+});
+builder.Services.AddControllers(options =>
+{
+    //配置基于 Newtonsoft.Json 的格式化程序的功能
+    options.InputFormatters.Insert(0, MyJPIF.GetJsonPatchInputFormatter());
+});
 
 //// <summary>
 ////添加JWT验证  需要添加 NuGet包==》Authentication.JwtBearer组件
@@ -115,11 +131,11 @@ builder.Services.AddEndpointsApiExplorer();
 // 设置验证方式为 Bearer Token
 // 你也可以添加 using Microsoft.AspNetCore.Authentication.JwtBearer;
 // 使用 JwtBearerDefaults.AuthenticationScheme 代替 字符串 "Brearer"
-builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(options => //方法一直接写死
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuerSigningKey = true,
+            ValidateIssuerSigningKey = true,//验证颁发者签名密钥
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("abcdABCD1234abcdABCD1234")),    // 加密解密Token的密钥
 
             // 是否验证发布者
@@ -138,6 +154,21 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
             ClockSkew = TimeSpan.FromMinutes(60)
         };
 });
+
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => //方法二从配置appsettings.json文件获取数据
+//{
+//    options.TokenValidationParameters = new TokenValidationParameters()
+//    {
+//        ValidateIssuer = true,//是否验证发布者
+//        ValidIssuer = builder.Configuration["JWT:Issuer"],//发布者名称
+//        ValidateAudience = true, //是否验证订阅者
+//        ValidAudience = builder.Configuration["JWT:Audience"],//订阅者名称
+//        ValidateLifetime = true,//是否验证令牌有效期
+//        ClockSkew = TimeSpan.FromMinutes(double.Parse(builder.Configuration["JWT:Expires"])),//令牌有效时间
+//        ValidateIssuerSigningKey=true,//验证颁发者签名密钥
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecretKey"])) //加密解密Token的密钥
+//    };
+//});
 
 
 
@@ -192,7 +223,7 @@ app.UseRouting();
 //注册Session会话服务
 app.UseSession();
 
-//注册JWT验证 （权限验证）
+//注册JWT验证 （接口权限验证）
 app.UseAuthentication();
 
 //注册UseHsts所有请求转换为HTTPS连接
