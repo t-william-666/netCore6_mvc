@@ -60,5 +60,20 @@
             return OrderNo;
         }
 
+        /// <summary>
+        /// 生成用户头像编号
+        /// </summary>
+        /// <returns></returns>
+        public static string CreateUserImageID()
+        {
+            string OrderNo = "IG";
+            //获取当前时间到秒
+            string date = DateTime.Now.ToString("yyyyMMddhhmmss");
+            //获取当前时间的微妙
+            string nutime = DateTime.Now.ToString("FFFF");
+            OrderNo = OrderNo + date + nutime;
+            return OrderNo;
+        }
+
     }
 }

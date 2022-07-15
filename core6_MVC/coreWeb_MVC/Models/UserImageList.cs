@@ -5,7 +5,6 @@ namespace coreWeb_MVC.Models
 {
     public partial class UserImageList
     {
-        public int ID { get; set; }
         public string ImgID { get; set; } = null!;
         public string UserID { get; set; } = null!;
         public string UserImagePath { get; set; } = null!;

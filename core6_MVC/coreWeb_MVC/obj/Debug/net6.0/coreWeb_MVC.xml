@@ -9,6 +9,21 @@
             构造函数
             </summary>
         </member>
+        <member name="F:coreWeb_MVC.Controllers.HomeController._logger">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="F:coreWeb_MVC.Controllers.HomeController._dbContext">
+            <summary>
+            数据库DbContext操作对象
+            </summary>
+        </member>
+        <member name="F:coreWeb_MVC.Controllers.HomeController._httpContextAccessor">
+            <summary>
+            session会话
+            </summary>
+        </member>
         <member name="M:coreWeb_MVC.Controllers.HomeController.Login">
             <summary>
             登录
@@ -106,36 +121,45 @@
             <summary>
             根据商品id查询商品
             </summary>
-            <param name="id"></param>
+            <param name="id">商品ID</param>
             <returns></returns>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductList(System.String)">
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductTypeList(System.String)">
             <summary>
             根据商品类型查询商品
             </summary>
-            <param name="producttype"></param>
+            <param name="producttype">商品类型</param>
             <returns></returns>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.ProductsController.PutProduct(System.String,coreWeb_MVC.Models.Product)">
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductNameList(System.String)">
             <summary>
-            根据商品id修改商品
+            根据商品名称模糊查询商品
             </summary>
-            <param name="id"></param>
-            <param name="product"></param>
+            <param name="productname">商品名称</param>
             <returns></returns>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.ProductsController.PostProduct(coreWeb_MVC.Models.Product)">
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.InsertProduct(coreWeb_MVC.Models.Product,System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
             <summary>
             添加商品
             </summary>
-            <param name="product"></param>
+            <param name="product">商品实体类</param>
+            <param name="formFiles">图片列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.UpdateProduct(System.String,coreWeb_MVC.Models.Product,System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            根据商品id修改商品
+            </summary>
+            <param name="id">商品id</param>
+            <param name="product">商品实体类</param>
+            <param name="formFiles">图片列表</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.ProductsController.DeleteProduct(System.String)">
             <summary>
             根据商品id删除商品
             </summary>
-            <param name="id"></param>
+            <param name="id">商品ID</param>
             <returns></returns>
         </member>
         <member name="T:coreWeb_MVC.Controllers.ShopsController">
@@ -156,18 +180,18 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.ShopsController.PutShop(System.String,coreWeb_MVC.Models.Shop)">
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.InsertShop(coreWeb_MVC.Models.Shop)">
+            <summary>
+            添加商店
+            </summary>
+            <param name="shop"></param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.ShopsController.UpdateShop(System.String,coreWeb_MVC.Models.Shop)">
             <summary>
             根据商店id修改商店
             </summary>
             <param name="id"></param>
-            <param name="shop"></param>
-            <returns></returns>
-        </member>
-        <member name="M:coreWeb_MVC.Controllers.ShopsController.PostShop(coreWeb_MVC.Models.Shop)">
-            <summary>
-            添加商店
-            </summary>
             <param name="shop"></param>
             <returns></returns>
         </member>
@@ -183,38 +207,40 @@
             用户中心api接口
             </summary>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.UsercenterController.#ctor(coreWeb_MVC.Models.TestDBContext)">
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.#ctor(coreWeb_MVC.Models.TestDBContext,Microsoft.Extensions.Hosting.IHostEnvironment,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             构造函数
             </summary>
-            <param name="dbContext"></param>
+            <param name="dbContext">DB</param>
+            <param name="hostEnvironment"></param>
+            <param name="webHostEnvironment"></param>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserlike(System.String)">
             <summary>
             查询用户我的收藏
             </summary>
-            <param name="userID"></param>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.DeleteUserlike(System.String)">
             <summary>
             删除用户我的收藏
             </summary>
-            <param name="likeID"></param>
+            <param name="likeID">收藏ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserOrder(System.String)">
             <summary>
             查询用户订单 US202206141001
             </summary>
-            <param name="userID"></param>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.InsertUserPrder(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             添加用户订单
             </summary>
-            <param name="CartID">购物车编号list</param>
+            <param name="CartID">购物车编号字符串</param>
             <param name="amountprice">总价格</param>
             <param name="discountprice">优惠价</param>
             <param name="paytype">付款类型</param>
@@ -223,71 +249,90 @@
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateUserorder(System.String)">
             <summary>
-            修改用户订单状态
+            修改用户订单
             </summary>
-            <param name="detailID"></param>
+            <param name="detailID">订单详情ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.DeleteUserOrder(System.String,System.String)">
             <summary>
             删除用户订单
             </summary>
-            <param name="orderID"></param>
-            <param name="detailID"></param>
+            <param name="orderID">订单ID</param>
+            <param name="detailID">订单详情ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetUserInfo(System.String)">
             <summary>
             获取用户信息
             </summary>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.AddUserInfo(coreWeb_MVC.Models.User)">
             <summary>
             添加用户信息
             </summary>
+            <param name="user">用户实体类</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateUserInfo(coreWeb_MVC.Models.User,System.String)">
             <summary>
             修改用户信息
             </summary>
+            <param name="user">用户实体类</param>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.DeleteUserInfo(System.String)">
             <summary>
             删除用户信息
             </summary>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.GetAddress(System.String)">
             <summary>
             查询用户地址
             </summary>
-            <param name="userID"></param>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.AddAddress(coreWeb_MVC.Models.UserAddress,System.String)">
             <summary>
             添加用户地址
             </summary>
-            <param name="userAddress"></param>
-            <param name="userID"></param>
+            <param name="userAddress">用户地址实体类</param>
+            <param name="userID">用户ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateAddress(coreWeb_MVC.Models.UserAddress,System.String)">
             <summary>
             修改用户地址
             </summary>
-            <param name="userAddress"></param>
-            <param name="addresID"></param>
+            <param name="userAddress">用户地址</param>
+            <param name="addresID">用户地址ID</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.UsercenterController.UpdateAddress(System.String)">
             <summary>
             删除用户地址
             </summary>
-            <param name="addressID"></param>
+            <param name="addressID">用户地址ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.UploadFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传用户头像文件
+            </summary>
+            <param name="iFormFile">上传文件数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Controllers.UsercenterController.UploadFiles(System.Collections.Generic.List{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>
+            上传图片多个
+            </summary>
+            <param name="formFiles">上传文件数据列表</param>
             <returns></returns>
         </member>
         <member name="T:coreWeb_MVC.Models.DBHelper">
@@ -295,17 +340,17 @@
             使用【ADO.Net】连接数据库
             </summary>
         </member>
-        <member name="P:coreWeb_MVC.Models.Other.ApiModel.status">
+        <member name="P:coreWeb_MVC.Models.OtherModel.ApiModel.status">
             <summary>
             api请求状态 1成功、2失败
             </summary>
         </member>
-        <member name="P:coreWeb_MVC.Models.Other.ApiModel.data">
+        <member name="P:coreWeb_MVC.Models.OtherModel.ApiModel.data">
             <summary>
             api请求的数据
             </summary>
         </member>
-        <member name="P:coreWeb_MVC.Models.Other.ApiModel.msg">
+        <member name="P:coreWeb_MVC.Models.OtherModel.ApiModel.msg">
             <summary>
             api提示信息
             </summary>
@@ -331,6 +376,12 @@
         <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateOrderID">
             <summary>
             生成订单编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:coreWeb_MVC.Models.Other.CreatecodeNumber.CreateUserImageID">
+            <summary>
+            生成用户头像编号
             </summary>
             <returns></returns>
         </member>

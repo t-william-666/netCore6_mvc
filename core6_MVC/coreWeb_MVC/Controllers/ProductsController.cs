@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using coreWeb_MVC.Models;
+using coreWeb_MVC.Models.OtherModel;
 
 namespace coreWeb_MVC.Controllers
 {
@@ -28,67 +29,147 @@ namespace coreWeb_MVC.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<SuperProductView>>> GetProducts()
         {
             if (_context.Products == null)
             {
                 return NotFound();
             }
-            return await _context.Products.ToListAsync();
+            return await _context.SuperProductViews.ToListAsync();
         }
 
         /// <summary>
         /// 根据商品id查询商品
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">商品ID</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(string id)
+        [HttpGet("GetProduct")]
+        public async Task<ActionResult<SuperProductView>> GetProduct(string id)
         {
-            if (_context.Products == null)
+            var userID = HttpContext.Session.GetString("userInfo");
+            if (string.IsNullOrWhiteSpace(id))
             {
-                return NotFound();
+                return NotFound("商品ID为空");
             }
-            var product = await _context.Products.FindAsync(id);
-
+            if (!string.IsNullOrWhiteSpace(userID))
+            {
+                UserLookProduct lookProduct = new UserLookProduct()//添加用户浏览记录
+                {
+                    UserID = userID,
+                    PoductID = id,
+                    ShopID = "",
+                    AddDate = DateTime.Now
+                };
+                await _context.UserLookProducts.AddAsync(lookProduct);
+                await _context.SaveChangesAsync();
+            }
+            var product = await _context.SuperProductViews.Where(p => p.ProductID == id).FirstOrDefaultAsync();
             if (product == null)
             {
-                return NotFound();
+                return NotFound("找不到该商品");
             }
-
             return product;
         }
 
         /// <summary>
         /// 根据商品类型查询商品
         /// </summary>
-        /// <param name="producttype"></param>
+        /// <param name="producttype">商品类型</param>
         /// <returns></returns>
-        [HttpGet("{producttype}")]
-        public async Task<ActionResult<List<Product>>> GetProductList(string producttype="")
+        [HttpGet("GetProductTypeList")]
+        public async Task<IActionResult> GetProductTypeList(string producttype = "")
+        {
+            if (string.IsNullOrWhiteSpace(producttype))
+            {
+                return NotFound("商品类型为空");
+            }
+            var product = await _context.SuperProductViews.Where(p => p.ProductType == int.Parse(producttype)).ToListAsync();
+            ApiModel apiModel = new ApiModel()
+            {
+                status = 1,
+                data = product,
+                msg = "搜索商品成功"
+            };
+            return Ok(apiModel);
+        }
+
+        /// <summary>
+        /// 根据商品名称模糊查询商品
+        /// </summary>
+        /// <param name="productname">商品名称</param>
+        /// <returns></returns>
+        [HttpGet("GetProductNameList")]
+        public async Task<IActionResult> GetProductNameList(string productname)
+        {
+            var userID = HttpContext.Session.GetString("userInfo");
+            if (string.IsNullOrWhiteSpace(productname))
+            {
+                return NotFound("搜索条件为空");
+            }
+            if (!string.IsNullOrWhiteSpace(userID))//添加用户查询记录
+            {
+                UserSearch userSearch = new UserSearch()
+                {
+                    UserID = userID,
+                    SearchName = productname,
+                    AddDate = DateTime.Now
+                };
+                await _context.UserSearches.AddAsync(userSearch);
+                await _context.SaveChangesAsync();
+            }
+            var productList = await _context.SuperProductViews.Where(p => p.ProductName.Contains(productname) || p.ProductDesc.Contains(productname)).ToListAsync();
+
+            ApiModel apiModel = new ApiModel()
+            {
+                status = 1,
+                data = productList,
+                msg = "搜索商品成功"
+            };
+            return Ok(apiModel);
+        }
+
+        /// <summary>
+        /// 添加商品
+        /// </summary>
+        /// <param name="product">商品实体类</param>
+        /// <param name="formFiles">图片列表</param>
+        /// <returns></returns>
+        [HttpPost("InsertProduct")]
+        public async Task<ActionResult<Product>> InsertProduct(Product product, List<IFormFile> formFiles)
         {
             if (_context.Products == null)
             {
-                return NotFound();
+                return Problem("Entity set 'TestDBContext.Products'  is null.");
             }
-            var product = await _context.Products.Where(p => p.ProductType == int.Parse(producttype)).ToListAsync();
-
-            if (product == null)
+            _context.Products.Add(product);
+            try
             {
-                return NotFound();
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (ProductExists(product.ProductID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            return product;
+            return CreatedAtAction("GetProduct", new { id = product.ProductID }, product);
         }
 
         /// <summary>
         /// 根据商品id修改商品
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="product"></param>
+        /// <param name="id">商品id</param>
+        /// <param name="product">商品实体类</param>
+        /// <param name="formFiles">图片列表</param>
         /// <returns></returns>
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(string id, Product product)
+        [HttpPut("UpdateProduct")]
+        public async Task<IActionResult> UpdateProduct(string id, Product product, List<IFormFile> formFiles)
         {
             if (id != product.ProductID)
             {
@@ -117,43 +198,11 @@ namespace coreWeb_MVC.Controllers
         }
 
         /// <summary>
-        /// 添加商品
-        /// </summary>
-        /// <param name="product"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
-        {
-            if (_context.Products == null)
-            {
-                return Problem("Entity set 'TestDBContext.Products'  is null.");
-            }
-            _context.Products.Add(product);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ProductExists(product.ProductID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetProduct", new { id = product.ProductID }, product);
-        }
-
-        /// <summary>
         /// 根据商品id删除商品
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">商品ID</param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteProduct")]
         public async Task<IActionResult> DeleteProduct(string id)
         {
             if (_context.Products == null)

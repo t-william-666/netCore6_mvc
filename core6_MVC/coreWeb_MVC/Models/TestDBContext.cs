@@ -268,7 +268,7 @@ namespace coreWeb_MVC.Models
 
             modelBuilder.Entity<ProductCommentLike>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.LikeID);
 
                 entity.ToTable("ProductCommentLike");
 
@@ -1111,9 +1111,6 @@ namespace coreWeb_MVC.Models
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasKey(e => e.UserID)
-                    .IsClustered(false);
-
                 entity.Property(e => e.UserID).HasMaxLength(100);
 
                 entity.Property(e => e.Account).HasMaxLength(50);
@@ -1192,8 +1189,6 @@ namespace coreWeb_MVC.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.ID).ValueGeneratedOnAdd();
-
                 entity.Property(e => e.ImgSize).HasMaxLength(200);
 
                 entity.Property(e => e.ImgState).HasDefaultValueSql("((1))");
@@ -1213,15 +1208,13 @@ namespace coreWeb_MVC.Models
 
             modelBuilder.Entity<UserLike>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.LikeID);
 
                 entity.ToTable("UserLike");
 
                 entity.Property(e => e.AddDate)
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.LikeID).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.LikeType).HasDefaultValueSql("((1))");
 
@@ -1232,17 +1225,17 @@ namespace coreWeb_MVC.Models
                 entity.Property(e => e.UserID).HasMaxLength(100);
 
                 entity.HasOne(d => d.Product)
-                    .WithMany()
+                    .WithMany(p => p.UserLikes)
                     .HasForeignKey(d => d.ProductID)
                     .HasConstraintName("FK_UserLike_Product");
 
                 entity.HasOne(d => d.Shop)
-                    .WithMany()
+                    .WithMany(p => p.UserLikes)
                     .HasForeignKey(d => d.ShopID)
                     .HasConstraintName("FK_UserLike_Shop");
 
                 entity.HasOne(d => d.User)
-                    .WithMany()
+                    .WithMany(p => p.UserLikes)
                     .HasForeignKey(d => d.UserID)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_UserLike_Users");

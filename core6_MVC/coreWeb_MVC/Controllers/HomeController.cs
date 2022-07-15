@@ -11,10 +11,17 @@ namespace coreWeb_MVC.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// 日志
+        /// </summary>
         private readonly ILogger<HomeController> _logger;
+        /// <summary>
+        /// 数据库DbContext操作对象
+        /// </summary>
         private readonly TestDBContext _dbContext;
-
-        //session会话
+        /// <summary>
+        /// session会话
+        /// </summary>
         private readonly IHttpContextAccessor _httpContextAccessor;
         private ISession _session => _httpContextAccessor.HttpContext.Session;
         //构造函数==》依赖注入
@@ -60,7 +67,7 @@ namespace coreWeb_MVC.Controllers
         //IgnoreAntiforgeryToken  给定操作（或控制器）无需防伪造令牌。说人话就是 禁用令牌，加了IgnoreAntiforgeryToken就不需要验证令牌
         [HttpPost]
         [ValidateAntiForgeryToken]//令牌
-        public IActionResult Logining(string account, string password)
+        public  IActionResult Logining(string account, string password)
         {
             var user = _dbContext.Users.Where(p => p.Account == account && p.Password == password && p.UserState > 0).FirstOrDefault();
 #pragma warning disable CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
@@ -71,9 +78,20 @@ namespace coreWeb_MVC.Controllers
             var result = PasswordHasher.VerifyHashedPassword(password, storePassword);
             if (result)
             {
+                ////获取ip地址
+                //string ipaddress = _httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString();
+                //ipaddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+                //UserLoginLog loginLog = new UserLoginLog()
+                //{
+                //    UserID = user.UserID,
+                //    LoginIP = ipaddress,
+                //    LoginState = 1
+                //};
+                // _dbContext.UserLoginLogs.AddAsync(loginLog);
+                // _dbContext.SaveChangesAsync();
                 //保存登录用户数据对象(会话)
                 HttpContext.Session.SetString("userInfo", users.UserID);
-                TempData["userID"] = user.UserID;
+                TempData["userID"] = users.UserID;
                 _session.SetString("user", users.UserID);
                 //重新定向
                 return RedirectToAction("Home");

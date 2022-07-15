@@ -236,19 +236,26 @@ $('.addCart').on('click', function () {
 //
 //
 ////-----------------------------------------------------------   Usercenter 开始start 用户中心页面   --------------------------------------------------------------------------
+
 $(function () {
     let finddate = $('#user_birthday').hasClass('user_birthday');
-    console.log(finddate)
+    //console.log(finddate)
     if (finddate) {
         //初始化日期插件
         $('.user_birthday').date();
     }
 });
 
-$(document).ready(function () {
-    var hashID = window.location.hash;
-    $("#to-account-info").click();
-})
+// $(document).ready(function () {
+//     var hashID = window.location.hash;
+//     console.log(22)
+//     $(hashID).click();
+// })
+window.onload = function () {
+    var hashid = window.location.hash;
+    var hashclick = document.getElementById(hashid);
+    hashclick.onclick();
+}
 ////-----------------------------------------------------------   Usercenter 结束end   用户中心页面   --------------------------------------------------------------------------
 //
 //
@@ -294,8 +301,8 @@ $('.likeBtn').click(function () {
 
 })
 //回复评论
-$('.replyBtn').click(function(){
-    let replyclass=$(this).parent('p').find('.replyBtn').hasClass("active");
+$('.replyBtn').click(function () {
+    let replyclass = $(this).parent('p').find('.replyBtn').hasClass("active");
     $('.replyBtn').removeClass('active');
     $('.replyBox').addClass('d-none')
     if (replyclass) {
@@ -304,8 +311,8 @@ $('.replyBtn').click(function(){
     } else {
         $(this).addClass('active');
         //获取回复的用户名
-        let comname=$(this).parents('.comdetails').find('.usercom').text();
-        $(this).parents('.commentBoxmore').find('.replytext').attr('placeholder','回复 @'+comname+':')
+        let comname = $(this).parents('.comdetails').find('.usercom').text();
+        $(this).parents('.commentBoxmore').find('.replytext').attr('placeholder', '回复 @' + comname + ':')
         $(this).parents('.commentBoxmore').find('.replyBox').removeClass('d-none');
     }
 

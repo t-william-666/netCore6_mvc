@@ -10,6 +10,7 @@ namespace coreWeb_MVC.Models
             ProductImages = new HashSet<ProductImage>();
             Products = new HashSet<Product>();
             ShopImages = new HashSet<ShopImage>();
+            UserLikes = new HashSet<UserLike>();
         }
 
         public int ID { get; set; }
@@ -31,5 +32,6 @@ namespace coreWeb_MVC.Models
         public virtual ICollection<ProductImage> ProductImages { get; set; }
         public virtual ICollection<Product> Products { get; set; }
         public virtual ICollection<ShopImage> ShopImages { get; set; }
+        public virtual ICollection<UserLike> UserLikes { get; set; }
     }
 }

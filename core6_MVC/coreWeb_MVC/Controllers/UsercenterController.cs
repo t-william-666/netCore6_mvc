@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using System.Linq.Expressions;
 using Newtonsoft.Json;
+using coreWeb_MVC.Models.OtherModel;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,20 +21,26 @@ namespace coreWeb_MVC.Controllers
     public class UsercenterController : ControllerBase
     {
         private readonly TestDBContext _dbContext;
+        private readonly IHostEnvironment _hostEnvironment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="dbContext"></param>
-        public UsercenterController(TestDBContext dbContext)
+        /// <param name="dbContext">DB</param>
+        /// <param name="hostEnvironment"></param>
+        /// <param name="webHostEnvironment"></param>
+        public UsercenterController(TestDBContext dbContext, IHostEnvironment hostEnvironment, IWebHostEnvironment webHostEnvironment)
         {
             _dbContext = dbContext;
+            _hostEnvironment = hostEnvironment;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         #region===>>>用户中心的我的收藏
         /// <summary>
         /// 查询用户我的收藏
         /// </summary>
-        /// <param name="userID"></param>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpGet("getAllUserLike")]
         public async Task<IActionResult> GetUserlike(string userID = "")
@@ -69,7 +76,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 删除用户我的收藏
         /// </summary>
-        /// <param name="likeID"></param>
+        /// <param name="likeID">收藏ID</param>
         /// <returns></returns>
         [HttpDelete("deleteUserLike")]
         public async Task<IActionResult> DeleteUserlike(string likeID)
@@ -114,7 +121,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 查询用户订单 US202206141001
         /// </summary>
-        /// <param name="userID"></param>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpGet("getAllOrder")]
         public async Task<IActionResult> GetUserOrder(string userID = "")
@@ -155,7 +162,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 添加用户订单
         /// </summary>
-        /// <param name="CartID">购物车编号list</param>
+        /// <param name="CartID">购物车编号字符串</param>
         /// <param name="amountprice">总价格</param>
         /// <param name="discountprice">优惠价</param>
         /// <param name="paytype">付款类型</param>
@@ -271,7 +278,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 修改用户订单
         /// </summary>
-        /// <param name="detailID"></param>
+        /// <param name="detailID">订单详情ID</param>
         /// <returns></returns>
         [HttpPut("updateOrder")]
         public async Task<IActionResult> UpdateUserorder(string detailID)
@@ -310,8 +317,8 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 删除用户订单
         /// </summary>
-        /// <param name="orderID"></param>
-        /// <param name="detailID"></param>
+        /// <param name="orderID">订单ID</param>
+        /// <param name="detailID">订单详情ID</param>
         /// <returns></returns>
         [HttpDelete("deleteOrder")]
         public async Task<IActionResult> DeleteUserOrder(string orderID = "", string detailID = "")
@@ -373,6 +380,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 获取用户信息
         /// </summary>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpGet("getoneUserInfo")]
         public async Task<IActionResult> GetUserInfo(string userID = "")
@@ -383,7 +391,7 @@ namespace coreWeb_MVC.Controllers
                 {
                     return NotFound();
                 }
-                var userInfo = await _dbContext.Users.Where(p => p.UserID == userID).Include(p => p.UserImageLists.Where(p=>p.ImgState==1)).FirstOrDefaultAsync();
+                var userInfo = await _dbContext.Users.Where(p => p.UserID == userID).Include(p => p.UserImageLists.Where(p => p.ImgState == 1)).FirstOrDefaultAsync();
                 var da = JsonConvert.SerializeObject(userInfo, new JsonSerializerSettings()
                 {
                     //防止导航属性循环引用而报错
@@ -413,6 +421,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 添加用户信息
         /// </summary>
+        /// <param name="user">用户实体类</param>
         /// <returns></returns>
         [HttpPost("insertUserInfo")]
         public async Task<IActionResult> AddUserInfo(User user)
@@ -451,6 +460,8 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 修改用户信息
         /// </summary>
+        /// <param name="user">用户实体类</param>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpPut("updateUserInfo")]
         public async Task<IActionResult> UpdateUserInfo(User user, string userID = "")
@@ -488,6 +499,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 删除用户信息
         /// </summary>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpDelete("deleteUserInfo")]
         public async Task<IActionResult> DeleteUserInfo(string userID = "")
@@ -529,7 +541,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 查询用户地址
         /// </summary>
-        /// <param name="userID"></param>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpGet("getAllUserAddress")]
         public async Task<IActionResult> GetAddress(string userID = "")
@@ -565,8 +577,8 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 添加用户地址
         /// </summary>
-        /// <param name="userAddress"></param>
-        /// <param name="userID"></param>
+        /// <param name="userAddress">用户地址实体类</param>
+        /// <param name="userID">用户ID</param>
         /// <returns></returns>
         [HttpPost("insertUserAddress")]
         public async Task<IActionResult> AddAddress(UserAddress userAddress, string userID = "")
@@ -603,8 +615,8 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 修改用户地址
         /// </summary>
-        /// <param name="userAddress"></param>
-        /// <param name="addresID"></param>
+        /// <param name="userAddress">用户地址</param>
+        /// <param name="addresID">用户地址ID</param>
         /// <returns></returns>
         [HttpPut("updateUserAddress")]
         public async Task<IActionResult> UpdateAddress(UserAddress userAddress, string addresID = "")
@@ -642,7 +654,7 @@ namespace coreWeb_MVC.Controllers
         /// <summary>
         /// 删除用户地址
         /// </summary>
-        /// <param name="addressID"></param>
+        /// <param name="addressID">用户地址ID</param>
         /// <returns></returns>
         [HttpDelete("deleteUserAddress")]
         public async Task<IActionResult> UpdateAddress(string addressID = "")
@@ -682,32 +694,187 @@ namespace coreWeb_MVC.Controllers
 
 
 
+        /// <summary>
+        /// 上传用户头像文件
+        /// </summary>
+        /// <param name="iFormFile">上传文件数据</param>
+        /// <returns></returns>
+        [HttpPost("UploadFile")]
+        public async Task<IActionResult> UploadFile(IFormFile iFormFile)
+        {
+            if (iFormFile == null || iFormFile.Length == 0)
+                return Content("No file selected for upload.");
+            //文件后缀
+            var fileExtension = Path.GetExtension(iFormFile.FileName);
+
+            //判断后缀是否是图片
+            const string fileFilt = ".gif|.jpg|.jpeg|.png";
+            if (fileExtension == null)
+            {
+                return NotFound("上传的文件没有后缀");
+            }
+            if (fileFilt.IndexOf(fileExtension.ToLower(), StringComparison.Ordinal) <= -1)
+            {
+                return NotFound("请上传jpg、png、gif格式的图片");
+            }
+            //判断文件大小    
+            long length = iFormFile.Length;
+            if (length > 1024 * 1024 * 100) //10M
+            {
+                return NotFound("上传的文件不能大于10M");
+            }
+            var now = DateTime.Now;
+            //文件存储路径
+            var filePath = string.Format("/images/UserHeaderImage/{0}/{1}/", now.ToString("yyyy"), now.ToString("yyyyMMdd"));
+            //获取当前content目录
+            var contentRootPath = _hostEnvironment.ContentRootPath;
+            //获取当前web目录
+            var webRootPath = _webHostEnvironment.WebRootPath;
+            //判断是否有该文件
+            if (!Directory.Exists(webRootPath + filePath))
+            {
+                //创建文件夹
+                Directory.CreateDirectory(webRootPath + filePath);
+            }
+            var strDateTime = DateTime.Now.ToString("yyMMddhhmmssfff"); //取得时间字符串
+            var strRan = Convert.ToString(new Random().Next(100, 999)); //生成三位随机数
+            var saveName = strDateTime + strRan + fileExtension;
+
+            //局部变量
+            using (TestDBContext dBContext = new TestDBContext())
+            {
+                try
+                {
+                    //开启事务
+                    await dBContext.Database.BeginTransactionAsync();
+                    var userID = HttpContext.Session.GetString("userInfo");
+                    if (userID == null)
+                    {
+                        return NotFound("用户没有登录");
+                    }
+                    UserImageList userImage = new UserImageList()//头像数据
+                    {
+                        ImgID = CreatecodeNumber.CreateUserImageID(),
+                        UserID = userID,
+                        UserImagePath = filePath + saveName,
+                        ImgSize = iFormFile.Length.ToString(),//文件大小
+                        ImgWidth = 1,
+                        ImgHeight = 1,
+                        ImgState = 1,
+                        ImgType = 1,
+                        AddDate = DateTime.Now
+                    };
+                    //修改用户头像字段 (1为正在使用，0为之前使用)
+                    var usImage = dBContext.UserImageLists.SingleOrDefault(p => p.UserID == userID && p.ImgState == 1);
+                    usImage.ImgState = 0;//将状态改为0为之前使用
+                    dBContext.UserImageLists.Attach(usImage);
+                    //插入用户头像数据
+                    dBContext.UserImageLists.Add(userImage);
+                    await dBContext.SaveChangesAsync();
+
+                    //插入图片数据                 
+                    using (FileStream fs = System.IO.File.Create(webRootPath + filePath + saveName))
+                    {
+                        iFormFile.CopyTo(fs);
+                        fs.Flush();
+                    }
+                    //提交事务
+                    await dBContext.Database.CommitTransactionAsync();
+
+                    return Ok("success");
+                }
+                catch (Exception)
+                {
+                    //回滚事务
+                    await dBContext.Database.BeginTransactionAsync();
+                    return BadRequest();
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 上传图片多个
+        /// </summary>
+        /// <param name="formFiles">上传文件数据列表</param>
+        /// <returns></returns>
+        [HttpPost("PostUserImg")]
+        public async Task<IActionResult> UploadFiles(List<IFormFile> formFiles)
+        {
+            if (formFiles.Count < 1)
+            {
+                return NotFound("没有文件");
+            }
+            //返回的文件地址
+            List<string> filenames = new List<string>();
+            var now = DateTime.Now;
+            //文件存储路径
+            var filePath = string.Format("/images/UserHeaderImage/{0}/{1}/", now.ToString("yyyy"), now.ToString("yyyyMMdd"));
+            //获取当前web目录
+            var webRootPath = _webHostEnvironment.WebRootPath;
+            if (!Directory.Exists(webRootPath + filePath))
+            {
+                //创建文件夹
+                Directory.CreateDirectory(webRootPath + filePath);
+            }
+            try
+            {
+                foreach (var item in formFiles)
+                {
+                    if (item != null)
+                    {
+                        #region  图片文件的条件判断
+                        //文件后缀
+                        var fileExtension = Path.GetExtension(item.FileName);
+
+                        //判断后缀是否是图片
+                        const string fileFilt = ".gif|.jpg|.jpeg|.png";
+                        if (fileExtension == null)
+                        {
+                            break;
+                            //return Error("上传的文件没有后缀");
+                        }
+                        if (fileFilt.IndexOf(fileExtension.ToLower(), StringComparison.Ordinal) <= -1)
+                        {
+                            break;
+                            //return Error("请上传jpg、png、gif格式的图片");
+                        }
+
+                        //判断文件大小    
+                        long length = item.Length;
+                        if (length > 1024 * 1024 * 2) //2M
+                        {
+                            break;
+                            //return Error("上传的文件不能大于2M");
+                        }
+
+                        #endregion
+
+                        var strDateTime = DateTime.Now.ToString("yyMMddhhmmssfff"); //取得时间字符串
+                        var strRan = Convert.ToString(new Random().Next(100, 999)); //生成三位随机数
+                        var saveName = strDateTime + strRan + fileExtension;
+
+                        //插入图片数据                 
+                        using (FileStream fs = System.IO.File.Create(webRootPath + filePath + saveName))
+                        {
+                            item.CopyTo(fs);
+                            fs.Flush();
+                        }
+                        filenames.Add(filePath + saveName);
+                    }
+                }
+                var a = await _dbContext.UserImageLists.ToListAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return Ok("success");
+        }
 
 
 
 
-
-
-
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }

@@ -13,6 +13,8 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using coreWeb_MVC.Models.Other;
 using Newtonsoft.Json.Serialization;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.StaticFiles;
 
 
 //===============================================================【添加服务】============================================================================
@@ -64,8 +66,19 @@ builder.Services.AddSession(options =>
 //// Session（会话）服务
 //// </summary>
 builder.Services.AddHttpContextAccessor();
+////// <summary>
+////// 添加用户登录地址发现服务(获取登录用户IP地址)
+////// </summary>
+//builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-
+//// <summary>
+//// 添加日志服务
+//// </summary>
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+});
 
 //// <summary>
 ////防伪造服务配置为查找 X-XSRF-TOKEN 标头： 名为 X-XSRF-TOKEN 的请求头中发送令牌
@@ -90,8 +103,8 @@ builder.Services.AddSwaggerGen(options =>
     ////AddServer用于全局的添加接口域名和前缀（虚拟路径）部分信息，默认情况下，如果我们在SwaggerUi页面使用Try it out去调用接口时，
     ////默认使用的是当前swaggerUI页面所在的地址域名信息：
     options.AddServer(new OpenApiServer() { Url = "http://localhost:4460", Description = "地址1" });
-    options.AddServer(new OpenApiServer() { Url = "http://127.0.0.1:5001", Description = "地址2" });
-    options.AddServer(new OpenApiServer() { Url = "http://192.168.28.213:5002", Description = "地址3" });
+    options.AddServer(new OpenApiServer() { Url = "https://127.0.0.1:5001", Description = "地址2" });
+    options.AddServer(new OpenApiServer() { Url = "https://192.168.28.213:5002", Description = "地址3" });
 
 
     ////安装Microsoft.Extensions.PlatformAbstractions组件
@@ -186,9 +199,22 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+//若要启用常见错误状态代码的默认纯文本处理程序
+app.UseStatusCodePages();
 
 //抛出异常测试
 app.MapGet("/throw", () => { throw new Exception("Exception occured"); });
+
+//注册Program.cs 中的日志
+var logger = LoggerFactory.Create(config =>
+{
+    config.AddConsole();
+}).CreateLogger("Program");
+app.MapGet("/Test", async context =>
+{
+    logger.LogInformation("Testing logging in Program.cs");
+    await context.Response.WriteAsync("Testing");
+});
 
 //启用中间件为生成的 JSON 文档 和 Swagger UI 提供服务
 //注册swagger路由   需要添加 NuGet包 ==》  Swashbuckle.AspNetCore 组件

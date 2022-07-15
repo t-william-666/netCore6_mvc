@@ -86,7 +86,7 @@
                                             <button type="button" id="btnRegister" class="p-h20 px-2 colorBlock">注册</button>
                                         </a>
                                     </li>
-                                     
+
                                     <!-- <li class="li-head">
                                         <a href="#" class="headerimg position-relative">
                                             <img src="./images/bg.png" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
@@ -140,7 +140,7 @@
                                         <!--购物车数量-->
                                         <span class="cart-item_count2">
                                             0
-                                        </span> 
+                                        </span>
                                     </a>
                                     <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
 
@@ -363,8 +363,8 @@
         </div>
     </header>
 
-     <!-- 商品详情头部展示 -->
-     <div class="breadcrumbs-area position-relative">
+    <!-- 商品详情头部展示 -->
+    <div class="breadcrumbs-area position-relative">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -392,12 +392,12 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-custom">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a class="active" href="#account-orders" data-toggle="tab" ><i class="fa fa-file-text"></i>我的订单</a>
-                                    <a class="" href="#account-likes" data-toggle="tab" ><i class="fa fa-heart"></i>我的收藏</a>
-                                    <a class="" href="#account-info" data-toggle="tab" ><i class="fa fa-user"></i>修改个人信息</a>
-                                    <a class="" href="#account-address" data-toggle="tab" ><i class="fa fa-home"></i>收货地址管理</a>
-                                    <a class="" href="#account-logistics" data-toggle="tab" ><i class="fa fa-bus"></i>商品物流查询</a>
-                                    <a class="" href="#account-comment" data-toggle="tab" ><i class="fa fa-comment"></i>商品评价管理</a>
+                                    <a class="active" href="#account-orders" data-toggle="tab"><i class="fa fa-file-text"></i>我的订单</a>
+                                    <a class="" href="#account-likes" data-toggle="tab"><i class="fa fa-heart"></i>我的收藏</a>
+                                    <a class="" href="#account-info" data-toggle="tab"><i class="fa fa-user"></i>修改个人信息</a>
+                                    <a class="" href="#account-address" data-toggle="tab"><i class="fa fa-home"></i>收货地址管理</a>
+                                    <a class="" href="#account-logistics" data-toggle="tab"><i class="fa fa-bus"></i>商品物流查询</a>
+                                    <a class="" href="#account-comment" data-toggle="tab"><i class="fa fa-comment"></i>商品评价管理</a>
                                 </div>
                             </div>
                             <!-- My Account Tab Menu End 左侧列表栏 -->
@@ -748,6 +748,7 @@
                                                                     <label title="上传图片" for="chooseImg" class="l-btn choose-btn">
                                                                         <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="chooseImg" class="hidden" onchange="selectImg(this)">
                                                                         选择图片
+                                                                        <input type="file" accept="image/jpg,image/jpeg,image/png" name="file" id="changeImg" class="hidden">
                                                                     </label>
                                                                     <div class="close-tailoring" onclick="closeTailor(this)">×</div>
                                                                 </div>
@@ -1190,6 +1191,56 @@
         //     var hashclick = document.getElementById(hashid);
         //     hashclick.onclick();
         // }
+
+        $("#sureCut").click(function () {
+            uplpadfile();
+        })
+        function uplpadfile() {
+            if ($("#changeImg").val() == '') {
+                return;
+            }
+            //获取表单的数据
+            var formData = new FormData();
+            formData.append('iFormFile', document.getElementById('chooseImg').files[0]);
+            console.log("formData"+formData);
+            $.ajax({
+                url: "/api/Usercenter/UploadFile",
+                type: "post",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data == "success") {
+                        console.log("上传头像成功");
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function (data) {
+                    alert("上传失败")
+                }
+            });
+        };
+
+        //dataURL转换为Blob对象
+        function dataURLtoBlob(dataurl) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], { type: mime });
+        }
+
+        //dataURL转换为File对象
+        function dataURLtoFile(dataurl, filename) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, { type: mime });
+        }
     </script>
 </body>
 

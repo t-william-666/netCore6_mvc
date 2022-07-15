@@ -42,12 +42,25 @@ namespace coreWeb_MVC.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("GetShop")]
         public async Task<ActionResult<Shop>> GetShop(string id)
         {
-            if (_context.Shops == null)
+            var userID = HttpContext.Session.GetString("userInfo");
+            if (string.IsNullOrWhiteSpace(id))
             {
-                return NotFound();
+                return NotFound("商店ID为空");
+            }
+            if (!string.IsNullOrWhiteSpace(userID))
+            {
+                UserLookProduct lookProduct = new UserLookProduct()//添加用户浏览记录
+                {
+                    UserID = userID,
+                    PoductID = "",
+                    ShopID = id,
+                    AddDate = DateTime.Now
+                };
+                await _context.UserLookProducts.AddAsync(lookProduct);
+                await _context.SaveChangesAsync();
             }
             //方法一
             var shop = await _context.Shops.FindAsync(id);
@@ -66,13 +79,45 @@ namespace coreWeb_MVC.Controllers
         }
 
         /// <summary>
+        /// 添加商店
+        /// </summary>
+        /// <param name="shop"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult<Shop>> InsertShop(Shop shop)
+        {
+            if (shop == null)
+            {
+                return Problem("添加到商店数据为空");
+            }
+            _context.Shops.Add(shop);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (ShopExists(shop.ShopID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return CreatedAtAction("GetShop", new { id = shop.ShopID }, shop);
+        }
+
+        /// <summary>
         /// 根据商店id修改商店
         /// </summary>
         /// <param name="id"></param>
         /// <param name="shop"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutShop(string id, Shop shop)
+        public async Task<IActionResult> UpdateShop(string id, Shop shop)
         {
             if (id != shop.ShopID)
             {
@@ -98,38 +143,6 @@ namespace coreWeb_MVC.Controllers
             }
 
             return NoContent();
-        }
-
-        /// <summary>
-        /// 添加商店
-        /// </summary>
-        /// <param name="shop"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public async Task<ActionResult<Shop>> PostShop(Shop shop)
-        {
-            if (_context.Shops == null)
-            {
-                return Problem("Entity set 'TestDBContext.Shops'  is null.");
-            }
-            _context.Shops.Add(shop);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (ShopExists(shop.ShopID))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtAction("GetShop", new { id = shop.ShopID }, shop);
         }
 
         /// <summary>
