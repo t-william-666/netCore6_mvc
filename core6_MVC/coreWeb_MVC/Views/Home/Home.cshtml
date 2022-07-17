@@ -78,7 +78,7 @@
                                     <ul>
                                         <li class="li-head">
                                             <div class="headbox">
-                                                <a href="#" class="headerimg position-relative">
+                                                <a href="#" class="headerimg position-relative" aget="_blank">
                                                     <img src="@userInfo.UserImageLists.FirstOrDefault().UserImagePath" alt="headerImage" id="headerImage" class="img-circle head-box headerImage">
 
                                                 </a>
@@ -86,7 +86,7 @@
                                             <div class="user-boxdropdown">
                                                 <div class="user-imgbox">
                                                     <div class="headerimg-two">
-                                                        <a href="#">
+                                                        <a href="#" aget="_blank">
                                                             <img src="@userInfo.UserImageLists.FirstOrDefault().UserImagePath" alt="">
                                                         </a>
                                                     </div>
@@ -99,7 +99,7 @@
                                                     {
                                                         foreach (var item in ViewBag.userMenu)
                                                         {
-                                                            <li><a href="@item.TitleUrl"><i class="@item.Title"></i> @item.TitleDesc</a></li>
+                                                            <li><a href="@item.TitleUrl" aget="_blank"><i class="@item.Title"></i> @item.TitleDesc</a></li>
                                                         }
                                                     }
                                                     else
@@ -141,10 +141,10 @@
                                 {
                                     @foreach (TitleList item in ViewBag.headerMenu)
                                     {
-                                        if (@item.TitleDesc=="购物车")
+                                        if (@item.TitleDesc == "购物车")
                                         {
                                             <li class="@item.TitleClass">
-                                                <a href="@item.TitleUrl" class="minicart-btn toolbar-btn">
+                                                <a href="@item.TitleUrl" class="minicart-btn toolbar-btn" aget="_blank">
                                                     <i class="@item.Title">
                                                         <br>
                                                         <span>@item.TitleDesc </span>
@@ -155,7 +155,7 @@
                                                     </span>
                                                 </a>
                                                 <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
-                                            
+
                                                     <div class="single-cart-item">
                                                         <div class="cart-img">
                                                             <a href="#">
@@ -177,16 +177,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                            
+
                                                     <div class="cart-price-total d-flex justify-content-between">
                                                         <h5>合计 :</h5>
                                                         <h5 class="active">￥0</h5>
                                                     </div>
                                                     <div class="cart-links d-flex justify-content-between">
-                                                        <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                                        <a class="btn product-cart button-icon flosun-button dark-btn" href="#" aget="_blank">
                                                             查看购物车
                                                         </a>
-                                                        <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                                        <a class="btn flosun-button secondary-btn rounded-0" href="#" aget="_blank">去收款</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -194,7 +194,7 @@
                                         else
                                         {
                                             <li class="@item.TitleClass">
-                                                <a href="@item.TitleUrl" class="@item.TitleClass1">
+                                                <a href="@item.TitleUrl" class="@item.TitleClass1" aget="_blank">
                                                     <i class="@item.Title">
                                                         <br>
                                                         <span>@item.TitleDesc</span>
@@ -208,7 +208,7 @@
                                 {
                                     <!-- 搜索 -->
                                     <li class="minicart-wrap">
-                                        <a href="/Home/Searchshopproduct" class="minicart-btn toolbar-btn">
+                                        <a href="/Home/Searchshopproduct" class="minicart-btn toolbar-btn" aget="_blank">
                                             <i class="fa fa-search">
                                                 <br>
                                                 <span>搜索</span>
@@ -217,7 +217,7 @@
                                     </li>
                                     <!-- 购物车 -->
                                     <li class="minicart-wrap">
-                                        <a href="/Home/Cart" class="minicart-btn toolbar-btn">
+                                        <a href="/Home/Cart" class="minicart-btn toolbar-btn" aget="_blank">
                                             <i class="fa fa-shopping-cart">
                                                 <br>
                                                 <span>购物车 </span>
@@ -228,10 +228,10 @@
                                             </span>
                                         </a>
                                         <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2 b-radius1">
-                                    
+
                                             <div class="single-cart-item">
                                                 <div class="cart-img">
-                                                    <a href="#">
+                                                    <a href="#" aget="_blank">
                                                         <img src="#" alt="">
                                                     </a>
                                                 </div>
@@ -250,22 +250,22 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="cart-price-total d-flex justify-content-between">
                                                 <h5>合计 :</h5>
                                                 <h5 class="active">￥0</h5>
                                             </div>
                                             <div class="cart-links d-flex justify-content-between">
-                                                <a class="btn product-cart button-icon flosun-button dark-btn" href="#">
+                                                <a class="btn product-cart button-icon flosun-button dark-btn" href="#" aget="_blank">
                                                     查看购物车
                                                 </a>
-                                                <a class="btn flosun-button secondary-btn rounded-0" href="#">去收款</a>
+                                                <a class="btn flosun-button secondary-btn rounded-0" href="#" aget="_blank">去收款</a>
                                             </div>
                                         </div>
                                     </li>
                                     <!-- 订单 -->
                                     <li class="sidemenu-wrap">
-                                        <a href="#">
+                                        <a href="#" aget="_blank">
                                             <i class="fa fa-file-text">
                                                 <br>
                                                 <span>我的订单</span>
@@ -274,7 +274,7 @@
                                     </li>
                                     <!-- 收藏 -->
                                     <li class="minicart-wrap">
-                                        <a href="#" class="minicart-btn toolbar-btn">
+                                        <a href="#" class="minicart-btn toolbar-btn" aget="_blank">
                                             <i class="fa fa fa-heart">
                                                 <br>
                                                 <span>我的收藏</span>
@@ -286,7 +286,7 @@
                                     </li>
                                     <!-- 更多关于 -->
                                     <li class="account-menu-wrap d-none d-lg-flex">
-                                        <a href="#" class="off-canvas-menu-btn">
+                                        <a href="#" class="off-canvas-menu-btn" aget="_blank">
                                             <i class="fa fa-bars">
                                                 <br>
                                                 <span>关于我们</span>
@@ -294,7 +294,7 @@
                                         </a>
                                     </li>
                                     <li class="mobile-menu-btn d-lg-none">
-                                        <a class="off-canvas-btn" href="#">
+                                        <a class="off-canvas-btn" href="#" aget="_blank">
                                             <i class="fa fa-bars"></i>
                                         </a>
                                     </li>
@@ -458,17 +458,21 @@
                 <ol class="carousel-indicators">
                     @if (ViewBag.Banner != null)
                     {
-                        for (int i = 0; i < (ViewBag.Banner as List<BannerImage>).Count(); i++)
+                        int i = 0;
+                        foreach (BannerImage item in ViewBag.Banner)
                         {
-                            if (i == 0)
+                            if ((ViewBag.Banner).IndexOf(item) == 0)
                             {
+
                                 <li data-target="#MyCarousel" data-slide-to="@i" class="active"></li>
                             }
                             else
                             {
                                 <li data-target="#MyCarousel" data-slide-to="@i"></li>
                             }
-                        }
+                            i++;
+                        };
+
                     }
                     else
                     {
@@ -486,11 +490,11 @@
                         <!--  ViewBag.Banner as List<BannerImage>  -->
                         foreach (BannerImage banner in ViewBag.Banner)
                         {
-                            <!--判断是否是第一条数据 实则加 active 样式-->
+                            <!--判断是否是第一条数据 是则加 active 样式-->
                             if ((ViewBag.Banner).IndexOf(banner) == 0)
                             {
                                 <div class="item active">
-                                    <a href="#">
+                                    <a href="#" aget="_blank">
                                         <img src="@banner.Path" alt="...">
                                     </a>
                                     <div class="carousel-caption">
@@ -549,12 +553,12 @@
                 </div>
 
                 <!-- Controls 控制轮播的 上一页 与 下一页 -->
-                <a class="left carousel-control" href="#MyCarousel" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#MyCarousel" role="button" data-slide="prev" aget="_blank">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
 
-                <a class="right carousel-control" href="#MyCarousel" role="button" data-slide="next">
+                <a class="right carousel-control" href="#MyCarousel" role="button" data-slide="next" aget="_blank">
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -571,7 +575,8 @@
                         foreach (TitleList menulist in ViewBag.Menulist)
                         {
                             <li class="">
-                                <a href="#" class="menu-title1">@menulist.TitleDesc</a><a href="#" class="menu-title2">@menulist.Title</a>
+                                <a href="#" data-type="@menulist.Titleothername" class="menu-title1" aget="_blank">@menulist.TitleDesc</a>
+                                <a href="#" data-type="@menulist.Titleothername" class="menu-title2" aget="_blank">@menulist.Title</a>
                             </li>
                         }
                     }
@@ -602,34 +607,33 @@
 
             @*<!-- 模态框按钮 -->
             <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal">
-                启动演示窗
+            启动演示窗
             </button>
 
             <!-- 模态框 -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel">启动标题</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            标题内容
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button type="button" class="btn btn-primary">保存</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">启动标题</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            标题内容
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary">保存</button>
+            </div>
+            </div>
+            </div>
             </div>*@
         </div>
         <!-- 内容 -->
         <div class="content-list">
-            <div class="row shop_wrapper grid_3">
-
+            <div class="row shop_wrapper grid_3 ajaxBox">
                 @if (ViewBag.Productlist != null)
                 {
                     foreach (SuperProductView item in ViewBag.Productlist)
@@ -639,7 +643,7 @@
                                 <!-- 商品图片 -->
                                 <div class="px-2 pt-2">
                                     <div class="product-image position-relative">
-                                        <a href="/Home/Productdetail/@item.ProductID">
+                                        <a href="/Home/Productdetail/@item.ProductID" aget="_blank">
                                             <img src="@item.ImgPath1" alt="" class="product-image-1 w-100 h-100">
                                             <img src="@item.ImgPath2" alt="" class="product-image-2 position-absolute w-100 ">
                                         </a>
@@ -648,12 +652,12 @@
                                 <!-- 商品名称 -->
                                 <div class="Product-title my-2 px-2">
                                     <p class="p-title" title="@item.ProductName">
-                                        <a href="/Home/Productdetail/@item.ProductID" class="text-show-1">
+                                        <a href="/Home/Productdetail/@item.ProductID" class="text-show-1" aget="_blank">
                                             @item.ProductName
                                         </a>
                                     </p>
                                     <p class="p-desc px-1 " title="@item.ProductIntroduce">
-                                        <a href="/Home/Productdetail/@item.ProductID" class="text-show-2 opacity-75">
+                                        <a href="/Home/Productdetail/@item.ProductID" class="text-show-2 opacity-75" aget="_blank">
                                             @item.ProductIntroduce
                                         </a>
                                     </p>
@@ -691,10 +695,10 @@
                                 </div>
                                 <!-- 加入购物车按钮 -->
                                 <div class="btn-box d-flex justify-content-evenly">
-                                    <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive">
+                                    <button type="button" class="btn btn-Heart px-3 py-2 addLike addactive" onclick="">
                                         <i class="fa fa-heart">&nbsp; 收藏</i>
                                     </button>
-                                    <button type="button" class="btn btn-Cart px-4 py-2 addCart">
+                                    <button type="button" class="btn btn-Cart px-4 py-2 addCart" onclick="">
                                         <i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>
                                     </button>
                                 </div>
@@ -1569,19 +1573,30 @@
         </div>
 
         <!-- 分页 -->
-        <div class="page-box">
-            <nav aria-label="Page navigation row ">
-                <ul class="pagination pagination-lg d-flex align-items-center col-xxl-2 col-lg-3 col-xs-6">
+         <div class="page-box">
+            <nav class="Page navigation d-flex align-items-center justify-content-center " aria-label="...">
+                <ul class="pagination pagination-lg ">
                     <li>
                         <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="li-num "><a href="#">1</a></li>
-                    <li class="li-num "><a href="#">2</a></li>
-                    <li class="li-num "><a href="#">3</a></li>
-                    <li class="li-num "><a href="#">4</a></li>
-                    <li class="li-num "><a href="#">5</a></li>
+                    @if (ViewBag.Pagelength>=5)
+                    {
+                        <li class="li-num "><a href="#">1</a></li>
+                        <li class="li-num "><a href="#">2</a></li>
+                        <li class="li-num "><a href="#">3</a></li>
+                        <li class="li-num "><a href="#">4</a></li>
+                        <li class="li-num "><a href="#">5</a></li>
+                    }
+                    else
+                    {
+                        for (var i = 1; i <= ViewBag.Pagelength; i++)
+                        {
+                            <li class="li-num "><a href="#">@i</a></li>
+                        }
+                    }
+
                     <li>
                         <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -1589,7 +1604,7 @@
                     </li>
                 </ul>
 
-                <ul class="pagination my-23 d-flex align-items-center col-xxl-10 col-lg-9 col-xs-6">
+                <ul class="pagination pagination-lg ">
                     <li class="fs-18 ps-5">跳到第几</li>
                     <li class="fs-18"><input type="number" class="page-number"></li>
                     <li class="fs-18">页</li>
@@ -1746,6 +1761,109 @@
     <script src="/layer/layer.js" charset="utf-8"></script>
     <script type="text/javascript" src="/layer/xadmin.js"></script>
     <script>
+        
+
+        function productType(type,index,size){
+            //let producttype = type;
+            //let pageIndex = index;
+            //let pageSize = size;
+            $.ajax({
+                url: "/api/Products/GetProductTypeList",
+                type: "get",
+                data: { 
+                    producttype:type,
+                    pageIndex:index,
+                    pageSize:size
+                },
+                success: function(model) {
+                    if (model.data != null) {
+                        let htmllist = "";
+                        let Data = model.data;
+                        let count = Data.length;
+                        for (let i = 0; i < count; i++) {
+                            let regularprice = 0;
+                            if (Data[i].discountType == 0)
+                            {
+                                regularprice = Data[i].ActivityPrice.toFixed(2);
+                            }
+                            else
+                            {
+                                regularprice = ((Data[i].Price) * (Data[i].discount)).toFixed(2);
+                            };
+                            htmllist += '<div class="col-lg-3 col-sm-4 col-xs-6 mb-3 mt-2 single-product">'+
+                                        '<div class="position-relative Product-box pb-4">'+
+                                            '<!-- 商品图片 -->'+
+                                            '<div class="px-2 pt-2">'+
+                                                '<div class="product-image position-relative">'+
+                                                    '<a href="/Home/Productdetail/'+ Data[i].ProductID +'" aget="_blank">'+
+                                                        '<img src="'+ Data[i].ImgPath1 +'" alt="" class="product-image-1 w-100 h-100">'+
+                                                        '<img src="'+ Data[i].ImgPath2 +'" alt="" class="product-image-2 position-absolute w-100 ">'+
+                                                    '</a>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<!-- 商品名称 -->'+
+                                            '<div class="Product-title my-2 px-2">'+
+                                                '<p class="p-title" title="'+ Data[i].ProductName +'">'+
+                                                    '<a href="/Home/Productdetail/'+ Data[i].ProductID +'" class="text-show-1" aget="_blank">'+
+                                                        ''+ Data[i].ProductName +''+
+                                                    '</a>'+
+                                                '</p>'+
+                                                '<p class="p-desc px-1 " title="'+ Data[i].ProductIntroduce +'">'+
+                                                    '<a href="/Home/Productdetail/'+ Data[i].ProductID +'" class="text-show-2 opacity-75" aget="_blank">'+
+                                                    ''+  Data[i].ProductIntroduce +''+
+                                                    '</a>'+
+                                                '</p>'+
+                                            '</div>'+
+                                            '<!-- 商品评分 -->'+
+                                            '<div class="Product-rating px-2">'+
+                                                '<i class="'+ Data[i].Star1 +'"></i>'+
+                                                '<i class="'+ Data[i].Star2 +'"></i>'+
+                                                '<i class="'+ Data[i].Star3 +'"></i>'+
+                                                '<i class="'+ Data[i].Star4 +'"></i>'+
+                                                '<i class="'+ Data[i].Star5 +'"></i>'+
+                                                '<span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">'+ Data[i].ProductNum +'</span></span>'+
+                                            '</div>'+
+                                            '<!-- 保存商品编号 -->'+
+                                            '<div class="d-none">'+
+                                                '<input type="text" id="productID">'+
+                                            '</div>'+
+                                            '<!-- 商品价格 -->'+
+                                            '<div class="Price-box mb-5 ">'+
+                                                 '<span class="regular-price px-1">'+
+                                                  ''+ regularprice +''+
+                                                  '</span>'+
+                                                '<span class="old-price px-2"><del>￥'+ Data[i].Price.toFixed(2) +'</del></span>'+
+                                                '<span class="float-end fs-5 pe-4">销量：<span class="sale-num fs-3">'+ Data[i].ProductNum +'</span></span>'+
+                                            '</div>'+
+                                            '<!-- 加入购物车按钮 -->'+
+                                            '<div class="btn-box d-flex justify-content-evenly">'+
+                                                '<button type="button" class="btn btn-Heart px-3 py-2 addLike addactive" onclick="">'+
+                                                    '<i class="fa fa-heart">&nbsp; 收藏</i>'+
+                                                '</button>'+
+                                                '<button type="button" class="btn btn-Cart px-4 py-2 addCart" onclick="">'+
+                                                    '<i class="fa fa-shopping-cart">&nbsp; 加入购物车</i>'+
+                                                '</button>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'
+
+                        }
+                        $('.ajaxBox').html(htmllist);
+                    }
+                }
+            })
+        }
+
+        $('.menu-title1,.menu-title2').click(function() {
+            $('.menu-title1,.menu-title2').removeClass('active');
+            $(this).addClass('active');
+            //使用原生title获取类型id
+            //let a=$(this).attr('title');
+            //使用自定义data获取类型id
+            let typeid = $(this).data('type');
+            productType(typeid,0,12)
+        })
+
 
         // 控制轮播的速度 2秒跳转到下一张
         $('.carousel').carousel({

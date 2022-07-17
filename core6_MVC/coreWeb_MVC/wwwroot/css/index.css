@@ -180,6 +180,19 @@ input[type="password"]:hover {
     margin: 5px 0px;
 }
 
+.hadmain-nav > ul li {
+    display: inline-block;
+}
+
+.hadmain-nav > ul li .colorBlock {
+    font-family: FontAwesome;
+}
+
+.hadmain-nav > ul li .colorBlock:hover {
+    color: #E72463 !important;
+    animation: jelly 0.5s;
+}
+
 .hadmain-nav>ul .headerImage {
     box-shadow: 0 0px 5px 0px #ccc;
 }
@@ -677,6 +690,10 @@ input::placeholder {
     user-select: none;
 }
 
+.content-menu .menu ul li .active {
+    color: #E72463;
+}
+
 .content-menu .menu ul li a:hover {
     animation: jelly 0.5s;
 }
@@ -911,7 +928,7 @@ input::placeholder {
 
 .btn-Page:hover {
     box-shadow: 0px 0px 3px #f8467e !important;
-    animation: Jelly 0.5s;
+    animation: jelly 0.5s;
 }
 
 .a-active {
@@ -1194,7 +1211,6 @@ button:focus {
         padding: 2px 8px;
         border: 1px #ccc;
         border-radius: 5px;
-        background-color: #337ab7;
         color: white;
     }
 

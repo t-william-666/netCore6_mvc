@@ -124,11 +124,13 @@
             <param name="id">商品ID</param>
             <returns></returns>
         </member>
-        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductTypeList(System.String)">
+        <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductTypeList(System.String,System.Int32,System.Int32)">
             <summary>
             根据商品类型查询商品
             </summary>
             <param name="producttype">商品类型</param>
+            <param name="pageIndex">分页页数</param>
+            <param name="pageSize">分页大小</param>
             <returns></returns>
         </member>
         <member name="M:coreWeb_MVC.Controllers.ProductsController.GetProductNameList(System.String)">

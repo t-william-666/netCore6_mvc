@@ -75,15 +75,18 @@ namespace coreWeb_MVC.Controllers
         /// 根据商品类型查询商品
         /// </summary>
         /// <param name="producttype">商品类型</param>
+        /// <param name="pageIndex">分页页数</param>
+        /// <param name="pageSize">分页大小</param>
         /// <returns></returns>
         [HttpGet("GetProductTypeList")]
-        public async Task<IActionResult> GetProductTypeList(string producttype = "")
+        public async Task<IActionResult> GetProductTypeList(string producttype, int pageIndex, int pageSize)
         {
             if (string.IsNullOrWhiteSpace(producttype))
             {
                 return NotFound("商品类型为空");
             }
-            var product = await _context.SuperProductViews.Where(p => p.ProductType == int.Parse(producttype)).ToListAsync();
+            // Skip 跳过多少条数据 Take输出多少条数据
+            var product = await _context.SuperProductViews.Where(p => p.ProductType == int.Parse(producttype)).Skip(pageIndex * pageSize).Take(pageSize).ToListAsync();
             ApiModel apiModel = new ApiModel()
             {
                 status = 1,

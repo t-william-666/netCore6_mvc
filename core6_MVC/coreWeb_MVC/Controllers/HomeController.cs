@@ -67,7 +67,7 @@ namespace coreWeb_MVC.Controllers
         //IgnoreAntiforgeryToken  给定操作（或控制器）无需防伪造令牌。说人话就是 禁用令牌，加了IgnoreAntiforgeryToken就不需要验证令牌
         [HttpPost]
         [ValidateAntiForgeryToken]//令牌
-        public  IActionResult Logining(string account, string password)
+        public IActionResult Logining(string account, string password)
         {
             var user = _dbContext.Users.Where(p => p.Account == account && p.Password == password && p.UserState > 0).FirstOrDefault();
 #pragma warning disable CS8600 // 将 null 字面量或可能为 null 的值转换为非 null 类型。
@@ -180,11 +180,21 @@ namespace coreWeb_MVC.Controllers
             ViewBag.userMenu = TempData["userMenu"];
             //广告轮播图获取
             ViewBag.Banner = await _dbContext.BannerImages.Where(p => p.State == 1).ToListAsync();
+
             //菜单导航栏-菜单导航条 使用TempData跨页面传递数据（因为搜索页面也用到）
             TempData["Menulist"] = await _dbContext.TitleLists.Where(p => p.State == 1 && p.about == "menu").OrderBy(p => p.TitleOrderby).ToListAsync();
             ViewBag.Menulist = TempData["Menulist"];
             //获取商品信息商品图片商品评分 Skip 跳过多少条数据 Take输出多少条数据
-            ViewBag.Productlist = await _dbContext.SuperProductViews.Take(12).ToListAsync();
+            ViewBag.Productlist = await _dbContext.SuperProductViews.OrderByDescending(p => p.ProductNum).Take(12).ToListAsync();
+            var pageIndex = await _dbContext.SuperProductViews.CountAsync();
+            if (pageIndex % 12 == 0)
+            {
+                ViewBag.Pagelength = pageIndex / 12;
+            }
+            else
+            {
+                ViewBag.Pagelength = pageIndex / 12 + 1;
+            }
             #region 使用Join连接
             //ViewBag.Productlist = _dbContext.Products.Join(_dbContext.TitleLists, p => p.ProductState, t => t.Title, (p, t) => new SuperProductView
             //{

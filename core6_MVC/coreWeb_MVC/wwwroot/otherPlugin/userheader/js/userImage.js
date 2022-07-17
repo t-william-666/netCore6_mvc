@@ -107,7 +107,7 @@ $("#sureCut").on("click", function () {
                 if (data == "success") {
                     console.log("上传头像成功");
                 } else {
-                    alert(data.msg);
+                    console.log(data.msg);
                 }
             },
             error: function (data) {
